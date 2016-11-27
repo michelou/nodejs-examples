@@ -1,0 +1,17 @@
+{
+  "name": "locales-1-app",
+  "version": "0.0.1",
+  "description": "",
+  "maintainers": [{
+    "name": "Stéphane Micheloud",
+    "web": "http://www.crealp.ch/"
+  }],
+  "private": true,
+  "dependencies": {
+    "i18n": "^0.8.1"
+  },
+  "devDependencies": {
+    "should": "^8.3.1",
+    "zombie": "^4.2.1"
+  }
+}
