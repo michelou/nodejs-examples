@@ -1,0 +1,12 @@
+{
+  "name": "cluster-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cluster-main.js",
+  "scripts": {
+    "start" : "node app/cluster-main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

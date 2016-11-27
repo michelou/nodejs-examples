@@ -1,0 +1,23 @@
+{
+  "name": "calculator",
+  "version": "0.0.1",
+  "description": "2016_Pragmatic_Secure_Your_Node.js_Web_Application",
+  "main": "aèpp/calculator.js",
+  "private": true,
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "dependencies": {
+    "body-parser": "1.15.0",
+    "express": "^4.7.2"
+  },
+  "devDependencies" : {
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-execute": "*",
+    "mocha": "*",
+    "chai": "*",
+    "should": "*",
+    "zombie": "^4.2.1"
+  }
+}
