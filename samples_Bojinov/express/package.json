@@ -1,0 +1,26 @@
+{
+  "name": "express-app",
+  "version": "0.0.1",
+  "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.38",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "dependencies": {
+    "body-parser": "1.15.0",
+    "express": "^4.7.2",
+    "jade": "*",
+    "method-override": "*",
+    "moment": "^2.12.0",
+    "serve-favicon": "*"
+  },
+  "devDependencies" : {
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-execute": "*",
+    "mocha": "*",
+    "chai": "*",
+    "request": "*"
+  }
+}

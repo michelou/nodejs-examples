@@ -1,0 +1,23 @@
+{
+  "name": "contacts-app",
+  "version": "0.0.1",
+  "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.46",
+  "main": "app/app.js",
+  "maintainers": [{
+    "name": "Stéphane Micheloud",
+    "web": "http://www.crealp.ch/"
+  }],
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.7.2",
+    "jade": "1.11.0",
+    "method-override": "2.3.5",
+    "xml2js": "^0.4.16"
+  },
+  "devDependencies" : {
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-execute": "*"
+  }
+}

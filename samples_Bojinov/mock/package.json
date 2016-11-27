@@ -1,0 +1,15 @@
+{
+    "name": "mock-example",
+    "version": "0.0.1",
+    "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.29",
+    "maintainers": [
+    {
+        "name": "Stéphane Micheloud",
+        "web": "http://www.crealp.ch/"
+    }
+	],
+	"devDependencies": {
+	    "nodeunit": "^0.9.1",
+		"sinon": "^1.17.3"
+	}
+}

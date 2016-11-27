@@ -1,0 +1,34 @@
+
+Import / Export Helper
+======================
+
+MongoDB provides two mechanisms for importing and exporting data. One way is via the mongoimport and mongoexport utilities. These allow you to import and export JSON and CSV representations of your data. The other way is with mongorestore and mongodump utilities which deal with binary dumps.
+
+In this tab we provide pre-filled strings for the commands that we find most useful.
+
+Copy and paste from below to import or export from this database. For a full list of options that can be used with these commands, please see MongoDB's documentation on this subject.
+
+Binary
+------
+Import collection
+mongorestore -h ds013599.mlab.com:13599 -d sandbox -c contacts -u <user> -p <password> contacts.bson
+
+Export collection
+mongodump -h ds013599.mlab.com:13599 -d sandbox -c contacts -u <user> -p <password> -o <output directory>
+
+JSON
+----
+Import collection
+mongoimport -h ds013599.mlab.com:13599 -d sandbox -c contacts -u <user> -p <password> --file <input file>
+
+Export collection
+mongoexport -h ds013599.mlab.com:13599 -d sandbox -c contacts -u <user> -p <password> -o contacts.json
+
+CSV
+---
+Import collection
+mongoimport -h ds013599.mlab.com:13599 -d sandbox -c contacts -u <user> -p <password> --file <input .csv file> --type csv --headerline
+
+Export collection
+mongoexport -h ds013599.mlab.com:13599 -d sandbox -c contacts -u <user> -p <password> -o contacts.csv --csv -f <comma-separated list of field names>
+

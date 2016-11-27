@@ -1,0 +1,1 @@
+{"_id":{"$oid":"56f866add85f33503232ad41"},"firstName":"John","lastName":"Smith","username":"john","password":"$2a$10$1t4NF.43jzLs51DfZYh9E.CahXkLHIsLChYUcDRwGRYCRumCjcwNC","email":"john.smith@gmail.com","gender":"Male","address":"NY city","__v":0}

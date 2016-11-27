@@ -1,0 +1,23 @@
+{
+  "name": "hello1-app",
+  "version": "0.0.1",
+  "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.20",
+  "maintainers": [{
+    "name": "Stéphane Micheloud",
+    "web": "http://www.crealp.ch/"
+  }],
+  "private": true,
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "dependencies": {
+  },
+  "devDependencies" : {
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-execute": "*",
+    "mocha": "^2.4.5",
+    "chai": "^3.5.0",
+    "request": "~2.71.0"
+  }
+}

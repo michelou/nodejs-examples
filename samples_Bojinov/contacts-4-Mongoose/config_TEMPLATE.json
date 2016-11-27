@@ -1,0 +1,5 @@
+{
+  "dbpath": "C:/Temp/MongoDB",
+  "local_uri": "mongodb://localhost/sandbox",
+  "remote_uri": "mongodb://<dbuser>:<dbpassword>@<dbserver>.mlab.com:13599/sandbox"
+}

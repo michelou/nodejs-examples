@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<results>
+	<result>
+		<firstname>Joe</firstname>
+		<lastname>Smith</lastname>
+		<title>Mr.</title>
+		<company>Dev Inc.</company>
+		<jobtitle>Developer</jobtitle>
+		<primarycontactnumber>+359777123456</primarycontactnumber>
+		<othercontactnumbers>+359777456789</othercontactnumbers>
+		<othercontactnumbers>+359777112233</othercontactnumbers>
+		<primaryemailaddress>joe.smith@xyz.com</primaryemailaddress>
+		<emailaddresses>j.smith@xyz.com</emailaddresses>
+		<groups>Dev</groups>
+		<groups>Family</groups>
+	</result>
+	<result>
+		<firstname>John</firstname>
+		<lastname>Douglas</lastname>
+		<title>Mr.</title>
+		<company>Dev Inc.</company>
+		<jobtitle>Developer</jobtitle>
+		<primarycontactnumber>+359777223344</primarycontactnumber>
+		<primaryemailaddress>john.douglas@xyz.com</primaryemailaddress>
+		<emailaddresses>j.douglas@xyz.com</emailaddresses>
+		<groups>Dev</groups>
+	</result>
+</results>
