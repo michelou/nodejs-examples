@@ -63,14 +63,15 @@ if defined JQ_HOME (
         if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default jq installation directory !_JQ_HOME!
     )
 )
-if not exist "%_JQ_HOME%\jq.exe" (
+for /f %%i in ('where "%_JQ_HOME%:jq*.exe" 2^>NUL') do set _JQ_CMD=%%i
+if not exist "%_JQ_CMD%" (
     echo jq installation directory not found ^(%_JQ_HOME%^)
     set _EXITCODE=1
     goto :eof
 )
-
+for /f %%i in ("%_JQ_CMD%") do set _JQ_PATH=%%~dpi
 endlocal && (
-    set "PATH=%PATH%;%_JQ_HOME%"
+    set "PATH=%PATH%;%_JQ_PATH%"
 )
 goto :eof
 
@@ -163,16 +164,13 @@ if defined MONGO_HOME (
         if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME!
     )
 )
-if not defined _MONGO_BIN_DIR (
-    for /f "delims=" %%i in ('where /f /r "%_MONGO_HOME%" mongod.exe') do set _MONGO_BIN_DIR=%%~dpsi
-)
-if not exist "%_MONGO_BIN_DIR%\mongod.exe" (
+if not exist "%_MONGO_HOME%\bin\mongod.exe" (
     if %_DEBUG%==1 echo [%_SETENV_BASENAME%] MongoDB installation directory %_MONGO_HOME% not found
     set _EXITCODE=1
     goto end
 )
 endlocal && (
-    set "PATH=%PATH%;%_MONGO_HOME%\Server\3.2\bin"
+    set "PATH=%PATH%;%_MONGO_HOME%\bin"
 )
 goto :eof
 
