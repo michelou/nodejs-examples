@@ -8,6 +8,7 @@
   "main": "app.js",
   "private": true,
   "dependencies": {
-	"mongoose": "^4.7.0"
+    "moment": "^2.10.0",
+    "mongoose": "^4.7.0"
   }
 }
