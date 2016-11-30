@@ -22,6 +22,9 @@ if defined _ROOT_DIR (
 rem ##########################################################################
 rem ## Main
 
+where /q git.exe
+if not %ERRORLEVEL%==0 call :git
+
 where /q jq.exe
 if not %ERRORLEVEL%==0 call :jq
 
@@ -45,6 +48,34 @@ goto end
 rem ##########################################################################
 rem ## Subroutines
 
+:git
+setlocal enabledelayedexpansion
+set _EXITCODE=0
+
+if defined GIT_HOME (
+    set _GIT_HOME=%GIT_HOME%
+    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable GIT_HOME
+) else (
+    set _PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!_PATH!\Git*" 2^>NUL') do set _GIT_HOME=!_PATH!\%%f
+    if not defined _GIT_HOME (
+        set _PATH=C:\Progra~1
+        for /f %%f in ('dir /ad /b "!_PATH!\Git*" 2^>NUL') do set _GIT_HOME=!_PATH!\%%f        
+    )
+    if defined _GIT_HOME (
+        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default Git installation directory !_GIT_HOME!
+    )
+)
+if not exist "%_GIT_HOME%\bin\git.exe" (
+    echo Git installation directory not found ^(%_GIT_HOME%^)
+    set _EXITCODE=1
+    goto :eof
+)
+endlocal && (
+    set "PATH=%PATH%;%_GIT_HOME%\bin"
+)
+goto :eof
+
 :jq
 setlocal enabledelayedexpansion
 set _EXITCODE=0
@@ -63,7 +94,7 @@ if defined JQ_HOME (
         if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default jq installation directory !_JQ_HOME!
     )
 )
-for /f %%i in ('where "%_JQ_HOME%:jq*.exe" 2^>NUL') do set _JQ_CMD=%%i
+for /f "delims=" %%i in ('where "%_JQ_HOME%:jq*.exe" 2^>NUL') do set _JQ_CMD=%%~dpsi
 if not exist "%_JQ_CMD%" (
     echo jq installation directory not found ^(%_JQ_HOME%^)
     set _EXITCODE=1
@@ -104,7 +135,6 @@ if not exist "%_NODE_HOME%\npm.cmd" (
     set _EXITCODE=1
     goto :eof
 )
-
 endlocal && (
     set NODE_HOME=%_NODE_HOME%
     if %_DEBUG%==1 echo [%_SETENV_BASENAME%] _EXITCODE=%_EXITCODE%
@@ -164,13 +194,15 @@ if defined MONGO_HOME (
         if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME!
     )
 )
-if not exist "%_MONGO_HOME%\bin\mongod.exe" (
+for /f "delims=" %%i in ('where /f /r "%_MONGO_HOME%" mongod.exe 2^>NUL') do set _MONGOD_CMD=%%~dpsi
+if not exist "%_MONGOD_CMD%" (
     if %_DEBUG%==1 echo [%_SETENV_BASENAME%] MongoDB installation directory %_MONGO_HOME% not found
     set _EXITCODE=1
     goto end
 )
+for /f %%i in ("%_MONGOD_CMD%") do set _MONGO_PATH=%%~dpi
 endlocal && (
-    set "PATH=%PATH%;%_MONGO_HOME%\bin"
+    set "PATH=%PATH%;%_MONGO_PATH%"
 )
 goto :eof
 
@@ -206,4 +238,5 @@ rem ##########################################################################
 rem ## Cleanups
 
 :end
+set _SETENV_BASENAME=
 exit /b %ERRORLEVEL%

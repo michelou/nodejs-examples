@@ -4,7 +4,7 @@ var fs = require('fs');
 
 exports.fill = function(db) {
   try {
-    var data = fs.readFileSync('./data/contacts.json', 'utf8');
+    var data = fs.readFileSync(__dirname+'/../data/contacts.json', 'utf8');
     var result = JSON.parse(data).result;
     for (var i in result) {
       var contact = result[i];

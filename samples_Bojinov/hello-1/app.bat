@@ -10,13 +10,16 @@ set _BASENAME=%~n0
 
 set _EXITCODE=0
 
+for %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
+
 for %%f in ("%~dp0..") do call %%~sf\setenv.bat
 if not %_EXITCODE%==0 goto end
 
 set _NODE_CMD=node.exe
 set _NODE_OPTS=
 
-for %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
+set _JQ_CMD=jq-win32.exe
+set _JQ_OPTS=
 
 set _CONFIG_FILE=%_ROOT_DIR%package.json
 if not exist "%_CONFIG_FILE%" (
@@ -33,8 +36,8 @@ if not exist "%_NODE_FILE%" (
 )
 
 if exist "%_ROOT_DIR%config.json" (
-    for /f %%i in ('jq .host "%_ROOT_DIR%config.json" 2^>NUL') do set _HOST=%%~i
-    for /f %%i in ('jq .port "%_ROOT_DIR%config.json" 2^>NUL') do set _PORT=%%~i
+    for /f %%i in ('%_JQ_CMD% .host "%_ROOT_DIR%config.json" 2^>NUL') do set _HOST=%%~i
+    for /f %%i in ('%_JQ_CMD% .port "%_ROOT_DIR%config.json" 2^>NUL') do set _PORT=%%~i
 )
 if not defined _HOST set _HOST=localhost
 if not defined _PORT set _PORT=8180

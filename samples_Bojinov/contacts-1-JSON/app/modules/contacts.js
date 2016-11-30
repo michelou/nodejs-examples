@@ -4,7 +4,7 @@ var fs = require('fs');
 var xml2js = require('xml2js');
 
 function read_json_file() {
-  var file = './app/data/contacts.json';
+  var file = __dirname+'/../data/contacts.json';
   var s = '{ "results": [] }';
   try { s = fs.readFileSync(file); }
   catch (err) { console.log(err); }
@@ -65,7 +65,7 @@ exports.get_members = function(group_name) {
 };
 
 function read_xml_file() {
-  var file = './app/data/contacts.xml';
+  var file = __dirname+'/../data/contacts.xml';
   var s = '';
   try { s = fs.readFileSync(file); }
   catch (err) { console.log(err) }

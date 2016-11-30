@@ -17,12 +17,21 @@ for %%f in ("%~dp0..") do call %%~sf\setenv.bat
 if not %_EXITCODE%==0 goto end
 
 set _NODE_CMD=node.exe
+set _NODE_OPTS=
+
+set _JQ_CMD=jq-win32.exe
+set _JQ_OPTS=
+
 set _NPM_CMD=npm.cmd
+set _NPM_OPTS=
+
+set _PM2_CMD=pm2.cmd
+set _PM2_OPTS=
 
 set _CONFIG_FILE=%ROOT_DIR%package.json
 
-if %_DEBUG%==1 echo [%_BASENAME%] jq .name %_CONFIG_FILE%
-for /f %%n in ('jq .name %_CONFIG_FILE% 2^>NUL') do set _APP_NAME=%%~n
+if %_DEBUG%==1 echo [%_BASENAME%] %_JQ_CMD% .name %_CONFIG_FILE%
+for /f %%n in ('%_JQ_CMD% .name %_CONFIG_FILE% 2^>NUL') do set _APP_NAME=%%~n
 if "%_APP_NAME%"=="" (
     if %_DEBUG%==1 echo [%_BASENAME%] JSON field 'name' not found ^(%_CONFIG_FILE%^)
     for %%f in ("%~dp0\.") do set _DIR_NAME=%%~nf

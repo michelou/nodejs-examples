@@ -3,6 +3,13 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise; // native promises
 //mongoose.Promise = require('bluebird');
 
+var basename = require('path').basename(__filename);
+
+var logInfo = function(msg) {
+  var timestamp = require('moment')().format('YYYY-MM-DD HH:mm:ss');
+  console.log('['+timestamp+' INFO] ('+basename+') ' + msg);
+};
+
 var contactSchema = new mongoose.Schema({
   primarycontactnumber: {type: String, index: {unique: true}},
   firstname: String,
@@ -85,13 +92,3 @@ else {
   find_tests();
   con.disconnect();
 }
-
-//////////////////////////////////////////////////////////////////////////////
-// Logging
-
-var basename = require('path').basename(__filename);
-
-var logInfo = function(msg) {
-  var timestamp = require('moment')().format('YYYY-MM-DD HH:mm:ss');
-  console.log('['+timestamp+' INFO] ('+basename+') ' + msg);
-};

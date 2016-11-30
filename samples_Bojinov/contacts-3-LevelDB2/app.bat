@@ -17,7 +17,7 @@ if not %_EXITCODE%==0 goto end
 set _NODE_CMD=node.exe
 set _NODE_OPTS=
 
-set _JQ_CMD=jq.exe
+set _JQ_CMD=jq-win32.exe
 set _JQ_OPTS=
 
 for %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
