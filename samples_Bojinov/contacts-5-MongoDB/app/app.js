@@ -23,21 +23,22 @@ app.use(bodyParser.json());
 
 // development only
 if ('development' == app.get('env')) {
-    app.use(errorHandler());
-	app.use(logger('combined'));
+  app.use(errorHandler());
+  app.use(logger('combined'));
 }
 
+// eg. http://localhost:8180/contacts/+359777223345
 app.get('/contacts/:number', function(request, response) {
-    logInfo(request.url + ' : querying for ' + request.params.number);
-    dataservice.findByNumber(Contact, request.params.number, response);
+  logInfo(request.url + ' : querying for ' + request.params.number);
+  dataservice.findByNumber(Contact, request.params.number, response);
 });
 
 app.post('/contacts', function(request, response) {
-    dataservice.update(Contact, request.body, response)
+  dataservice.update(Contact, request.body, response)
 });
 
 app.put('/contacts', function(request, response) {
-    dataservice.create(Contact, request.body, response)
+  dataservice.create(Contact, request.body, response)
 });
 
 app.delete('/contacts/:primarycontactnumber', function(request, response) {
@@ -45,16 +46,16 @@ app.delete('/contacts/:primarycontactnumber', function(request, response) {
 });
 
 app.get('/contacts', function(request, response) {
-    logInfo('Listing all contacts with '
-	    + request.params.key + '=' + request.params.value);
-    dataservice.list(Contact, response);
+  logInfo('Listing all contacts with '
+    + request.params.key + '=' + request.params.value);
+  dataservice.list(Contact, response);
 });
 
 cleanup.Cleanup();
 
 http.createServer(app).listen(port, function() {
-    logInfo("Module search path: " + (process.env.NODE_PATH || '(none)'));
-    logInfo('Server listening on port ' + port);
+  logInfo("Module search path: " + (process.env.NODE_PATH || '(none)'));
+  logInfo('Server listening on port ' + port);
 });
 
 //////////////////////////////////////////////////////////////////////////////

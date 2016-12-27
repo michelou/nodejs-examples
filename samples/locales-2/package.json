@@ -2,13 +2,19 @@
   "name": "locales-2-app",
   "version": "0.0.1",
   "description": "https://github.com/mashpie/i18n-node",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "node ./start_browser.js && node .",
+    "client": "node ./start_client.js"
+  },
   "maintainers": [
   {
-    "name": "Stéphane Micheloud",
+    "name": "Stï¿½phane Micheloud",
     "web": "http://www.crealp.ch/"
   }
   ],
   "private": true,
+  "license": "BSD",
   "dependencies": {
     "ejs": "*",
     "express": "^4.7.2",

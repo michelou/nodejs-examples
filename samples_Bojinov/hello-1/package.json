@@ -2,13 +2,15 @@
   "name": "hello1-app",
   "version": "0.0.1",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.20",
+  "main": "app/app.js",
   "maintainers": [{
-    "name": "Stéphane Micheloud",
+    "name": "StÃ©phane Micheloud",
     "web": "http://www.crealp.ch/"
   }],
   "private": true,
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha"
+    "start": "node start_browser.js && node .",
+    "test": "node ../node_modules/mocha/bin/mocha"
   },
   "dependencies": {
   },

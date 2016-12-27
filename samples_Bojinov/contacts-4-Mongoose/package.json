@@ -2,12 +2,14 @@
   "name": "contacts-Mongoose-app",
   "version": "0.0.1",
   "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.68",
-  "scripts": {
-    "start": "node app/app.js"
-  },
   "main": "app.js",
+  "scripts": {
+    "start": "node app/app.js",
+    "mongo": "node start_mongo.js",
+    "mongod": "node start_mongod.js"
+  },
   "private": true,
   "dependencies": {
-	"mongoose": "^4.7.0"
+	  "mongoose": "^4.7.0"
   }
 }

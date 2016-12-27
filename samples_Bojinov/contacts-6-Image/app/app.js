@@ -29,7 +29,7 @@ if ('development' == app.get('env')) {
 	app.use(logger('combined'));
 }
 
-var db = require('./db.js');
+const db = require('./db');
 var con = mongoose.connect(db.uri);
 
 var gfs = gridStream(mongoose.connection.db, mongoose.mongo);

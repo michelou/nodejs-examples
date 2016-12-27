@@ -4,10 +4,13 @@
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.46",
   "main": "app/app.js",
   "maintainers": [{
-    "name": "Stéphane Micheloud",
+    "name": "StÃ©phane Micheloud",
     "web": "http://www.crealp.ch/"
   }],
   "private": true,
+  "scripts": {
+    "start": "node start_browser.js && node ."
+  },
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.7.2",

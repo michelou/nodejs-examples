@@ -25,9 +25,6 @@ rem ## Main
 where /q git.exe
 if not %ERRORLEVEL%==0 call :git
 
-where /q jq.exe
-if not %ERRORLEVEL%==0 call :jq
-
 where /q npm.cmd
 if not %ERRORLEVEL%==0 call :npm
 
@@ -73,36 +70,6 @@ if not exist "%_GIT_HOME%\bin\git.exe" (
 )
 endlocal && (
     set "PATH=%PATH%;%_GIT_HOME%\bin"
-)
-goto :eof
-
-:jq
-setlocal enabledelayedexpansion
-set _EXITCODE=0
-
-if defined JQ_HOME (
-    set _JQ_HOME=%JQ_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable JQ_HOME
-) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\jq-*" 2^>NUL') do set _JQ_HOME=!_PATH!\%%f
-    if not defined _JQ_HOME (
-        set _PATH=C:\Progra~1
-        for /f %%f in ('dir /ad /b "!_PATH!\jq-*" 2^>NUL') do set _JQ_HOME=!_PATH!\%%f        
-    )
-    if defined _JQ_HOME (
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default jq installation directory !_JQ_HOME!
-    )
-)
-for /f "delims=" %%i in ('where "%_JQ_HOME%:jq*.exe" 2^>NUL') do set _JQ_CMD=%%~dpsi
-if not exist "%_JQ_CMD%" (
-    echo jq installation directory not found ^(%_JQ_HOME%^)
-    set _EXITCODE=1
-    goto :eof
-)
-for /f %%i in ("%_JQ_CMD%") do set _JQ_PATH=%%~dpi
-endlocal && (
-    set "PATH=%PATH%;%_JQ_PATH%"
 )
 goto :eof
 

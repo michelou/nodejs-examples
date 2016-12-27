@@ -16,12 +16,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(i18n.abide({
-  supported_languages: ['de', 'en'],
+  supported_languages: ['de', 'en', 'fr'],
   default_lang: 'en',
   translation_directory: 'app/locales'
 }));
 
-app.get('/', function(req, res){
+app.get('/', function(req, res) {
+  console.log('111111111111111 title='+req.gettext('Hello world'));
   res.render('index.ejs', {
     title: req.gettext('Hello world')
   })

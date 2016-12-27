@@ -25,9 +25,6 @@ rem ## Main
 where /q git.exe
 if not %ERRORLEVEL%==0 call :git
 
-where /q jq.exe
-if not %ERRORLEVEL%==0 call :jq
-
 where /q npm.cmd
 if not %ERRORLEVEL%==0 call :npm
 
@@ -39,6 +36,9 @@ if not %ERRORLEVEL%==0 call :pm2
 
 where /q mongod.exe
 if not %ERRORLEVEL%==0 call :mongod
+
+where /q curl.exe
+if not %ERRORLEVEL%==0 call :curl
 
 goto end
 
@@ -71,36 +71,6 @@ if not exist "%_GIT_HOME%\bin\git.exe" (
 
 endlocal && (
     set "PATH=%PATH%;%_GIT_HOME%\bin"
-)
-goto :eof
-
-:jq
-setlocal enabledelayedexpansion
-set _EXITCODE=0
-
-if defined JQ_HOME (
-    set _JQ_HOME=%JQ_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable JQ_HOME
-) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\jq-*" 2^>NUL') do set _JQ_HOME=!_PATH!\%%f
-    if not defined _JQ_HOME (
-        set _PATH=C:\Progra~1
-        for /f %%f in ('dir /ad /b "!_PATH!\jq-*" 2^>NUL') do set _JQ_HOME=!_PATH!\%%f        
-    )
-    if defined _JQ_HOME (
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default jq installation directory !_JQ_HOME!
-    )
-)
-for /f "delims=" %%i in ('where "%_JQ_HOME%:jq*.exe" 2^>NUL') do set _JQ_CMD=%%~dpsi
-if not exist "%_JQ_CMD%" (
-    echo jq installation directory not found ^(%_JQ_HOME%^)
-    set _EXITCODE=1
-    goto :eof
-)
-for /f %%i in ("%_JQ_CMD%") do set _JQ_PATH=%%~dpi
-endlocal && (
-    set "PATH=%PATH%;%_JQ_PATH%"
 )
 goto :eof
 
@@ -203,6 +173,34 @@ if not exist "%_MONGOD_CMD%" (
 for /f %%i in ("%_MONGOD_CMD%") do set _MONGO_PATH=%%~dpi
 endlocal && (
     set "PATH=%PATH%;%_MONGO_PATH%"
+)
+goto :eof
+
+:curl
+setlocal enabledelayedexpansion
+set _EXITCODE=0
+
+if defined CURL_HOME (
+    set _CURL_HOME=%CURL_HOME%
+    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable CURL_HOME
+) else (
+    where /q curl.exe
+    if !ERRORLEVEL!==0 (
+        for /f %%i in ('where /f curl.exe') do set _CURL_HOME=%%~dpsi
+        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using path of cURL executable found in PATH
+    ) else (
+        set _PATH=C:\opt
+        for /f %%f in ('dir /ad /b "!_PATH!\curl-*" 2^>NUL') do set _CURL_HOME=!_PATH!\%%f
+        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default cURL installation directory !_CURL_HOME!
+    )
+)
+if not exist "%_CURL_HOME%\curl.exe" (
+    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] cURL installation directory %_CURL_HOME% not found
+    set _EXITCODE=1
+    goto end
+)
+endlocal && (
+    set "PATH=%PATH%;%_CURL_HOME%"
 )
 goto :eof
 

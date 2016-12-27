@@ -54,7 +54,7 @@ var find_tests = function() {
       console.log(error.message);
       //return;
     }
-	else {
+	  else {
       if (!data) {
         console.log('not found');
         //return;
@@ -69,7 +69,7 @@ var find_tests = function() {
   });
 }
 
-var db = require('./db.js');
+const db = require('./db');
 var con = mongoose.connect(db.uri, function() {
   logInfo('Connecting to MongoDB '+db.uri);
 });

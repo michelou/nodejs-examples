@@ -1,20 +1,23 @@
 {
-    "name": "express-LevelDB-app",
-    "version": "0.0.1",
-    "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.60",
-	"main": "app.js",
-    "private": true,
-    "dependencies": {
-	    "body-parser": "*",
-        "express": "^4.7.2",
-        "jade": "*",
-		"leveldown": "^1.4.4",
-		"levelup": "^1.0.0",
-		"method-override": "*",
-		"mongoose": "*",
-		"morgan": "^1.7.0"
-    },
-	"devDependencies": {
-	    "errorhandler": "^1.4.3"
-	}
+  "name": "express-LevelDB-app",
+  "version": "0.0.1",
+  "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.60",
+  "main": "app/app.js",
+  "private": true,
+  "scripts": {
+    "start": "node start_browser.js && node ."
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "^4.7.2",
+    "jade": "*",
+    "leveldown": "^1.4.4",
+    "levelup": "^1.0.0",
+    "method-override": "*",
+    "mongoose": "*",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "errorhandler": "^1.4.3"
+  }
 }

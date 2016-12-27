@@ -1,35 +1,36 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const db = require('../db');
 
-mongoose.connect('mongodb://localhost/contacts');
+mongoose.connect(db.uri);
 
 var contactSchema = new mongoose.Schema({
-    primarycontactnumber: {type: String, index: {unique: true}},
-    firstname: String,
-    lastname: String,
-    title: String,
-    company: String,
-    jobtitle: String,
-    othercontactnumbers: [String],
-    primaryemailaddress: String,
-    emailaddresses: [String],
-    groups: [String]
+  primarycontactnumber: {type: String, index: {unique: true}},
+  firstname: String,
+  lastname: String,
+  title: String,
+  company: String,
+  jobtitle: String,
+  othercontactnumbers: [String],
+  primaryemailaddress: String,
+  emailaddresses: [String],
+  groups: [String]
 });
 exports.Contact = mongoose.model('Contact', contactSchema);
 
 exports.remove = function (model, _primarycontactnumber, response) {
-    console.log('Deleting contact with primary number: ' + _primarycontactnumber);
-    model.findOne(
-	    {primarycontactnumber: _primarycontactnumber},
-	    function(error, data) {
-            if (error) {
-                console.log(error);
-                if (response != null) {
-                    response.writeHead(500, {'Content-Type' : 'text/plain'});
-                    response.end('Internal server error');
-                }
-                return;
-            }
-			else {
+  console.log('Deleting contact with primary number: ' + _primarycontactnumber);
+  model.findOne(
+    {primarycontactnumber: _primarycontactnumber},
+    function(error, data) {
+      if (error) {
+        console.log(error);
+        if (response != null) {
+          response.writeHead(500, {'Content-Type' : 'text/plain'});
+          response.end('Internal server error');
+        }
+        return;
+      }
+      else {
                 if (!data) {
                     console.log('not found');
                     if (response != null) {
