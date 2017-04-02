@@ -4,19 +4,23 @@
   "description": "",
   "main": "app/app.js",
   "scripts": {
-    "start": "node ./start_browser.js && node .",
-    "client": "node ./start_client.js"
+    "start": "node ./npm_scripts/start_browser.js && node .",
+    "client": "node ./npm_scripts/start_client.js",
+    "test": "mocha --recursive"
   },
-  "maintainers": [{
-    "name": "St�phane Micheloud",
-    "web": "http://www.crealp.ch/"
-  }],
+  "maintainers": [
+    {
+      "name": "Stéphane Micheloud",
+      "web": "http://www.crealp.ch/"
+    }
+  ],
   "private": true,
   "licence": "BSD",
   "dependencies": {
     "i18n": "^0.8.1"
   },
   "devDependencies": {
+    "mocha": "^3.2.0",
     "should": "^8.3.1",
     "zombie": "^4.2.1"
   }

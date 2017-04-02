@@ -1,0 +1,6 @@
+{
+  "messages": {
+	"Hello world": [ null, "Salut le monde" ],
+	"Hello": [ null, "Salut" ]
+  }
+}

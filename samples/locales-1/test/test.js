@@ -19,41 +19,41 @@ var file = __dirname + '/../app/locales/en.json';
 var content = JSON.parse(fs.readFileSync(file));
 
 describe('autoreload', function() {
-  it('should give current translations in EN', function(done) {
-    EN.visit(testUrl, function() {
+  it('should give current translations in EN', function (done) {
+    EN.visit(testUrl, function () {
       should.equal(EN.text('body'), 'Hello');
       done();
     });
   });
 
-  it('should give current translations in DE', function(done) {
-    DE.visit(testUrl, function() {
+  it('should give current translations in DE', function (done) {
+    DE.visit(testUrl, function () {
       should.equal(DE.text('body'), 'Hallo');
       done();
     });
   });
 
-  it('should trigger reload of translations in EN', function(done) {
+  it('should trigger reload of translations in EN', function (done) {
     content['Hello'] = 'Hi';
     fs.writeFileSync(file, JSON.stringify(content, null, "\t"), "utf8");
     setTimeout(done, 100);
   });
 
-  it('should give updated translations in EN', function(done) {
-    EN.visit(testUrl, function() {
+  it('should give updated translations in EN', function (done) {
+    EN.visit(testUrl, function () {
       should.equal(EN.text('body'), 'Hi');
       done();
     });
   });
 
-  it('should still give old translations in DE', function(done) {
-    DE.visit(testUrl, function() {
+  it('should still give old translations in DE', function (done) {
+    DE.visit(testUrl, function () {
       should.equal(DE.text('body'), 'Hallo');
       done();
     });
   });
 
-  it('should reset en.json', function(done) {
+  it('should reset en.json', function (done) {
     content['Hello'] = 'Hello';
     fs.writeFileSync(file, JSON.stringify(content, null, "\t"), "utf8");
     done();

@@ -56,7 +56,7 @@ app.post('/login',
   }
 );
 
-var port = 8080;
+var port = require('../config.json').port;
 
 app.listen(port, function( ) {
   logInfo('Listening on port '+port);

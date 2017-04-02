@@ -10,6 +10,11 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
 	  "mongoose": "^4.7.0"
+=======
+    "moment": "^2.10.0",
+    "mongoose": "^4.7.0"
+>>>>>>> 7136a91aaa6b19cb583b63968908d654a17555dd
   }
 }

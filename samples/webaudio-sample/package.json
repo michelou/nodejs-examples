@@ -4,7 +4,7 @@
   "description": "",
   "main": "app/app.js",
   "scripts": {
-    "start": "node .",
+    "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

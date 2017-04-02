@@ -1,7 +1,7 @@
 const os = require('os');
 const exec = require('child_process').exec;
 
-const config = require('./config.json');
+const config = require('../config.json');
 const url = `http://${config.host}:${config.port}`;
 
 if (os.platform() === 'win32') {

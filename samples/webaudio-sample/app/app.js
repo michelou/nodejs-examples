@@ -1,10 +1,13 @@
-var express = require('express');
-var fs = require('fs');
-var ejs = require('ejs');
-var path = require('path');
+const ejs = require('ejs');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
 
-var app = express();
-var port = process.env.PORT || 8000;
+const config = require('../config.json');
+const host = config.host;
+const port = +process.env.PORT || config.port;
+
+const app = express();
 
 app.use(express.static(__dirname + '/public'));
 

@@ -1,26 +1,27 @@
 {
-    "name": "auth-passport-mongo",
-    "version": "0.0.1",
-    "description": "Authenticating Node.js Applications with Passport",
-    "main": "app.js",
-    "private": true,
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-        "passport"
-    ],
-    "author": "Agraj Mangal",
-    "license": "ISC",
-    "dependencies": {
-        "bcrypt-nodejs" : "*",
-        "body-parser": "*",
-        "connect-flash" : "*",
-        "express": "^4.7.2",
-        "express-session": "^1.13.0",
-        "jade": "*",
-        "mongoose": "*",
-        "passport": "~0.2.0",
-        "passport-local": "^1.0.0"
-    }
+  "name": "auth-passport-mongo",
+  "version": "0.0.1",
+  "description": "Authenticating Node.js Applications with Passport",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+   "start": "node app/app.js",
+   "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "passport"
+  ],
+  "author": "Agraj Mangal",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs" : "*",
+    "body-parser": "^1.17.0",
+    "connect-flash" : "*",
+    "express": "^4.7.2",
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "mongoose": "^4.9.0",
+    "passport": "^0.2.0",
+    "passport-local": "^1.0.0"
+  }
 }
