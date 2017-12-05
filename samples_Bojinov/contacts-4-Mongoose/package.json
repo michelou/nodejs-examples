@@ -6,15 +6,24 @@
   "scripts": {
     "start": "node app/app.js",
     "mongo": "node start_mongo.js",
-    "mongod": "node start_mongod.js"
+    "mongod": "node start_mongod.js",
+    "lint": "eslint app"
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-	  "mongoose": "^4.7.0"
-=======
     "moment": "^2.10.0",
     "mongoose": "^4.7.0"
->>>>>>> 7136a91aaa6b19cb583b63968908d654a17555dd
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=6.10.0",
+    "npm": ">=3.10.10"
   }
 }

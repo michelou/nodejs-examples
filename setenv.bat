@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
+set _DEBUG=0
 
 rem ##########################################################################
 rem ## Environment setup
@@ -10,25 +10,20 @@ set _BASENAME=%~n0
 
 set _EXITCODE=0
 
+for %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
+
 rem ##########################################################################
 rem ## Main
 
+set _MODULES_BIN_PATH=
+if exist "%_ROOT_DIR%node_modules\.bin\" set _MODULES_BIN_PATH=;%_ROOT_DIR%node_modules\.bin\
+
 set _GIT_PATH=
-set _MONGO_PATH=
 
 call :npm
 if not %_EXITCODE%==0 goto end
 
-call :grunt
-if not %_EXITCODE%==0 goto end
-
 call :git
-if not %_EXITCODE%==0 goto end
-
-call :pm2
-if not %_EXITCODE%==0 goto end
-
-call :mongod
 if not %_EXITCODE%==0 goto end
 
 goto end
@@ -36,15 +31,10 @@ goto end
 rem ##########################################################################
 rem ## Subroutines
 
-rem postcondition: NODE_HOME is defined and valid
 :npm
 where /q npm.cmd
-if %ERRORLEVEL%==0 (
-    if not defined NODE_HOME (
-        for /f %%i in ('where /f npm.cmd') do set NODE_HOME=%%~dpsi
-    )
-    goto :eof
-)
+if %ERRORLEVEL%==0 goto :eof
+
 if defined NODE_HOME (
     set _NODE_HOME=%NODE_HOME%
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
@@ -55,10 +45,10 @@ if defined NODE_HOME (
         if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
     ) else (
         set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v6*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         if not defined _NODE_HOME (
             set __PATH=C:\progra~1
-            for /f %%f in ('dir /ad /b "!__PATH!\node-v6*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+            for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         )
         if defined _NODE_HOME (
             rem path name of installation directory may contain spaces
@@ -81,22 +71,6 @@ set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
 goto :eof
 
-:grunt
-where /q grunt.cmd
-if %ERRORLEVEL%==0 goto :eof
-
-if not exist "%NODE_HOME%\grunt.cmd" (
-    echo Grunt tool not found in Node installation ^(%NODE_HOME%^)
-    set /p __GRUNT="Execute command 'npm -g install grunt --prefix=%NODE_HOME%' ? (y/n) "
-    if /i "!__GRUNT!"=="y" (
-        %NODE_HOME%\npm.cmd -g install grunt --prefix=%NODE_HOME%
-    ) else (
-        set _EXITCODE=1
-        goto :eof
-    )
-)
-goto :eof
-
 :git
 where /q git.exe
 if %ERRORLEVEL%==0 goto :eof
@@ -115,6 +89,8 @@ if defined GIT_HOME (
         )
     )
     if defined _GIT_HOME (
+        rem path name of installation directory may contain spaces
+        for /f "delims=" %%f in ("!_GIT_HOME!") do set _GIT_HOME=%%~sf
         if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory !_GIT_HOME!
     )
 )
@@ -126,58 +102,11 @@ if not exist "%_GIT_HOME%\bin\git.exe" (
 set "_GIT_PATH=;%_GIT_HOME%\bin"
 goto :eof
 
-:pm2
-where /q pm2.cmd
-if %ERRORLEVEL%==0 goto :eof
-
-if not exist "%NODE_HOME%\pm2.cmd" (
-    echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
-    set /p _PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
-    if /i "!_PM2_ANSWER!"=="y" (
-        %NODE_HOME%\pm2.cmd -g install pm2 --prefix %NODE_HOME%
-    ) else (
-        set _EXITCODE=1
-        goto :eof
-    )
-)
-goto :eof
-
-:mongod
-where /q mongod.exe
-if %ERRORLEVEL%==0 goto :eof
-
-if defined MONGO_HOME (
-    set _MONGO_HOME=%MONGO_HOME%
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable MONGO_HOME
-) else (
-    where /q mongod.exe
-    if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f mongod.exe') do set _MONGO_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_BASENAME%] Using path of MongoDB executable found in PATH
-    ) else (
-        set _PATH=C:\Progra~1
-        for /f %%f in ('dir /ad /b "!_PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!_PATH!\%%f
-        if defined _MONGO_HOME (
-            if %_DEBUG%==1 echo [%_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME!
-        )
-    )
-)
-if not defined _MONGO_BIN_DIR (
-    for /f "delims=" %%i in ('where /f /r "%_MONGO_HOME%" mongod.exe 2^>NUL') do set _MONGO_BIN_DIR=%%~dpsi
-)
-if not exist "%_MONGO_BIN_DIR%\mongod.exe" (
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] MongoDB installation directory %_MONGO_HOME% not found
-    set _EXITCODE=1
-    goto :eof
-)
-set "_MONGO_PATH=;%_MONGO_BIN_DIR%"
-goto :eof
-
 :print_env
 for /f %%i in ('where npm.cmd') do echo NODE_HOME=%%~dpi
 for /f %%i in ('npm --version') do echo NPM_VERSION=%%i
 for /f "tokens=1,2,*" %%i in ('git --version') do echo GIT_VERSION=%%k
-where npm.cmd grunt.cmd git.exe
+where npm.cmd git.exe
 goto :eof
 
 rem ##########################################################################
@@ -186,7 +115,7 @@ rem ## Cleanups
 :end
 endlocal & (
     if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
-    set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%"
+    set "PATH=%PATH%%_GIT_PATH%%_MODULES_BIN_PATH%"
     call :print_env
     if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=

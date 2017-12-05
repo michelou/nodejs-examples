@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.46",
   "main": "app/app.js",
-  "maintainers": [{
-    "name": "Stéphane Micheloud",
-    "web": "http://www.crealp.ch/"
-  }],
+  "maintainers": [
+    {
+      "name": "Stéphane Micheloud",
+      "web": "http://www.crealp.ch/"
+    }
+  ],
   "private": true,
   "scripts": {
-    "start": "node start_browser.js && node ."
+    "start": "node ./npm_scripts/start_browser.js && node .",
+    "lint": "eslint app"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -18,9 +21,16 @@
     "method-override": "2.3.5",
     "xml2js": "^0.4.16"
   },
-  "devDependencies" : {
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-execute": "*"
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=6.10.0",
+    "npm": ">=3.10.10"
   }
 }

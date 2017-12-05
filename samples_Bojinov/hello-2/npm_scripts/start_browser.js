@@ -1,8 +1,8 @@
 const exec = require('child_process').exec;
 const platform = require('os').platform();
 
-const config = require('./config.json');
-const url = `http://${config.host}:${config.port}/contacts?firstname=Joe`;
+const config = require('../config.json');
+const url = `http://${config.host}:${config.port}`;
 const cmd = 
   (platform === 'win32' ) ? `start "" ${url}` : (
   (platform === 'darwin') ? `open ${url}` : `x-www-browser ${url}`
