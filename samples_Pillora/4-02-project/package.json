@@ -1,0 +1,14 @@
+{
+  "name": "gswg-4-02-project",
+  "description": "See https://github.com/jpillora/gswg-examples/tree/master/4/02-project",
+  "version": "0.1.0",
+  "repository": "https://github.com/jpillora/gswg-examples.git",
+  "author": "Jaime Pillora <gswg@jpillora.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-stylus": "~0.8.0",
+    "grunt-contrib-jade": "~0.8.0"
+  }
+}

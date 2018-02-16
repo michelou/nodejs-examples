@@ -46,7 +46,7 @@ if %ERRORLEVEL%==0 goto :eof
 
 if defined GIT_HOME (
     set _GIT_HOME=%GIT_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable GIT_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME
 ) else (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set _GIT_HOME=!__PATH!\%%f
@@ -55,7 +55,7 @@ if defined GIT_HOME (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set _GIT_HOME=!__PATH!\%%f        
     )
     if defined _GIT_HOME (
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default Git installation directory !_GIT_HOME!
+        if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory !_GIT_HOME!
     )
 )
 if not exist "%_GIT_HOME%\bin\git.exe" (
@@ -72,12 +72,12 @@ if %ERRORLEVEL%==0 goto :eof
 
 if defined NODE_HOME (
     set _NODE_HOME=%NODE_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable NODE_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
 ) else (
     where /q node.exe
     if !ERRORLEVEL!==0 (
         for /f %%i in ('where /f node.exe') do set _NODE_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using path of Node executable found in PATH
+        if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
     ) else (
         set __PATH=C:\opt
         for /f %%f in ('dir /b "!__PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
@@ -86,7 +86,7 @@ if defined NODE_HOME (
             for /f %%f in ('dir /b "!__PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         )
         if defined _NODE_HOME (
-            if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default Node installation directory !_NODE_HOME!
+            if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory !_NODE_HOME!
         )
     )
 )
@@ -142,12 +142,12 @@ if %ERRORLEVEL%==0 goto :eof
 
 if defined MONGO_HOME (
     set _MONGO_HOME=%MONGO_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable MONGO_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable MONGO_HOME
 ) else (
     where /q mongod.exe
     if !ERRORLEVEL!==0 (
         for /f %%i in ('where /f mongod.exe') do set _MONGO_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using path of MongoDB executable found in PATH
+        if %_DEBUG%==1 echo [%_BASENAME%] Using path of MongoDB executable found in PATH
     ) else (
         set __PATH=C:\opt
         for /f %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
@@ -155,13 +155,13 @@ if defined MONGO_HOME (
             set __PATH=C:\Progra~1
             for /f %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
             if defined _MONGO_HOME (
-                if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME!
+                if %_DEBUG%==1 echo [%_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME!
             )
         )
     )
 )
 if not exist "%_MONGO_HOME%\bin\mongod.exe" (
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] MongoDB executable not found ^(%_MONGO_HOME%^)
+    if %_DEBUG%==1 echo [%_BASENAME%] MongoDB executable not found ^(%_MONGO_HOME%^)
     set _EXITCODE=1
     goto :eof
 )
@@ -174,22 +174,22 @@ if %ERRORLEVEL%==0 goto :eof
 
 if defined CURL_HOME (
     set _CURL_HOME=%CURL_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable CURL_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable CURL_HOME
 ) else (
     where /q curl.exe
     if !ERRORLEVEL!==0 (
         for /f %%i in ('where /f curl.exe') do set _CURL_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using path of cURL executable found in PATH
+        if %_DEBUG%==1 echo [%_BASENAME%] Using path of cURL executable found in PATH
     ) else (
         set __PATH=C:\opt
         for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set _CURL_HOME=!__PATH!\%%f
         if defined _CURL_HOME (
-            if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default cURL installation directory !_CURL_HOME!
+            if %_DEBUG%==1 echo [%_BASENAME%] Using default cURL installation directory !_CURL_HOME!
         )
     )
 )
 if not exist "%_CURL_HOME%\curl.exe" (
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] cURL installation directory %_CURL_HOME% not found
+    if %_DEBUG%==1 echo [%_BASENAME%] cURL installation directory %_CURL_HOME% not found
     set _EXITCODE=1
     goto :eof
 )

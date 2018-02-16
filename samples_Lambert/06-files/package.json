@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "absolute-path": "0.0.0",
+    "chokidar": "^1.0.0-rc4",
+    "mkdirp": "^0.5.0",
+    "rimraf": "^2.3.2"
+  }
+}

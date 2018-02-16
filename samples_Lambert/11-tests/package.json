@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "devDependencies": {
+    "chai": "*",
+    "leche": "*",
+    "mocha": "*",
+    "sinon": "*"
+  },
+  "scripts": {
+    "test": "mocha *.spec.js"
+  }
+}
