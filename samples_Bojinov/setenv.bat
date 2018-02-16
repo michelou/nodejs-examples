@@ -134,7 +134,7 @@ if not exist "%NODE_HOME%\pm2.cmd" (
     echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
     set /p _PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
     if /i "!_PM2_ANSWER!"=="y" (
-        %NODE_HOME%\pm2.cmd -g install pm2 --prefix %NODE_HOME%
+        %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
         goto :eof

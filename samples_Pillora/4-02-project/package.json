@@ -5,10 +5,17 @@
   "repository": "https://github.com/jpillora/gswg-examples.git",
   "author": "Jaime Pillora <gswg@jpillora.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "grunt & start build/app.html"
+  },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-stylus": "~0.8.0",
-    "grunt-contrib-jade": "~0.8.0"
+    "grunt": "^1.0.0",
+    "grunt-contrib-coffee": "^2.0.0",
+    "grunt-contrib-stylus": "^1.2.0",
+    "grunt-contrib-jade": "^1.0.0"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0"
   }
 }
