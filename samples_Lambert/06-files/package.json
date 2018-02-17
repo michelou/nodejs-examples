@@ -1,9 +1,23 @@
 {
-  "private": true,
+  "name": "files",
+  "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
+  "version": "0.0.1",
+  "repository": "https://github.com/vatesfr/eni-nodejs.git",
+  "author": "Olivier Lambert",
+  "scripts": {
+    "dirs": "node app/directories.js",
+    "files": "node app/files.js",
+    "paths": "node app/paths.js",
+    "watch": "node app/watch.js"
+  },
   "dependencies": {
     "absolute-path": "0.0.0",
     "chokidar": "^1.0.0-rc4",
     "mkdirp": "^0.5.0",
     "rimraf": "^2.3.2"
+  },
+  "engines": {
+    "node": ">=8.9.0",
+    "npm": ">=5.6.0"
   }
 }

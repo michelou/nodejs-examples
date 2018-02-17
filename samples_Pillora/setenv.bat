@@ -40,7 +40,7 @@ rem ##########################################################################
 rem ## Subroutines
 
 :jq
-where /q jq.exe
+where /q jq-win32.exe
 if %ERRORLEVEL%==0 goto :eof
 
 if defined JQ_HOME (
@@ -194,7 +194,7 @@ if not defined _MONGO_BIN_DIR (
     for /f "delims=" %%i in ('where /f /r "%_MONGO_HOME%" mongod.exe 2^>NUL') do set _MONGO_BIN_DIR=%%~dpsi
 )
 if not exist "%_MONGO_BIN_DIR%\mongod.exe" (
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] MongoDB installation directory %_MONGO_HOME% not found
+    echo MongoDB executable not found ^(%_MONGO_HOME%^)
     set _EXITCODE=1
     goto :eof
 )

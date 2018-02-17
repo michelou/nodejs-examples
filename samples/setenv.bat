@@ -162,7 +162,7 @@ if defined MONGO_HOME (
     )
 )
 if not exist "%_MONGO_HOME%\bin\mongod.exe" (
-    if %_DEBUG%==1 echo [%_BASENAME%] MongoDB executable not found ^(%_MONGO_HOME%^)
+    echo MongoDB executable not found ^(%_MONGO_HOME%^)
     set _EXITCODE=1
     goto :eof
 )
@@ -190,7 +190,7 @@ if defined CURL_HOME (
     )
 )
 if not exist "%_CURL_HOME%\bin\curl.exe" (
-    if %_DEBUG%==1 echo [%_BASENAME%] cURL installation directory %_CURL_HOME% not found
+    echo cURL executable not found ^(%_CURL_HOME%^)
     set _EXITCODE=1
     goto :eof
 )
