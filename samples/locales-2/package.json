@@ -16,14 +16,14 @@
   "private": true,
   "license": "BSD",
   "dependencies": {
-    "body-parser": "^1.17.1",
-    "ejs": "*",
-    "express": "^4.7.2",
-    "i18n-abide": "*",
-    "method-override": "^2.3.8"
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "i18n-abide": "^0.0.25",
+    "method-override": "^2.3.10"
   },
   "engines": {
-    "node": ">=6.10.0",
-    "npm": ">=3.10.10"
+    "node": ">=8.9.0",
+    "npm": ">=5.6.0"
   }
 }

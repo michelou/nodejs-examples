@@ -1,11 +1,12 @@
 {
   "name": "gswg-4-04-project",
+  "description": "See https://github.com/jpillora/gswg-examples/tree/master/4/04-project",
   "version": "0.1.0",
   "repository": "https://github.com/jpillora/gswg-examples.git",
   "author": "Jaime Pillora <gswg@jpillora.com>",
   "license": "MIT",
   "scripts": {
-    "start": "grunt & start build/app.html"
+    "start": "grunt & node ./npm_scripts/start_browser.js build/app.html"
   },
   "devDependencies": {
     "grunt": "^1.0.0",
@@ -17,7 +18,7 @@
     "grunt-contrib-cssmin": "^2.2.0"
   },
   "engines": {
-    "node": ">= 8.9.0",
-    "npm": ">= 5.6.0"
+    "node": ">=8.9.0",
+    "npm": ">=5.6.0"
   }
 }

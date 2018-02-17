@@ -80,10 +80,10 @@ if defined NODE_HOME (
         if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
     ) else (
         set __PATH=C:\opt
-        for /f %%f in ('dir /b "!__PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         if not defined _NODE_HOME (
             set __PATH=C:\progra~1
-            for /f %%f in ('dir /b "!__PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+            for /f %%f in ('dir /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         )
         if defined _NODE_HOME (
             if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory !_NODE_HOME!
@@ -136,6 +136,7 @@ if not exist "%NODE_HOME%\pm2.cmd" (
 )
 goto :eof
 
+rem https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl
 :mongod
 where /q mongod.exe
 if %ERRORLEVEL%==0 goto :eof
@@ -188,12 +189,12 @@ if defined CURL_HOME (
         )
     )
 )
-if not exist "%_CURL_HOME%\curl.exe" (
+if not exist "%_CURL_HOME%\bin\curl.exe" (
     if %_DEBUG%==1 echo [%_BASENAME%] cURL installation directory %_CURL_HOME% not found
     set _EXITCODE=1
     goto :eof
 )
-set "_CURL_PATH=;%_CURL_HOME%"
+set "_CURL_PATH=;%_CURL_HOME%\bin"
 goto :eof
 
 :print_env
