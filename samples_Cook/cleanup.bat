@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set _DEBUG=0
+if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
 
 rem ##########################################################################
 rem ## Environment setup
@@ -22,29 +22,48 @@ if defined NODE_HOME (
         if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
     ) else (
         set _PATH=C:\opt
-        for /f %%f in ('dir /b "!_PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!_PATH!\%%f
+        for /f %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!_PATH!\%%f
         if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory !_NODE_HOME!
     )
 )
-if not exist "%_NODE_HOME%\rimraf.cmd" (
-    if %_DEBUG%==1 echo [%_BASENAME%] rimraf command not found ^(%_NODE_HOME%^)
+if not exist "%_NODE_HOME%\npm.cmd" (
+    if %_DEBUG%==1 echo [%_BASENAME%] npm command not found ^(%_NODE_HOME%^)
     set _EXITCODE=1
     goto end
+)
+where /q rimraf.cmd
+if not %ERRORLEVEL%==0 (
+    if %_DEBUG%==1 echo [%_BASENAME%] npm.cmd -g install rimraf
+    %_NODE_HOME%\npm.cmd -g install rimraf
+    if not !ERRORLEVEL!==0 (
+        if %_DEBUG%==1 echo [%_BASENAME%] Failed to install rimraf
+        set _EXITCODE=1
+        goto end
+    )
 )
 
 rem ##########################################################################
 rem ## Main
 
 set _N=0
-for %%i in (chp-3-networking chp-4-code-injection) do (
+
+set _DIR=%_ROOT_DIR%node_modules\
+if exist "!_DIR!" (
+    if %_DEBUG%==1 echo [%_BASENAME%] call rimraf.cmd "!_DIR!"
+    call rimraf.cmd "!_DIR!"
+    set /a _N+=1
+)
+
+for /f %%i in ('dir /ad /b 2^>NUL') do (
     set _DIR=%_ROOT_DIR%%%i\node_modules
     if exist "!_DIR!" (
-        if %_DEBUG%==1 echo [%_BASENAME%] %_NODE_HOME%\rimraf "!_DIR!"
-        %_NODE_HOME%\rimraf "!_DIR!"
-        set /a _N=!_N!+1
+        if %_DEBUG%==1 echo [%_BASENAME%] call rimraf.cmd "!_DIR!"
+        call rimraf.cmd "!_DIR!"
+        set /a _N+=1
     )
 )
-if %_N% gtr 0 ( echo Removed %_N% directories
+if %_N% gtr 1 ( echo Removed %_N% directories
+) else if %_N% gtr 0 ( echo Removed %_N% directory 
 ) else ( echo No directory 'node_modules' found
 )
 

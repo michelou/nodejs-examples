@@ -2,22 +2,24 @@
   "name": "calculator",
   "version": "0.0.1",
   "description": "2016_Pragmatic_Secure_Your_Node.js_Web_Application",
-  "main": "aèpp/calculator.js",
+  "main": "app/calculator.js",
   "private": true,
   "scripts": {
+    "start": " node ./app/calculator.js",
     "test": "node node_modules/mocha/bin/mocha"
   },
   "dependencies": {
-    "body-parser": "1.15.0",
-    "express": "^4.7.2"
+    "body-parser": "^1.15.0",
+    "express": "^4.16.3"
   },
-  "devDependencies" : {
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-execute": "*",
-    "mocha": "*",
-    "chai": "*",
-    "should": "*",
-    "zombie": "^4.2.1"
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "should": "^13.2.1",
+    "zombie": "^4.3.0"
+  },
+  "engines": {
+    "node": ">=8.9.0",
+    "npm": ">=5.6.0"
   }
 }

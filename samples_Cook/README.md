@@ -1,5 +1,39 @@
-# README
+# Node.js examples from Cook's book
 
-Directory: samples_Cook
+<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+  <tr>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
+  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Cook\</code></strong> directory contains <a href="http://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924">Fabian Cook's book</a> "<i>Node.js Essentials</i>" (Packt, 2015).</td>
+  </tr>
+</table>
 
-Book: 2015_Packt_Node.js_Essentials.pdf
+### `basic-auth`
+
+Executing the **`npm start`** command in directory **`samples_Cook\basic-auth\`** starts the server application which listen to your requests on port **`8180`** (defined in file **`config.json`**):
+
+<pre style="font-size:80%;">
+> npm start
+
+> basic_auth@1.0.0 start C:\nodejs-examples\samples_Cook\basic_auth
+> node app/app.js
+
+[2018-05-10 19:43:17 INFO] (app.js) Listening on port 8180
+[2018-05-10 19:43:33 INFO] (app.js) Requested URL: /
+[2018-05-10 19:43:33 INFO] (app.js) Requested URL: /
+[2018-05-10 19:43:33 INFO] (app.js) Requested URL: /
+</pre>
+
+Executing the **`npm run client`** command in directory **`samples_Cook\basic-auth\`**  sends several requests to the server: 
+
+<pre style="font-size:80%;">
+> npm run client
+
+> basic_auth@1.0.0 client C:\nodejs-examples\samples_Cook\basic_auth
+> node npm_scripts/start_client.js
+
+en /
+fr /
+de /
+</pre>
+
+*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018*

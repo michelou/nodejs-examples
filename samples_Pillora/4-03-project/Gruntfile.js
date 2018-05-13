@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   // Load tasks provided by each plugin
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-stylus");
-  grunt.loadNpmTasks("grunt-contrib-jade");
+  grunt.loadNpmTasks("grunt-contrib-pug");
 
   // Project configuration
   grunt.initConfig({
@@ -29,17 +29,17 @@ module.exports = function(grunt) {
         dest: "build/css/app.css"
       }
     },
-    jade: {
+    pug: {
       build: {
         options: {
           pretty: true
         },
-        src: "src/views/app.jade",
+        src: "src/views/app.pug",
         dest: "build/app.html"
       }
     }
   });
 
   // Define the default task
-  grunt.registerTask('default', ['coffee','stylus','jade']);
+  grunt.registerTask('default', ['coffee','stylus','pug']);
 };

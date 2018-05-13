@@ -79,7 +79,8 @@ describe('hello-1', function() {
       };
       request.get(options, function (err, res, body) {
         expect(res.statusCode).to.equal(404);
-        expect(res.body).to.equal('Cannot GET /\n');
+        console.log(res)
+        expect(res.body).to.match(/Cannot GET/) //equal('Cannot GET /\n');
         done();
       });
     });

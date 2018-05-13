@@ -1,12 +1,21 @@
 {
-  "private": true,
-  "devDependencies": {
-    "chai": "*",
-    "leche": "*",
-    "mocha": "*",
-    "sinon": "*"
-  },
+  "name": "tests",
+  "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
+  "version": "0.0.1",
+  "repository": "https://github.com/vatesfr/eni-nodejs.git",
+  "author": "Olivier Lambert",
   "scripts": {
-    "test": "mocha *.spec.js"
+    "start": "node app/add.js",
+    "test": "mocha app/*.spec.js"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "leche": "^2.2.3",
+    "mocha": "^5.1.1",
+    "sinon": "^5.0.7"
+  },
+  "engines": {
+    "node": ">=8.9.0",
+    "npm": ">=5.6.0"
   }
 }

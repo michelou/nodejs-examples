@@ -8,14 +8,14 @@
     "test": "node node_modules/mocha/bin/mocha"
   },
   "dependencies": {
-    "body-parser": "1.15.0",
+    "body-parser": "^1.18.2",
     "express": "^4.7.2",
     "jade": "*",
     "method-override": "*",
     "moment": "^2.12.0",
     "serve-favicon": "*"
   },
-  "devDependencies" : {
+  "devDependencies": {
     "grunt-contrib-jshint": "*",
     "grunt-contrib-watch": "*",
     "grunt-execute": "*",

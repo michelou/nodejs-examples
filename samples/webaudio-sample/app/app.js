@@ -14,6 +14,7 @@ app.use(express.static(__dirname + '/public'));
 var filepath = path.join(__dirname, 'Paradise.m4a');
 
 app.get('/music', function(req, res){
+  console.log("Returning " + path.basename(filepath) + " for request /music");
   res.set({'Content-Type': 'audio/mpeg'});
   var readStream = fs.createReadStream(filepath);
   readStream.pipe(res);

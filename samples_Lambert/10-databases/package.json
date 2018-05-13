@@ -1,6 +1,18 @@
 {
-  "private": true,
+  "name": "databases",
+  "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
+  "version": "0.0.1",
+  "repository": "https://github.com/vatesfr/eni-nodejs.git",
+  "author": "Olivier Lambert",
+  "scripts": {
+    "start": "node app/mongoose.js"
+  },
   "dependencies": {
+    "mongoose": "^5.1.0",
     "multiline": "^1.0.2"
+  },
+  "engines": {
+    "node": ">=8.9.0",
+    "npm": ">=5.6.0"
   }
 }

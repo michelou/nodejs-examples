@@ -12,4 +12,8 @@ kitty.save(function (err) {
   }
 
   console.log('miaou');
+  mongoose.connection.close(function () { 
+    console.log('Mongoose default connection disconnected'); 
+    process.exit(0); 
+  });
 });

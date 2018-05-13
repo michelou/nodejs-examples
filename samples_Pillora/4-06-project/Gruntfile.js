@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   // Load tasks provided by each plugin
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-stylus");
-  grunt.loadNpmTasks("grunt-contrib-jade");
+  grunt.loadNpmTasks("grunt-contrib-pug");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-htmlmin");
@@ -37,12 +37,12 @@ module.exports = function(grunt) {
         dest: "build/css/app.css"
       }
     },
-    jade: {
+    pug: {
       build: {
         options: {
           pretty: true
         },
-        src: "src/views/app.jade",
+        src: "src/views/app.pug",
         dest: "build/app.html"
       }
     },
@@ -69,8 +69,8 @@ module.exports = function(grunt) {
         removeOptionalTags: true
       },
       compress: {
-        src: "<%= jade.build.dest %>",
-        dest: "<%= jade.build.dest %>"
+        src: "<%= pug.build.dest %>",
+        dest: "<%= pug.build.dest %>"
       }
     },
     // Watching
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
         tasks: "styles"
       },
       views: {
-        files: "src/views/**/*.jade",
+        files: "src/views/**/*.pug",
         tasks: "views"
       }
     }
@@ -94,11 +94,11 @@ module.exports = function(grunt) {
   if(env === 'prod') {
     grunt.registerTask('scripts', ['coffee', 'uglify']);
     grunt.registerTask('styles',  ['stylus', 'cssmin']);
-    grunt.registerTask('views',   ['jade',   'htmlmin']);
+    grunt.registerTask('views',   ['pug',    'htmlmin']);
   } else {
     grunt.registerTask('scripts', ['coffee']);
     grunt.registerTask('styles',  ['stylus']);
-    grunt.registerTask('views',   ['jade']);
+    grunt.registerTask('views',   ['pug']);
   }
 
   grunt.registerTask('build', ['scripts','styles','views']);

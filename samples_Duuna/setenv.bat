@@ -1,127 +1,131 @@
 @echo off
+setlocal enabledelayedexpansion
 
-if not defined _DEBUG set _DEBUG=1
+if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
 
 rem ##########################################################################
 rem ## Environment setup
 
-set _SETENV_BASENAME=%~n0
+set _BASENAME=%~n0
 
-if defined _ROOT_DIR (
-    setlocal enabledelayedexpansion
-    set _CONFIG_FILE=%_ROOT_DIR%package.json
-    if not exist "!_CONFIG_FILE!" (
-        echo Configuration file not found ^(!_CONFIG_FILE!^)
-        set _EXITCODE=1
-        goto :eof
-    )
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] _CONFIG_FILE=!_CONFIG_FILE!
-    endlocal
-)
+set _EXITCODE=0
+
+call :args %*
+if not %_EXITCODE%==0 goto end
 
 rem ##########################################################################
 rem ## Main
 
-where /q git.exe
-if not %ERRORLEVEL%==0 call :git
+set _GIT_PATH=
+set _CURL_PATH=
+set _SIEGE_PATH=
 
-where /q jq.exe
-if not %ERRORLEVEL%==0 call :jq
+call :git
+if not %_EXITCODE%==0 goto end
 
-where /q npm.cmd
-if not %ERRORLEVEL%==0 call :npm
+call :npm
+if not %_EXITCODE%==0 goto end
 
-where /q grunt.cmd
-if not %ERRORLEVEL%==0 call :grunt
+call :pm2
+if not %_EXITCODE%==0 goto end
 
-where /q pm2.cmd
-if not %ERRORLEVEL%==0 call :pm2
+call :curl
+if not %_EXITCODE%==0 goto end
 
-where /q curl.exe
-if not %ERRORLEVEL%==0 call :curl
-
-where /q siege.exe
-if not %ERRORLEVEL%==0 call :siege
+call :siege
+if not %_EXITCODE%==0 goto end
 
 goto end
 
 rem ##########################################################################
 rem ## Subroutines
 
+rem input parameter: %*
+:args
+set _VERBOSE=0
+set __N=0
+:args_loop
+set __ARG=%~1
+if not defined __ARG (
+    goto args_done
+) else if not "%__ARG:~0,1%"=="-" (
+    set /a __N=!__N!+1
+)
+if /i "%__ARG%"=="help" ( call :help & goto :eof
+) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+) else (
+    echo %_BASENAME%: Unknown subcommand %__ARG%
+    set _EXITCODE=1
+    goto :eof
+)
+shift
+goto :args_loop
+:args_done
+goto :eof
+
+:help
+echo Usage: setenv { options ^| subcommands }
+echo   Options:
+echo     -verbose         display environment settings
+echo   Subcommands:
+echo     help             display this help message
+goto :eof
+
 :git
-setlocal enabledelayedexpansion
-set _EXITCODE=0
+where /q git.exe
+if %ERRORLEVEL%==0 goto :eof
 
 if defined GIT_HOME (
     set _GIT_HOME=%GIT_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable GIT_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME
 ) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\Git*" 2^>NUL') do set _GIT_HOME=!_PATH!\%%f
+    set __PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set _GIT_HOME=!__PATH!\%%f
     if not defined _GIT_HOME (
-        set _PATH=C:\Progra~1
-        for /f %%f in ('dir /ad /b "!_PATH!\Git*" 2^>NUL') do set _GIT_HOME=!_PATH!\%%f        
+        set __PATH=C:\Progra~1
+        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set _GIT_HOME=!__PATH!\%%f        
     )
     if defined _GIT_HOME (
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default Git installation directory !_GIT_HOME!
+        if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory !_GIT_HOME!
     )
 )
 if not exist "%_GIT_HOME%\bin\git.exe" (
-    echo Git installation directory not found ^(%_GIT_HOME%^)
+    echo Git executable not found ^(%_GIT_HOME%^)
     set _EXITCODE=1
     goto :eof
 )
-endlocal && (
-    set "PATH=%PATH%;%_GIT_HOME%\bin"
-)
-goto :eof
-
-:jq
-setlocal enabledelayedexpansion
-set _EXITCODE=0
-
-if defined JQ_HOME (
-    set _JQ_HOME=%JQ_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable JQ_HOME
-) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\jq-*" 2^>NUL') do set _JQ_HOME=!_PATH!\%%f
-    if not defined _JQ_HOME (
-        set _PATH=C:\Progra~1
-        for /f %%f in ('dir /ad /b "!_PATH!\jq-*" 2^>NUL') do set _JQ_HOME=!_PATH!\%%f        
-    )
-    if defined _JQ_HOME (
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default jq installation directory !_JQ_HOME!
-    )
-)
-for /f "delims=" %%i in ('where "%_JQ_HOME%:jq*.exe" 2^>NUL') do set _JQ_CMD=%%~dpsi
-if not exist "%_JQ_CMD%" (
-    echo jq installation directory not found ^(%_JQ_HOME%^)
-    set _EXITCODE=1
-    goto :eof
-)
-for /f %%i in ("%_JQ_CMD%") do set _JQ_PATH=%%~dpi
-endlocal && (
-    set "PATH=%PATH%;%_JQ_PATH%"
-)
+set "_GIT_PATH=;%_GIT_HOME%\bin"
 goto :eof
 
 :npm
-setlocal enabledelayedexpansion
-set _EXITCODE=0
+where /q npm.cmd
+if %ERRORLEVEL%==0 (
+    if not defined NODE_HOME (
+        for /f %%i in ('where /f npm.cmd') do set NODE_HOME=%%~dpsi
+    )
+    goto :eof
+)
 
 if defined NODE_HOME (
     set _NODE_HOME=%NODE_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable NODE_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
 ) else (
-    set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!_PATH!\%%f
-    if not defined _NODE_HOME (
-        set _PATH=C:\Progra~1
-        for /f %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!_PATH!\%%f        
-    )
-    if defined _NODE_HOME (
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default Node installation directory !_NODE_HOME!
+    where /q node.exe
+    if !ERRORLEVEL!==0 (
+        for /f "delims=" %%i in ('where /f node.exe') do set _NODE_HOME=%%~dpsi
+        if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
+    ) else (
+        set __PATH=C:\opt
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        if not defined _NODE_HOME (
+            set __PATH=C:\progra~1
+            for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        )
+        if defined _NODE_HOME (
+            rem path name of installation directory may contain spaces
+            for /f "delims=" %%f in ("!_NODE_HOME!") do set _NODE_HOME=%%~sf
+            if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory !_NODE_HOME!
+        )
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -129,113 +133,115 @@ if not exist "%_NODE_HOME%\nodevars.bat" (
     set _EXITCODE=1
     goto :eof
 )
-
 if not exist "%_NODE_HOME%\npm.cmd" (
-    echo NPM not found in Node installation directory ^(%_NODE_HOME%^)
+    echo npm not found in Node installation directory ^(%_NODE_HOME%^)
     set _EXITCODE=1
     goto :eof
 )
-
-endlocal && (
-    set NODE_HOME=%_NODE_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] _EXITCODE=%_EXITCODE%
-)
+set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
 goto :eof
 
-:grunt
-setlocal enabledelayedexpansion
-set _EXITCODE=0
-
-if not exist "%_NODE_HOME%\grunt.cmd" (
-    echo Grunt CLI command not found in Node installation directory ^(%_NODE_HOME%^)
-    set /p _GRUNT="Execute 'npm -g install grunt-cli --prefix %_NODE_HOME%' (Y/N)? "
-    if /i "!_GRUNT!"=="y" (
-        %_NODE_HOME%\npm.cmd -g install grunt-cli --prefix %_NODE_HOME%
-    ) else (
-        set _EXITCODE=1
-        goto end
-    )
-)
-endlocal
-goto :eof
 
 :pm2
-setlocal enabledelayedexpansion
-set _EXITCODE=0
+where /q pm2.cmd
+if %ERRORLEVEL%==0 goto :eof
 
-if not exist "%_NODE_HOME%\pm2.cmd" (
-    echo pm2 command not found in Node installation directory ^(%_NODE_HOME% ^)
-    set /p _BOWER="Execute 'npm -g install pm2 --prefix %_NODE_HOME%' (Y/N)? "
-    if /i "!_BOWER!"=="y" (
-        %_NODE_HOME%\pm2.cmd -g install pm2 --prefix %_NODE_HOME%
+if not exist "%NODE_HOME%\pm2.cmd" (
+    echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
+    set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
+    if /i "!__PM2_ANSWER!"=="y" (
+        %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
-        goto end
+        goto :eof
     )
 )
-endlocal
 goto :eof
 
 :curl
-setlocal enabledelayedexpansion
-set _EXITCODE=0
+where /q curl.exe
+if %ERRORLEVEL%==0 goto :eof
 
 if defined CURL_HOME (
     set _CURL_HOME=%CURL_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable CURL_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable CURL_HOME
 ) else (
     where /q curl.exe
     if !ERRORLEVEL!==0 (
         for /f %%i in ('where /f curl.exe') do set _CURL_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using path of cURL executable found in PATH
+        if %_DEBUG%==1 echo [%_BASENAME%] Using path of cURL executable found in PATH
     ) else (
-        set _PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!_PATH!\curl-*" 2^>NUL') do set _CURL_HOME=!_PATH!\%%f
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default cURL installation directory !_CURL_HOME!
+        set __PATH=C:\opt
+        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set _CURL_HOME=!__PATH!\%%f
+        if defined _CURL_HOME (
+            if %_DEBUG%==1 echo [%_BASENAME%] Using default cURL installation directory !_CURL_HOME!
+        )
     )
 )
-if not exist "%_CURL_HOME%\curl.exe" (
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] cURL installation directory %_CURL_HOME% not found
+if not exist "%_CURL_HOME%\bin\curl.exe" (
+    echo cURL executable not found ^(%_CURL_HOME%^)
     set _EXITCODE=1
-    goto end
+    goto :eof
 )
-endlocal && (
-    set "PATH=%PATH%;%_CURL_HOME%"
-)
+set "_CURL_PATH=;%_CURL_HOME%\bin"
 goto :eof
 
 :siege
-setlocal enabledelayedexpansion
-set _EXITCODE=0
+where /q siege.exe
+if %ERRORLEVEL%==0 goto :eof
 
 if defined SIEGE_HOME (
     set _SIEGE_HOME=%SIEGE_HOME%
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using environment variable SIEGE_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable SIEGE_HOME
 ) else (
     where /q siege.exe
     if !ERRORLEVEL!==0 (
         for /f %%i in ('where /f siege.exe') do set _SIEGE_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using path of Siege executable found in PATH
+        if %_DEBUG%==1 echo [%_BASENAME%] Using path of Siege executable found in PATH
     ) else (
         set _PATH=C:\opt
         for /f %%f in ('dir /ad /b "!_PATH!\siege-*" 2^>NUL') do set _SIEGE_HOME=!_PATH!\%%f
-        if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Using default Siege installation directory !_SIEGE_HOME!
+        if %_DEBUG%==1 echo [%_BASENAME%] Using default Siege installation directory !_SIEGE_HOME!
     )
 )
 if not exist "%_SIEGE_HOME%\siege.exe" (
-    if %_DEBUG%==1 echo [%_SETENV_BASENAME%] Siege installation directory %_SIEGE_HOME% not found
+    if %_DEBUG%==1 echo [%_BASENAME%] Siege installation directory %_SIEGE_HOME% not found
     set _EXITCODE=1
-    goto end
+    goto :eof
 )
-endlocal && (
-    set SIEGE_HOME=%_SIEGE_HOME%
-    set "PATH=%PATH%;%_SIEGE_HOME%"
+set "_SIEGE_PATH=;%_SIEGE_HOME%"
+goto :eof
+
+:print_env
+set __WHERE_ARGS=
+where /q npm.cmd
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('node.exe --version') do echo NODE_VERSION=%%i
+    for /f %%i in ('npm.cmd --version') do echo NPM_VERSION=%%i
+    set __WHERE_ARGS=%__WHERE_ARGS% node.exe npm.cmd
 )
+where /q git.exe
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('git.exe --version') do echo GIT_VERSION=%%k
+    set __WHERE_ARGS=%__WHERE_ARGS% git.exe
+)
+where /q curl.exe
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do echo CURL_VERSION=%%j
+    set __WHERE_ARGS=%__WHERE_ARGS% curl.exe
+)
+where %__WHERE_ARGS%
 goto :eof
 
 rem ##########################################################################
 rem ## Cleanups
 
 :end
-exit /b %ERRORLEVEL%
+endlocal & (
+    if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
+    set "PATH=%PATH%%_GIT_PATH%%_CURL_PATH%%_SIEGE_PATH%"
+    if %_VERBOSE%==1 call :print_env
+    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
+    for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
+)

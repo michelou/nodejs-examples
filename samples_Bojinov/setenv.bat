@@ -10,6 +10,9 @@ set _BASENAME=%~n0
 
 set _EXITCODE=0
 
+call :args %*
+if not %_EXITCODE%==0 goto end
+
 rem ##########################################################################
 rem ## Main
 
@@ -17,9 +20,6 @@ set _GIT_PATH=
 set _MONGO_PATH=
 
 call :npm
-if not %_EXITCODE%==0 goto end
-
-call :grunt
 if not %_EXITCODE%==0 goto end
 
 call :git
@@ -35,6 +35,37 @@ goto end
 
 rem ##########################################################################
 rem ## Subroutines
+
+rem input parameter: %*
+:args
+set _VERBOSE=0
+set __N=0
+:args_loop
+set __ARG=%~1
+if not defined __ARG (
+    goto args_done
+) else if not "%__ARG:~0,1%"=="-" (
+    set /a __N=!__N!+1
+)
+if /i "%__ARG%"=="help" ( call :help & goto :eof
+) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+) else (
+    echo %_BASENAME%: Unknown subcommand %__ARG%
+    set _EXITCODE=1
+    goto :eof
+)
+shift
+goto :args_loop
+:args_done
+goto :eof
+
+:help
+echo Usage: setenv { options ^| subcommands }
+echo   Options:
+echo     -verbose         display environment settings
+echo   Subcommands:
+echo     help             display this help message
+goto :eof
 
 rem postcondition: NODE_HOME is defined and valid
 :npm
@@ -55,10 +86,10 @@ if defined NODE_HOME (
         if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
     ) else (
         set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v6*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         if not defined _NODE_HOME (
             set __PATH=C:\progra~1
-            for /f %%f in ('dir /ad /b "!__PATH!\node-v6*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+            for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         )
         if defined _NODE_HOME (
             rem path name of installation directory may contain spaces
@@ -81,21 +112,6 @@ set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
 goto :eof
 
-:grunt
-where /q grunt.cmd
-if %ERRORLEVEL%==0 goto :eof
-
-if not exist "%NODE_HOME%\grunt.cmd" (
-    echo Grunt tool not found in Node installation ^(%NODE_HOME%^)
-    set /p __GRUNT="Execute command 'npm -g install grunt --prefix=%NODE_HOME%' ? (y/n) "
-    if /i "!__GRUNT!"=="y" (
-        %NODE_HOME%\npm.cmd -g install grunt --prefix=%NODE_HOME%
-    ) else (
-        set _EXITCODE=1
-        goto :eof
-    )
-)
-goto :eof
 
 :git
 where /q git.exe
@@ -132,8 +148,8 @@ if %ERRORLEVEL%==0 goto :eof
 
 if not exist "%NODE_HOME%\pm2.cmd" (
     echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
-    set /p _PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
-    if /i "!_PM2_ANSWER!"=="y" (
+    set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
+    if /i "!__PM2_ANSWER!"=="y" (
         %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
@@ -174,10 +190,24 @@ set "_MONGO_PATH=;%_MONGO_BIN_DIR%"
 goto :eof
 
 :print_env
-for /f %%i in ('where npm.cmd') do echo NODE_HOME=%%~dpi
-for /f %%i in ('npm --version') do echo NPM_VERSION=%%i
-for /f "tokens=1,2,*" %%i in ('git --version') do echo GIT_VERSION=%%k
-where npm.cmd grunt.cmd git.exe
+set __WHERE_ARGS=
+where /q npm.cmd
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('node.exe --version') do echo NODE_VERSION=%%i
+    for /f %%i in ('npm.cmd --version') do echo NPM_VERSION=%%i
+    set __WHERE_ARGS=%__WHERE_ARGS% node.exe npm.cmd
+)
+where /q git.exe
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('git.exe --version') do echo GIT_VERSION=%%k
+    set __WHERE_ARGS=%__WHERE_ARGS% git.exe
+)
+where /q mongod.exe
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('mongod.exe --version ^| findstr "^db"') do echo MONGOD_VERSION=%%k
+    set __WHERE_ARGS=%__WHERE_ARGS% mongod.exe
+)
+where %__WHERE_ARGS%
 goto :eof
 
 rem ##########################################################################
@@ -186,8 +216,9 @@ rem ## Cleanups
 :end
 endlocal & (
     if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
+    if not defined NODE_PATH set NODE_PATH=%~dp0\node_modules
     set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%"
-    call :print_env
+    if %_VERBOSE%==1 call :print_env
     if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )

@@ -1,5 +1,5 @@
 {
-  "name": "music-engine",
+  "name": "webaudio-example",
   "version": "1.0.0",
   "description": "",
   "main": "app/app.js",
@@ -11,8 +11,8 @@
   "private": "true",
   "license": "BSD",
   "dependencies": {
-    "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
   },
   "engines": {
     "node": ">=8.9.0",

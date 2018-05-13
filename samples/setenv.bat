@@ -23,9 +23,6 @@ if not %_EXITCODE%==0 goto end
 call :npm
 if not %_EXITCODE%==0 goto end
 
-call :grunt
-if not %_EXITCODE%==0 goto end
-
 call :pm2
 if not %_EXITCODE%==0 goto end
 
@@ -102,22 +99,6 @@ if not exist "%_NODE_HOME%\npm.cmd" (
 )
 set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
-goto :eof
-
-:grunt
-where /q grunt.cmd
-if %ERRORLEVEL%==0 goto :eof
-
-if not exist "%NODE_HOME%\grunt.cmd" (
-    echo Grunt tool not found in Node installation ^(%NODE_HOME%^)
-    set /p __GRUNT="Execute command 'npm -g install grunt --prefix=%NODE_HOME%' ? (y/n) "
-    if /i "!__GRUNT!"=="y" (
-        %NODE_HOME%\npm.cmd -g install grunt --prefix=%NODE_HOME%
-    ) else (
-        set _EXITCODE=1
-        goto :eof
-    )
-)
 goto :eof
 
 :pm2
@@ -198,11 +179,24 @@ set "_CURL_PATH=;%_CURL_HOME%\bin"
 goto :eof
 
 :print_env
-for /f %%i in ('where npm.cmd') do echo NODE_HOME=%%~dpi
-for /f %%i in ('npm --version') do echo NPM_VERSION=%%i
-for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do echo CURL_VERSION=%%j
-for /f "tokens=1,2,*" %%i in ('git --version') do echo GIT_VERSION=%%k
-where npm.cmd grunt.cmd curl.exe git.exe
+set __WHERE_ARGS=
+where /q npm.cmd
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('node.exe --version') do echo NODE_VERSION=%%i
+    for /f %%i in ('npm.cmd --version') do echo NPM_VERSION=%%i
+    set __WHERE_ARGS=%__WHERE_ARGS% node.exe npm.cmd
+)
+where /q git.exe
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('git.exe --version') do echo GIT_VERSION=%%k
+    set __WHERE_ARGS=%__WHERE_ARGS% git.exe
+)
+where /q curl.exe
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do echo CURL_VERSION=%%j
+    set __WHERE_ARGS=%__WHERE_ARGS% curl.exe
+)
+where %__WHERE_ARGS%
 goto :eof
 
 rem ##########################################################################

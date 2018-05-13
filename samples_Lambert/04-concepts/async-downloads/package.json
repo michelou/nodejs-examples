@@ -1,15 +1,15 @@
 {
-  "name": "async",
+  "name": "async-downloads",
   "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
   "version": "0.0.1",
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
   "scripts": {
-    "start": "node app/async.js"
+    "start": "node app/async-downloads.js"
   },
   "dependencies": {
-    "async": "^0.9.0",
-    "got": "^2.9.0"
+    "async": "^2.6.0",
+    "got": "^2.9.2"
   },
   "engines": {
     "node": ">=8.9.0",

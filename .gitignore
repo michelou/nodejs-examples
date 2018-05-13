@@ -41,3 +41,6 @@ jspm_packages
 
 # VSCode specific files
 .vscode
+samples_Lambert/04-concepts/async/example-net\.html
+
+samples_Lambert/04-concepts/async/example-org\.html

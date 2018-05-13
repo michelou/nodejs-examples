@@ -3,18 +3,24 @@
   "version": "0.0.1",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.44",
   "main": "app.js",
-  "maintainers": [{
-    "name": "Stéphane Micheloud",
-    "web": "http://www.crealp.ch/"
-  }],
+  "maintainers": [
+    {
+      "name": "StÃ©phane Micheloud",
+      "web": "http://www.crealp.ch/"
+    }
+  ],
   "private": true,
+  "scripts": {
+    "start": "node app/app.js",
+    "test": "mocha --recursive"
+  },
   "dependencies": {
-    "body-parser": "1.15.0",
-    "express": "^4.7.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
   },
   "devDependencies": {
-    "mocha": "^2.4.5",
     "chai": "^3.5.0",
+    "mocha": "^2.5.3",
     "request": "~2.71.0"
   }
 }
