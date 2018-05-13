@@ -1,15 +1,19 @@
 {
-    "name": "mock-example",
-    "version": "0.0.1",
-    "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.29",
-    "maintainers": [
+  "name": "mock-example",
+  "version": "0.0.1",
+  "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.29",
+  "maintainers": [
     {
-        "name": "Stéphane Micheloud",
-        "web": "http://www.crealp.ch/"
+      "name": "Stéphane Micheloud",
+      "web": "http://lamp.epfl.ch/~michelou/"
     }
-	],
-	"devDependencies": {
-	    "nodeunit": "^0.9.1",
-		"sinon": "^1.17.3"
-	}
+  ],
+  "devDependencies": {
+    "nodeunit": "^0.9.1",
+    "sinon": "^1.17.3"
+  },
+  "engines": {
+    "node": ">=8.9.0",
+    "npm": ">=5.6.0"
+  }
 }
