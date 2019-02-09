@@ -1,36 +1,36 @@
-'use strict';
+'use strict'
 
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var bodyParser = require('body-parser');
-var logger = require('morgan');
-var methodOverride = require('method-override');
-var errorHandler = require('errorhandler');
-var levelup = require('levelup');
+var express = require('express')
+var http = require('http')
+var path = require('path')
+var bodyParser = require('body-parser')
+var logger = require('morgan')
+var methodOverride = require('method-override')
+var errorHandler = require('errorhandler')
+var levelup = require('levelup')
 
 // project modules
-var cleanup = require('./modules/cleanup');
-var contacts = require('./modules/contacts');
+var cleanup = require('./modules/cleanup')
+var contacts = require('./modules/contacts')
 
-var app = express();
-var port = process.env.PORT || 8180;
+var app = express()
+var port = process.env.PORT || 8180
 
 // all environments
-app.set('port', port);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use(methodOverride());
-app.use(bodyParser.json());
+app.set('port', port)
+app.set('views', path.join(__dirname, 'views')
+app.set('view engine', 'jade')
+app.use(methodOverride())
+app.use(bodyParser.json())
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(errorHandler());
-  app.use(logger('combined'));
+  app.use(errorHandler())
+  app.use(logger('combined'))
 }
 
-var db = levelup('./contact', {valueEncoding: 'json'});
-contacts.fill(db);
+var db = levelup('./contact', {valueEncoding: 'json'})
+contacts.fill(db)
 
 // eg. http://localhost:8180/contacts/%2B359777123456
 app.get('/contacts/:number', function(request, response) {

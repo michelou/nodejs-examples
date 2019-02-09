@@ -12,26 +12,26 @@
 // > npm install
 // ```
 
-'use strict';
+'use strict'
 
-var async = require('async');
+var async = require('async')
 
 // Utiliser le paquet `got` pour le téléchargement.
-var got = require('got');
+var got = require('got')
 
 // Utiliser `fs.writeFile()` pour enregistrer les fichiers.
-var writeFile = require('fs').writeFile;
+var writeFile = require('fs').writeFile
 
 var files = [
   {
     name: 'example-net.html',
-    url: 'http://example.net/',
+    url: 'http://example.net/'
   },
   {
     name: 'example-org.html',
-    url: 'http://example.org/',
-  },
-];
+    url: 'http://example.org/'
+  }
+]
 
 async.waterfall([
 
@@ -39,24 +39,25 @@ async.waterfall([
   function (callback) {
     async.parallel(files.map(function (file) {
       return function (callback) {
-        got(file.url, callback);
-      };
-    }), callback);
+        got(file.url, callback)
+      }
+    }), callback)
   },
 
   // Puis les enregistre sur le disque (toujours en parallèle).
   function (results, callback) {
     async.parallel(results.map(function (content, i) {
       return function (callback) {
-        writeFile(files[i].name, content, callback);
-      };
-    }), callback);
-  },
+        writeFile(files[i].name, content, callback)
+      }
+    }), callback)
+  }
 
 ], function (error) {
   if (error) {
-    console.error(error);
-  } else {
-    console.log('Tout s\'est bien passé');
+    console.error(error)
   }
-});
+  else {
+    console.log('Tout s\'est bien passé')
+  }
+})

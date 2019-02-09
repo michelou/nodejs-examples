@@ -11,8 +11,8 @@ set _BASENAME=%~n0
 
 set _EXITCODE=0
 
-for %%f in ("%~dp0..") do call %%~sf\setenv.bat
-if not %_EXITCODE%==0 goto end
+rem for %%f in ("%~dp0..") do call %%~sf\setenv.bat
+rem if not %ERRORLEVEL%==0 goto end
 
 set _NODE_CMD=node.exe
 set _NODE_OPTS=

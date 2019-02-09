@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-exports.list = function(req, res) {
-	return res.status(200).send('list');
-};
+exports.list = function (req, res) {
+  return res.status(200).send('list')
+}

@@ -3,23 +3,40 @@
   "version": "0.0.1",
   "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.60",
   "main": "app/app.js",
+  "maintainers": [
+    {
+      "name": "Stéphane Micheloud",
+      "web": "http://lamp.epfl.ch/~michelou/"
+    }
+  ],
   "private": true,
   "scripts": {
-    "start": "node start_browser.js && node ."
+    "start": "node ./npm_scripts/start_browser.js && node .",
+    "lint": "eslint app"
   },
   "dependencies": {
-    "body-parser": "*",
-    "express": "^4.7.2",
-    "jade": "*",
-    "leveldown": "^1.4.4",
-    "levelup": "^1.0.0",
-    "method-override": "*",
-    "morgan": "^1.7.0"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
+    "leveldown": "^4.0.1",
+    "levelup": "^4.0.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "errorhandler": "^1.4.3",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-execute": "*"
+    "errorhandler": "^1.5.0",
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-execute": "^0.2.2"
+  },
+  "engines": {
+    "node": ">=8.12.0",
+    "npm": ">=6.4.1"
   }
 }

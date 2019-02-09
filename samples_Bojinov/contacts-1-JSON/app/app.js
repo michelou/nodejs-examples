@@ -26,8 +26,9 @@ app.use(methodOverride())
 
 // eg. http://127.0.0.1:8180/contacts?firstname=Joe
 app.get('/contacts', function (request, response) {
-  console.log('GET /contacts')
-  var get_params = url.parse(request.url, true).query
+  console.log('GET ' + request.url)
+  // OLD: var get_params = url.parse(request.url, true).query
+  let get_params = new url.URLSearchParams(request.url.search).values().next()
   if (Object.keys(get_params).length === 0) {
     response.setHeader('content-type', 'application/json')
     response.end(JSON.stringify(contacts.list()))

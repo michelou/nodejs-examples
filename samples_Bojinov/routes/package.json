@@ -15,16 +15,16 @@
     "test": "mocha --recursive"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.5.3",
-    "request": "~2.71.0"
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "request": "~2.88.0"
   },
   "engines": {
-    "node": ">=8.9.0",
-    "npm": ">=5.6.0"
+    "node": ">=8.12.0",
+    "npm": ">=6.4.1"
   }
 }

@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Bojinov\</code></strong> directory contains <a href="http://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138">Bojinov's book</a> "<i>RESTful Web API Design with Node.js</i>" (Packet, 2015).</td>
+  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Bojinov\</code></strong> directory contains <a href="http://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138">Bojinov's book</a> "<i>RESTful Web API Design with Node.js</i>" (<a href="https://www.packtpub.com/">Packt</a>, 2015).</td>
   </tr>
 </table>
 
@@ -20,11 +20,11 @@ Executing the **`npm start`** command in directory **`samples_Bojinov\hello-1\`*
 &gt; hello1-app@0.0.1 start C:\nodejs-examples\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .
 
-Node runtime: 8.11.1 (x64)
+Node runtime: 8.12.0 (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018*
+*[mics](http://lampwww.epfl.ch/~michelou/)/September 2018*

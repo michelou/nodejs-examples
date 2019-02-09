@@ -1,7 +1,7 @@
 const exec = require('child_process').exec;
 const platform = require('os').platform();
 
-const config = require('./config.json');
+const config = require('../config.json');
 const url = `http://${config.host}:${config.port}/contacts/%2B359777123456`;
 const cmd = 
   (platform === 'win32' ) ? `start "" ${url}` : (

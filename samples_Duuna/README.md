@@ -1,7 +1,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Duuna\</code></strong> directory contains <a href="http://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.abebooks.fr/edition-originale/Secure-Node.js-Web-Application-Duuna-Karl/18302115900/bd">Düüna's book</a> "<i>Secure Your Node.js Web Application</i>" (2016).</td>
+  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Duuna\</code></strong> directory contains <a href="http://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.abebooks.fr/edition-originale/Secure-Node.js-Web-Application-Duuna-Karl/18302115900/bd">Düüna's book</a> "<i>Secure Your Node.js Web Application</i>" (<a href="https://pragprog.com/">The Pragmatic Programmers</a>, 2016).</td>
   </tr>
 </table>
 
@@ -18,11 +18,11 @@ Executing the **`npm start`** command in directory **`samples_Duuna\chp-3-networ
 > cluster-main@1.0.0 start C:\nodejs-examples\samples_Duuna\chp-3-networking
 > node app/cluster-main.js
 
-Node runtime: 8.11.1 (x64)
+Node runtime: 8.12.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018*
+*[mics](http://lampwww.epfl.ch/~michelou/)/September 2018*
 

@@ -7,7 +7,7 @@ const hostname = config.host
 const port = +process.env.PORT || config.port
 
 function handle_request(request, response) {
-  response.writeHead(200, {'Content-Type': 'text/plain'})
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
   response.end('Hello World.- Are you restless to go restful?')
   console.log('requested (' + request.method + ')')
 }

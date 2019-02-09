@@ -44,7 +44,7 @@ Executing the **`npm start`** command in directory **`samples\locales-1\`** perf
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 8.11.1 (x64)
+Node runtime: 8.12.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -70,7 +70,7 @@ Executing the **`npm start`** command in directory **`samples\locales-2\`** perf
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 8.11.1 (x64)
+Node runtime: 8.12.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3

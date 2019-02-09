@@ -1,7 +1,12 @@
 {
-  "host": "localhost",
-  "port": "8180",
-  "dbpath": "C:/Temp/MongoDB",
-  "local_uri": "mongodb://localhost/sandbox",
-  "remote_uri": "mongodb://<dbuser>:<dbpassword>@<dbserver>.mlab.com:13599/sandbox"
+  "use_local": true,
+  "local_db": {
+    "path": "C:/Temp/MongoDB",
+    "uri": "mongodb://localhost/sandbox"
+  },
+  "remote_db": {
+    "user": "",
+    "password": "",
+    "uri": "mongodb://<user>:<password>@<host>.mlab.com:<port>/sandbox"
+  }
 }

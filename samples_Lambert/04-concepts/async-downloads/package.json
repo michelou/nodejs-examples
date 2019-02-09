@@ -5,14 +5,23 @@
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
   "scripts": {
-    "start": "node app/async-downloads.js"
+    "start": "node app/async-downloads.js",
+    "lint": "eslint app"
   },
   "dependencies": {
-    "async": "^2.6.0",
-    "got": "^2.9.2"
+    "async": "^2.6.1",
+    "got": "^9.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
   },
   "engines": {
-    "node": ">=8.9.0",
-    "npm": ">=5.6.0"
+    "node": ">=8.12.0",
+    "npm": ">=6.4.1"
   }
 }
