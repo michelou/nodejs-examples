@@ -11,9 +11,9 @@
   ],
   "private": true,
   "scripts": {
-    "start": "node ./npm_scripts/start_browser.js && node .",
     "client": "node .npm_scrips/start_client.js",
     "lint": "eslint app && eslint --env mocha test",
+    "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "mocha test"
   },
   "dependencies": {},

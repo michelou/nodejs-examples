@@ -2,19 +2,20 @@
   "name": "express-app",
   "version": "0.0.1",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.38",
-  "main": "app.js",
+  "main": "app/app.js",
   "private": true,
   "scripts": {
     "lint": "eslint app && eslint --env mocha test",
+    "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "node node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "jade": "*",
-    "method-override": "*",
+    "method-override": "^3.0.0",
     "moment": "^2.24.0",
-    "serve-favicon": "*"
+    "pug": "^2.0.3",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

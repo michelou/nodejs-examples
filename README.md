@@ -66,10 +66,10 @@ We distinguish different sets of batch scripts:
 1. [**`setenv.bat`**](setenv.bat)* - This batch script makes the external tools such as **`node.exe`**, **`npm.cmd`** directly available from the command prompt.
 
     <pre style="font-size:80%;">
-    &gt; node --version
+    <b>&gt; node --version</b>
     v8.12.0
 
-    &gt; npm --version
+    <b> &gt; npm --version</b>
     6.4.1
     </pre>
 
@@ -81,9 +81,9 @@ We distinguish different sets of batch scripts:
 The **`setenv`** command is executed once to setup your development environment:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
-<b>&gt;</b> setenv
+<b>&gt; setenv</b>
 
-<b>&gt;</b> where npm
+<b>&gt; where npm</b>
 C:\opt\node-v8.12.0-win-x64\npm
 C:\opt\node-v8.12.0-win-x64\npm.cmd
 </pre>
@@ -91,7 +91,7 @@ C:\opt\node-v8.12.0-win-x64\npm.cmd
 With option **`-verbose`** the **`setenv`** command displays the version/path of the tools:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
-<b>&gt;</b> setenv.bat -verbose
+<b>&gt; setenv.bat -verbose</b>
 NODE_VERSION=v8.12.0
 NPM_VERSION=6.4.1
 GIT_VERSION=2.20.1.windows.1

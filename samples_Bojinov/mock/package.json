@@ -4,16 +4,27 @@
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.29",
   "maintainers": [
     {
-      "name": "Stéphane Micheloud",
+      "name": "StÃ©phane Micheloud",
       "web": "http://lamp.epfl.ch/~michelou/"
     }
   ],
+  "private": true,
+  "scripts": {
+    "lint": "eslint modules",
+    "test": "node_modules/.bin/nodeunit test"
+  },
   "devDependencies": {
-    "nodeunit": "^0.9.1",
-    "sinon": "^1.17.3"
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodeunit": "^0.11.3",
+    "sinon": "^7.2.3"
   },
   "engines": {
-    "node": ">=8.9.0",
-    "npm": ">=5.6.0"
+    "node": ">=8.12.0",
+    "npm": ">=6.4.1"
   }
 }

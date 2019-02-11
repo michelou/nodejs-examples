@@ -2,7 +2,7 @@
   "name": "routes-app",
   "version": "0.0.1",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.44",
-  "main": "app.js",
+  "main": "app/app.js",
   "maintainers": [
     {
       "name": "Stéphane Micheloud",
@@ -11,17 +11,25 @@
   ],
   "private": true,
   "scripts": {
-    "start": "node app/app.js",
-    "test": "mocha --recursive"
+    "start": "node ./npm_scripts/start_browser.js && node .",
+    "test": "mocha --recursive",
+    "lint": "eslint app"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "mocha": "^5.2.0",
-    "request": "~2.88.0"
+    "request": "^2.88.0"
   },
   "engines": {
     "node": ">=8.12.0",
