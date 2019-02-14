@@ -7,22 +7,43 @@
 
 ### `chp-3-networking`
 
-Executing the **`npm start`** command in directory **`samples_Duuna\chp-3-networking\`** performs two tasks:
+Executing command **`npm start`** in directory [**`samples_Duuna\chp-3-networking\`**](./chp-3-networking/) performs two tasks:
 
-- it starts the server application which listen to client requests on port **`3000`** (defined in file **`config.json`**).
+- it starts the server application which listen to client requests on port **`3000`** (defined in file [**`config.json`**](./chp-3-networking/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:3000`** URL in your default web browser.
 
 <pre style="font-size:80%;">
-> npm start
+<b>&gt; npm start</b>
 
-> cluster-main@1.0.0 start C:\nodejs-examples\samples_Duuna\chp-3-networking
-> node app/cluster-main.js
+> cluster-main@1.0.0 start W:\nodejs-examples\samples_Duuna\chp-3-networking
+> node ./npm_scripts/start_browser.js && node .
 
-Node runtime: 8.12.0 (x64)
+
+Node runtime: 10.15.1 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/September 2018*
+### `chp-4-code-injection`
+
+Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-injection\`**](./chp-4-code-injection/) performs two tasks:
+
+- it starts the server application which listen to client requests on port **`3000`** (defined in file [**`config.json`**](./chp-4-code-injection/config_TEMPLATE.json)).
+- it opens the **`http:/127.0.0.1:3000`** URL in your default web browser.
+
+<pre style="font-size:80%;">
+<b>&gt; npm start</b>
+
+> calculator@0.0.1 start W:\nodejs-examples\samples_Duuna\chp-4-code-injection
+> node ./npm_scripts/start_browser.js && node .
+
+
+Node runtime: 10.15.1 (x64)
+Module search path: (none)
+Server listening on port 3000
+</pre>
+
+
+*[mics](http://lampwww.epfl.ch/~michelou/)/February 2019*
 

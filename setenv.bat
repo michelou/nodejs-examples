@@ -83,10 +83,10 @@ if defined NODE_HOME (
         if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
     ) else (
         set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         if not defined _NODE_HOME (
             set __PATH=C:\progra~1
-            for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+            for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
         )
         if defined _NODE_HOME (
             rem path name of installation directory may contain spaces

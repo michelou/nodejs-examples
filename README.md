@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers Node.js examples coming from various websites and books.<br/>
+  <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> examples coming from various websites and books.<br/>
   It also includes several batch scripts for experimenting with Node.js on the <b>Microsoft Windows</b> platform.
   </td>
   </tr>
@@ -13,7 +13,7 @@
 
 This project repository relies on a small set of software installations for the **Microsoft Windows** plaform:
 
-- [Node.js 8.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V8.md#8.12.0))
+- [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.15.1))
 - [MongoDB 3.x](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl)
 
 Optionally one may also install the following software:
@@ -26,8 +26,8 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*February 2019*):
 
 <pre style="font-size:80%;">
-C:\opt\node-v8.12.0-win-x64\node.exe
-C:\opt\node-v8.12.0-win-x64\npm.cmd
+C:\opt\node-v10.15.1-win-x64\node.exe
+C:\opt\node-v10.15.1-win-x64\npm.cmd
 C:\opt\Git-2.20.1\bin\git.exe
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
 </pre>
@@ -63,13 +63,13 @@ where
 
 We distinguish different sets of batch scripts:
 
-1. [**`setenv.bat`**](setenv.bat)* - This batch script makes the external tools such as **`node.exe`**, **`npm.cmd`** directly available from the command prompt.
+1. [**`setenv.bat`**](setenv.bat) - This batch script makes the external tools such as [**`node.exe`**](https://nodejs.org/api/cli.html#cli_command_line_options), [**`npm.cmd`**](https://docs.npmjs.com/cli/npm) directly available from the command prompt.
 
     <pre style="font-size:80%;">
-    <b>&gt; node --version</b>
-    v8.12.0
+    <b>&gt; node -v</b>
+    v10.15.1
 
-    <b> &gt; npm --version</b>
+    <b> &gt; npm -v</b>
     6.4.1
     </pre>
 
@@ -84,23 +84,23 @@ The **`setenv`** command is executed once to setup your development environment:
 <b>&gt; setenv</b>
 
 <b>&gt; where npm</b>
-C:\opt\node-v8.12.0-win-x64\npm
-C:\opt\node-v8.12.0-win-x64\npm.cmd
+C:\opt\node-v10.15.1-win-x64\npm
+C:\opt\node-v10.15.1-win-x64\npm.cmd
 </pre>
 
 With option **`-verbose`** the **`setenv`** command displays the version/path of the tools:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-NODE_VERSION=v8.12.0
+Your environment has been set up for using Node.js 10.15.1 (x64) and npm.
+NODE_VERSION=v10.15.1
 NPM_VERSION=6.4.1
 GIT_VERSION=2.20.1.windows.1
-C:\opt\node-v8.12.0-win-x64\node.exe
-C:\opt\node-v8.12.0-win-x64\npm.cmd
+C:\opt\node-v10.15.1-win-x64\node.exe
+C:\opt\node-v10.15.1-win-x64\npm.cmd
 C:\opt\Git-2.20.1\bin\git.exe
 </pre>
 
 
-^
 *[mics](http://lampwww.epfl.ch/~michelou/)/February 2019*
 
