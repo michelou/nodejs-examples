@@ -16,3 +16,8 @@ server.listen(port, function (error) {
   console.log('Module search path: ' + (process.env.NODE_PATH || '(none)'))
   console.log('Server listening on port ' + port)
 })
+
+if (require.main !== module) {
+  // for testing
+  exports.server = server
+}

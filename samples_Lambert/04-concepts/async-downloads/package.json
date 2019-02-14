@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
+  "private": true,
   "scripts": {
     "start": "node app/async-downloads.js",
     "lint": "eslint app"

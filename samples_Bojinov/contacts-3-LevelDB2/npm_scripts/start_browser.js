@@ -5,8 +5,7 @@ const config = require('../config.json');
 const url = `http://${config.host}:${config.port}/contacts/%2B359777123456`;
 const cmd = 
   (platform === 'win32' ) ? `start "" ${url}` : (
-  (platform === 'darwin') ? `open ${url}` : `x-www-browser ${url}`
-);
+  (platform === 'darwin') ? `open ${url}` : `x-www-browser ${url}`);
 
 exec(cmd, (error, stdout, stderr) => {
   if (error) {

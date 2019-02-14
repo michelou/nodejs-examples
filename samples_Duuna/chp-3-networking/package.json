@@ -2,23 +2,27 @@
   "name": "cluster-main",
   "version": "1.0.0",
   "description": "",
-  "main": "cluster-main.js",
+  "main": "app/cluster-main.js",
+  "private": true,
   "scripts": {
-    "start": "node app/cluster-main.js",
     "client": "node ./npm_scripts/start_client.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint app"
+    "start": "node ./npm_scripts/start_browser.js && node .",
+    "lint": "eslint app",
+    "test": "mocha test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.13.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0",
+    "request": "^2.88.0"
   },
   "engines": {
     "node": ">=8.12.0",

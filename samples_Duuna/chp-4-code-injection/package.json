@@ -5,22 +5,26 @@
   "main": "app/calculator.js",
   "private": true,
   "scripts": {
-    "start": "node ./app/calculator.js",
-    "test": "node node_modules/mocha/bin/mocha",
-    "lint": "eslint app"
+    "start": "node ./npm_scripts/start_browser.js && node .",
+    "lint": "eslint app test",
+    "test": "./node_modules/.bin/mocha test"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "safe-eval": "^0.4.1"
   },
   "devDependencies": {
-    "acorn": "^6.1.0",
+    "chai": "^4.2.0",
     "eslint": "^5.13.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "zombie": "^6.1.4"
   },
   "engines": {
     "node": ">=8.12.0",

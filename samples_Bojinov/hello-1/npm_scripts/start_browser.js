@@ -6,8 +6,7 @@ const url = `http://${config.host}:${config.port}`;
 
 const cmd = 
   (platform === 'win32' ) ? `start "" ${url}` : (
-  (platform === 'darwin') ? `open ${url}` : `x-www-browser ${url}`
-);
+  (platform === 'darwin') ? `open ${url}` : `x-www-browser ${url}`);
 
 exec(cmd, (error, stdout, stderr) => {
   if (error) {

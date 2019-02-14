@@ -14,15 +14,15 @@
 
 'use strict'
 
-var async = require('async')
+const async = require('async')
 
 // Utiliser le paquet `got` pour le téléchargement.
-var got = require('got')
+const got = require('got')
 
 // Utiliser `fs.writeFile()` pour enregistrer les fichiers.
-var writeFile = require('fs').writeFile
+const writeFile = require('fs').writeFile
 
-var files = [
+const files = [
   {
     name: 'example-net.html',
     url: 'http://example.net/'
@@ -39,7 +39,9 @@ async.waterfall([
   function (callback) {
     async.parallel(files.map(function (file) {
       return function (callback) {
-        got(file.url, callback)
+        // console.log('get URL ' + file.url)
+        got(file.url)
+        callback()
       }
     }), callback)
   },
@@ -48,6 +50,7 @@ async.waterfall([
   function (results, callback) {
     async.parallel(results.map(function (content, i) {
       return function (callback) {
+        // console.log('write file ' + files[i].name)
         writeFile(files[i].name, content, callback)
       }
     }), callback)
