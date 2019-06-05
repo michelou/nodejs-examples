@@ -44,7 +44,7 @@ Executing the **`npm start`** command in directory **`samples\locales-1\`** perf
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 10.15.1 (x64)
+Node runtime: 10.16.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -70,7 +70,7 @@ Executing command **`npm start`** in directory **`samples\locales-2\`** performs
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 8.12.0 (x64)
+Node runtime: 10.16.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -142,5 +142,5 @@ Returning Paradise.m4a for request /music
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/February 2019*
+*[mics](http://lampwww.epfl.ch/~michelou/)/June 2019*
 

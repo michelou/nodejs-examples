@@ -13,22 +13,22 @@
 
 This project repository relies on a small set of software installations for the **Microsoft Windows** plaform:
 
-- [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.15.1))
+- [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.16.0))
 - [MongoDB 3.x](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl)
 
 Optionally one may also install the following software:
 
-- [Git 2.20](https://git-scm.com/download/win) ([*release notes*](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.20.1.txt))
+- [Git 2.21](https://git-scm.com/download/win) ([*release notes*](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.21.0.txt))
 
 > ***Software installation policy***<br/>
 > Whenever possible software is installed via a Zip archive rather than via a Windows installer.
 
-For instance our development environment looks as follows (*February 2019*):
+For instance our development environment looks as follows (*June 2019*):
 
 <pre style="font-size:80%;">
-C:\opt\node-v10.15.1-win-x64\node.exe
-C:\opt\node-v10.15.1-win-x64\npm.cmd
-C:\opt\Git-2.20.1\bin\git.exe
+C:\opt\node-v10.16.0-win-x64\node.exe
+C:\opt\node-v10.16.0-win-x64\npm.cmd
+C:\opt\Git-2.21.0\bin\git.exe
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
 </pre>
 
@@ -67,10 +67,10 @@ We distinguish different sets of batch scripts:
 
     <pre style="font-size:80%;">
     <b>&gt; node -v</b>
-    v10.15.1
+    v10.16.0
 
     <b> &gt; npm -v</b>
-    6.4.1
+    6.9.0
     </pre>
 
 
@@ -84,23 +84,23 @@ The **`setenv`** command is executed once to setup your development environment:
 <b>&gt; setenv</b>
 
 <b>&gt; where npm</b>
-C:\opt\node-v10.15.1-win-x64\npm
-C:\opt\node-v10.15.1-win-x64\npm.cmd
+C:\opt\node-v10.16.0-win-x64\npm
+C:\opt\node-v10.16.0-win-x64\npm.cmd
 </pre>
 
 With option **`-verbose`** the **`setenv`** command displays the version/path of the tools:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-Your environment has been set up for using Node.js 10.15.1 (x64) and npm.
-NODE_VERSION=v10.15.1
-NPM_VERSION=6.4.1
-GIT_VERSION=2.20.1.windows.1
-C:\opt\node-v10.15.1-win-x64\node.exe
-C:\opt\node-v10.15.1-win-x64\npm.cmd
-C:\opt\Git-2.20.1\bin\git.exe
+Your environment has been set up for using Node.js 10.16.0 (x64) and npm.
+NODE_VERSION=v10.16.0
+NPM_VERSION=6.9.0
+GIT_VERSION=2.21.0.windows.1
+C:\opt\node-v10.16.0-win-x64\node.exe
+C:\opt\node-v10.16.0-win-x64\npm.cmd
+C:\opt\Git-2.21.0\bin\git.exe
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/February 2019*
+*[mics](http://lampwww.epfl.ch/~michelou/)/June 2019*
 

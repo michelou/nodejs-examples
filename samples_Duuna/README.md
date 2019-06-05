@@ -12,16 +12,36 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-3-networkin
 - it starts the server application which listen to client requests on port **`3000`** (defined in file [**`config.json`**](./chp-3-networking/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:3000`** URL in your default web browser.
 
+First we start the server application in a new console:
+
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; start npm start</b>
 
 > cluster-main@1.0.0 start W:\nodejs-examples\samples_Duuna\chp-3-networking
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 10.15.1 (x64)
+Node runtime: 10.16.0 (x64)
 Module search path: (none)
 Server listening on port 3000
+</pre>
+
+Then we start the client application in the current console:
+
+<pre>
+<b>&gt; npm run client</b> 
+                              
+> cluster-main@1.0.0 client W:\nodejs-examples\samples_Duuna\chp-3-networking
+> node ./npm_scripts/start_client.js   
+
+en
+hello world
+
+de
+hello world
+
+fr
+hello world
 </pre>
 
 
@@ -39,11 +59,11 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 10.15.1 (x64)
+Node runtime: 10.16.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/February 2019*
+*[mics](http://lampwww.epfl.ch/~michelou/)/June 2019*
 
