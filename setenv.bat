@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 rem only for interactive debugging
-set _DEBUG=1
+set _DEBUG=0
 
 rem ##########################################################################
 rem ## Environment setup
