@@ -9,18 +9,18 @@
     "start": "grunt & node ./npm_scripts/start_browser.js build/app.html"
   },
   "devDependencies": {
-    "grunt": "^1.0.0",
-    "grunt-contrib-coffee": "^2.0.0",
+    "grunt": "^1.0.4",
+    "grunt-contrib-coffee": "^2.1.0",
     "grunt-contrib-stylus": "^1.2.0",
-    "grunt-contrib-pug": "^1.0.0",
-    "grunt-contrib-htmlmin": "^2.4.0",
-    "grunt-contrib-uglify": "^3.3.0",
-    "grunt-contrib-cssmin": "^2.2.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-aws": "^0.6.0"
+    "grunt-contrib-pug": "^2.0.0",
+    "grunt-contrib-htmlmin": "^3.1.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-aws": "^0.7.1"
   },
   "engines": {
-    "node": ">=8.9.0",
-    "npm": ">=5.6.0"
+    "node": ">=10.140",
+    "npm": ">=6.9.0"
   }
 }
