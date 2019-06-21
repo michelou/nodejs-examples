@@ -11,7 +11,7 @@
 
 ## Project dependencies
 
-This project repository relies on a small set of software installations for the **Microsoft Windows** plaform:
+This project repository relies on two software installations for the **Microsoft Windows** plaform:
 
 - [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.16.0))
 - [MongoDB 3.x](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl)
@@ -28,7 +28,7 @@ For instance our development environment looks as follows (*June 2019*):
 <pre style="font-size:80%;">
 C:\opt\node-v10.16.0-win-x64\node.exe
 C:\opt\node-v10.16.0-win-x64\npm.cmd
-C:\opt\Git-2.21.0\bin\git.exe
+C:\opt\Git-2.22.0\bin\git.exe
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
 </pre>
 
@@ -56,6 +56,8 @@ where
 - directory [**`samples\`**](samples/) contains Node.js examples grabbed from various websites.
 - directory [**`samples_Bojinov\`**](samples_Bojinov/) contains Node.js examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
 - directory [**`samples_Cook\`**](samples_Cook/) contains Node.js examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
+- directory [**`samples_Duuna`**](samples_Duuna/) conains Node.js examples from [Düüna's book](https://www.abebooks.fr/edition-originale/Secure-Node.js-Web-Application-Duuna-Karl/18302115900/bd).
+- directory [**`samples_Lambert`**](samples_Lambert/) contains Node.js examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
 - file [**`README.md`**](README.md) is the Markdown document for this page.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
@@ -74,11 +76,11 @@ We distinguish different sets of batch scripts:
     </pre>
 
 
-## Session examples
+## Usage examples
 
 #### `setenv.bat`
 
-The **`setenv`** command is executed once to setup your development environment:
+Command **`setenv`** is executed once to setup your development environment:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
 <b>&gt; setenv</b>
@@ -88,17 +90,17 @@ C:\opt\node-v10.16.0-win-x64\npm
 C:\opt\node-v10.16.0-win-x64\npm.cmd
 </pre>
 
-With option **`-verbose`** the **`setenv`** command displays the version/path of the tools:
+Command **`setenv -verbose`** also displays the version/path of the tools:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
 Your environment has been set up for using Node.js 10.16.0 (x64) and npm.
 NODE_VERSION=v10.16.0
 NPM_VERSION=6.9.0
-GIT_VERSION=2.21.0.windows.1
+GIT_VERSION=2.22.0.windows.1
 C:\opt\node-v10.16.0-win-x64\node.exe
 C:\opt\node-v10.16.0-win-x64\npm.cmd
-C:\opt\Git-2.21.0\bin\git.exe
+C:\opt\Git-2.22.0\bin\git.exe
 </pre>
 
 
