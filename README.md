@@ -4,7 +4,7 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> examples coming from various websites and books.<br/>
-  It also includes several batch scripts for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
+  It also includes several batch commands for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
   </td>
   </tr>
 </table>
@@ -30,11 +30,11 @@ C:\opt\Git-2.22.0\                               <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\  <i>(1.1 GB)</i>
 </pre>
 
-For instance our development environment looks as follows (*June 2019*):
+For instance our development environment looks as follows (*August 2019*):
 
 <pre style="font-size:80%;">
-C:\opt\node-v10.16.0-win-x64\node.exe
-C:\opt\node-v10.16.0-win-x64\npm.cmd
+C:\opt\node-v10.16.1-win-x64\node.exe
+C:\opt\node-v10.16.1-win-x64\npm.cmd
 C:\opt\Git-2.22.0\bin\git.exe
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
 </pre>
@@ -51,12 +51,12 @@ This project is organized as follows:
 docs
 README.md
 samples
-samples_Bojinov
-samples_Cook
-samples_Duuna
-samples_Lambert
-samples_Pillora
-samples_Visual_Studio
+samples_Bojinov\
+samples_Cook\
+samples_Duuna\
+samples_Lambert\
+samples_Pillora\
+samples_Visual_Studio\
 setenv.bat
 </pre>
 
@@ -67,7 +67,8 @@ where
 - directory [**`samples_Bojinov\`**](samples_Bojinov/) contains Node.js examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
 - directory [**`samples_Cook\`**](samples_Cook/) contains Node.js examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
 - directory [**`samples_Duuna`**](samples_Duuna/) contains Node.js examples from [Duuna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
-- directory [**`samples_Lambert`**](samples_Lambert/) contains Node.js examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
+- directory [**`samples_Lambert\`**](samples_Lambert/) contains Node.js examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
+- directory [**`samples_Pillora\`**](samples_Pillora/) contains Node.js examples from [Pillora's book](https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner).
 - file [**`README.md`**](README.md) is the Markdown document for this page.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
@@ -96,9 +97,9 @@ We distinguish different sets of batch commands:
       Subcommands:
         help        display this help message
     <b>&gt; where node npm</b>
-    C:\opt\node-v10.15.1-win-x64\node.exe
-    C:\opt\node-v10.15.1-win-x64\npm
-    C:\opt\node-v10.15.1-win-x64\npm.cmd
+    C:\opt\node-v10.16.1-win-x64\node.exe
+    C:\opt\node-v10.16.1-win-x64\npm
+    C:\opt\node-v10.16.1-win-x64\npm.cmd
     </pre>
 
 
@@ -106,7 +107,7 @@ We distinguish different sets of batch commands:
 
 #### `setenv.bat`
 
-Command **`setenv`** is executed once to setup your development environment:
+Command [**`setenv`**](setenv.bat) is executed once to setup your development environment:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
 <b>&gt; setenv</b>

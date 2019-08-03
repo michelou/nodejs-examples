@@ -12,6 +12,7 @@ set _EXITCODE=0
 
 call :args %*
 if not %_EXITCODE%==0 goto end
+if %_HELP%==1 call :help & exit /b %_EXITCODE%
 
 rem ##########################################################################
 rem ## Main
@@ -38,6 +39,7 @@ rem ## Subroutines
 
 rem input parameter: %*
 :args
+set _HELP=0
 set _VERBOSE=0
 set __N=0
 :args_loop
@@ -47,10 +49,11 @@ if not defined __ARG (
 ) else if not "%__ARG:~0,1%"=="-" (
     set /a __N=!__N!+1
 )
-if /i "%__ARG%"=="help" ( call :help & goto :eof
+if /i "%__ARG%"=="help" ( set _HELP=1 & goto args_done
+) else if /i "%__ARG%"=="-debug" ( set _DEBUG=1
 ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
 ) else (
-    echo %_BASENAME%: Unknown subcommand %__ARG%
+    echo Error: Unknown subcommand %__ARG% 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -62,9 +65,10 @@ goto :eof
 :help
 echo Usage: setenv { options ^| subcommands }
 echo   Options:
-echo     -verbose         display environment settings
+echo     -debug      show commands executed by this script
+echo     -verbose    display environment settings
 echo   Subcommands:
-echo     help             display this help message
+echo     help        display this help message
 goto :eof
 
 :git
@@ -86,11 +90,11 @@ if defined GIT_HOME (
     )
 )
 if not exist "%_GIT_HOME%\bin\git.exe" (
-    echo Git executable not found ^(%_GIT_HOME%^)
+    echo Error: Git executable not found ^(%_GIT_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_GIT_PATH=;%_GIT_HOME%\bin"
+set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
 goto :eof
 
 :npm
@@ -125,12 +129,12 @@ if defined NODE_HOME (
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
-    echo Node installation directory not found ^(%_NODE_HOME%^)
+    echo Error: Node installation directory not found ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 if not exist "%_NODE_HOME%\npm.cmd" (
-    echo npm not found in Node installation directory ^(%_NODE_HOME%^)
+    echo Error: npm not found in Node installation directory ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -176,7 +180,7 @@ if defined CURL_HOME (
     )
 )
 if not exist "%_CURL_HOME%\bin\curl.exe" (
-    echo cURL executable not found ^(%_CURL_HOME%^)
+    echo Error: cURL executable not found ^(%_CURL_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -184,24 +188,38 @@ set "_CURL_PATH=;%_CURL_HOME%\bin"
 goto :eof
 
 :print_env
+set __VERBOSE=%1
+set __VERSIONS_LINE1=
+set __VERSIONS_LINE2=
 set __WHERE_ARGS=
+where /q node.exe
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('node.exe --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% node.exe
+)
 where /q npm.cmd
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('node.exe --version') do echo NODE_VERSION=%%i
-    for /f %%i in ('npm.cmd --version') do echo NPM_VERSION=%%i
-    set __WHERE_ARGS=%__WHERE_ARGS% node.exe npm.cmd
+    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    set __WHERE_ARGS=%__WHERE_ARGS% npm.cmd
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do echo GIT_VERSION=%%k
+    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% git.exe
 )
 where /q curl.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do echo CURL_VERSION=%%j
+    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% curl %%j"
     set __WHERE_ARGS=%__WHERE_ARGS% curl.exe
 )
-where %__WHERE_ARGS%
+echo Tool versions:
+echo   %__VERSIONS_LINE1%
+echo   %__VERSIONS_LINE2%
+if %__VERBOSE%==1 (
+    rem if %_DEBUG%==1 echo [%_BASENAME%] where %__WHERE_ARGS%
+    echo Tool paths:
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p
+)
 goto :eof
 
 rem ##########################################################################
@@ -211,7 +229,7 @@ rem ## Cleanups
 endlocal & (
     if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
     set "PATH=%PATH%%_GIT_PATH%%_CURL_PATH%"
-    if %_VERBOSE%==1 call :print_env
+    call :print_env %_VERBOSE%
     if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )

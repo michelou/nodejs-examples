@@ -162,7 +162,7 @@ if not exist "%_GIT_HOME%\bin\git.exe" (
     set _EXITCODE=1
     goto :eof
 )
-set "_GIT_PATH=;%_GIT_HOME%\bin"
+set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
 goto :eof
 
 :pm2
