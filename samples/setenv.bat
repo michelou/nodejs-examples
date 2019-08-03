@@ -12,6 +12,7 @@ set _EXITCODE=0
 
 call :args %*
 if not %_EXITCODE%==0 goto end
+if %_HELP%==1 call :help & exit /b %_EXITCODE%
 
 rem ##########################################################################
 rem ## Main
@@ -42,6 +43,7 @@ rem ## Subroutines
 
 rem input parameter: %*
 :args
+set _HELP=0
 set _VERBOSE=0
 set __N=0
 :args_loop
@@ -51,17 +53,18 @@ if not defined __ARG (
 ) else if not "%__ARG:~0,1%"=="-" (
     set /a __N=!__N!+1
 )
-if /i "%__ARG%"=="help" ( call :help & goto :eof
+if /i "%__ARG%"=="help" ( set _HELP=1 & goto args_done
 ) else if /i "%__ARG%"=="-debug" ( set _DEBUG=1
 ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
 ) else (
-    echo %_BASENAME%: Unknown subcommand %__ARG%
+    echo Error: Unknown subcommand %__ARG% 1>&2
     set _EXITCODE=1
     goto :eof
 )
 shift
 goto :args_loop
 :args_done
+if %_DEBUG%==1 echo [%_BASENAME%] _VERBOSE=%_VERBOSE%
 goto :eof
 
 :help
@@ -92,11 +95,11 @@ if defined GIT_HOME (
     )
 )
 if not exist "%_GIT_HOME%\bin\git.exe" (
-    echo Git executable not found ^(%_GIT_HOME%^)
+    echo Error: Git executable not found ^(%_GIT_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_GIT_PATH=;%_GIT_HOME%\bin"
+set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
 goto :eof
 
 :npm
@@ -124,12 +127,12 @@ if defined NODE_HOME (
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
-    echo Node installation directory not found ^(%_NODE_HOME%^)
+    echo Error: Node installation directory not found ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 if not exist "%_NODE_HOME%\npm.cmd" (
-    echo npm not found in Node installation directory ^(%_NODE_HOME%^)
+    echo Error: npm not found in Node installation directory ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -179,7 +182,7 @@ if defined MONGO_HOME (
     )
 )
 if not exist "%_MONGO_HOME%\bin\mongod.exe" (
-    echo MongoDB executable not found ^(%_MONGO_HOME%^)
+    echo Error: MongoDB executable not found ^(%_MONGO_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -207,7 +210,7 @@ if defined CURL_HOME (
     )
 )
 if not exist "%_CURL_HOME%\bin\curl.exe" (
-    echo cURL executable not found ^(%_CURL_HOME%^)
+    echo Error: cURL executable not found ^(%_CURL_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )

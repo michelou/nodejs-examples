@@ -30,6 +30,15 @@ C:\opt\Git-2.22.0\                               <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\  <i>(1.1 GB)</i>
 </pre>
 
+For instance our development environment looks as follows (*June 2019*):
+
+<pre style="font-size:80%;">
+C:\opt\node-v10.16.0-win-x64\node.exe
+C:\opt\node-v10.16.0-win-x64\npm.cmd
+C:\opt\Git-2.22.0\bin\git.exe
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
+</pre>
+
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive](https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/) rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`](http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html) directory on Unix).
 
@@ -58,6 +67,7 @@ where
 - directory [**`samples_Bojinov\`**](samples_Bojinov/) contains Node.js examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
 - directory [**`samples_Cook\`**](samples_Cook/) contains Node.js examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
 - directory [**`samples_Duuna`**](samples_Duuna/) contains Node.js examples from [Duuna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
+- directory [**`samples_Lambert`**](samples_Lambert/) contains Node.js examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
 - file [**`README.md`**](README.md) is the Markdown document for this page.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
@@ -96,7 +106,7 @@ We distinguish different sets of batch commands:
 
 #### `setenv.bat`
 
-The [**`setenv`**](setenv.bat) command is executed once to setup your development environment:
+Command **`setenv`** is executed once to setup your development environment:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
 <b>&gt; setenv</b>
@@ -107,7 +117,7 @@ C:\opt\node-v10.16.1-win-x64\npm
 C:\opt\node-v10.16.1-win-x64\npm.cmd
 </pre>
 
-With option **`-verbose`** the [**`setenv`**](setenv.bat) command displays the version/path of the tools:
+Command [**`setenv -verbose`**](setenv.bat) also displays the version/path of the tools:
 
 <pre style="margin:10px 0 0 30px;font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
@@ -124,3 +134,4 @@ Tool paths:
 
 *[mics](http://lampwww.epfl.ch/~michelou/)/August 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
+

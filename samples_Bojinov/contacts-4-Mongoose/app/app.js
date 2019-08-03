@@ -11,7 +11,7 @@ var logInfo = function (msg) {
 }
 
 var contactSchema = new mongoose.Schema({
-  primarycontactnumber: {type: String, index: {unique: true}},
+  primarycontactnumber: { type: String, index: { unique: true } },
   firstname: String,
   lastname: String,
   title: String,
@@ -39,7 +39,7 @@ var john_douglas = new Contact({
 })
 
 var find_tests = function () {
-  Contact.find({groups: 'Dev', title: 'Mr.'}, function (error, result) {
+  Contact.find({ groups: 'Dev', title: 'Mr.' }, function (error, result) {
     if (error) {
       logInfo('Error while executing find operation')
       console.error(error)
@@ -49,7 +49,7 @@ var find_tests = function () {
     }
   })
 
-  Contact.findOne({primarycontactnumber: '+359777223345'}, function (error, data) {
+  Contact.findOne({ primarycontactnumber: '+359777223345' }, function (error, data) {
     if (error) {
       console.log(error.message)
       // return

@@ -2,32 +2,37 @@
   "name": "contacts_Image-app",
   "version": "0.0.1",
   "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.88",
-  "main": "app.js",
+  "main": "app/app.js",
   "private": true,
   "scripts": {
+    "start": "node ./npm_scripts/start_browser.js && node .",
     "lint": "eslint app"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "express-paginate": "^1.0.0",
     "gridfs-stream": "^1.1.1",
-    "leveldown": "^4.0.1",
-    "levelup": "^4.0.0",
+    "leveldown": "^5.1.0",
+    "levelup": "^4.0.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.10",
+    "mongoose": "^5.5.12",
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.9.1",
     "pug": "^2.0.3"
   },
   "devDependencies": {
-    "errorhandler": "^1.5.0",
-    "eslint": "^5.13.0",
+    "errorhandler": "^1.5.1",
+    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=10.14.0",
+    "npm": ">=6.9.0"
   },
   "dbpath": "C:/Temp/MongoDB"
 }
