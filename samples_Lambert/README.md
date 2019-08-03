@@ -1,4 +1,4 @@
-# Node.js examples from Lambert's book
+# <span id="top">Node.js examples from Lambert's book</span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -8,13 +8,14 @@
   </tr>
 </table>
 
+
 ### `04-concepts`
 
-Executing the **`npm start`** command in directory **`samples_Lambert\04-concepts\`** performs to tasks:
+Executing the **`npm start`** command in directory [**`samples_Lambert\04-concepts\`**](./04-concepts/) performs to tasks:
 
 <pre style="font-size:80%;">
 
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018*
+*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018* [**&#9650;**](#top)

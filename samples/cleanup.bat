@@ -14,7 +14,7 @@ for %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
 
 where /q rimraf.cmd
 if not %ERRORLEVEL%==0 (
-    if %_DEBUG%==1 echo [%_BASENAME%] rimraf command not found
+    echo Error: rimraf command not found 1>&2
     set _EXITCODE=1
     goto end
 )
@@ -24,10 +24,10 @@ rem ## Main
 
 set _N=0
 for %%i in (auth-passport locales-1 locales-2 webaudio-sample) do (
-    set _DIR=%_ROOT_DIR%%%i\node_modules
-    if exist "!_DIR!" (
-        if %_DEBUG%==1 echo [%_BASENAME%] rimraf.cmd "!_DIR!"
-        call rimraf.cmd "!_DIR!"
+    set __DIR=%_ROOT_DIR%%%i\node_modules
+    if exist "!__DIR!\" (
+        if %_DEBUG%==1 echo [%_BASENAME%] rimraf.cmd "!__DIR!"
+        call rimraf.cmd "!__DIR!"
         set /a _N=+1
     )
 )

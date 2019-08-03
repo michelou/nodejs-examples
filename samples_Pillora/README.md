@@ -1,4 +1,4 @@
-# Node.js examples from Pillora's book
+# <span id="top">Node.js examples from Pillora's book</span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -10,13 +10,13 @@
 
 ### `4-02-project`
 
-Executing the **`npm start`** command in directory **`samples_Pillora\4-02-project\`** performs two tasks:
+Executing the **`npm start`** command in directory [**`samples_Pillora\4-02-project\`**](./4-02-project/) performs two tasks:
 
 - it builds your project using [Grunt](https://gruntjs.com/) (see Grunt tasks in file **`Gruntfile.js`**).
 - it opens the **`build/app.html`** Web page in your default web browser.
 
 <pre style="font-size:80%;">
-> npm i & npm start
+<b>&gt; npm i & npm start</b>
 up to date in 0.748s
 
 > gswg-4-02-project@0.1.0 start C:\nodejs-examples\samples_Pillora\4-02-project
@@ -34,8 +34,9 @@ Running "pug:build" (pug) task
 Done.
 </pre>
 
+
 ### `4-03-project`
 
 Same as `4-02-project`.
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018*
+*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018* [**&#9650;**](#top)

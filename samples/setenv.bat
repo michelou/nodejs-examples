@@ -10,6 +10,9 @@ set _BASENAME=%~n0
 
 set _EXITCODE=0
 
+call :args %*
+if not %_EXITCODE%==0 goto end
+
 rem ##########################################################################
 rem ## Main
 
@@ -36,6 +39,39 @@ goto end
 
 rem ##########################################################################
 rem ## Subroutines
+
+rem input parameter: %*
+:args
+set _VERBOSE=0
+set __N=0
+:args_loop
+set __ARG=%~1
+if not defined __ARG (
+    goto args_done
+) else if not "%__ARG:~0,1%"=="-" (
+    set /a __N=!__N!+1
+)
+if /i "%__ARG%"=="help" ( call :help & goto :eof
+) else if /i "%__ARG%"=="-debug" ( set _DEBUG=1
+) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+) else (
+    echo %_BASENAME%: Unknown subcommand %__ARG%
+    set _EXITCODE=1
+    goto :eof
+)
+shift
+goto :args_loop
+:args_done
+goto :eof
+
+:help
+echo Usage: setenv { options ^| subcommands }
+echo   Options:
+echo     -debug      show commands executed by this script
+echo     -verbose    display environment settings
+echo   Subcommands:
+echo     help        display this help message
+goto :eof
 
 :git
 where /q git.exe
@@ -179,24 +215,38 @@ set "_CURL_PATH=;%_CURL_HOME%\bin"
 goto :eof
 
 :print_env
+set __VERBOSE=%1
+set __VERSIONS_LINE1=
+set __VERSIONS_LINE2=
 set __WHERE_ARGS=
+where /q node.exe
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('node.exe --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% node.exe
+)
 where /q npm.cmd
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('node.exe --version') do echo NODE_VERSION=%%i
-    for /f %%i in ('npm.cmd --version') do echo NPM_VERSION=%%i
-    set __WHERE_ARGS=%__WHERE_ARGS% node.exe npm.cmd
+    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    set __WHERE_ARGS=%__WHERE_ARGS% npm.cmd
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do echo GIT_VERSION=%%k
+    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% git.exe
 )
 where /q curl.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do echo CURL_VERSION=%%j
+    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% curl %%j"
     set __WHERE_ARGS=%__WHERE_ARGS% curl.exe
 )
-where %__WHERE_ARGS%
+echo Tool versions:
+echo   %__VERSIONS_LINE1%
+echo   %__VERSIONS_LINE2%
+if %__VERBOSE%==1 (
+    rem if %_DEBUG%==1 echo [%_BASENAME%] where %__WHERE_ARGS%
+    echo Tool paths:
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p
+)
 goto :eof
 
 rem ##########################################################################
@@ -206,7 +256,7 @@ rem ## Cleanups
 endlocal & (
     if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
     set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%%_CURL_PATH%"
-    call :print_env
+    call :print_env %_VERBOSE%
     if %_DEBUG%==1 echo [%_SETENV_BASENAME%] _EXITCODE=%_EXITCODE%
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )

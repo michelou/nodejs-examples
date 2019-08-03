@@ -1,9 +1,13 @@
+# <span id="top">Node.js examples from Düüna's book</span>
+
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Duuna\</code></strong> directory contains <a href="http://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.abebooks.fr/edition-originale/Secure-Node.js-Web-Application-Duuna-Karl/18302115900/bd">Düüna's book</a> "<i>Secure Your Node.js Web Application</i>" (<a href="https://pragprog.com/">The Pragmatic Programmers</a>, 2016).</td>
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Duuna\</code></strong> 
+ contains <a href="http://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application">Düüna's book</a> "<i>Secure Your Node.js Web Application</i>" (<a href="https://pragprog.com/">The Pragmatic Programmers</a>, 2016).</td>
   </tr>
 </table>
+
 
 ### `chp-3-networking`
 
@@ -45,5 +49,5 @@ Server listening on port 3000
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/February 2019*
+*[mics](http://lampwww.epfl.ch/~michelou/)/February 2019* [**&#9650;**](#top)
 

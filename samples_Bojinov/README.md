@@ -1,4 +1,4 @@
-# Node.js examples from Bojinov's book
+# <span id="top">Node.js examples from Bojinov's book</span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -20,7 +20,7 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\hello-1\`**](
 &gt; hello1-app@0.0.1 start W:\nodejs-examples\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
-Node runtime: 10.15.1 (x64)
+Node runtime: 10.16.1 (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
@@ -32,7 +32,7 @@ requested (GET)
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
 
-&gt; math@0.0.1 test W:\nodejs-examples\samples_Bojinov\math
+&gt; math@0.0.1 test N:\nodejs-examples\samples_Bojinov\math
 &gt; nodeunit test
 
 test-math
@@ -48,7 +48,7 @@ OK: 2 assertions (16ms)
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
 
-> mock-example@0.0.1 test W:\nodejs-examples\samples_Bojinov\mock
+> mock-example@0.0.1 test N:\nodejs-examples\samples_Bojinov\mock
 > nodeunit test
 
 test-http-module
@@ -69,14 +69,16 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\routes\`**](.
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-&gt; routes-app@0.0.1 start W:\nodejs-examples\samples_Bojinov\routes
+&gt; routes-app@0.0.1 start N:\nodejs-examples\samples_Bojinov\routes
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: 10.15.1 (x64)
-Module search path: W:\nodejs-examples\samples_Bojinov\\node_modules
+Node runtime: 10.16.1 (x64)
+Module search path: N:\nodejs-examples\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 
+***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/February 2019*
+*[mics](http://lampwww.epfl.ch/~michelou/)/August 2019* [**&#9650;**](#top)
+<span id="bottom">&nbsp;</span>
