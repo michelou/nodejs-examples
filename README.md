@@ -30,15 +30,6 @@ C:\opt\Git-2.22.0\                               <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\  <i>(1.1 GB)</i>
 </pre>
 
-For instance our development environment looks as follows (*August 2019*):
-
-<pre style="font-size:80%;">
-C:\opt\node-v10.16.1-win-x64\node.exe
-C:\opt\node-v10.16.1-win-x64\npm.cmd
-C:\opt\Git-2.22.0\bin\git.exe
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
-</pre>
-
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive](https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/) rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`](http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html) directory on Unix).
 
@@ -66,7 +57,7 @@ where
 - directory [**`samples\`**](samples/) contains Node.js examples grabbed from various websites.
 - directory [**`samples_Bojinov\`**](samples_Bojinov/) contains Node.js examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
 - directory [**`samples_Cook\`**](samples_Cook/) contains Node.js examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
-- directory [**`samples_Duuna`**](samples_Duuna/) contains Node.js examples from [Duuna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
+- directory [**`samples_Duuna`**](samples_Duuna/) contains Node.js examples from [Düüna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
 - directory [**`samples_Lambert\`**](samples_Lambert/) contains Node.js examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
 - directory [**`samples_Pillora\`**](samples_Pillora/) contains Node.js examples from [Pillora's book](https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner).
 - file [**`README.md`**](README.md) is the Markdown document for this page.
@@ -80,7 +71,7 @@ We also define a virtual drive **`N:`** in our working environment in order to r
 > <b>&gt; subst N: %USERPROFILE%\workspace\nodejs-examples</b>
 > </pre>
 
-In the next section we give a brief description of the added batch files.
+In the next section we give a brief description of the batch files present in this project.
 
 ## Batch commands
 
@@ -102,6 +93,7 @@ We distinguish different sets of batch commands:
     C:\opt\node-v10.16.1-win-x64\npm.cmd
     </pre>
 
+2. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools.
 
 ## Usage examples
 
@@ -109,26 +101,69 @@ We distinguish different sets of batch commands:
 
 Command [**`setenv`**](setenv.bat) is executed once to setup your development environment:
 
-<pre style="margin:10px 0 0 30px;font-size:80%;">
+<pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v10.16.1, npm 6.9.0, git 2.22.0.windows.1
+   node v10.16.1, npm 6.9.0
+   git 2.22.0.windows.1, diff 3.7
 <b>&gt; where npm</b>
 C:\opt\node-v10.16.1-win-x64\npm
 C:\opt\node-v10.16.1-win-x64\npm.cmd
 </pre>
 
-Command [**`setenv -verbose`**](setenv.bat) also displays the version/path of the tools:
+Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
-<pre style="margin:10px 0 0 30px;font-size:80%;">
+<pre style="font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
 Your environment has been set up for using Node.js 10.16.1 (x64) and npm.
 Tool versions:
-   node v10.16.1, npm 6.9.0, git 2.22.0.windows.1
+   node v10.16.1, npm 6.9.0
+   git 2.22.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v10.16.1-win-x64\node.exe
    C:\opt\node-v10.16.1-win-x64\npm.cmd
    C:\opt\Git-2.22.0\bin\git.exe
+   C:\opt\Git-2.22.0\usr\bin\diff.exe
+</pre>
+
+Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`curl`**](https://ec.haxx.se/cmdline-options.html) tool to the path:
+
+<pre style="font-size:80%;">
+<b>&gt; cd</b>
+N:\samples
+<b>&gt; setenv -verbose</b>
+Tool versions
+   node v10.16.1, npm 6.9.0
+   git 2.22.0.windows.1, diff 3.7, curl 7.55.1
+Tool paths:
+   C:\opt\node-v10.16.1-win-x64\node.exe
+   C:\opt\node-v10.16.1-win-x64\npm.cmd
+   C:\opt\Git-2.22.0\bin\git.exe
+   C:\opt\Git-2.22.0\usr\bin\diff.exe
+   C:\Windows\System32\curl.exe
+</pre>
+
+####`npm.cmd`
+
+Command **`npm`** works as expected inside every project directory; for instance in project [**`samples\webaudio-sample\`**](samples/webaudio-sample/).
+
+<pre style="font-size:80%;">
+<b>&gt; cd</b>
+N:\samples\webaudio-sample
+
+<b>&gt; npm install -audit</b>
+audited 406 packages in 2.527s
+found 0 vulnerabilities
+
+<b>&gt; npm start</b>
+
+> webaudio-example@1.0.0 start N:\samples\webaudio-sample
+> node ./npm_scripts/start_browser.js && node .
+
+Module search path: N:\samples_Bojinov\\node_modules
+Express server listening on port 8180
+Returning Paradise.m4a for request /music
+[...]
 </pre>
 
 ***
