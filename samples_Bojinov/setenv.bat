@@ -66,7 +66,7 @@ goto :eof
 echo Usage: setenv { options ^| subcommands }
 echo   Options:
 echo     -debug      show commands executed by this script
-echo     -verbose    display environment settings
+echo     -verbose    display progress messages
 echo   Subcommands:
 echo     help        display this help message
 goto :eof
@@ -86,10 +86,10 @@ if defined __NPM_CMD (
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set __PATH=C:\progra~1
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (

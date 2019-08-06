@@ -41,8 +41,8 @@ This project is organized as follows:
 <pre style="font-size:80%;">
 docs
 README.md
-samples
-samples_Bojinov\
+samples\{auth-passport, ..}
+samples_Bojinov\{contacts-1-JSON, ..}
 samples_Cook\
 samples_Duuna\
 samples_Lambert\
@@ -57,7 +57,7 @@ where
 - directory [**`samples\`**](samples/) contains Node.js examples grabbed from various websites.
 - directory [**`samples_Bojinov\`**](samples_Bojinov/) contains Node.js examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
 - directory [**`samples_Cook\`**](samples_Cook/) contains Node.js examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
-- directory [**`samples_Duuna`**](samples_Duuna/) contains Node.js examples from [Düüna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
+- directory [**`samples_Duuna\`**](samples_Duuna/) contains Node.js examples from [Düüna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
 - directory [**`samples_Lambert\`**](samples_Lambert/) contains Node.js examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
 - directory [**`samples_Pillora\`**](samples_Pillora/) contains Node.js examples from [Pillora's book](https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner).
 - file [**`README.md`**](README.md) is the Markdown document for this page.
@@ -126,24 +126,25 @@ Tool paths:
    C:\opt\Git-2.22.0\usr\bin\diff.exe
 </pre>
 
-Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`curl`**](https://ec.haxx.se/cmdline-options.html) tool to the path:
+Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**](https://docs.mongodb.com/manual/reference/program/mongod/) tool to the path:
 
 <pre style="font-size:80%;">
 <b>&gt; cd</b>
 N:\samples
 <b>&gt; setenv -verbose</b>
-Tool versions
+Tool versions:
    node v10.16.1, npm 6.9.0
-   git 2.22.0.windows.1, diff 3.7, curl 7.55.1
+   git 2.22.0.windows.1, diff 3.7, mongod v3.6.2
 Tool paths:
    C:\opt\node-v10.16.1-win-x64\node.exe
    C:\opt\node-v10.16.1-win-x64\npm.cmd
    C:\opt\Git-2.22.0\bin\git.exe
+   C:\opt\Git-2.22.0\mingw64\bin\git.exe
    C:\opt\Git-2.22.0\usr\bin\diff.exe
-   C:\Windows\System32\curl.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
 </pre>
 
-####`npm.cmd`
+#### `npm.cmd`
 
 Command **`npm`** works as expected inside every project directory; for instance in project [**`samples\webaudio-sample\`**](samples/webaudio-sample/).
 

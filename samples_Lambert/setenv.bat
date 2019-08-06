@@ -66,40 +66,30 @@ goto :eof
 echo Usage: setenv { options ^| subcommands }
 echo   Options:
 echo     -debug      show commands executed by this script
-echo     -verbose    display environment settings
+echo     -verbose    display progress messages
 echo   Subcommands:
 echo     help        display this help message
 goto :eof
 
 rem postcondition: NODE_HOME is defined and valid
 :npm
-where /q npm.cmd
-if %ERRORLEVEL%==0 (
-    if not defined NODE_HOME (
-        for /f %%i in ('where /f npm.cmd') do set NODE_HOME=%%~dpsi
-    )
+set _NODE_HOME=
+
+set __NPM_CMD=
+for /f %%f in ('where npm.cmd 2^>NUL') do set __NPM_CMD=%%f
+if defined __NPM_CMD (
+    for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
+    for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
     goto :eof
-)
-if defined NODE_HOME (
-    set _NODE_HOME=%NODE_HOME%
+) else if defined NODE_HOME (
+    set "_NODE_HOME=%NODE_HOME%"
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
 ) else (
-    where /q node.exe
-    if !ERRORLEVEL!==0 (
-        for /f "delims=" %%i in ('where /f node.exe') do set _NODE_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH
-    ) else (
-        set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
-        if not defined _NODE_HOME (
-            set __PATH=C:\progra~1
-            for /f %%f in ('dir /ad /b "!__PATH!\node-v8*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
-        )
-        if defined _NODE_HOME (
-            rem path name of installation directory may contain spaces
-            for /f "delims=" %%f in ("!_NODE_HOME!") do set _NODE_HOME=%%~sf
-            if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory !_NODE_HOME!
-        )
+    set __PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    if not defined _NODE_HOME (
+        set __PATH=C:\progra~1
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -112,38 +102,49 @@ if not exist "%_NODE_HOME%\npm.cmd" (
     set _EXITCODE=1
     goto :eof
 )
+rem path name of installation directory may contain spaces
+for /f "delims=" %%f in ("%_NODE_HOME%") do set _NODE_HOME=%%~sf
+if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory %_NODE_HOME%
+
 set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
 goto :eof
 
-
+rem output parameter(s): _GIT_PATH
 :git
-where /q git.exe
-if %ERRORLEVEL%==0 goto :eof
+set _GIT_PATH=
 
-if defined GIT_HOME (
-    set _GIT_HOME=%GIT_HOME%
+set __GIT_HOME=
+set __GIT_EXE=
+for /f %%f in ('where git.exe 2^>NUL') do set __GIT_EXE=%%f
+if defined __GIT_EXE (
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Git executable found in PATH
+    rem keep _GIT_PATH undefined since executable already in path
+    goto :eof
+) else if defined GIT_HOME (
+    set "__GIT_HOME=%GIT_HOME%"
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set _GIT_HOME=!__PATH!\Git
+    if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set _GIT_HOME=!__PATH!\%%f
-        if not defined _GIT_HOME (
+        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+        if not defined __GIT_HOME (
             set __PATH=C:\Progra~1
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set _GIT_HOME=!__PATH!\%%f
+            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         )
     )
-    if defined _GIT_HOME (
-        if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory !_GIT_HOME!
-    )
 )
-if not exist "%_GIT_HOME%\bin\git.exe" (
-    echo Error: Git executable not found ^(%_GIT_HOME%^) 1>&2
+if not exist "%__GIT_HOME%\bin\git.exe" (
+    echo Error: Git executable not found ^(%__GIT_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
+rem path name of installation directory may contain spaces
+for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
+if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory %__GIT_HOME%
+
+set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
 
 :pm2
@@ -195,8 +196,8 @@ goto :eof
 
 :print_env
 set __VERBOSE=%1
-set __VERSIONS_LINE1=
-set __VERSIONS_LINE2=
+set "__VERSIONS_LINE1=  "
+set "__VERSIONS_LINE2=  "
 set __WHERE_ARGS=
 where /q node.exe
 if %ERRORLEVEL%==0 (
@@ -219,9 +220,9 @@ if %ERRORLEVEL%==0 (
     set __WHERE_ARGS=%__WHERE_ARGS% mongod.exe
 )
 echo Tool versions:
-echo   %__VERSIONS_LINE1%
-echo   %__VERSIONS_LINE2%
-if %__VERBOSE%==1 (
+echo %__VERSIONS_LINE1%
+echo %__VERSIONS_LINE2%
+if %__VERBOSE%==1 if defined __WHERE_ARGS (
     rem if %_DEBUG%==1 echo [%_BASENAME%] where %__WHERE_ARGS%
     echo Tool paths:
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p

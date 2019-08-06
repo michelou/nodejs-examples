@@ -92,10 +92,10 @@ if defined __NPM_CMD (
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set __PATH=C:\progra~1
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -174,8 +174,7 @@ set __GIT_HOME=
 set __GIT_EXE=
 for /f %%f in ('where git.exe 2^>NUL') do set __GIT_EXE=%%f
 if defined __GIT_EXE (
-    for /f "delims=" %%i in ("%__GIT_EXE%") do set __GIT_BIN_DIR=%%~dpi
-    for %%f in ("!__GIT_BIN_DIR!..") do set __GIT_HOME=%%~sf
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Git executable found in PATH
     rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
@@ -263,10 +262,10 @@ if %ERRORLEVEL%==0 (
    for /f "tokens=1-3,*" %%i in ('diff.exe --version ^| findstr diff') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% diff %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% diff.exe
 )
-where /q curl.exe
+where /q mongod.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% curl %%j"
-    set __WHERE_ARGS=%__WHERE_ARGS% curl.exe
+    for /f "tokens=1,2,*" %%i in ('mongod.exe --version ^| findstr "^db"') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongod %%k"
+    set __WHERE_ARGS=%__WHERE_ARGS% mongod.exe
 )
 echo Tool versions:
 echo %__VERSIONS_LINE1%

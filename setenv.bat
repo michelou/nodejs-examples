@@ -23,7 +23,7 @@ rem ## Main
 set _MODULES_BIN_PATH=
 if exist "%_ROOT_DIR%node_modules\.bin\" set _MODULES_BIN_PATH=;%_ROOT_DIR%node_modules\.bin\
 
-set _GIT_PATH
+set _GIT_PATH=
 
 call :npm
 if not %_EXITCODE%==0 goto end
@@ -86,10 +86,10 @@ if defined __NPM_CMD (
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set __PATH=C:\progra~1
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set _NODE_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
