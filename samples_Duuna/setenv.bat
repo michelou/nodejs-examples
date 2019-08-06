@@ -167,58 +167,70 @@ if not exist "%NODE_HOME%\pm2.cmd" (
 )
 goto :eof
 
+rem output parameter(s): _CURL_PATH
 :curl
-where /q curl.exe
-if %ERRORLEVEL%==0 goto :eof
+set _CURL_PATH=
 
-if defined CURL_HOME (
-    set _CURL_HOME=%CURL_HOME%
+set __CURL_HOME=
+set __CURL_EXE=
+for /f %%f in ('where curl.exe 2^>NUL') do set __CURL_EXE=%%f
+if defined __CURL_EXE (
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of cURL executable found in PATH
+    rem keep _CURL_PATH undefined since executable already in path
+    goto :eof
+) else if defined CURL_HOME (
+    set "__CURL_HOME=%CURL_HOME%"
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable CURL_HOME
 ) else (
-    where /q curl.exe
-    if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f curl.exe') do set _CURL_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_BASENAME%] Using path of cURL executable found in PATH
+    set __PATH=C:\opt
+    if exist "!__PATH!\curl\" ( set "__CURL_HOME=!__PATH!\curl"
     ) else (
-        set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set _CURL_HOME=!__PATH!\%%f
-        if defined _CURL_HOME (
-            if %_DEBUG%==1 echo [%_BASENAME%] Using default cURL installation directory !_CURL_HOME!
+        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "__CURL_HOME=!__PATH!\%%f"
+        if not defined __CURL_HOME (
+            set __PATH=C:\Progra~1
+            for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "__CURLHOME=!__PATH!\%%f"
         )
     )
 )
-if not exist "%_CURL_HOME%\bin\curl.exe" (
-    echo Error: cURL executable not found ^(%_CURL_HOME%^) 1>&2
+if not exist "%_^_CURL_HOME%\bin\curl.exe" (
+    echo Error: cURL executable not found ^(%__CURL_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_CURL_PATH=;%_CURL_HOME%\bin"
+set "_CURL_PATH=;%__CURL_HOME%\bin"
 goto :eof
 
+rem output parameter(s): _SIEGE_PATH
 :siege
-where /q siege.exe
-if %ERRORLEVEL%==0 goto :eof
+set _SIEGE_PATH=
 
-if defined SIEGE_HOME (
-    set _SIEGE_HOME=%SIEGE_HOME%
+set __SIEGE_HOME=
+set __SIEGE_EXE=
+for /f %%f in ('where siege.exe 2^>NUL') do set __SIEGE_EXE=%%f
+if defined __SIEGE_EXE (
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Siege executable found in PATH
+    rem keep _SIEGE_PATH undefined since executable already in path
+    goto :eof
+) else if defined SIEGE_HOME (
+    set "__SIEGE_HOME=%SIEGE_HOME%"
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable SIEGE_HOME
 ) else (
-    where /q siege.exe
-    if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f siege.exe') do set _SIEGE_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_BASENAME%] Using path of Siege executable found in PATH
+    set __PATH=C:
+    if exist "!__PATH!\Siege\" ( set "__SIEGE_HOME=!__PATH!\Siege"
     ) else (
-        set _PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!_PATH!\siege-*" 2^>NUL') do set _SIEGE_HOME=!_PATH!\%%f
-        if %_DEBUG%==1 echo [%_BASENAME%] Using default Siege installation directory !_SIEGE_HOME!
+        for /f %%f in ('dir /ad /b "!__PATH!\siege-*" 2^>NUL') do set "__SIEGE_HOME=!__PATH!\%%f"
     )
 )
-if not exist "%_SIEGE_HOME%\siege.exe" (
-    echo Error: Siege installation directory not found ^(%_SIEGE_HOME%^) 1>&2
+if not exist "%__SIEGE_HOME%\siege.exe" (
+    echo Error: Siege installation directory not found ^(%__SIEGE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_SIEGE_PATH=;%_SIEGE_HOME%"
+rem path name of installation directory may contain spaces
+for /f "delims=" %%f in ("%__SIEGE_HOME%") do set __SIEGE_HOME=%%~sf
+if %_DEBUG%==1 echo [%_BASENAME%] Using default Siege installation directory %__SIEGE_HOME%
+
+set "_SIEGE_PATH=;%__SIEGE_HOME%"
 goto :eof
 
 :print_env
@@ -243,8 +255,13 @@ if %ERRORLEVEL%==0 (
 )
 where /q curl.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% curl %%j"
+    for /f "tokens=1,2,*" %%i in ('curl.exe --version ^| findstr -B curl') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% curl %%j,"
     set __WHERE_ARGS=%__WHERE_ARGS% curl.exe
+)
+where /q siege.exe
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,*" %%i in ('siege.exe --version 2^>^&1 ^| findstr /b SIEGE') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% siege %%j"
+    set __WHERE_ARGS=%__WHERE_ARGS% siege.exe
 )
 echo Tool versions:
 echo %__VERSIONS_LINE1%

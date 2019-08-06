@@ -14,7 +14,7 @@
 This project depends on two external software for the **Microsoft Windows** plaform:
 
 - [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.15.1))
-- [MongoDB 3.x](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl) ([*release notes*](https://docs.mongodb.com/manual/release-notes/3.6/))
+- [MongoDB 3.6](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl) ([*release notes*](https://docs.mongodb.com/manual/release-notes/3.6/))
 
 Optionally one may also install the following software:
 
@@ -25,9 +25,9 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*August 2019*):
 
 <pre style="font-size:80%;">
-C:\opt\node-v10.16.1-win-x64\                    <i>( 44 MB)</i>
-C:\opt\Git-2.22.0\                               <i>(271 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\  <i>(1.1 GB)</i>
+C:\opt\node-v10.16.1-win-x64\                     <i>( 44 MB)</i>
+C:\opt\Git-2.22.0\                                <i>(271 MB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.13\  <i>(1.1 GB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -43,8 +43,8 @@ docs
 README.md
 samples\{auth-passport, ..}
 samples_Bojinov\{contacts-1-JSON, ..}
-samples_Cook\
-samples_Duuna\
+samples_Cook\{basic_auth, ..}
+samples_Duuna\{chp-3-networking, ..}
 samples_Lambert\
 samples_Pillora\
 samples_Visual_Studio\
@@ -93,7 +93,7 @@ We distinguish different sets of batch commands:
     C:\opt\node-v10.16.1-win-x64\npm.cmd
     </pre>
 
-2. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools.
+2. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (eg. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
 
 ## Usage examples
 
@@ -134,14 +134,14 @@ N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
    node v10.16.1, npm 6.9.0
-   git 2.22.0.windows.1, diff 3.7, mongod v3.6.2
+   git 2.22.0.windows.1, diff 3.7, mongod v3.6.13
 Tool paths:
    C:\opt\node-v10.16.1-win-x64\node.exe
    C:\opt\node-v10.16.1-win-x64\npm.cmd
    C:\opt\Git-2.22.0\bin\git.exe
    C:\opt\Git-2.22.0\mingw64\bin\git.exe
    C:\opt\Git-2.22.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.2\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.13\bin\mongod.exe
 </pre>
 
 #### `npm.cmd`
@@ -171,4 +171,3 @@ Returning Paradise.m4a for request /music
 
 *[mics](http://lampwww.epfl.ch/~michelou/)/August 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
-

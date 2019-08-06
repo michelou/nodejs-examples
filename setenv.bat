@@ -126,7 +126,7 @@ if defined __GIT_EXE (
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
+    if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
     ) else (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         if not defined __GIT_HOME (
