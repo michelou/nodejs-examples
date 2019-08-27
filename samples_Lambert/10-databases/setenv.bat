@@ -17,7 +17,7 @@ set _DATA_DIR=c:\temp\MongoDB\data
 if not exist "%_DATA_DIR%" (
     mkdir "%_DATA_DIR%" 1>NUL
     if not !ERRORLEVEL!==0 (
-        echo Failed to create data directory %_DATA_DIR%
+        echo Failed to create data directory %_DATA_DIR% 1>&2
         set _EXITCODE=1
         goto end
     )
@@ -79,13 +79,14 @@ if /i "%__ARG%"=="help" ( call :help & goto :eof
 ) else if /i "%__ARG%"=="stop" ( set _ACTION=stop
 ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
 ) else (
-    echo %_BASENAME%: Unknown subcommand %__ARG%
+    echo %_BASENAME%: Unknown subcommand %__ARG% 1>&2
     set _EXITCODE=1
     goto :eof
 )
 shift
 goto :args_loop
 :args_done
+if %_DEBUG%==1 echo [%_BASENAME%] _ACTION=%_ACTION% _VERBOSE=%_VERBOSE%
 goto :eof
 
 :help
@@ -108,7 +109,7 @@ if %ERRORLEVEL%==0 (
 )
 if defined MONGO_HOME (
     set _MONGO_HOME=%MONGO_HOME%
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable MONGO_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable MONGO_HOME 1>&2
 ) else (
     set _PATH=C:\opt
     for /f %%f in ('dir /ad /b "!_PATH!\mongodb-win32-x86_64-*" 2^>NUL') do set _MONGO_HOME=!_PATH!\%%f
@@ -117,14 +118,14 @@ if defined MONGO_HOME (
         for /f %%f in ('dir /ad /b "!_PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!_PATH!\%%f
     )
     if defined _MONGO_HOME (
-        if %_DEBUG%==1 echo [%_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME!
+        if %_DEBUG%==1 echo [%_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME! 1>&2
     )
 )
 if not defined _MONGO_BIN_DIR (
     for /f "delims=" %%i in ('where /f /r "%_MONGO_HOME%" mongod.exe 2^>NUL') do set _MONGO_BIN_DIR=%%~dpsi
 )
 if not exist "%_MONGO_BIN_DIR%\mongod.exe" (
-    echo MongoDB executable not found ^(%_MONGO_HOME%^)
+    echo Error: MongoDB executable not found ^(%_MONGO_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -155,6 +156,6 @@ endlocal & (
     if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
     set "PATH=%PATH%%_MONGO_PATH%"
     if %_VERBOSE%==1 call :print_env
-    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
+    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE% 1>&2
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )

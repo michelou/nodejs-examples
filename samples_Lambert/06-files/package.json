@@ -14,10 +14,10 @@
     "absolute-path": "0.0.0",
     "chokidar": "^3.0.2",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^3.0.0"
   },
   "engines": {
-    "node": ">=10.14.0",
+    "node": ">=10.16.0",
     "npm": ">=6.9.0"
   }
 }

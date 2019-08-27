@@ -1,7 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+ 
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true } );
 
 var Cat = mongoose.model('Cat', { name: String });
 

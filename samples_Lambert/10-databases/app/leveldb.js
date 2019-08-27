@@ -85,8 +85,8 @@ db.del('foo', function (error) {
 
 db.batch([
   { type: 'del', key: 'foo' },
-  { type: 'put', key: 'bar' , value: 'Hello'},
-  { type: 'put', key: 'baz' , value: 'World'},
+  { type: 'put', key: 'bar' , value: 'Hello' },
+  { type: 'put', key: 'baz' , value: 'World' },
 ], function (error) {
   if (error) {
     console.error('le lot de modification a échoué');

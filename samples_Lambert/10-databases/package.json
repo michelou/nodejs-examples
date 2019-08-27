@@ -8,11 +8,10 @@
     "start": "node app/mongoose.js"
   },
   "dependencies": {
-    "mongoose": "^5.1.0",
-    "multiline": "^1.0.2"
+    "mongoose": "^5.6.11"
   },
   "engines": {
-    "node": ">=8.9.0",
-    "npm": ">=5.6.0"
+    "node": ">=10.16.0",
+    "npm": ">=6.9.0"
   }
 }
