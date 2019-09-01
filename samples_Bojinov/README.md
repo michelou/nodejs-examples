@@ -20,7 +20,7 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\hello-1\`**](
 &gt; hello1-app@0.0.1 start W:\nodejs-examples\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
-Node runtime: 10.16.1 (x64)
+Node runtime: 10.16.3 (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
@@ -73,7 +73,7 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\routes\`**](.
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: 10.16.1 (x64)
+Node runtime: 10.16.3 (x64)
 Module search path: N:\nodejs-examples\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>

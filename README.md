@@ -13,20 +13,20 @@
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
-- [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.15.1))
+- [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.16.3))
 - [MongoDB 3.6](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl) ([*release notes*](https://docs.mongodb.com/manual/release-notes/3.6/))
 
 Optionally one may also install the following software:
 
-- [Git 2.22](https://git-scm.com/download/win) ([*release notes*](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.22.0.txt))
+- [Git 2.23](https://git-scm.com/download/win) ([*release notes*](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.23.0.txt))
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**](https://git-scm.com/docs/git) from the command line (as well as over 250 Unix commands like [**`awk`**](https://www.linux.org/docs/man1/awk.html), [**`diff`**](https://www.linux.org/docs/man1/diff.html), [**`file`**](https://www.linux.org/docs/man1/file.html), [**`grep`**](https://www.linux.org/docs/man1/grep.html), [**`more`**](https://www.linux.org/docs/man1/more.html), [**`mv`**](https://www.linux.org/docs/man1/mv.html), [**`rmdir`**](https://www.linux.org/docs/man1/rmdir.html), [**`sed`**](https://www.linux.org/docs/man1/sed.html) and [**`wc`**](https://www.linux.org/docs/man1/wc.html)).
 
 For instance our development environment looks as follows (*August 2019*):
 
 <pre style="font-size:80%;">
-C:\opt\node-v10.16.1-win-x64\                     <i>( 44 MB)</i>
-C:\opt\Git-2.22.0\                                <i>(271 MB)</i>
+C:\opt\node-v10.16.3-win-x64\                     <i>( 44 MB)</i>
+C:\opt\Git-2.23.0\                                <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.13\  <i>(1.1 GB)</i>
 </pre>
 
@@ -88,9 +88,9 @@ We distinguish different sets of batch commands:
       Subcommands:
         help        display this help message
     <b>&gt; where node npm</b>
-    C:\opt\node-v10.16.1-win-x64\node.exe
-    C:\opt\node-v10.16.1-win-x64\npm
-    C:\opt\node-v10.16.1-win-x64\npm.cmd
+    C:\opt\node-v10.16.3-win-x64\node.exe
+    C:\opt\node-v10.16.3-win-x64\npm
+    C:\opt\node-v10.16.3-win-x64\npm.cmd
     </pre>
 
 2. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (eg. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
@@ -104,11 +104,11 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v10.16.1, npm 6.9.0
-   git 2.22.0.windows.1, diff 3.7
+   node v10.16.3, npm 6.9.0
+   git 2.23.0.windows.1, diff 3.7
 <b>&gt; where npm</b>
-C:\opt\node-v10.16.1-win-x64\npm
-C:\opt\node-v10.16.1-win-x64\npm.cmd
+C:\opt\node-v10.16.3-win-x64\npm
+C:\opt\node-v10.16.3-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -117,13 +117,13 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; setenv.bat -verbose</b>
 Your environment has been set up for using Node.js 10.16.1 (x64) and npm.
 Tool versions:
-   node v10.16.1, npm 6.9.0
-   git 2.22.0.windows.1, diff 3.7
+   node v10.16.3, npm 6.9.0
+   git 2.23.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v10.16.1-win-x64\node.exe
-   C:\opt\node-v10.16.1-win-x64\npm.cmd
-   C:\opt\Git-2.22.0\bin\git.exe
-   C:\opt\Git-2.22.0\usr\bin\diff.exe
+   C:\opt\node-v10.16.3-win-x64\node.exe
+   C:\opt\node-v10.16.3-win-x64\npm.cmd
+   C:\opt\Git-2.23.0\bin\git.exe
+   C:\opt\Git-2.23.0\usr\bin\diff.exe
 </pre>
 
 Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**](https://docs.mongodb.com/manual/reference/program/mongod/) tool to the path:
@@ -133,14 +133,14 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v10.16.1, npm 6.9.0
-   git 2.22.0.windows.1, diff 3.7, mongod v3.6.13
+   node v10.16.3, npm 6.9.0
+   git 2.23.0.windows.1, diff 3.7, mongod v3.6.13
 Tool paths:
-   C:\opt\node-v10.16.1-win-x64\node.exe
-   C:\opt\node-v10.16.1-win-x64\npm.cmd
-   C:\opt\Git-2.22.0\bin\git.exe
-   C:\opt\Git-2.22.0\mingw64\bin\git.exe
-   C:\opt\Git-2.22.0\usr\bin\diff.exe
+   C:\opt\node-v10.16.3-win-x64\node.exe
+   C:\opt\node-v10.16.3-win-x64\npm.cmd
+   C:\opt\Git-2.23.0\bin\git.exe
+   C:\opt\Git-2.23.0\mingw64\bin\git.exe
+   C:\opt\Git-2.23.0\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.13\bin\mongod.exe
 </pre>
 

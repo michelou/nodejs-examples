@@ -83,7 +83,7 @@ if defined __NPM_CMD (
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME 1>%2
 ) else (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
@@ -118,12 +118,12 @@ set __GIT_HOME=
 set __GIT_EXE=
 for /f %%f in ('where git.exe 2^>NUL') do set __GIT_EXE=%%f
 if defined __GIT_EXE (
-    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Git executable found in PATH
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Git executable found in PATH 1>%2
     rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
     set "__GIT_HOME=%GIT_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
@@ -142,7 +142,7 @@ if not exist "%__GIT_HOME%\bin\git.exe" (
 )
 rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
-if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory %__GIT_HOME%
+if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory %__GIT_HOME% 1>%2
 
 set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
@@ -190,6 +190,6 @@ endlocal & (
     if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
     set "PATH=%PATH%%_GIT_PATH%%_MODULES_BIN_PATH%"
     call :print_env %_VERBOSE%
-    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
+    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE% 1>%2
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )
