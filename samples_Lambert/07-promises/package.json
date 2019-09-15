@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
+  "private": true,
   "scripts": {
     "creation": "node src/creation.js",
     "dl-two-files": "node src/dl-two-files.js",
@@ -16,15 +17,17 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.6.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015-node5": "^1.0.0",
-    "got": "^8.3.1"
+    "babel-preset-es2015-node5": "^1.2.0",
+    "eslint": "^6.4.0",
+    "got": "^8.3.1",
+    "webpack": "^4.40.2"
   },
   "engines": {
-    "node": ">=10.6.0",
+    "node": ">=10.16.0",
     "npm": ">=6.9.0"
   }
 }

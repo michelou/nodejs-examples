@@ -83,12 +83,12 @@ set __GIT_HOME=
 set __GIT_EXE=
 for /f %%f in ('where git.exe 2^>NUL') do set __GIT_EXE=%%f
 if defined __GIT_EXE (
-    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Git executable found in PATH
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Git executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
     set "__GIT_HOME=%GIT_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
@@ -107,7 +107,7 @@ if not exist "%__GIT_HOME%\bin\git.exe" (
 )
 rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
-if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory %__GIT_HOME%
+if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory %__GIT_HOME% 1>&2
 
 set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
@@ -124,7 +124,7 @@ if defined __NPM_CMD (
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
@@ -145,7 +145,7 @@ if not exist "%_NODE_HOME%\npm.cmd" (
 )
 rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%_NODE_HOME%") do set _NODE_HOME=%%~sf
-if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory %_NODE_HOME%
+if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory %_NODE_HOME% 1>&2
 
 set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
@@ -175,12 +175,12 @@ set __CURL_HOME=
 set __CURL_EXE=
 for /f %%f in ('where curl.exe 2^>NUL') do set __CURL_EXE=%%f
 if defined __CURL_EXE (
-    if %_DEBUG%==1 echo [%_BASENAME%] Using path of cURL executable found in PATH
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of cURL executable found in PATH 1>&2
     rem keep _CURL_PATH undefined since executable already in path
     goto :eof
 ) else if defined CURL_HOME (
     set "__CURL_HOME=%CURL_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable CURL_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable CURL_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     if exist "!__PATH!\curl\" ( set "__CURL_HOME=!__PATH!\curl"
@@ -208,12 +208,12 @@ set __SIEGE_HOME=
 set __SIEGE_EXE=
 for /f %%f in ('where siege.exe 2^>NUL') do set __SIEGE_EXE=%%f
 if defined __SIEGE_EXE (
-    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Siege executable found in PATH
+    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Siege executable found in PATH 1>&2
     rem keep _SIEGE_PATH undefined since executable already in path
     goto :eof
 ) else if defined SIEGE_HOME (
     set "__SIEGE_HOME=%SIEGE_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable SIEGE_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable SIEGE_HOME 1>&2
 ) else (
     set __PATH=C:
     if exist "!__PATH!\Siege\" ( set "__SIEGE_HOME=!__PATH!\Siege"
@@ -228,7 +228,7 @@ if not exist "%__SIEGE_HOME%\siege.exe" (
 )
 rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%__SIEGE_HOME%") do set __SIEGE_HOME=%%~sf
-if %_DEBUG%==1 echo [%_BASENAME%] Using default Siege installation directory %__SIEGE_HOME%
+if %_DEBUG%==1 echo [%_BASENAME%] Using default Siege installation directory %__SIEGE_HOME% 1>&2
 
 set "_SIEGE_PATH=;%__SIEGE_HOME%"
 goto :eof
@@ -281,6 +281,6 @@ endlocal & (
     if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
     set "PATH=%PATH%%_GIT_PATH%%_CURL_PATH%%_SIEGE_PATH%"
     call :print_env %_VERBOSE%
-    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
+    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE% 1>&2
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )

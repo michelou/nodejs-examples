@@ -4,11 +4,12 @@
   "version": "0.0.1",
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
+  "private": true,
   "scripts": {
     "start": "node app/mongoose.js"
   },
   "dependencies": {
-    "mongoose": "^5.6.11"
+    "mongoose": "^5.7.1"
   },
   "engines": {
     "node": ">=10.16.0",

@@ -16,15 +16,15 @@
   },
   "dependencies": {
     "audit": "0.0.6",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "pug": "^2.0.4",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.22"
   },
   "devDependencies": {
-    "eslint": "^6.2.2",
-    "eslint-config-standard": "^14.0.1",
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",

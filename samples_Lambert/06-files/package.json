@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
+  "private": true,
   "scripts": {
     "dirs": "node app/directories.js",
     "files": "node app/files.js",

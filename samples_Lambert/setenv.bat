@@ -83,7 +83,7 @@ if defined __NPM_CMD (
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME
+    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"

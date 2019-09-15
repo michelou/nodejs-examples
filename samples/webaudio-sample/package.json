@@ -12,12 +12,12 @@
   "private": "true",
   "license": "BSD",
   "dependencies": {
-    "ejs": "^2.6.2",
+    "ejs": "^2.7.1",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "eslint": "^6.2.2",
-    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",

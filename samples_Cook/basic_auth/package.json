@@ -1,8 +1,9 @@
 {
   "name": "basic_auth",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic authentication with passport",
   "main": "app.js",
+  "private": true,
   "scripts": {
     "start": "node app/app.js",
     "client": "node npm_scripts/start_client.js",
@@ -12,21 +13,21 @@
   "author": "Fabian Cook",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "moment": "^2.24.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "engines": {
-    "node": ">=10.14.0",
+    "node": ">=10.16.0",
     "npm": ">=6.9.0"
   }
 }
