@@ -14,7 +14,7 @@ Executing command **`npm start`** in directory [**`samples\auth-passport\`**](./
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-> auth-passport@0.0.1 start C:\nodejs-examples\samples\auth-passport
+> auth-passport@0.0.1 start N:\samples\auth-passport
 > node app/app.js
 
 Module search path: (none)
@@ -41,7 +41,7 @@ Executing the **`npm start`** command in directory [**`samples\locales-1\`**](./
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-> locales-1-app@0.0.1 start C:\nodejs-examples\samples\locales-1
+> locales-1-app@0.0.1 start N:\samples\locales-1
 > node ./npm_scripts/start_browser.js && node .
 
 
@@ -67,7 +67,7 @@ Executing command **`npm start`** in directory [**`samples\locales-2\`**](./loca
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-> locales-2-app@0.0.1 start C:\nodejs-examples\samples\locales-2
+> locales-2-app@0.0.1 start N:\samples\locales-2
 > node ./npm_scripts/start_browser.js && node .
 
 
@@ -85,7 +85,7 @@ Executing the **`npm run client`** command in directory [**`samples\locales-2\`*
 <pre style="font-size:80%;">
 <b>&gt; npm run client</b>
 
-> locales-2-app@0.0.1 client C:\nodejs-examples\samples\locales-2
+> locales-2-app@0.0.1 client N:\samples\locales-2
 > node ./npm_scripts/start_client.js
 
 en
@@ -133,7 +133,7 @@ Executing command **`npm start`** in directory [**`samples\webaudio-sample\`**](
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-> music-engine@1.0.0 start C:\nodejs-examples\samples\webaudio-sample
+> music-engine@1.0.0 start N:\samples\webaudio-sample
 > node ./npm_scripts/start_browser.js && node .
 
 

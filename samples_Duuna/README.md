@@ -21,7 +21,7 @@ First we start the server application in a new console:
 <pre style="font-size:80%;">
 <b>&gt; start npm start</b>
 
-> cluster-main@1.0.0 start W:\nodejs-examples\samples_Duuna\chp-3-networking
+> cluster-main@1.0.0 start N:\samples_Duuna\chp-3-networking
 > node ./npm_scripts/start_browser.js && node .
 
 
@@ -35,7 +35,7 @@ Then we start the client application in the current console:
 <pre>
 <b>&gt; npm run client</b> 
                               
-> cluster-main@1.0.0 client W:\nodejs-examples\samples_Duuna\chp-3-networking
+> cluster-main@1.0.0 client N:\samples_Duuna\chp-3-networking
 > node ./npm_scripts/start_client.js   
 
 en
@@ -59,7 +59,7 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-> calculator@0.0.1 start W:\nodejs-examples\samples_Duuna\chp-4-code-injection
+> calculator@0.0.1 start N:\samples_Duuna\chp-4-code-injection
 > node ./npm_scripts/start_browser.js && node .
 
 

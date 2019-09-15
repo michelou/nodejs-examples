@@ -27,7 +27,7 @@ For instance our development environment looks as follows (*August 2019*):
 <pre style="font-size:80%;">
 C:\opt\node-v10.16.3-win-x64\                     <i>( 44 MB)</i>
 C:\opt\Git-2.23.0\                                <i>(271 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.13\  <i>(1.1 GB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\  <i>(1.1 GB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -134,14 +134,14 @@ N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
    node v10.16.3, npm 6.9.0
-   git 2.23.0.windows.1, diff 3.7, mongod v3.6.13
+   git 2.23.0.windows.1, diff 3.7, mongod v3.6.14
 Tool paths:
    C:\opt\node-v10.16.3-win-x64\node.exe
    C:\opt\node-v10.16.3-win-x64\npm.cmd
    C:\opt\Git-2.23.0\bin\git.exe
    C:\opt\Git-2.23.0\mingw64\bin\git.exe
    C:\opt\Git-2.23.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.13\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\bin\mongod.exe
 </pre>
 
 #### `npm.cmd`

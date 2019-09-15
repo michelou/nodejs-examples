@@ -17,7 +17,7 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\hello-1\`**](
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-&gt; hello1-app@0.0.1 start W:\nodejs-examples\samples_Bojinov\hello-1
+&gt; hello1-app@0.0.1 start N:\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 Node runtime: 10.16.3 (x64)
@@ -32,7 +32,7 @@ requested (GET)
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
 
-&gt; math@0.0.1 test N:\nodejs-examples\samples_Bojinov\math
+&gt; math@0.0.1 test N:\samples_Bojinov\math
 &gt; nodeunit test
 
 test-math
@@ -48,7 +48,7 @@ OK: 2 assertions (16ms)
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
 
-> mock-example@0.0.1 test N:\nodejs-examples\samples_Bojinov\mock
+> mock-example@0.0.1 test N:\samples_Bojinov\mock
 > nodeunit test
 
 test-http-module
@@ -69,12 +69,12 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\routes\`**](.
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-&gt; routes-app@0.0.1 start N:\nodejs-examples\samples_Bojinov\routes
+&gt; routes-app@0.0.1 start N:\samples_Bojinov\routes
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
 Node runtime: 10.16.3 (x64)
-Module search path: N:\nodejs-examples\samples_Bojinov\\node_modules
+Module search path: N:\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 

@@ -14,7 +14,7 @@ Executing command **`npm start`** in directory [**`samples_Cook\basic-auth\`**](
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
 
-> basic_auth@1.0.0 start W:\nodejs-examples\samples_Cook\basic_auth
+> basic_auth@1.0.0 start N:\samples_Cook\basic_auth
 > node app/app.js
 
 [2018-05-10 19:43:17 INFO] (app.js) Listening on port 8180
@@ -28,7 +28,7 @@ Executing command **`npm run client`** in directory [**`samples_Cook\basic-auth\
 <pre style="font-size:80%;">
 <b>&gt; npm run client</b>
 
-> basic_auth@1.0.0 client W:\nodejs-examples\samples_Cook\basic_auth
+> basic_auth@1.0.0 client N:\samples_Cook\basic_auth
 > node npm_scripts/start_client.js
 
 en /
@@ -36,4 +36,6 @@ fr /
 de /
 </pre>
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018*
+***
+
+*[mics](http://lampwww.epfl.ch/~michelou/)/August 2019*
