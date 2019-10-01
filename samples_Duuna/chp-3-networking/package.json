@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "client": "node ./npm_scripts/start_client.js",
-    "start": "node ./npm_scripts/start_browser.js && node .",
     "lint": "eslint app",
+    "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "mocha test"
   },
   "author": "",
@@ -15,13 +15,13 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^6.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^6.2.1",
     "request": "^2.88.0"
   },
   "engines": {

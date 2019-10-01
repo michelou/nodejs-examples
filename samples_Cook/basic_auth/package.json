@@ -19,7 +19,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",

@@ -22,7 +22,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**](https://git-scm.com/docs/git) from the command line (as well as over 250 Unix commands like [**`awk`**](https://www.linux.org/docs/man1/awk.html), [**`diff`**](https://www.linux.org/docs/man1/diff.html), [**`file`**](https://www.linux.org/docs/man1/file.html), [**`grep`**](https://www.linux.org/docs/man1/grep.html), [**`more`**](https://www.linux.org/docs/man1/more.html), [**`mv`**](https://www.linux.org/docs/man1/mv.html), [**`rmdir`**](https://www.linux.org/docs/man1/rmdir.html), [**`sed`**](https://www.linux.org/docs/man1/sed.html) and [**`wc`**](https://www.linux.org/docs/man1/wc.html)).
 
-For instance our development environment looks as follows (*August 2019*):
+For instance our development environment looks as follows (*October 2019*):
 
 <pre style="font-size:80%;">
 C:\opt\node-v10.16.3-win-x64\                     <i>( 44 MB)</i>
@@ -167,7 +167,21 @@ Returning Paradise.m4a for request /music
 [...]
 </pre>
 
+> **:mag_right:** From time to time we also run one of the following commands
+> <li>to check the status of our package dependencies (followed by <code> npm update -save</code> if needed):
+> <pre style="margin-left:18px; font-size:80%;">
+> <b>&gt; npm outdated</b>
+> Package  Current  Wanted  Latest  Location
+> eslint     6.5.0   6.5.1   6.5.1  webaudio-sample
+> </pre></li>
+> <li>to search for <a href="https://eslint.org/docs/rules/">possible syntax or logic errors</a> in our JavaScript code:
+> <pre style="margin-left:18px; font-size:80%;">
+> <b>&gt; npm run lint</b>
+> &nbsp;
+> > async-downloads@0.0.1 lint N:\samples\webaudio-sample
+> > eslint app
+> </pre></li>
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/August 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/October 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

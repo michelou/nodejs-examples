@@ -21,7 +21,7 @@ if (cluster.isMaster) {
 else {
   // Workers can share any TCP connection
   // In this case its a HTTP server
-  let server = http.createServer(function (req, res) {
+  const server = http.createServer(function (req, res) {
     res.writeHead(200)
     res.end('hello world\n')
   })

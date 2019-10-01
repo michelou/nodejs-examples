@@ -28,7 +28,7 @@ app.use(methodOverride())
 app.get('/contacts', function (request, response) {
   console.log('GET ' + request.url)
   // OLD: var get_params = url.parse(request.url, true).query
-  let get_params = new url.URLSearchParams(request.url.search).values().next()
+  const get_params = new url.URLSearchParams(request.url.search).values().next()
   if (Object.keys(get_params).length === 0) {
     response.setHeader('content-type', 'application/json')
     response.end(JSON.stringify(contacts.list()))
@@ -65,7 +65,7 @@ app.get('/groups1', function (request, response) {
     'application/json': function () {
       response.end(JSON.stringify(contacts.list_groups_from_xml(false)))
     },
-    'default': function () {
+    default: function () {
       response.status(406).send('No Acceptable')
     }
   })

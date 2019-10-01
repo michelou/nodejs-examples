@@ -3,7 +3,7 @@
 const http = require('http')
 
 const config = require('../config.json')
-const hostname = config.host
+const host = config.host
 const port = +process.env.PORT || config.port
 
 function handle_request(request, response) {
@@ -12,8 +12,8 @@ function handle_request(request, response) {
   console.log('requested (' + request.method + ')')
 }
 
-http.createServer(handle_request).listen(port, hostname)
+http.createServer(handle_request).listen(port, host)
 
 console.log('Node runtime: ' + process.versions.node + ' (' + process.arch + ')')
 console.log('Module search path: ' + (process.env.NODE_PATH || '(none)'))
-console.log('Started Node.js http server at http://' + hostname + ':' + port)
+console.log('Server listening at ' + host + ':' + port)

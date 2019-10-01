@@ -11,38 +11,38 @@
 // > node files.js
 // ```
 
-'use strict';
+'use strict'
 
-var chokidar = require('chokidar');
+var chokidar = require('chokidar')
 
 // Création d'un surveillant (watcher).
-var watcher = chokidar.watch(__dirname);
+var watcher = chokidar.watch(__dirname)
 
 watcher.once('ready', function () {
-  console.log('[WATCH] début de la surveillance');
+  console.log('[WATCH] début de la surveillance')
 
   watcher.on('add', function (path) {
-    console.log('[WATCH] ajout d\'un fichier :', path);
-  });
+    console.log('[WATCH] ajout d\'un fichier :', path)
+  })
   watcher.on('addDir', function (path) {
-    console.log('[WATCH] ajout d\'un dossier :', path);
-  });
+    console.log('[WATCH] ajout d\'un dossier :', path)
+  })
 
   watcher.on('change', function (path) {
-    console.log('[WATCH] modification d\'un fichier :', path);
-  });
+    console.log('[WATCH] modification d\'un fichier :', path)
+  })
   watcher.on('changeDir', function (path) {
-    console.log('[WATCH] modification d\'un dossier :', path);
-  });
+    console.log('[WATCH] modification d\'un dossier :', path)
+  })
 
   watcher.on('unlink', function (path) {
-    console.log('[WATCH] suppression d\'un fichier :', path);
-  });
+    console.log('[WATCH] suppression d\'un fichier :', path)
+  })
   watcher.on('unlinkDir', function (path) {
-    console.log('[WATCH] suppression d\'un dossier :', path);
-  });
-});
+    console.log('[WATCH] suppression d\'un dossier :', path)
+  })
+})
 
 watcher.on('error', function (error) {
- console.error('[WATCH] erreur :', error);
-});
+  console.error('[WATCH] erreur :', error)
+})

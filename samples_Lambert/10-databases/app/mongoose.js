@@ -1,20 +1,25 @@
-'use strict';
+'use strict'
 
-var mongoose = require('mongoose');
- 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true } );
+var mongoose = require('mongoose')
 
-var Cat = mongoose.model('Cat', { name: String });
+mongoose.connect('mongodb://localhost/test', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).catch(err => {
+  console.error('Connection failed', err)
+})
 
-var kitty = new Cat({ name: 'Zildjian' });
+var Cat = mongoose.model('Cat', { name: String })
+
+var kitty = new Cat({ name: 'Zildjian' })
 kitty.save(function (err) {
   if (err) {
     // ...
   }
 
-  console.log('miaou');
-  mongoose.connection.close(function () { 
-    console.log('Mongoose default connection disconnected'); 
-    process.exit(0); 
-  });
-});
+  console.log('miaou')
+  mongoose.connection.close(function () {
+    console.log('Mongoose default connection disconnected')
+    process.exit(0)
+  })
+})

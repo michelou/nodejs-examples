@@ -7,6 +7,7 @@ var bodyParser = require('body-parser')
 var logger = require('morgan')
 var methodOverride = require('method-override')
 var errorHandler = require('errorhandler')
+var leveldown = require('leveldown')
 var levelup = require('levelup')
 
 // project modules
@@ -14,7 +15,7 @@ var cleanup = require('./modules/cleanup')
 var contacts = require('./modules/contacts')
 
 var app = express()
-var port = process.env.PORT || 8180
+var port = +process.env.PORT || 8180
 
 // all environments
 app.set('port', port)
@@ -29,20 +30,24 @@ if (app.get('env') === 'development') {
   app.use(logger('combined'))
 }
 
-var db = levelup('./contact', { valueEncoding: 'json' })
+var db = levelup(leveldown('./contact'), { valueEncoding: 'json' }, function (err, db) {
+  if (err) throw err
+  console.log("LevelDB connected")
+})
 contacts.fill(db)
 
-// eg. http://localhost:8180/contacts/%2B359777123456
+// eg. http://localhost:8180/contacts/+359777123456
 app.get('/contacts/:number', function (request, response) {
-  console.log('[app.js] ' + request.url + ' : querying for ' + request.params.number)
-  db.get(request.params.number, function (error, data) {
-    if (error) {
+  var number = request.params.number
+  console.log('[app.js] ' + request.url + ' : querying for ' + number)
+  db.get(number, function (err, value) {
+    if (err) {
       response.writeHead(404, { 'Content-Type': 'text/plain' })
       response.end('Not Found')
       return
     }
     response.setHeader('content-type', 'application/json')
-    response.send(data)
+    response.send(value)
   })
 })
 

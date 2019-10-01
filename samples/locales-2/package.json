@@ -5,7 +5,8 @@
   "main": "app/app.js",
   "scripts": {
     "start": "node ./npm_scripts/start_browser.js && node .",
-    "client": "node ./npm_scripts/start_client.js"
+    "client": "node ./npm_scripts/start_client.js",
+    "lint": "eslint app"
   },
   "maintainers": [
     {
@@ -21,6 +22,14 @@
     "express": "^4.17.1",
     "i18n-abide": "^0.0.26",
     "method-override": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "engines": {
     "node": ">=10.16.0",

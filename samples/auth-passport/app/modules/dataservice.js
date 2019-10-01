@@ -15,15 +15,23 @@ exports.initialize = function () {
     address: 'NY city'
   })
 
-  mongoose.connect(dbConfig.url)
-
-  User.find({ username: john.username }, function (error, result) {
-    if (error) {
-      // console.log(error);
-      john.save(function (error) {
-        if (error) {
+  mongoose.connect(dbConfig.url, dbConfig.options, function (err, res) {
+    if (err) throw err
+    console.log('MongoDB Connected')
+  })
+  /*
+  // alternative:
+  mongoose.connect(dbConfig.url, { useNewUrlParser: true })
+    .then(() => console.log('MongoDB Connected'))
+    .catch((err) => console.log(err))
+  */
+  User.find({ username: john.username }, function (err, res) {
+    if (err) {
+      // console.log(err);
+      john.save(function (err) {
+        if (err) {
           console.log('Error while saving user ' + john.username)
-          console.log(error)
+          console.log(err)
         }
         else {
           john.save()
@@ -32,7 +40,7 @@ exports.initialize = function () {
       })
     }
     else {
-      console.log(result)
+      console.log(res)
     }
   })
 }

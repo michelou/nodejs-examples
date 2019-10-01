@@ -11,7 +11,7 @@ var routes = require('./routes')
 var user = require('./routes/user')
 
 var app = express()
-var port = process.env.PORT || 8180
+var port = +process.env.PORT || 8180
 
 // all environments
 app.set('port', port)

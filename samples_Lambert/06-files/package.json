@@ -8,14 +8,23 @@
   "scripts": {
     "dirs": "node app/directories.js",
     "files": "node app/files.js",
+    "lint": "eslint app",
     "paths": "node app/paths.js",
     "watch": "node app/watch.js"
   },
   "dependencies": {
     "absolute-path": "0.0.0",
-    "chokidar": "^3.0.2",
+    "chokidar": "^3.2.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "engines": {
     "node": ">=10.16.0",

@@ -7,6 +7,7 @@ var bodyParser = require('body-parser')
 var logger = require('morgan')
 var methodOverride = require('method-override')
 var errorHandler = require('errorhandler')
+var leveldown = require('leveldown')
 var levelup = require('levelup')
 
 // project modules
@@ -29,7 +30,10 @@ if (app.get('env') === 'development') {
   app.use(logger('combined'))
 }
 
-var db = levelup('./contact', { valueEncoding: 'json' })
+var db = levelup(leveldown('./contact'), { valueEncoding: 'json' }, function (err, db) {
+  if (err) throw err
+  console.log("LevelDB connected")
+})
 contacts.fill(db)
 
 // eg. http://localhost:8180/contacts/+359777123456
