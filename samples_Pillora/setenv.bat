@@ -46,28 +46,36 @@ set _HELP=0
 set _VERBOSE=0
 set __N=0
 :args_loop
-set __ARG=%~1
-if not defined __ARG (
-    goto args_done
-) else if not "%__ARG:~0,1%"=="-" (
-    set /a __N=!__N!+1
-)
-if /i "%__ARG%"=="help" ( set _HELP=1 & goto args_done
-) else if /i "%__ARG%"=="-debug" ( set _DEBUG=1
-) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+set "__ARG=%~1"
+if not defined __ARG goto args_done
+
+if "%__ARG:~0,1%"=="-" (
+    rem option
+    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    ) else (
+        echo Error: Unknown option %__ARG% 1>&2
+        set _EXITCODE=1
+        goto args_done
+    )
 ) else (
-    echo Error: Unknown subcommand %__ARG% 1>&2
-    set _EXITCODE=1
-    goto :eof
+    rem subcommand
+    set /a __N=!__N!+1
+    if /i "%__ARG%"=="help" ( set _HELP=1
+    ) else (
+        echo Error: Unknown subcommand %__ARG% 1>&2
+        set _EXITCODE=1
+        goto args_done
+    )
 )
 shift
 goto :args_loop
 :args_done
-if %_DEBUG%==1 echo [%_BASENAME%] _VERBOSE=%_VERBOSE% 1>&2
+if %_DEBUG%==1 echo [%_BASENAME%] _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
 
 :help
-echo Usage: setenv { options ^| subcommands }
+echo Usage: %_BASENAME% { options ^| subcommands }
 echo   Options:
 echo     -debug      show commands executed by this script
 echo     -verbose    display progress messages
