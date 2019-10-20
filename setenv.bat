@@ -59,11 +59,11 @@ if /i "%__ARG%"=="help" ( set _HELP=1 & goto args_done
 shift
 goto :args_loop
 :args_done
-if %_DEBUG%==1 echo [%_BASENAME%] _VERBOSE=%_VERBOSE%
+if %_DEBUG%==1 echo [%_BASENAME%] _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
 
 :help
-echo Usage: setenv { options ^| subcommands }
+echo Usage: %_BASENAME% { options ^| subcommands }
 echo   Options:
 echo     -debug      show commands executed by this script
 echo     -verbose    display progress messages

@@ -39,6 +39,7 @@ We further recommand using an advanced console emulator such as [ComEmu](https:/
 
 This project is organized as follows:
 <pre style="font-size:80%;">
+bin\check-outdated.bat
 docs
 README.md
 samples\{auth-passport, ..}
@@ -53,6 +54,7 @@ setenv.bat
 
 where
 
+- directory [**`bin\`**](bin/) contains utility batch scripts.
 - directory [**`docs\`**](docs/) contains several Node.js related papers/articles.
 - directory [**`samples\`**](samples/) contains Node.js examples grabbed from various websites.
 - directory [**`samples_Bojinov\`**](samples_Bojinov/) contains Node.js examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
@@ -93,7 +95,20 @@ We distinguish different sets of batch commands:
     C:\opt\node-v10.16.3-win-x64\npm.cmd
     </pre>
 
-2. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (eg. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
+2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
+
+    <pre style="font-size:80%;">
+    <b>&gt; bin\check-outdated.bat help</b>
+    Usage: check-outdated { options | subcommands }
+      Options:
+        -debug      show commands executed by this script
+        -install    install latest package (if outdated)
+        -verbose    display progress messages
+      Subcommands:
+        help        display this help message
+    </pre>
+
+3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (eg. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
 
 ## Usage examples
 
@@ -125,6 +140,32 @@ Tool paths:
    C:\opt\Git-2.23.0\bin\git.exe
    C:\opt\Git-2.23.0\usr\bin\diff.exe
 </pre>
+
+#### `bin\check-outdated`
+
+Command [**`bin\check-outdated`**](bin/check-outdated.bat) visits all project directories and prints out outdated package dependencies. For instance package we see in the following output that package **`eslint-plugin-node`** is outdated in several projects:
+
+<pre style="font-size:80%;">
+<b>&gt; bin\check-outdated</b>
+directory samples\auth-passport\
+directory samples\locales-1\
+directory samples\locales-2\
+directory samples\mongoose-default-connection\
+directory samples\webaudio-sample\
+  <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
+directory samples_Bojinov\contacts-1-JSON\
+directory samples_Bojinov\contacts-2-LevelDB\
+directory samples_Bojinov\contacts-3-LevelDB2\
+directory samples_Bojinov\contacts-4-Mongoose\
+directory samples_Bojinov\contacts-5-MongoDB\
+  <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
+directory samples_Bojinov\contacts-6-Image\
+[...]
+</pre>
+
+Command [**`bin\check-outdated -install`**](bin/check-outdated.bat) also updates the outdated package dependencies (and file **`package.json`**).
+
+#### `samples\setenv.bat`
 
 Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**](https://docs.mongodb.com/manual/reference/program/mongod/) tool to the path:
 
