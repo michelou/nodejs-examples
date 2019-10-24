@@ -131,7 +131,7 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-Your environment has been set up for using Node.js 10.16.1 (x64) and npm.
+Your environment has been set up for using Node.js 12.13.0 (x64) and npm.
 Tool versions:
    node v12.13.0, npm 6.12.0
    git 2.23.0.windows.1, diff 3.7
@@ -226,7 +226,7 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <table style="margin:0 0 1em 20px;">
 <tr><th>Release</th><th>LTS Start</th><th>End-of-life</th></tr>
 <tr><td>8.x</td><td>October 2017</td><td>December 2019</td></tr>
-<tr><td>10.x</td><td>October 2018</td><td>April 2012</td></tr>
+<tr><td>10.x</td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td>12.x</td><td>October 2019</td><td>April 2022</td></tr>
 </table>
 </p>
