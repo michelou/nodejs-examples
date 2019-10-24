@@ -13,7 +13,7 @@
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
-- [Node.js 10.x LTS](https://nodejs.org/en/download/) ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.16.3))
+- [Node.js 12.x LTS](https://nodejs.org/en/download/) <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.13.0))
 - [MongoDB 3.6](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl) ([*release notes*](https://docs.mongodb.com/manual/release-notes/3.6/))
 
 Optionally one may also install the following software:
@@ -25,7 +25,7 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*October 2019*):
 
 <pre style="font-size:80%;">
-C:\opt\node-v10.16.3-win-x64\                     <i>( 44 MB)</i>
+C:\opt\node-v12.13.0-win-x64\                     <i>( 44 MB)</i>
 C:\opt\Git-2.23.0\                                <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\  <i>(1.1 GB)</i>
 </pre>
@@ -41,7 +41,6 @@ This project is organized as follows:
 <pre style="font-size:80%;">
 bin\check-outdated.bat
 docs
-README.md
 samples\{auth-passport, ..}
 samples_Bojinov\{contacts-1-JSON, ..}
 samples_Cook\{basic_auth, ..}
@@ -49,6 +48,7 @@ samples_Duuna\{chp-3-networking, ..}
 samples_Lambert\
 samples_Pillora\
 samples_Visual_Studio\
+README.md
 setenv.bat
 </pre>
 
@@ -90,9 +90,9 @@ We distinguish different sets of batch commands:
       Subcommands:
         help        display this help message
     <b>&gt; where node npm</b>
-    C:\opt\node-v10.16.3-win-x64\node.exe
-    C:\opt\node-v10.16.3-win-x64\npm
-    C:\opt\node-v10.16.3-win-x64\npm.cmd
+    C:\opt\node-v12.13.0-win-x64\node.exe
+    C:\opt\node-v12.13.0-win-x64\npm
+    C:\opt\node-v12.13.0-win-x64\npm.cmd
     </pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
@@ -103,6 +103,7 @@ We distinguish different sets of batch commands:
       Options:
         -debug      show commands executed by this script
         -install    install latest package (if outdated)
+        -timer      display total elapsed time
         -verbose    display progress messages
       Subcommands:
         help        display this help message
@@ -119,11 +120,11 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v10.16.3, npm 6.9.0
+   node v12.13.0, npm 6.12.0
    git 2.23.0.windows.1, diff 3.7
 <b>&gt; where npm</b>
-C:\opt\node-v10.16.3-win-x64\npm
-C:\opt\node-v10.16.3-win-x64\npm.cmd
+C:\opt\node-v12.13.0-win-x64\npm
+C:\opt\node-v12.13.0-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -132,11 +133,11 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; setenv.bat -verbose</b>
 Your environment has been set up for using Node.js 10.16.1 (x64) and npm.
 Tool versions:
-   node v10.16.3, npm 6.9.0
+   node v12.13.0, npm 6.12.0
    git 2.23.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v10.16.3-win-x64\node.exe
-   C:\opt\node-v10.16.3-win-x64\npm.cmd
+   C:\opt\node-v12.13.0-win-x64\node.exe
+   C:\opt\node-v12.13.0-win-x64\npm.cmd
    C:\opt\Git-2.23.0\bin\git.exe
    C:\opt\Git-2.23.0\usr\bin\diff.exe
 </pre>
@@ -152,13 +153,13 @@ directory samples\locales-1\
 directory samples\locales-2\
 directory samples\mongoose-default-connection\
 directory samples\webaudio-sample\
-  <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
+   <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
 directory samples_Bojinov\contacts-1-JSON\
 directory samples_Bojinov\contacts-2-LevelDB\
 directory samples_Bojinov\contacts-3-LevelDB2\
 directory samples_Bojinov\contacts-4-Mongoose\
 directory samples_Bojinov\contacts-5-MongoDB\
-  <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
+   <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
 directory samples_Bojinov\contacts-6-Image\
 [...]
 </pre>
@@ -174,11 +175,11 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v10.16.3, npm 6.9.0
+   node v12.13.0, npm 6.12.0
    git 2.23.0.windows.1, diff 3.7, mongod v3.6.14
 Tool paths:
-   C:\opt\node-v10.16.3-win-x64\node.exe
-   C:\opt\node-v10.16.3-win-x64\npm.cmd
+   C:\opt\node-v12.13.0-win-x64\node.exe
+   C:\opt\node-v12.13.0-win-x64\npm.cmd
    C:\opt\Git-2.23.0\bin\git.exe
    C:\opt\Git-2.23.0\mingw64\bin\git.exe
    C:\opt\Git-2.23.0\usr\bin\diff.exe
@@ -208,20 +209,28 @@ Returning Paradise.m4a for request /music
 [...]
 </pre>
 
-> **:mag_right:** From time to time we also run one of the following commands
-> <li>to check the status of our package dependencies (followed by <code> npm update -save</code> if needed):
-> <pre style="margin-left:18px; font-size:80%;">
-> <b>&gt; npm outdated</b>
-> Package  Current  Wanted  Latest  Location
-> eslint     6.5.0   6.5.1   6.5.1  webaudio-sample
-> </pre></li>
-> <li>to search for <a href="https://eslint.org/docs/rules/">possible syntax or logic errors</a> in our JavaScript code:
+> **:mag_right:** From time to time we also run one of the following command to search for <a href="https://eslint.org/docs/rules/">possible syntax or logic errors</a> in our JavaScript code:
 > <pre style="margin-left:18px; font-size:80%;">
 > <b>&gt; npm run lint</b>
 > &nbsp;
 > > async-downloads@0.0.1 lint N:\samples\webaudio-sample
 > > eslint app
 > </pre></li>
+
+## Footnotes
+
+<a name="footnote_01">[1]</a> ***Node.js LTS*** [↩](#anchor_01)
+
+<p style="margin:0 0 1em 20px;">
+We make the choice to work with the latest <a href="https://github.com/nodejs/Release">LTS version</a> of <a href="https://nodejs.org/en/">Node.js</a>. We started this project with version 8 LTS and successively upgraded it to version 10 LTS and version 12 LTS.
+<table style="margin:0 0 1em 20px;">
+<tr><th>Release</th><th>LTS Start</th><th>End-of-life</th></tr>
+<tr><td>8.x</td><td>October 2017</td><td>December 2019</td></tr>
+<tr><td>10.x</td><td>October 2018</td><td>April 2012</td></tr>
+<tr><td>12.x</td><td>October 2019</td><td>April 2022</td></tr>
+</table>
+</p>
+
 ***
 
 *[mics](http://lampwww.epfl.ch/~michelou/)/October 2019* [**&#9650;**](#top)

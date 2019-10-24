@@ -35,6 +35,7 @@ rem input parameter: %*
 :args
 set _HELP=0
 set _INSTALL=0
+set _TIMER=0
 set _VERBOSE=0
 set __N=0
 :args_loop
@@ -45,6 +46,7 @@ if "%__ARG:~0,1%"=="-" (
     rem option
     if /i "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if /i "%__ARG%"=="-install" ( set _INSTALL=1
+    ) else if /i "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo Error: Unknown option %__ARG% 1>&2
@@ -64,6 +66,7 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto :args_loop
 :args_done
+if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
 if %_DEBUG%==1 echo [%_BASENAME%] _HELP=%_HELP% _INSTALL=%_INSTALL% _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
 
@@ -72,6 +75,7 @@ echo Usage: %_BASENAME% { options ^| subcommands }
 echo   Options:
 echo     -debug      show commands executed by this script
 echo     -install    install latest package (if outdated)
+echo     -timer      display total elapsed time
 echo     -verbose    display progress messages
 echo   Subcommands:
 echo     help        display this help message
@@ -88,7 +92,7 @@ for /f "tokens=1,2,3,4,*" %%i in ('%_NPM_CMD% outdated ^| findstr /v Wanted') do
     set __WANTED=%%k
     set __LATEST=%%l
     if not "!__WANTED!"=="!__LATEST!" (
-        echo   outdated package !__PKG_NAME!: wanted=!__WANTED!, latest=!__LATEST!
+        echo    outdated package !__PKG_NAME!: wanted=!__WANTED!, latest=!__LATEST!
         if %_INSTALL%==1 (
             if %_DEBUG%==1 ( echo [%_BASENAME%] %_NPM_CMD% install -audit !__PKG_NAME!@!__LATEST! --save 1^>NUL 1>&2
             ) else if %_VERBOSE%==1 ( echo   install package !__PKG_NAME!@!__LATEST! 1>&2
@@ -103,10 +107,23 @@ for /f "tokens=1,2,3,4,*" %%i in ('%_NPM_CMD% outdated ^| findstr /v Wanted') do
 popd
 goto :eof
 
+rem output parameter: _DURATION
+:duration
+set __START=%~1
+set __END=%~2
+
+for /f "delims=" %%i in ('powershell -c "$interval = New-TimeSpan -Start '%__START%' -End '%__END%'; Write-Host $interval"') do set _DURATION=%%i
+goto :eof
+
 rem ##########################################################################
 rem ## Cleanups
 
 :end
+if %_TIMER%==1 (
+    for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set __TIMER_END=%%i
+    call :duration "%_TIMER_START%" "!__TIMER_END!"
+    echo Elapsed time: !_DURATION! 1>&2
+)
 if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE%
 exit /b %_EXITCODE%
 endlocal
