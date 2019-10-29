@@ -14,7 +14,7 @@
     "test": "node_modules/.bin/nodeunit test"
   },
   "devDependencies": {
-    "eslint": "^6.4.0",
+    "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.2.0",
@@ -23,7 +23,7 @@
     "nodeunit": "^0.11.3"
   },
   "engines": {
-    "node": ">=10.16.0",
-    "npm": ">=6.9.0"
+    "node": ">=12.13.0",
+    "npm": ">=6.12.0"
   }
 }

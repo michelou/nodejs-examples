@@ -26,7 +26,7 @@
   "devDependencies": {
     "acorn": "^7.1.0",
     "errorhandler": "^1.5.1",
-    "eslint": "^6.5.0",
+    "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.2.0",
@@ -38,7 +38,7 @@
     "grunt-execute": "^0.2.2"
   },
   "engines": {
-    "node": ">=10.16.0",
-    "npm": ">=6.9.0"
+    "node": ">=12.13.0",
+    "npm": ">=6.12.0"
   }
 }
