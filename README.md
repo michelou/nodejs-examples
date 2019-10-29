@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> examples coming from various websites and books.<br/>
+  <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> code examples coming from various websites and books.<br/>
   It also includes several batch commands for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
   </td>
   </tr>
@@ -55,13 +55,13 @@ setenv.bat
 where
 
 - directory [**`bin\`**](bin/) contains utility batch scripts.
-- directory [**`docs\`**](docs/) contains several Node.js related papers/articles.
-- directory [**`samples\`**](samples/) contains Node.js examples grabbed from various websites.
-- directory [**`samples_Bojinov\`**](samples_Bojinov/) contains Node.js examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
-- directory [**`samples_Cook\`**](samples_Cook/) contains Node.js examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
-- directory [**`samples_Duuna\`**](samples_Duuna/) contains Node.js examples from [Düüna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
-- directory [**`samples_Lambert\`**](samples_Lambert/) contains Node.js examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
-- directory [**`samples_Pillora\`**](samples_Pillora/) contains Node.js examples from [Pillora's book](https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner).
+- directory [**`docs\`**](docs/) contains several [Node.js](https://nodejs.org/) related papers/articles.
+- directory [**`samples\`**](samples/) contains [Node.js](https://nodejs.org/) code examples grabbed from various websites.
+- directory [**`samples_Bojinov\`**](samples_Bojinov/) contains [Node.js](https://nodejs.org/) code examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
+- directory [**`samples_Cook\`**](samples_Cook/) contains [Node.js](https://nodejs.org/) code examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
+- directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js](https://nodejs.org/) code examples from [Düüna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
+- directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js](https://nodejs.org/) code examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
+- directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js](https://nodejs.org/) code examples from [Pillora's book](https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner).
 - file [**`README.md`**](README.md) is the Markdown document for this page.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
@@ -92,8 +92,7 @@ We distinguish different sets of batch commands:
     <b>&gt; where node npm</b>
     C:\opt\node-v12.13.0-win-x64\node.exe
     C:\opt\node-v12.13.0-win-x64\npm
-    C:\opt\node-v12.13.0-win-x64\npm.cmd
-    </pre>
+    C:\opt\node-v12.13.0-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -106,10 +105,9 @@ We distinguish different sets of batch commands:
         -timer      display total elapsed time
         -verbose    display progress messages
       Subcommands:
-        help        display this help message
-    </pre>
+        help        display this help message</pre>
 
-3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (eg. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
+3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (e.g. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
 
 ## Usage examples
 
@@ -219,7 +217,7 @@ Returning Paradise.m4a for request /music
 
 ## Footnotes
 
-<a name="footnote_01">[1]</a> ***Node.js LTS*** [↩](#anchor_01)
+<a name="footnote_01">[1]</a> ***Node.js LTS** (Long Term Support)* [↩](#anchor_01)
 
 <p style="margin:0 0 1em 20px;">
 We make the choice to work with the latest <a href="https://github.com/nodejs/Release">LTS version</a> of <a href="https://nodejs.org/en/">Node.js</a>. We started this project with version 8 LTS and successively upgraded it to version 10 LTS and version 12 LTS.
