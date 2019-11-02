@@ -11,7 +11,7 @@
 
 Executing command **`npm start`** in directory [**`samples_Bojinov\hello-1\`**](./hello-1/) performs two tasks:
 
-- it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./hello-1/config.json)).
+- it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./hello-1/config_TEMPLATE.json)).
 - it opens URL **`http:/127.0.0.1:8180`** in your default web browser.
 
 <pre style="font-size:80%;">
@@ -63,7 +63,7 @@ OK: 0 assertions (184ms)
 
 Executing command **`npm start`** in directory [**`samples_Bojinov\routes\`**](./routes/) performs two tasks:
 
-- it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./routes/config.json)).
+- it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./routes/config_TEMPLATE.json)).
 - it opens URL **`http:/127.0.0.1:8180/salut?name=tom`** in your default web browser.
 
 <pre style="font-size:80%;">
