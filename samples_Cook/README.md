@@ -1,4 +1,4 @@
-# Node.js examples from Cook's book
+# <span id="top">Node.js examples from Cook's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -38,4 +38,5 @@ de /
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/August 2019*
+*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
+<span id="bottom">&nbsp;</span>

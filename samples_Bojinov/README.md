@@ -1,4 +1,4 @@
-# <span id="top">Node.js examples from Bojinov's book</span>
+# <span id="top">Node.js examples from Bojinov's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -20,7 +20,7 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\hello-1\`**](
 &gt; hello1-app@0.0.1 start N:\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
-Node runtime: 10.16.3 (x64)
+Node runtime: 12.13.0 (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
@@ -73,12 +73,12 @@ Executing command **`npm start`** in directory [**`samples_Bojinov\routes\`**](.
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: 10.16.3 (x64)
+Node runtime: 12.13.0 (x64)
 Module search path: N:\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/August 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

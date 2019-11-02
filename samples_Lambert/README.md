@@ -1,4 +1,4 @@
-# <span id="top">Node.js examples from Lambert's book</span>
+# <span id="top">Node.js examples from Lambert's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -18,4 +18,5 @@ Executing the **`npm start`** command in directory [**`samples_Lambert\04-concep
 </pre>
 
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/April 2018* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
+<span id="bottom">&nbsp;</span>

@@ -1,4 +1,4 @@
-# <span id="top">Node.js examples</span>
+# <span id="top">Node.js examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -71,7 +71,7 @@ Executing command **`npm start`** in directory [**`samples\locales-2\`**](./loca
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 10.16.3 (x64)
+Node runtime: 12.13.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -144,4 +144,4 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/August 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
