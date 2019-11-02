@@ -67,7 +67,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     rem subcommand
-    set /a __N=!__N!+1
+    set /a __N=+1
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
@@ -107,7 +107,7 @@ for /f "tokens=1,2,3,4,*" %%i in ('%_NPM_CMD% outdated ^| findstr /v Wanted') do
         echo    outdated package !__PKG_NAME!: wanted=!__WANTED!, latest=!__LATEST!
         if %_INSTALL%==1 (
             if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_NPM_CMD% install -audit !__PKG_NAME!@!__LATEST! --save 1^>NUL 1>&2
-            ) else if %_VERBOSE%==1 ( echo   install package !__PKG_NAME!@!__LATEST! 1>&2
+            ) else if %_VERBOSE%==1 ( echo    install package !__PKG_NAME!@!__LATEST! 1>&2
             )
             call %_NPM_CMD% install -audit !__PKG_NAME!@!__LATEST! --save 1>NUL
             if not !ERRORLEVEL!==0 (

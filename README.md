@@ -22,12 +22,12 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**](https://git-scm.com/docs/git) from the command line (as well as over 250 Unix commands like [**`awk`**](https://www.linux.org/docs/man1/awk.html), [**`diff`**](https://www.linux.org/docs/man1/diff.html), [**`file`**](https://www.linux.org/docs/man1/file.html), [**`grep`**](https://www.linux.org/docs/man1/grep.html), [**`more`**](https://www.linux.org/docs/man1/more.html), [**`mv`**](https://www.linux.org/docs/man1/mv.html), [**`rmdir`**](https://www.linux.org/docs/man1/rmdir.html), [**`sed`**](https://www.linux.org/docs/man1/sed.html) and [**`wc`**](https://www.linux.org/docs/man1/wc.html)).
 
-For instance our development environment looks as follows (*October 2019*):
+For instance our development environment looks as follows (*November 2019*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\node-v12.13.0-win-x64\                     <i>( 44 MB)</i>
 C:\opt\Git-2.23.0\                                <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\  <i>(1.1 GB)</i>
+C:\opt\node-v12.13.0-win-x64\                     <i>( 44 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -223,13 +223,24 @@ Returning Paradise.m4a for request /music
 We make the choice to work with the latest <a href="https://github.com/nodejs/Release">LTS version</a> of <a href="https://nodejs.org/en/">Node.js</a>. We started this project with version 8 LTS and successively upgraded it to version 10 LTS and version 12 LTS.
 <table style="margin:0 0 1em 20px;">
 <tr><th>Release</th><th>LTS Start</th><th>End-of-life</th></tr>
-<tr><td>8.x</td><td>October 2017</td><td>December 2019</td></tr>
-<tr><td>10.x</td><td>October 2018</td><td>April 2021</td></tr>
-<tr><td>12.x</td><td>October 2019</td><td>April 2022</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
 </table>
 </p>
 
+<a name="footnote_02">[2]</a> ***Downloads*** [↩](#anchor_02)
+
+<p style="margin:0 0 1em 20px;">
+In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
+</p>
+<pre style="margin:0 0 1em 20px; font-size:80%;">
+<a href="https://git-scm.com/download/win">PortableGit-2.23.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.14.zip</a>  <i>(316 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.13.0-win-x64.zip</a>                     <i>( 16 MB)</i>
+</pre>
+
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/October 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
