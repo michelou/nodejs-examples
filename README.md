@@ -9,6 +9,8 @@
   </tr>
 </table>
 
+[Dotty](https://github.com/michelou/dotty-examples), [GraalVM](https://github.com/michelou/graalvm-examples) and [LLVM](https://github.com/michelou/llvm-examples) are other topics we are currently investigating.
+
 ## Project dependencies
 
 This project depends on two external software for the **Microsoft Windows** plaform:
@@ -18,14 +20,14 @@ This project depends on two external software for the **Microsoft Windows** plaf
 
 Optionally one may also install the following software:
 
-- [Git 2.23](https://git-scm.com/download/win) ([*release notes*](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.23.0.txt))
+- [Git 2.24](https://git-scm.com/download/win) ([*release notes*](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt))
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**](https://git-scm.com/docs/git) from the command line (as well as over 250 Unix commands like [**`awk`**](https://www.linux.org/docs/man1/awk.html), [**`diff`**](https://www.linux.org/docs/man1/diff.html), [**`file`**](https://www.linux.org/docs/man1/file.html), [**`grep`**](https://www.linux.org/docs/man1/grep.html), [**`more`**](https://www.linux.org/docs/man1/more.html), [**`mv`**](https://www.linux.org/docs/man1/mv.html), [**`rmdir`**](https://www.linux.org/docs/man1/rmdir.html), [**`sed`**](https://www.linux.org/docs/man1/sed.html) and [**`wc`**](https://www.linux.org/docs/man1/wc.html)).
 
 For instance our development environment looks as follows (*November 2019*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.23.0\                                <i>(271 MB)</i>
+C:\opt\Git-2.24.0\                                <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\  <i>(1.1 GB)</i>
 C:\opt\node-v12.13.0-win-x64\                     <i>( 44 MB)</i>
 </pre>
@@ -39,8 +41,8 @@ We further recommand using an advanced console emulator such as [ComEmu](https:/
 
 This project is organized as follows:
 <pre style="font-size:80%;">
-bin\check-outdated.bat
-docs
+bin\
+docs\
 samples\{auth-passport, ..}
 samples_Bojinov\{contacts-1-JSON, ..}
 samples_Cook\{basic_auth, ..}
@@ -83,7 +85,7 @@ We distinguish different sets of batch commands:
 
     <pre style="font-size:80%;">
     <b>&gt; setenv help</b>
-    Usage: setenv { options | subcommands }
+    Usage: setenv { option | subcommand }
       Options:
         -debug      show commands executed by this script
         -verbose    display environment settings
@@ -98,7 +100,7 @@ We distinguish different sets of batch commands:
 
     <pre style="font-size:80%;">
     <b>&gt; bin\check-outdated.bat help</b>
-    Usage: check-outdated { options | subcommands }
+    Usage: check-outdated { option | subcommand }
       Options:
         -debug      show commands executed by this script
         -install    install latest package (if outdated)
@@ -119,7 +121,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <b>&gt; setenv</b>
 Tool versions:
    node v12.13.0, npm 6.12.0
-   git 2.23.0.windows.1, diff 3.7
+   git 2.24.0.windows.1, diff 3.7
 <b>&gt; where npm</b>
 C:\opt\node-v12.13.0-win-x64\npm
 C:\opt\node-v12.13.0-win-x64\npm.cmd
@@ -132,12 +134,12 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 Your environment has been set up for using Node.js 12.13.0 (x64) and npm.
 Tool versions:
    node v12.13.0, npm 6.12.0
-   git 2.23.0.windows.1, diff 3.7
+   git 2.24.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v12.13.0-win-x64\node.exe
    C:\opt\node-v12.13.0-win-x64\npm.cmd
-   C:\opt\Git-2.23.0\bin\git.exe
-   C:\opt\Git-2.23.0\usr\bin\diff.exe
+   C:\opt\Git-2.24.0\bin\git.exe
+   C:\opt\Git-2.24.0\usr\bin\diff.exe
 </pre>
 
 #### `bin\check-outdated`
@@ -174,13 +176,13 @@ N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
    node v12.13.0, npm 6.12.0
-   git 2.23.0.windows.1, diff 3.7, mongod v3.6.14
+   git 2.24.0.windows.1, diff 3.7, mongod v3.6.14
 Tool paths:
    C:\opt\node-v12.13.0-win-x64\node.exe
    C:\opt\node-v12.13.0-win-x64\npm.cmd
-   C:\opt\Git-2.23.0\bin\git.exe
-   C:\opt\Git-2.23.0\mingw64\bin\git.exe
-   C:\opt\Git-2.23.0\usr\bin\diff.exe
+   C:\opt\Git-2.24.0\bin\git.exe
+   C:\opt\Git-2.24.0\mingw64\bin\git.exe
+   C:\opt\Git-2.24.0\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\bin\mongod.exe
 </pre>
 
@@ -235,7 +237,7 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://git-scm.com/download/win">PortableGit-2.23.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.24.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.14.zip</a>  <i>(316 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.13.0-win-x64.zip</a>                     <i>( 16 MB)</i>
 </pre>
