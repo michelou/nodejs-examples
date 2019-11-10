@@ -39,7 +39,7 @@ goto end
 rem ##########################################################################
 rem ## Subroutines
 
-rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 rem ANSI colors in standard Windows 10 shell
 rem see https://gist.github.com/mlocati/#file-win10colors-cmd

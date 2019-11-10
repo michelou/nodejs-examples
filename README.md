@@ -11,7 +11,7 @@
 
 [Dotty](https://github.com/michelou/dotty-examples), [GraalVM](https://github.com/michelou/graalvm-examples) and [LLVM](https://github.com/michelou/llvm-examples) are other topics we are currently investigating.
 
-## Project dependencies
+## <span id="proj_deps">Project dependencies</span>
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
@@ -57,7 +57,7 @@ setenv.bat
 where
 
 - directory [**`bin\`**](bin/) contains utility batch scripts.
-- directory [**`docs\`**](docs/) contains several [Node.js](https://nodejs.org/) related papers/articles.
+- directory [**`docs\`**](docs/) contains [Node.js](https://nodejs.org/) related papers/articles.
 - directory [**`samples\`**](samples/) contains [Node.js](https://nodejs.org/) code examples grabbed from various websites.
 - directory [**`samples_Bojinov\`**](samples_Bojinov/) contains [Node.js](https://nodejs.org/) code examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
 - directory [**`samples_Cook\`**](samples_Cook/) contains [Node.js](https://nodejs.org/) code examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
@@ -77,7 +77,7 @@ We also define a virtual drive **`N:`** in our working environment in order to r
 
 In the next section we give a brief description of the batch files present in this project.
 
-## Batch commands
+## <span id="batch_commands">Batch commands</span>
 
 We distinguish different sets of batch commands:
 
@@ -111,7 +111,7 @@ We distinguish different sets of batch commands:
 
 3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (e.g. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
 
-## Usage examples
+## <span id="usage_examples">Usage examples</span>
 
 #### `setenv.bat`
 
@@ -142,7 +142,7 @@ Tool paths:
    C:\opt\Git-2.24.0\usr\bin\diff.exe
 </pre>
 
-#### `bin\check-outdated`
+#### `bin\check-outdated.bat`
 
 Command [**`bin\check-outdated`**](bin/check-outdated.bat) visits all project directories and prints out outdated package dependencies. For instance package we see in the following output that package **`eslint-plugin-node`** is outdated in several projects:
 
@@ -237,9 +237,9 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://git-scm.com/download/win">PortableGit-2.24.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.14.zip</a>  <i>(316 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.13.0-win-x64.zip</a>                     <i>( 16 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.24.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
 </pre>
 
 ***
