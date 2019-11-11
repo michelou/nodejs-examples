@@ -67,7 +67,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     rem subcommand
-    set /a __N=+1
+    set /a __N+=1
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
@@ -83,12 +83,14 @@ if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _INSTALL=%_INSTALL% _VERBOSE=%_
 goto :eof
 
 :help
-echo Usage: %_BASENAME% { options ^| subcommands }
+echo Usage: %_BASENAME% { ^<option^> ^| ^<subcommand^> }
+echo.
 echo   Options:
 echo     -debug      show commands executed by this script
 echo     -install    install latest package (if outdated)
 echo     -timer      display total elapsed time
 echo     -verbose    display progress messages
+echo.
 echo   Subcommands:
 echo     help        display this help message
 goto :eof

@@ -68,7 +68,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     rem subcommand
-    set /a __N=!__N!+1
+    set /a __N+=1
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
@@ -83,10 +83,12 @@ if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
 
 :help
-echo Usage: %_BASENAME% { options ^| subcommands }
+echo Usage: %_BASENAME% { ^<option^> ^| ^<subcommand^> }
+echo.
 echo   Options:
 echo     -debug      show commands executed by this script
 echo     -verbose    display progress messages
+echo.
 echo   Subcommands:
 echo     help        display this help message
 goto :eof
@@ -96,7 +98,7 @@ rem postcondition: NODE_HOME is defined and valid
 set _NODE_HOME=
 
 set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set __NPM_CMD=%%f
+for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
     for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
@@ -136,7 +138,7 @@ set _GIT_PATH=
 
 set __GIT_HOME=
 set __GIT_EXE=
-for /f %%f in ('where git.exe 2^>NUL') do set __GIT_EXE=%%f
+for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_EXE=%%f"
 if defined __GIT_EXE (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path

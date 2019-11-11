@@ -85,12 +85,15 @@ We distinguish different sets of batch commands:
 
     <pre style="font-size:80%;">
     <b>&gt; setenv help</b>
-    Usage: setenv { option | subcommand }
+    Usage: setenv { &lt;option&gt; | &lt;subcommand&gt; }
+    &nbsp;
       Options:
         -debug      show commands executed by this script
         -verbose    display environment settings
+    &nbsp;
       Subcommands:
         help        display this help message
+    &nbsp;
     <b>&gt; where node npm</b>
     C:\opt\node-v12.13.0-win-x64\node.exe
     C:\opt\node-v12.13.0-win-x64\npm
@@ -100,12 +103,14 @@ We distinguish different sets of batch commands:
 
     <pre style="font-size:80%;">
     <b>&gt; bin\check-outdated.bat help</b>
-    Usage: check-outdated { option | subcommand }
+    Usage: check-outdated { &lt;option&gt; | &lt;subcommand&gt; }
+    &nbsp;
       Options:
         -debug      show commands executed by this script
         -install    install latest package (if outdated)
         -timer      display total elapsed time
         -verbose    display progress messages
+    &nbsp;
       Subcommands:
         help        display this help message</pre>
 

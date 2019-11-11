@@ -90,38 +90,38 @@ Executing the **`npm run client`** command in directory [**`samples\locales-2\`*
 
 en
 &lt;!DOCTYPE html>
-&lt;html lang="en" dir="ltr">
-&lt;head>
+&lt;html lang="en" dir="ltr"&gt;
+<b>&lt;head&gt;</b>
  &lt;meta charset="utf-8">
-  &lt;title>Hello World</title>
+  &lt;title&gt;Hello World&lt;/title&gt;
 &lt;/head>
-&lt;body>
-  &lt;h1>Hello</h1>
-&lt;/body>       
+&lt;body&gt;
+  &lt;h1&gt;Hello&lt;/h1&gt;
+<b>&lt;/body&gt;</b>
 <b>&lt;/html&gt;</b>  
 
 fr 
-&lt;!DOCTYPE html>
-&lt;html lang="fr" dir="ltr">
-&lt;head>
- &lt;meta charset="utf-8">
-  &lt;title>Salut le monde</title>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr" dir="ltr"&gt;
+<b>&lt;head&gt;</b>
+ &lt;meta charset="utf-8"&gt;
+  &lt;title>Salut le monde&lt;/title&gt;
 &lt;/head>
 &lt;body>
-  &lt;h1>Salut</h1> 
-&lt;/body>
-&lt;/html>
+  &lt;h1&gt;Salut&lt;/h1&gt;
+<b>&lt;/body&gt;</b>
+<b>&lt;/html&gt;</b>
 
 de
-&lt;!DOCTYPE html>
-&lt;html lang="de" dir="ltr">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="de" dir="ltr"&gt;
 <b>&lt;head&gt;</b>
- &lt;meta charset="utf-8">
-  &lt;title>Hallo Welt</title>
-&lt;/head>
-&lt;body>
-  &lt;h1>Hallo</h1>   
-&lt;/body>
+ &lt;meta charset="utf-8"&gt;
+  &lt;title>Hallo Welt&lt;/title&gt;
+<b>&lt;/head&gt;</b>
+<b>&lt;body&gt;</b>
+  &lt;h1&gt;Hallo&lt;/h1&gt;   
+<b>&lt;/body&gt;</b>
 <b>&lt;/html></b>
 </pre>
 
