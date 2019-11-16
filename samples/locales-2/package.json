@@ -18,16 +18,16 @@
   "license": "BSD",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "ejs": "^2.7.1",
+    "ejs": "^2.7.2",
     "express": "^4.17.1",
     "i18n-abide": "^0.0.26",
     "method-override": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.5.0",
+    "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
   },

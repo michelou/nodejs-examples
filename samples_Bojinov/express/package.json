@@ -29,7 +29,7 @@
     "grunt": "^1.0.4",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^6.2.1",
+    "mocha": "^6.2.2",
     "request": "^2.88.0"
   },
   "engines": {

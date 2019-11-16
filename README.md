@@ -9,20 +9,20 @@
   </tr>
 </table>
 
-[Dotty](https://github.com/michelou/dotty-examples), [GraalVM](https://github.com/michelou/graalvm-examples) and [LLVM](https://github.com/michelou/llvm-examples) are other topics we are currently investigating.
+[Dotty](dotty_examples), [GraalVM](graalvm_examples) and [LLVM](llvm_examples) are other topics we are currently investigating.
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
-- [Node.js 12.x LTS](https://nodejs.org/en/download/) <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*release notes*](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.13.0))
-- [MongoDB 3.6](https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl) ([*release notes*](https://docs.mongodb.com/manual/release-notes/3.6/))
+- [Node.js 12.x LTS](nodejs_downloads) <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*release notes*](nodejs_relnotes))
+- [MongoDB 3.6](mongodb_downloads) ([*release notes*](mongodb_relnotes))
 
 Optionally one may also install the following software:
 
-- [Git 2.24](https://git-scm.com/download/win) ([*release notes*](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt))
+- [Git 2.24](git_downloads) ([*release notes*](git_relnotes))
 
-> **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**](https://git-scm.com/docs/git) from the command line (as well as over 250 Unix commands like [**`awk`**](https://www.linux.org/docs/man1/awk.html), [**`diff`**](https://www.linux.org/docs/man1/diff.html), [**`file`**](https://www.linux.org/docs/man1/file.html), [**`grep`**](https://www.linux.org/docs/man1/grep.html), [**`more`**](https://www.linux.org/docs/man1/more.html), [**`mv`**](https://www.linux.org/docs/man1/mv.html), [**`rmdir`**](https://www.linux.org/docs/man1/rmdir.html), [**`sed`**](https://www.linux.org/docs/man1/sed.html) and [**`wc`**](https://www.linux.org/docs/man1/wc.html)).
+> **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**](git_docs) from the command line (as well as over 250 Unix commands like [**`awk`**](man1_awk), [**`diff`**](man1_diff), [**`file`**](man1_file), [**`grep`**](man1_grep), [**`more`**](man1_more), [**`mv`**](man1_mv), [**`rmdir`**](man1_rmdir), [**`sed`**](man1_sed) and [**`wc`**](man1_wc)).
 
 For instance our development environment looks as follows (*November 2019*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
@@ -33,11 +33,9 @@ C:\opt\node-v12.13.0-win-x64\                     <i>( 44 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
-> When possible we install software from a [Zip archive](https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/) rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`](http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html) directory on Unix).
+> When possible we install software from a [Zip archive](zip_archive) rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`](linux_opt) directory on Unix).
 
-We further recommand using an advanced console emulator such as [ComEmu](https://conemu.github.io/) (or [Cmdr](http://cmder.net/)) which features [Unicode support](https://conemu.github.io/en/UnicodeSupport.html).
-
-## Directory structure
+## <span id="structure">Directory structure</span>
 
 This project is organized as follows:
 <pre style="font-size:80%;">
@@ -57,19 +55,19 @@ setenv.bat
 where
 
 - directory [**`bin\`**](bin/) contains utility batch scripts.
-- directory [**`docs\`**](docs/) contains [Node.js](https://nodejs.org/) related papers/articles.
-- directory [**`samples\`**](samples/) contains [Node.js](https://nodejs.org/) code examples grabbed from various websites.
-- directory [**`samples_Bojinov\`**](samples_Bojinov/) contains [Node.js](https://nodejs.org/) code examples from [Bojinov's book](https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138).
-- directory [**`samples_Cook\`**](samples_Cook/) contains [Node.js](https://nodejs.org/) code examples from [Cook's book](https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924).
-- directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js](https://nodejs.org/) code examples from [Düüna's book](https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application).
-- directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js](https://nodejs.org/) code examples from [Lambert's book](https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785).
-- directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js](https://nodejs.org/) code examples from [Pillora's book](https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner).
+- directory [**`docs\`**](docs/) contains [Node.js](nodejs) related papers/articles.
+- directory [**`samples\`**](samples/) contains [Node.js](nodejs) code examples grabbed from various websites.
+- directory [**`samples_Bojinov\`**](samples_Bojinov/) contains [Node.js](nodejs) code examples from [Bojinov's book](book_bojinov).
+- directory [**`samples_Cook\`**](samples_Cook/) contains [Node.js](nodejs) code examples from [Cook's book](book_cook).
+- directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js](nodejs) code examples from [Düüna's book](book_duuna).
+- directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js](nodejs) code examples from [Lambert's book](book_lambert).
+- directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js](nodejs) code examples from [Pillora's book](book_pillora).
 - file [**`README.md`**](README.md) is the Markdown document for this page.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
-We also define a virtual drive **`N:`** in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"](https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation) from Microsoft Support).
+We also define a virtual drive **`N:`** in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"](windows_limitation) from Microsoft Support).
 
-> **:mag_right:** We use the Windows external command [**`subst`**](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst) to create virtual drives; for instance:
+> **:mag_right:** We use the Windows external command [**`subst`**](windows_subst) to create virtual drives; for instance:
 >
 > <pre style="font-size:80%;">
 > <b>&gt; subst N: %USERPROFILE%\workspace\nodejs-examples</b>
@@ -81,7 +79,7 @@ In the next section we give a brief description of the batch files present in th
 
 We distinguish different sets of batch commands:
 
-1. [**`setenv.bat`**](setenv.bat) - This batch command makes the external tools such as [**`node.exe`**](https://nodejs.org/api/cli.html#cli_command_line_options), [**`npm.cmd`**](https://docs.npmjs.com/cli/npm) directly available from the command prompt.
+1. [**`setenv.bat`**](setenv.bat) - This batch command makes the external tools such as [**`node.exe`**](nodejs_node), [**`npm.cmd`**](nodejs_npm) directly available from the command prompt.
 
     <pre style="font-size:80%;">
     <b>&gt; setenv help</b>
@@ -114,7 +112,7 @@ We distinguish different sets of batch commands:
       Subcommands:
         help        display this help message</pre>
 
-3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (e.g. [**`mongod.exe`**](https://docs.mongodb.com/manual/reference/program/mongod/) or [**`siege.exe`**](https://www.joedog.org/siege-manual/)).
+3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (e.g. [**`mongod.exe`**](mongodb_mongod) or [**`siege.exe`**](siege_refman)).
 
 ## <span id="usage_examples">Usage examples</span>
 
@@ -158,13 +156,13 @@ directory samples\locales-1\
 directory samples\locales-2\
 directory samples\mongoose-default-connection\
 directory samples\webaudio-sample\
-   <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
+   <b>outdated package eslint-plugin-node: current=9.2.0, latest=10.0.0</b>
 directory samples_Bojinov\contacts-1-JSON\
 directory samples_Bojinov\contacts-2-LevelDB\
 directory samples_Bojinov\contacts-3-LevelDB2\
 directory samples_Bojinov\contacts-4-Mongoose\
 directory samples_Bojinov\contacts-5-MongoDB\
-   <b>outdated package eslint-plugin-node: wanted=9.2.0, latest=10.0.0</b>
+   <b>outdated package eslint-plugin-node: current=9.2.0, latest=10.0.0</b>
 directory samples_Bojinov\contacts-6-Image\
 [...]
 </pre>
@@ -173,7 +171,7 @@ Command [**`bin\check-outdated -install`**](bin/check-outdated.bat) also updates
 
 #### `samples\setenv.bat`
 
-Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**](https://docs.mongodb.com/manual/reference/program/mongod/) tool to the path:
+Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**](mongodb_mongod) tool to the path:
 
 <pre style="font-size:80%;">
 <b>&gt; cd</b>
@@ -251,3 +249,39 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 *[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
+
+<!-- link refs -->
+
+[book_bojinov]: https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138
+[book_cook]: https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924
+[book_duuna]: https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application
+[book_lambert]: https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785
+[book_pillora]: https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner
+[dotty_examples]: https://github.com/michelou/dotty-examples
+[git_docs]: https://git-scm.com/docs/git
+[git_downloads]: https://git-scm.com/download/win
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt
+[graalvm_examples]: https://github.com/michelou/graalvm-examples
+[linux_opt]: http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
+[llvm_examples]: https://github.com/michelou/llvm-examples
+[man1_awk]: https://www.linux.org/docs/man1/awk.html
+[man1_diff]: https://www.linux.org/docs/man1/diff.html
+[man1_file]: https://www.linux.org/docs/man1/file.html
+[man1_grep]: https://www.linux.org/docs/man1/grep.html
+[man1_more]: https://www.linux.org/docs/man1/more.html
+[man1_mv]: https://www.linux.org/docs/man1/mv.html
+[man1_rmdir]: https://www.linux.org/docs/man1/rmdir.html
+[man1_sed]: https://www.linux.org/docs/man1/sed.html
+[man1_wc]: https://www.linux.org/docs/man1/wc.html
+[mongodb_downloads]: https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl
+[mongodb_mongod]: https://docs.mongodb.com/manual/reference/program/mongod/
+[mongodb_relnotes]: https://docs.mongodb.com/manual/release-notes/3.6/
+[nodejs]: https://nodejs.org/
+[nodejs_downloads]: https://nodejs.org/en/download/
+[nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
+[nodejs_npm]: https://docs.npmjs.com/cli/npm
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.13.0
+[siege_refman]: https://www.joedog.org/siege-manual/
+[windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
+[windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
+[zip_archive]: https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/

@@ -17,11 +17,14 @@ if not %_EXITCODE%==0 goto end
 
 call :args %*
 if not %_EXITCODE%==0 goto end
-if %_HELP%==1 call :help & exit /b %_EXITCODE%
 
 rem ##########################################################################
 rem ## Main
 
+if %_HELP%==1 (
+    call :help
+    exit /b !_EXITCODE!
+)
 for /f "delims=" %%f in ('where /r "%_ROOT_DIR:~0,-1%" package.json ^| findstr /v node_modules 2^>NUL') do (
     call :outdated "%%~dpf"
     if not !_EXITCODE!==0 goto end
@@ -39,6 +42,12 @@ set _DEBUG_LABEL=[46m[%_BASENAME%][0m
 set _ERROR_LABEL=[91mError[0m:
 set _WARNING_LABEL=[93mWarning[0m:
 
+where /q npm.cmd
+if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Executable npm.cmd not found 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
 set _NPM_CMD=npm.cmd
 set _NPM_OPTS=
 goto :eof
@@ -78,8 +87,8 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto :args_loop
 :args_done
-if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
 if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _INSTALL=%_INSTALL% _VERBOSE=%_VERBOSE% 1>&2
+if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof
 
 :help
@@ -99,17 +108,30 @@ goto :eof
 set __PROJ_DIR=%~1
 
 pushd "%__PROJ_DIR%"
-echo directory !__PROJ_DIR:%_ROOT_DIR%=!
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Current directory: !__PROJ_DIR:%_ROOT_DIR%=! 1>&2
 
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_NPM_CMD% outdated ^| findstr /v Wanted 1>&2
+) else if %_VERBOSE%==1 ( echo Search for outdated packages in directory !__PROJ_DIR:%_ROOT_DIR%=! 1>&2
+)
 for /f "tokens=1,2,3,4,*" %%i in ('%_NPM_CMD% outdated ^| findstr /v Wanted') do (
     set __PKG_NAME=%%i
+    set __CURRENT=%%j
     set __WANTED=%%k
     set __LATEST=%%l
-    if not "!__WANTED!"=="!__LATEST!" (
-        echo    outdated package !__PKG_NAME!: wanted=!__WANTED!, latest=!__LATEST!
+    if "!__CURRENT!"=="MISSING" (
+        call :current_missing "!__PKG_NAME!"
+        if not !_EXITCODE!==0 goto outdated_done
+        set __CURRENT=!_CURRENT_MISSING!
+    )
+    if "!__CURRENT!"=="*" (
+        rem Keep "Any version"
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Package "!__PKG_NAME!" has version "*" ^(!__LATEST!^) 1>&2
+        )
+    ) else if not "!__CURRENT!"=="!__LATEST!" (
+        echo    Outdated package !__PKG_NAME!: current=!__CURRENT!, latest=!__LATEST!
         if %_INSTALL%==1 (
             if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_NPM_CMD% install -audit !__PKG_NAME!@!__LATEST! --save 1^>NUL 1>&2
-            ) else if %_VERBOSE%==1 ( echo    install package !__PKG_NAME!@!__LATEST! 1>&2
+            ) else if %_VERBOSE%==1 ( echo    Install package !__PKG_NAME!@!__LATEST! 1>&2
             )
             call %_NPM_CMD% install -audit !__PKG_NAME!@!__LATEST! --save 1>NUL
             if not !ERRORLEVEL!==0 (
@@ -118,7 +140,22 @@ for /f "tokens=1,2,3,4,*" %%i in ('%_NPM_CMD% outdated ^| findstr /v Wanted') do
         )
     )
 )
+:outdated_done
 popd
+goto :eof
+
+rem input parameter: %1=package name
+rem output parameter: _CURRENT_MISSING
+:current_missing
+set __PKG_NAME=%~1
+set _CURRENT_MISSING=
+
+for /f "usebackq delims=:, tokens=1,2,*" %%f in (`findstr /c:"%__PKG_NAME%" package.json`) do (
+    for /f "usebackq" %%x in (`powershell -C "'%%g'.Trim()"`) do set _CURRENT_MISSING=%%x
+    if "!_CURRENT_MISSING:~0,1!"=="^" ( set _CURRENT_MISSING=!_CURRENT_MISSING:~1!
+    ) else if "!_CURRENT_MISSING:%~0,1!"=="~" ( set _CURRENT_MISSING=!_CURRENT_MISSING:~1!
+    )
+)
 goto :eof
 
 rem output parameter: _DURATION
