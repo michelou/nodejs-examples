@@ -9,20 +9,20 @@
   </tr>
 </table>
 
-[Dotty](dotty_examples), [GraalVM](graalvm_examples) and [LLVM](llvm_examples) are other topics we are currently investigating.
+[Dotty][dotty_examples], [GraalVM][graalvm_examples] and [LLVM][llvm_examples] are other topics we are currently investigating.
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
-- [Node.js 12.x LTS](nodejs_downloads) <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*release notes*](nodejs_relnotes))
-- [MongoDB 3.6](mongodb_downloads) ([*release notes*](mongodb_relnotes))
+- [Node.js 12.x LTS][nodejs_downloads] <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*release notes*][nodejs_relnotes])
+- [MongoDB 3.6][mongodb_downloads] ([*release notes*][mongodb_relnotes])
 
 Optionally one may also install the following software:
 
-- [Git 2.24](git_downloads) ([*release notes*](git_relnotes))
+- [Git 2.24][git_downloads] ([*release notes*][git_relnotes])
 
-> **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**](git_docs) from the command line (as well as over 250 Unix commands like [**`awk`**](man1_awk), [**`diff`**](man1_diff), [**`file`**](man1_file), [**`grep`**](man1_grep), [**`more`**](man1_more), [**`mv`**](man1_mv), [**`rmdir`**](man1_rmdir), [**`sed`**](man1_sed) and [**`wc`**](man1_wc)).
+> **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
 For instance our development environment looks as follows (*November 2019*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
@@ -33,7 +33,7 @@ C:\opt\node-v12.13.0-win-x64\                     <i>( 44 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
-> When possible we install software from a [Zip archive](zip_archive) rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`](linux_opt) directory on Unix).
+> When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][linux_opt] directory on Unix).
 
 ## <span id="structure">Directory structure</span>
 
@@ -55,19 +55,19 @@ setenv.bat
 where
 
 - directory [**`bin\`**](bin/) contains utility batch scripts.
-- directory [**`docs\`**](docs/) contains [Node.js](nodejs) related papers/articles.
-- directory [**`samples\`**](samples/) contains [Node.js](nodejs) code examples grabbed from various websites.
-- directory [**`samples_Bojinov\`**](samples_Bojinov/) contains [Node.js](nodejs) code examples from [Bojinov's book](book_bojinov).
-- directory [**`samples_Cook\`**](samples_Cook/) contains [Node.js](nodejs) code examples from [Cook's book](book_cook).
-- directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js](nodejs) code examples from [Düüna's book](book_duuna).
-- directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js](nodejs) code examples from [Lambert's book](book_lambert).
-- directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js](nodejs) code examples from [Pillora's book](book_pillora).
+- directory [**`docs\`**](docs/) contains [Node.js][nodejs] related papers/articles.
+- directory [**`samples\`**](samples/) contains [Node.js][nodejs] code examples grabbed from various websites.
+- directory [**`samples_Bojinov\`**](samples_Bojinov/) contains [Node.js][nodejs] code examples from [Bojinov's book][book_bojinov].
+- directory [**`samples_Cook\`**](samples_Cook/) contains [Node.js][nodejs] code examples from [Cook's book][book_cook].
+- directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js][nodejs] code examples from [Düüna's book][book_duuna].
+- directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js][nodejs] code examples from [Lambert's book][book_lambert].
+- directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js][nodejs] code examples from [Pillora's book][book_pillora].
 - file [**`README.md`**](README.md) is the Markdown document for this page.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
-We also define a virtual drive **`N:`** in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"](windows_limitation) from Microsoft Support).
+We also define a virtual drive **`N:`** in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"][windows_limitation] from Microsoft Support).
 
-> **:mag_right:** We use the Windows external command [**`subst`**](windows_subst) to create virtual drives; for instance:
+> **:mag_right:** We use the Windows external command [**`subst`**][windows_subst] to create virtual drives; for instance:
 >
 > <pre style="font-size:80%;">
 > <b>&gt; subst N: %USERPROFILE%\workspace\nodejs-examples</b>
@@ -79,7 +79,7 @@ In the next section we give a brief description of the batch files present in th
 
 We distinguish different sets of batch commands:
 
-1. [**`setenv.bat`**](setenv.bat) - This batch command makes the external tools such as [**`node.exe`**](nodejs_node), [**`npm.cmd`**](nodejs_npm) directly available from the command prompt.
+1. [**`setenv.bat`**](setenv.bat) - This batch command makes the external tools such as [**`node.exe`**][nodejs_node], [**`npm.cmd`**][nodejs_npm] directly available from the command prompt.
 
     <pre style="font-size:80%;">
     <b>&gt; setenv help</b>
@@ -112,7 +112,7 @@ We distinguish different sets of batch commands:
       Subcommands:
         help        display this help message</pre>
 
-3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (e.g. [**`mongod.exe`**](mongodb_mongod) or [**`siege.exe`**](siege_refman)).
+3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (e.g. [**`mongod.exe`**][mongodb_mongod] or [**`siege.exe`**][siege_refman]).
 
 ## <span id="usage_examples">Usage examples</span>
 
@@ -171,7 +171,7 @@ Command [**`bin\check-outdated -install`**](bin/check-outdated.bat) also updates
 
 #### `samples\setenv.bat`
 
-Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**](mongodb_mongod) tool to the path:
+Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**][mongodb_mongod] tool to the path:
 
 <pre style="font-size:80%;">
 <b>&gt; cd</b>
