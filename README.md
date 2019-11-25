@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Dotty][dotty_examples], [GraalVM][graalvm_examples] and [LLVM][llvm_examples] are other topics we are currently investigating.
+[Dotty][dotty_examples], [GraalVM][graalvm_examples], [Kotlin][kotlin_examples] and [LLVM][llvm_examples] are other topics we are currently investigating.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -263,6 +263,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
+[kotlin_examples]: https://github.com/michelou/kotlin-examples
 [linux_opt]: http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [llvm_examples]: https://github.com/michelou/llvm-examples
 [man1_awk]: https://www.linux.org/docs/man1/awk.html
