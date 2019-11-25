@@ -18,16 +18,16 @@ if not %_EXITCODE%==0 goto end
 
 call :args %*
 if not %_EXITCODE%==0 goto end
-if %_HELP%==1 call :help & exit /b %_EXITCODE%
 
 rem ##########################################################################
 rem ## Main
 
-set _MODULES_BIN_PATH=
-if exist "%_ROOT_DIR%node_modules\.bin\" set _MODULES_BIN_PATH=;%_ROOT_DIR%node_modules\.bin\
-
 set _GIT_PATH=
 
+if %_HELP%==1 (
+    call :help
+    exit /b !_EXITCODE!
+)
 call :npm
 if not %_EXITCODE%==0 goto end
 
@@ -110,7 +110,7 @@ if defined __NPM_CMD (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
-        set __PATH=C:\progra~1
+        set "__PATH=%ProgramFiles%"
         for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
@@ -198,7 +198,6 @@ echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
-    rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
 )
@@ -209,9 +208,11 @@ rem ## Cleanups
 
 :end
 endlocal & (
-    if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
-    set "PATH=%PATH%%_GIT_PATH%%_MODULES_BIN_PATH%"
-    call :print_env %_VERBOSE%
+    if %_EXITCODE%==0 (
+        if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
+        set "PATH=%PATH%%_GIT_PATH%!_MODULES_BIN_PATH!"
+        call :print_env %_VERBOSE%
+    )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )

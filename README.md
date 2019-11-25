@@ -28,8 +28,8 @@ For instance our development environment looks as follows (*November 2019*) <sup
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.24.0\                                <i>(271 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\  <i>(1.1 GB)</i>
-C:\opt\node-v12.13.0-win-x64\                     <i>( 44 MB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.15\  <i>(1.1 GB)</i>
+C:\opt\node-v12.13.1-win-x64\                     <i>( 44 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -62,7 +62,7 @@ where
 - directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js][nodejs] code examples from [Düüna's book][book_duuna].
 - directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js][nodejs] code examples from [Lambert's book][book_lambert].
 - directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js][nodejs] code examples from [Pillora's book][book_pillora].
-- file [**`README.md`**](README.md) is the Markdown document for this page.
+- file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
 We also define a virtual drive **`N:`** in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"][windows_limitation] from Microsoft Support).
@@ -93,24 +93,24 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; where node npm</b>
-    C:\opt\node-v12.13.0-win-x64\node.exe
-    C:\opt\node-v12.13.0-win-x64\npm
-    C:\opt\node-v12.13.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v12.13.1-win-x64\node.exe
+    C:\opt\node-v12.13.1-win-x64\npm
+    C:\opt\node-v12.13.1-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
-    <pre style="font-size:80%;">
-    <b>&gt; bin\check-outdated.bat help</b>
-    Usage: check-outdated { &lt;option&gt; | &lt;subcommand&gt; }
-    &nbsp;
-      Options:
-        -debug      show commands executed by this script
-        -install    install latest package (if outdated)
-        -timer      display total elapsed time
-        -verbose    display progress messages
-    &nbsp;
-      Subcommands:
-        help        display this help message</pre>
+   <pre style="font-size:80%;">
+   <b>&gt; bin\check-outdated.bat help</b>
+   Usage: check-outdated { &lt;option&gt; | &lt;subcommand&gt; }
+   &nbsp;
+     Options:
+       -debug      show commands executed by this script
+       -install    install latest package (if outdated)
+       -timer      display total elapsed time
+       -verbose    display progress messages
+   &nbsp;
+     Subcommands:
+       help        display this help message</pre>
 
 3. [**`samples\setenv.bat`**](samples/setenv.bat) - This batch command works the same way as in project root directory (point 1) with possibly additional tools (e.g. [**`mongod.exe`**][mongodb_mongod] or [**`siege.exe`**][siege_refman]).
 
@@ -123,24 +123,24 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v12.13.0, npm 6.12.0
+   node v12.13.1, npm 6.12.1
    git 2.24.0.windows.1, diff 3.7
 <b>&gt; where npm</b>
-C:\opt\node-v12.13.0-win-x64\npm
-C:\opt\node-v12.13.0-win-x64\npm.cmd
+C:\opt\node-v12.13.1-win-x64\npm
+C:\opt\node-v12.13.1-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-Your environment has been set up for using Node.js 12.13.0 (x64) and npm.
+Your environment has been set up for using Node.js 12.13.1 (x64) and npm.
 Tool versions:
-   node v12.13.0, npm 6.12.0
+   node v12.13.1, npm 6.12.1
    git 2.24.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v12.13.0-win-x64\node.exe
-   C:\opt\node-v12.13.0-win-x64\npm.cmd
+   C:\opt\node-v12.13.1-win-x64\node.exe
+   C:\opt\node-v12.13.1-win-x64\npm.cmd
    C:\opt\Git-2.24.0\bin\git.exe
    C:\opt\Git-2.24.0\usr\bin\diff.exe
 </pre>
@@ -178,15 +178,15 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v12.13.0, npm 6.12.0
-   git 2.24.0.windows.1, diff 3.7, mongod v3.6.14
+   node v12.13.1, npm 6.12.1
+   git 2.24.0.windows.1, diff 3.7, mongod v3.6.15
 Tool paths:
-   C:\opt\node-v12.13.0-win-x64\node.exe
-   C:\opt\node-v12.13.0-win-x64\npm.cmd
+   C:\opt\node-v12.13.1-win-x64\node.exe
+   C:\opt\node-v12.13.1-win-x64\npm.cmd
    C:\opt\Git-2.24.0\bin\git.exe
    C:\opt\Git-2.24.0\mingw64\bin\git.exe
    C:\opt\Git-2.24.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.14\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.15\bin\mongod.exe
 </pre>
 
 #### `npm.cmd`
@@ -240,8 +240,8 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.14.zip</a>  <i>(316 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.13.0-win-x64.zip</a>                     <i>( 16 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.15.zip</a>  <i>(316 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.13.1-win-x64.zip</a>                     <i>( 16 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.24.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
 </pre>
 
@@ -261,6 +261,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt
+[github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [linux_opt]: http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [llvm_examples]: https://github.com/michelou/llvm-examples
@@ -280,7 +281,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_downloads]: https://nodejs.org/en/download/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.13.0
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.13.1
 [siege_refman]: https://www.joedog.org/siege-manual/
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
