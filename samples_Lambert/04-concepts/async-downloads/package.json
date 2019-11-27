@@ -6,15 +6,15 @@
   "author": "Olivier Lambert",
   "private": true,
   "scripts": {
-    "start": "node app/async-downloads.js",
-    "lint": "eslint app"
+    "lint": "eslint app",
+    "start": "node app/async-downloads.js"
   },
   "dependencies": {
     "async": "^3.1.0",
     "got": "^9.6.0"
   },
   "devDependencies": {
-    "eslint": "^6.6.0",
+    "eslint": "^6.7.1",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
@@ -22,7 +22,7 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "engines": {
-    "node": ">=10.16.0",
-    "npm": ">=6.9.0"
+    "node": ">=12.13.0",
+    "npm": ">=6.12.0"
   }
 }

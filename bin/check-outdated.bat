@@ -108,7 +108,7 @@ goto :eof
 set __PROJ_DIR=%~1
 
 pushd "%__PROJ_DIR%"
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Current directory: !__PROJ_DIR:%_ROOT_DIR%=! 1>&2
+echo Current directory: !__PROJ_DIR:%_ROOT_DIR%=!
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_NPM_CMD% outdated ^| findstr /v Wanted 1>&2
 ) else if %_VERBOSE%==1 ( echo Search for outdated packages in directory !__PROJ_DIR:%_ROOT_DIR%=! 1>&2

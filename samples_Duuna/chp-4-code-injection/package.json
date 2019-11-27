@@ -5,8 +5,8 @@
   "main": "app/calculator.js",
   "private": true,
   "scripts": {
-    "start": "node ./npm_scripts/start_browser.js && node .",
     "lint": "eslint app test",
+    "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "./node_modules/.bin/mocha test"
   },
   "dependencies": {
@@ -16,18 +16,18 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^6.4.0",
+    "eslint": "^6.7.1",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^6.2.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^6.2.2",
     "should": "^13.2.3",
     "zombie": "^6.1.4"
   },
   "engines": {
-    "node": ">=10.16.0",
-    "npm": ">=6.9.0"
+    "node": ">=12.13.0",
+    "npm": ">=6.12.0"
   }
 }
