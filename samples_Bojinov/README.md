@@ -9,7 +9,7 @@
 
 ### `hello-1`
 
-Executing command **`npm start`** in directory [**`samples_Bojinov\hello-1\`**](./hello-1/) performs two tasks:
+Command [**`npm start`**](./hello-1/package.json) executes application [**`app\app.js`**](./hello-1/app/app.js) which performs two tasks:
 
 - it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./hello-1/config_TEMPLATE.json)).
 - it opens URL **`http:/127.0.0.1:8180`** in your default web browser.
@@ -61,7 +61,7 @@ OK: 0 assertions (184ms)
 
 ### `routes`
 
-Executing command **`npm start`** in directory [**`samples_Bojinov\routes\`**](./routes/) performs two tasks:
+Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./routes/app/app.js) which performs two tasks:
 
 - it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./routes/config_TEMPLATE.json)).
 - it opens URL **`http:/127.0.0.1:8180/salut?name=tom`** in your default web browser.
@@ -80,5 +80,5 @@ Server listening at 127.0.0.1:8180
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/December 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

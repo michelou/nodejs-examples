@@ -11,12 +11,69 @@
 
 ### `04-concepts`
 
-Executing the **`npm start`** command in directory [**`samples_Lambert\04-concepts\`**](./04-concepts/) performs to tasks:
+Command [**`npm start`**](./04-concepts/async-downloads/package.json) executes application [**`app\async-downloads.js`**](./04-concepts/async-downloads/app/async-downloads.js) which produces the following output:
 
 <pre style="font-size:80%;">
+<b>&gt; npm start</b>
 
+> async-downloads@0.0.1 start N:\samples_Lambert\04-concepts\async-downloads
+> node app/async-downloads.js
+
+Tout s'est bien passé
 </pre>
 
+### `06_files`
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
+Command [**`npm run`**](./06_files/package.json) displays the available [**`npm`** scripts][npm_scripts].
+
+<pre style="font-size:80%;">
+<b>&gt; npm run</b>
+Scripts available in files via `npm run-script`:
+  dirs
+    node app/directories.js
+  files
+    node app/files.js
+  lint
+    eslint app
+  paths
+    node app/paths.js
+  watch
+    node app/watch.js
+</pre>
+
+Command [**`npm run dirs`**](./06_files/package.json) executes application [**`app/directories.js`**](./06_files/app/directories.js):
+
+<pre style="font-size:80%;">
+<b>&gt; npm run dirs</b>
+
+> files@0.0.1 dirs N:\samples_Lambert\06-files
+> node app/directories.js
+
+fichiers trouvés : [ 'directories.js', 'files.js', 'paths.js', 'watch.js' ]
+répertoire créé
+répertoire supprimé
+arborescence créée
+arborescence supprimée
+</pre>
+
+### `07_promises`
+
+Command [**`npm run`**](./07_promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
+
+<pre style="font-size:80%;">
+<b>&gt; npm run</b>
+Scripts available in promises via `npm run-script`:
+  creation
+    node src/creation.js
+  dl-two-files
+    node src/dl-two-files.js
+  generator
+    babel src -d app & babel-node app/generator.js
+</pre>
+
+*[mics](http://lampwww.epfl.ch/~michelou/)/December 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
+
+<!-- link refs -->
+
+[npm_scripts]: https://docs.npmjs.com/misc/scripts

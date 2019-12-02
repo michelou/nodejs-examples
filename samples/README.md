@@ -9,7 +9,7 @@
 
 ### `auth-passport`
 
-Executing command **`npm start`** in directory [**`samples\auth-passport\`**](./auth-passpor/) prints the following output:
+Command [**`npm start`**](auth-passport/package.json) executes application[**`app\app.js`**](./auth-passport/app/app.js) which prints the following output:
 
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
@@ -33,7 +33,7 @@ Express server listening on port 8180
 
 ### `locales-1`
 
-Executing the **`npm start`** command in directory [**`samples\locales-1\`**](./locales-1/) performs two task:
+Command [**`npm start`**](./locales-1/package.json) executes application [**`app\app.js`**](./locales-1/app/app.js) which performs two tasks:
 
 - it starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./locales-1/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
@@ -59,7 +59,7 @@ Salut
 
 ### `locales-2`
 
-Executing command **`npm start`** in directory [**`samples\locales-2\`**](./locales-2/) performs two task:
+Command [**`npm start`**](./locales-2/package.json) executes application  [**`app\app.js`**](./locales-2/app/app.js) which performs two tasks:
 
 - it starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./locales-2/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
@@ -144,5 +144,5 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/December 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

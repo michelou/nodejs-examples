@@ -4,7 +4,7 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="120"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> code examples coming from various websites and books.<br/>
-  It also includes several batch commands for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
+  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting">batch files</a> for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
   </td>
   </tr>
 </table>
@@ -24,7 +24,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*November 2019*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
+For instance our development environment looks as follows (*December 2019*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.24.0\                                <i>(271 MB)</i>
@@ -247,7 +247,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/December 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

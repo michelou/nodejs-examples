@@ -32,7 +32,7 @@ Server listening on port 3000
 
 Then we start the client application in the current console:
 
-<pre>
+<pre style="font-size:80%;">
 <b>&gt; npm run client</b> 
                               
 > cluster-main@1.0.0 client N:\samples_Duuna\chp-3-networking
@@ -70,5 +70,5 @@ Server listening on port 3000
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/November 2019* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/December 2019* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

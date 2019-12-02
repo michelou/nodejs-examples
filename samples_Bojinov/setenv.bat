@@ -51,16 +51,16 @@ if "%__ARG:~0,1%"=="-" (
     if /i "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo Error: Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
         set _EXITCODE=1
         goto args_done
     )
 ) else (
     rem subcommand
-    set /a __N=!__N!+1
+    set /a __N+=1
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
-        echo Error: Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -68,14 +68,16 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto :args_loop
 :args_done
-if %_DEBUG%==1 echo [%_BASENAME%] _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
 
 :help
-echo Usage: %_BASENAME% { options ^| subcommands }
+echo Usage: %_BASENAME% { ^<option^> ^| ^<subcommand^> }
+echo.
 echo   Options:
 echo     -debug      show commands executed by this script
 echo     -verbose    display progress messages
+echo.
 echo   Subcommands:
 echo     help        display this help message
 goto :eof
@@ -85,14 +87,15 @@ rem postcondition: NODE_HOME is defined and valid
 set _NODE_HOME=
 
 set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set __NPM_CMD=%%f
+for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
     for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
@@ -102,59 +105,21 @@ if defined __NPM_CMD (
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
-    echo Error: Node installation directory not found ^(%_NODE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Node installation directory not found ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 if not exist "%_NODE_HOME%\npm.cmd" (
-    echo Error: npm not found in Node installation directory ^(%_NODE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% npm not found in Node installation directory ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%_NODE_HOME%") do set _NODE_HOME=%%~sf
-if %_DEBUG%==1 echo [%_BASENAME%] Using default Node installation directory %_NODE_HOME% 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory %_NODE_HOME% 1>&2
 
 set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
-goto :eof
-
-rem output parameter(s): _GIT_PATH
-:git
-set _GIT_PATH=
-
-set __GIT_HOME=
-set __GIT_EXE=
-for /f %%f in ('where git.exe 2^>NUL') do set __GIT_EXE=%%f
-if defined __GIT_EXE (
-    for /f "delims=" %%i in ("%__GIT_EXE%") do set __GIT_BIN_DIR=%%~dpi
-    for %%f in ("!__GIT_BIN_DIR!..") do set __GIT_HOME=%%~sf
-    rem keep _GIT_PATH undefined since executable already in path
-    goto :eof
-) else if defined GIT_HOME (
-    set "__GIT_HOME=%GIT_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME 1>&2
-) else (
-    set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
-    ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
-        if not defined __GIT_HOME (
-            set __PATH=C:\Progra~1
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
-        )
-    )
-)
-if not exist "%__GIT_HOME%\bin\git.exe" (
-    echo Error: Git executable not found ^(%__GIT_HOME%^) 1>&2
-    set _EXITCODE=1
-    goto :eof
-)
-rem path name of installation directory may contain spaces
-for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
-if %_DEBUG%==1 echo [%_BASENAME%] Using default Git installation directory %__GIT_HOME% 1>&2
-
-set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
 
 :pm2
@@ -174,19 +139,20 @@ if not exist "%NODE_HOME%\pm2.cmd" (
 goto :eof
 
 rem output parameter(s): _MONGO_PATH
+rem https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl
 :mongod
 set _MONGO_PATH=
 
 set __MONGO_HOME=
-set __MONGOD_EXE=
-for /f %%f in ('where mongod.exe 2^>NUL') do set __MONGOD_EXE=%%f
-if defined __MONGOD_EXE (
-    if %_DEBUG%==1 echo [%_BASENAME%] Using path of MongoDB executable found in PATH 1>&2
+set __MONGOD_CMD=
+for /f %%f in ('where mongod.exe 2^>NUL') do set __MONGOD_CMD=%%f
+if defined __MONGOD_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined MONGODB_HOME (
     set __MONGO_HOME=%MONGODB_HOME%
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable MONGODB_HOME 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGODB_HOME 1>&2
 ) else (
     set __PATH=c:\opt
     if exist "!__PATH!\mongodb\" ( set __MONGO_HOME=!__PATH!\mongodb
@@ -199,15 +165,52 @@ if defined __MONGOD_EXE (
     )
 )
 if not exist "%__MONGO_HOME%\bin\mongod.exe" (
-    echo Error: MongoDB executable not found ^(%__MONGO_HOME%^) 1>&2
+    echo %_ERROR_LABEL% MongoDB executable not found ^(%__MONGO_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%__MONGO_HOME%") do set __MONGO_HOME=%%~sf
-if %_DEBUG%==1 echo [%_BASENAME%] Using default MongoDB installation directory %__MONGO_HOME% 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default MongoDB installation directory %__MONGO_HOME% 1>&2
 
-set "_MONGO_PATH=;%_MONGO_HOME%\bin"
+set "_MONGO_PATH=;%__MONGO_HOME%\bin"
+goto :eof
+
+rem output parameter(s): _GIT_PATH
+:git
+set _GIT_PATH=
+
+set __GIT_HOME=
+set __GIT_CMD=
+for /f %%f in ('where git.exe 2^>NUL') do set __GIT_CMD=%%f
+if defined __GIT_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
+    rem keep _GIT_PATH undefined since executable already in path
+    goto :eof
+) else if defined GIT_HOME (
+    set "__GIT_HOME=%GIT_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+        if not defined __GIT_HOME (
+            set __PATH=C:\Progra~1
+            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+        )
+    )
+)
+if not exist "%__GIT_HOME%\bin\git.exe" (
+    echo %_ERROR_LABEL% Git executable not found ^(%__GIT_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+rem path name of installation directory may contain spaces
+for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Git installation directory %__GIT_HOME% 1>&2
+
+set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
 
 :print_env
@@ -244,7 +247,7 @@ echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
-    rem if %_DEBUG%==1 echo [%_BASENAME%] where %__WHERE_ARGS%
+    rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths:
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p
 )
@@ -255,10 +258,12 @@ rem ## Cleanups
 
 :end
 endlocal & (
-    if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
-    if not defined NODE_PATH set NODE_PATH=%~dp0\node_modules
-    set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%"
-    if %_EXITCODE%==0 call :print_env %_VERBOSE%
-    if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE% 1>&2
+    if %_EXITCODE%==0 (
+        if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
+        if not defined NODE_PATH set NODE_PATH=%~dp0\node_modules
+        set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%"
+        call :print_env %_VERBOSE%
+    )
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
 )

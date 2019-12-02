@@ -73,7 +73,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     rem subcommand
-    set /a __N=!__N!+1
+    set /a __N+=1
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
@@ -136,7 +136,6 @@ if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory %_N
 
 set NODE_HOME=%_NODE_HOME%
 call %NODE_HOME%\nodevars.bat
-goto :eof_HOME%\nodevars.bat
 goto :eof
 
 :pm2
@@ -145,47 +144,52 @@ if %ERRORLEVEL%==0 goto :eof
 
 if not exist "%NODE_HOME%\pm2.cmd" (
     echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
-    set /p __PM2="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
-    if /i "!__PM2!"=="y" (
+    set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
+    if /i "!__PM2_ANSWER!"=="y" (
         %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
-        goto end
+        goto :eof
     )
 )
 goto :eof
 
+rem output parameter(s): _MONGO_PATH
 rem https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl
 :mongod
-where /q mongod.exe
-if %ERRORLEVEL%==0 goto :eof
+set _MONGO_PATH=
 
-if defined MONGO_HOME (
-    set _MONGO_HOME=%MONGO_HOME%
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGO_HOME 1>&2
+set __MONGO_HOME=
+set __MONGOD_CMD=
+for /f %%f in ('where mongod.exe 2^>NUL') do set __MONGOD_CMD=%%f
+if defined __MONGOD_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
+    rem keep _GIT_PATH undefined since executable already in path
+    goto :eof
+) else if defined MONGODB_HOME (
+    set __MONGO_HOME=%MONGODB_HOME%
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGODB_HOME 1>&2
 ) else (
-    where /q mongod.exe
-    if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f mongod.exe') do set _MONGO_HOME=%%~dpsi
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
+    set __PATH=c:\opt
+    if exist "!__PATH!\mongodb\" ( set __MONGO_HOME=!__PATH!\mongodb
     ) else (
-        set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
-        if not defined _MONGO_HOME (       
+        for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "__MONGO_HOME=!__PATH!\%%f"
+        if not defined __MONGO_HOME (
             set __PATH=C:\Progra~1
-            for /f %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
-            if defined _MONGO_HOME (
-                if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default MongoDB installation directory !_MONGO_HOME! 1>&2
-            )
+            for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "__MONGO_HOME=!__PATH!\%%f"
         )
     )
 )
-if not exist "%_MONGO_HOME%\bin\mongod.exe" (
-    echo %_ERROR_LABEL% MongoDB executable not found ^(%_MONGO_HOME%^) 1>&2
+if not exist "%__MONGO_HOME%\bin\mongod.exe" (
+    echo Error: MongoDB executable not found ^(%__MONGO_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_MONGO_PATH=;%_MONGO_HOME%\bin"
+rem path name of installation directory may contain spaces
+for /f "delims=" %%f in ("%__MONGO_HOME%") do set __MONGO_HOME=%%~sf
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default MongoDB installation directory %__MONGO_HOME% 1>&2
+
+set "_MONGO_PATH=;%__MONGO_HOME%\bin"
 goto :eof
 
 rem output parameter(s): _GIT_PATH
@@ -193,9 +197,9 @@ rem output parameter(s): _GIT_PATH
 set _GIT_PATH=
 
 set __GIT_HOME=
-set __GIT_EXE=
-for /f %%f in ('where git.exe 2^>NUL') do set __GIT_EXE=%%f
-if defined __GIT_EXE (
+set __GIT_CMD=
+for /f %%f in ('where git.exe 2^>NUL') do set __GIT_CMD=%%f
+if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path
     goto :eof
