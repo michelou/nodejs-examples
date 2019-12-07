@@ -28,7 +28,7 @@ For instance our development environment looks as follows (*December 2019*) <sup
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.24.0\                                <i>(271 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.15\  <i>(1.1 GB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.16\  <i>(1.1 GB)</i>
 C:\opt\node-v12.13.1-win-x64\                     <i>( 44 MB)</i>
 </pre>
 
@@ -125,6 +125,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 Tool versions:
    node v12.13.1, npm 6.12.1
    git 2.24.0.windows.1, diff 3.7
+&nbsp;
 <b>&gt; where npm</b>
 C:\opt\node-v12.13.1-win-x64\npm
 C:\opt\node-v12.13.1-win-x64\npm.cmd
@@ -179,14 +180,14 @@ N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
    node v12.13.1, npm 6.12.1
-   git 2.24.0.windows.1, diff 3.7, mongod v3.6.15
+   git 2.24.0.windows.1, diff 3.7, mongod v3.6.16
 Tool paths:
    C:\opt\node-v12.13.1-win-x64\node.exe
    C:\opt\node-v12.13.1-win-x64\npm.cmd
    C:\opt\Git-2.24.0\bin\git.exe
    C:\opt\Git-2.24.0\mingw64\bin\git.exe
    C:\opt\Git-2.24.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.15\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.16\bin\mongod.exe
 </pre>
 
 #### `npm.cmd`
@@ -240,7 +241,7 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.15.zip</a>  <i>(316 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.16.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.13.1-win-x64.zip</a>                     <i>( 16 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.24.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
 </pre>

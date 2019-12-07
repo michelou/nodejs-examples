@@ -7,12 +7,36 @@
   </tr>
 </table>
 
+### `express`
+
+Command [**`npm start`**](./express/package.json) executes application [**`app\app.js`**](./express/app/app.js) which performs two tasks:
+
+- it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./express/config_TEMPLATE.json)).
+- it opens URL **`http:/127.0.0.1:8180`** in our default web browser.
+
+<pre style="font-size:80%;">
+<b>&gt; npm start</b>
+
+> express-app@0.0.1 start N:\samples_Bojinov\express
+> node ./npm_scripts/start_browser.js && node .
+
+
+Module search path: (none)
+Server listening on port 8180
+</pre>
+
+The default browser displays the following contents in a new tab:
+
+<pre style="font-size:80%;">
+2019-12-07T17:53:06+01:00
+</pre>
+
 ### `hello-1`
 
 Command [**`npm start`**](./hello-1/package.json) executes application [**`app\app.js`**](./hello-1/app/app.js) which performs two tasks:
 
 - it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./hello-1/config_TEMPLATE.json)).
-- it opens URL **`http:/127.0.0.1:8180`** in your default web browser.
+- it opens URL **`http:/127.0.0.1:8180`** in our default web browser.
 
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
@@ -29,6 +53,8 @@ requested (GET)
 
 ### `math`
 
+Command **`npm run test`** executes all test functions contained in directory [**`test`**](math/test/):
+
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
 
@@ -44,6 +70,8 @@ OK: 2 assertions (16ms)
 
 
 ### `mock`
+
+Command **`npm run test`** executes all test functions contained in directory [**`test`**](mock/test/), in this case [**`test-http-module.js`**](mock/test/test-http-module.js):
 
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
@@ -64,7 +92,7 @@ OK: 0 assertions (184ms)
 Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./routes/app/app.js) which performs two tasks:
 
 - it starts the server application which listen to client requests on port **`8180`** (defined in file [**`config.json`**](./routes/config_TEMPLATE.json)).
-- it opens URL **`http:/127.0.0.1:8180/salut?name=tom`** in your default web browser.
+- it opens URL **`http:/127.0.0.1:8180/salut?name=tom`** in our default web browser.
 
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>

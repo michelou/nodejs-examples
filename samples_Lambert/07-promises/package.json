@@ -12,19 +12,19 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
-    "bluebird": "^3.7.1",
+    "bluebird": "^3.7.2",
     "event-to-promise": "^0.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.7.5",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-node5": "^1.2.0",
-    "eslint": "^6.4.0",
-    "got": "^9.6.0",
-    "webpack": "^4.40.2"
+    "eslint": "^6.7.2",
+    "got": "^10.0.1",
+    "webpack": "^4.41.2"
   },
   "engines": {
     "node": ">=12.13.0",

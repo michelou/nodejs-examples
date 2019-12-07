@@ -9,7 +9,7 @@
 
 ### `auth-passport`
 
-Command [**`npm start`**](auth-passport/package.json) executes application[**`app\app.js`**](./auth-passport/app/app.js) which prints the following output:
+Command [**`npm start`**](auth-passport/package.json) executes application [**`app\app.js`**](./auth-passport/app/app.js) which prints the following output:
 
 <pre style="font-size:80%;">
 <b>&gt; npm start</b>
@@ -80,7 +80,7 @@ fr
 de
 </pre>
 
-Executing the **`npm run client`** command in directory [**`samples\locales-2\`**](./locales-2/) displays the following outut in the Windows console:
+Command **`npm run client`** displays the following output in a separate Windows console:
 
 <pre style="font-size:80%;">
 <b>&gt; npm run client</b>
@@ -89,38 +89,38 @@ Executing the **`npm run client`** command in directory [**`samples\locales-2\`*
 > node ./npm_scripts/start_client.js
 
 en
-&lt;!DOCTYPE html>
-&lt;html lang="en" dir="ltr"&gt;
+&lt;!DOCTYPE html&gt;
+<b>&lt;html</b> lang="en" dir="ltr"&gt;
 <b>&lt;head&gt;</b>
  &lt;meta charset="utf-8">
-  &lt;title&gt;Hello World&lt;/title&gt;
-&lt;/head>
-&lt;body&gt;
-  &lt;h1&gt;Hello&lt;/h1&gt;
+  <b>&lt;title&gt;</b>Hello World<b>&lt;/title&gt;</b>
+<b>&lt;/head&gt;</b>
+<b>&lt;body&gt;</b>
+  <b>&lt;h1&gt;</b>Hello<b>&lt;/h1&gt;</b>
 <b>&lt;/body&gt;</b>
 <b>&lt;/html&gt;</b>  
 
 fr 
 &lt;!DOCTYPE html&gt;
-&lt;html lang="fr" dir="ltr"&gt;
+<b>&lt;html</b> lang="fr" dir="ltr"&gt;
 <b>&lt;head&gt;</b>
- &lt;meta charset="utf-8"&gt;
-  &lt;title>Salut le monde&lt;/title&gt;
-&lt;/head>
-&lt;body>
-  &lt;h1&gt;Salut&lt;/h1&gt;
+  <b>&lt;meta</b> charset="utf-8"&gt;
+  <b>&lt;title&gt;</b>Salut le monde<b>&lt;/title&gt;</b>
+<b>&lt;/head&gt;</b>
+<b>&lt;body&gt;</b>
+  <b>&lt;h1&gt;</b>Salut<b>&lt;/h1&gt;</b>
 <b>&lt;/body&gt;</b>
 <b>&lt;/html&gt;</b>
 
 de
 &lt;!DOCTYPE html&gt;
-&lt;html lang="de" dir="ltr"&gt;
+<b>&lt;html</b> lang="de" dir="ltr"&gt;
 <b>&lt;head&gt;</b>
- &lt;meta charset="utf-8"&gt;
-  &lt;title>Hallo Welt&lt;/title&gt;
+  <b>&lt;meta</b> charset="utf-8"&gt;
+  <b>&lt;title&gt;</b>Hallo Welt<b>&lt;/title&gt;</b>
 <b>&lt;/head&gt;</b>
 <b>&lt;body&gt;</b>
-  &lt;h1&gt;Hallo&lt;/h1&gt;   
+  <b>&lt;h1&gt;</b>Hallo<b>&lt;/h1&gt;</b>
 <b>&lt;/body&gt;</b>
 <b>&lt;/html></b>
 </pre>
