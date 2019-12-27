@@ -27,9 +27,9 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*December 2019*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.24.0\                                <i>(271 MB)</i>
+C:\opt\Git-2.24.1\                                <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.16\  <i>(1.1 GB)</i>
-C:\opt\node-v12.13.1-win-x64\                     <i>( 44 MB)</i>
+C:\opt\node-v12.14.0-win-x64\                     <i>( 49 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -93,9 +93,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; where node npm</b>
-    C:\opt\node-v12.13.1-win-x64\node.exe
-    C:\opt\node-v12.13.1-win-x64\npm
-    C:\opt\node-v12.13.1-win-x64\npm.cmd</pre>
+    C:\opt\node-v12.14.0-win-x64\node.exe
+    C:\opt\node-v12.14.0-win-x64\npm
+    C:\opt\node-v12.14.0-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -123,27 +123,27 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v12.13.1, npm 6.12.1
-   git 2.24.0.windows.1, diff 3.7
+   node v12.14.0, npm 6.13.4
+   git 2.24.1.windows.2, diff 3.7
 &nbsp;
 <b>&gt; where npm</b>
-C:\opt\node-v12.13.1-win-x64\npm
-C:\opt\node-v12.13.1-win-x64\npm.cmd
+C:\opt\node-v12.14.0-win-x64\npm
+C:\opt\node-v12.14.0-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-Your environment has been set up for using Node.js 12.13.1 (x64) and npm.
+Your environment has been set up for using Node.js 12.14.0 (x64) and npm.
 Tool versions:
-   node v12.13.1, npm 6.12.1
-   git 2.24.0.windows.1, diff 3.7
+   node v12.14.0, npm 6.13.4
+   git 2.24.1.windows.2, diff 3.7
 Tool paths:
-   C:\opt\node-v12.13.1-win-x64\node.exe
-   C:\opt\node-v12.13.1-win-x64\npm.cmd
-   C:\opt\Git-2.24.0\bin\git.exe
-   C:\opt\Git-2.24.0\usr\bin\diff.exe
+   C:\opt\node-v12.14.0-win-x64\node.exe
+   C:\opt\node-v12.14.0-win-x64\npm.cmd
+   C:\opt\Git-2.24.1\bin\git.exe
+   C:\opt\Git-2.24.1\usr\bin\diff.exe
 </pre>
 
 #### `bin\check-outdated.bat`
@@ -179,14 +179,14 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v12.13.1, npm 6.12.1
-   git 2.24.0.windows.1, diff 3.7, mongod v3.6.16
+   node v12.14.0, npm 6.13.4
+   git 2.24.1.windows.2, diff 3.7, mongod v3.6.16
 Tool paths:
-   C:\opt\node-v12.13.1-win-x64\node.exe
-   C:\opt\node-v12.13.1-win-x64\npm.cmd
-   C:\opt\Git-2.24.0\bin\git.exe
-   C:\opt\Git-2.24.0\mingw64\bin\git.exe
-   C:\opt\Git-2.24.0\usr\bin\diff.exe
+   C:\opt\node-v12.14.0-win-x64\node.exe
+   C:\opt\node-v12.14.0-win-x64\npm.cmd
+   C:\opt\Git-2.24.1\bin\git.exe
+   C:\opt\Git-2.24.1\mingw64\bin\git.exe
+   C:\opt\Git-2.24.1\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.16\bin\mongod.exe
 </pre>
 
@@ -214,7 +214,7 @@ Returning Paradise.m4a for request /music
 </pre>
 
 > **:mag_right:** From time to time we also run one of the following command to search for <a href="https://eslint.org/docs/rules/">possible syntax or logic errors</a> in our JavaScript code:
-> <pre style="margin-left:18px; font-size:80%;">
+> <pre style="margin-left:10px; font-size:80%;">
 > <b>&gt; npm run lint</b>
 > &nbsp;
 > > async-downloads@0.0.1 lint N:\samples\webaudio-sample
@@ -242,8 +242,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.16.zip</a>  <i>(317 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.13.1-win-x64.zip</a>                     <i>( 16 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.24.0-64-bit.7z.exe</a>              <i>( 41 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.14.0-win-x64.zip</a>                     <i>( 17 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.24.1-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
@@ -261,7 +261,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [dotty_examples]: https://github.com/michelou/dotty-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
@@ -283,7 +283,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_downloads]: https://nodejs.org/en/download/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.13.1
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.14.0
 [siege_refman]: https://www.joedog.org/siege-manual/
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
