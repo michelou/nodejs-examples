@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.88",
   "main": "app/app.js",
+  "maintainers": [
+    {
+      "name": "Stéphane Micheloud",
+      "web": "http://lamp.epfl.ch/~michelou/"
+    }
+  ],
   "private": true,
   "scripts": {
     "start": "node ./npm_scripts/start_browser.js && node .",
@@ -16,7 +22,7 @@
     "leveldown": "^5.4.1",
     "levelup": "^4.3.2",
     "method-override": "^3.0.0",
-    "mongoose": "^5.8.3",
+    "mongoose": "^5.8.5",
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.9.1",
     "pug": "^2.0.4"
