@@ -10,19 +10,19 @@
     "start": "node app/async-downloads.js"
   },
   "dependencies": {
-    "async": "^3.1.0",
-    "got": "^10.2.1"
+    "async": "^3.1.1",
+    "got": "^10.3.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
   },
   "engines": {
-    "node": ">=12.13.0",
-    "npm": ">=6.12.0"
+    "node": ">=12.14.0",
+    "npm": ">=6.13.0"
   }
 }

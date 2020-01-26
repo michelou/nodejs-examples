@@ -20,16 +20,16 @@ This project depends on two external software for the **Microsoft Windows** plaf
 
 Optionally one may also install the following software:
 
-- [Git 2.24][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.25][git_downloads] ([*release notes*][git_relnotes])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
 For instance our development environment looks as follows (*January 2020*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.24.1\                                <i>(271 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.16\  <i>(1.1 GB)</i>
-C:\opt\node-v12.14.0-win-x64\                     <i>( 49 MB)</i>
+C:\opt\Git-2.25.0\                                <i>(271 MB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.17\  <i>(1.1 GB)</i>
+C:\opt\node-v12.14.1-win-x64\                     <i>( 49 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -93,9 +93,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; where node npm</b>
-    C:\opt\node-v12.14.0-win-x64\node.exe
-    C:\opt\node-v12.14.0-win-x64\npm
-    C:\opt\node-v12.14.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v12.14.1-win-x64\node.exe
+    C:\opt\node-v12.14.1-win-x64\npm
+    C:\opt\node-v12.14.1-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -123,27 +123,27 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v12.14.0, npm 6.13.4
-   git 2.24.1.windows.2, diff 3.7
+   node v12.14.1, npm 6.13.4
+   git 2.25.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; where npm</b>
-C:\opt\node-v12.14.0-win-x64\npm
-C:\opt\node-v12.14.0-win-x64\npm.cmd
+C:\opt\node-v12.14.1-win-x64\npm
+C:\opt\node-v12.14.1-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-Your environment has been set up for using Node.js 12.14.0 (x64) and npm.
+Your environment has been set up for using Node.js 12.14.1 (x64) and npm.
 Tool versions:
-   node v12.14.0, npm 6.13.4
-   git 2.24.1.windows.2, diff 3.7
+   node v12.14.1, npm 6.13.4
+   git 2.25.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v12.14.0-win-x64\node.exe
-   C:\opt\node-v12.14.0-win-x64\npm.cmd
-   C:\opt\Git-2.24.1\bin\git.exe
-   C:\opt\Git-2.24.1\usr\bin\diff.exe
+   C:\opt\node-v12.14.1-win-x64\node.exe
+   C:\opt\node-v12.14.1-win-x64\npm.cmd
+   C:\opt\Git-2.25.0\bin\git.exe
+   C:\opt\Git-2.25.0\usr\bin\diff.exe
 </pre>
 
 #### `bin\check-outdated.bat`
@@ -179,15 +179,15 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v12.14.0, npm 6.13.4
-   git 2.24.1.windows.2, diff 3.7, mongod v3.6.16
+   node v12.14.1, npm 6.13.4
+   git 2.25.0.windows.1, diff 3.7, mongod v3.6.17
 Tool paths:
-   C:\opt\node-v12.14.0-win-x64\node.exe
-   C:\opt\node-v12.14.0-win-x64\npm.cmd
-   C:\opt\Git-2.24.1\bin\git.exe
-   C:\opt\Git-2.24.1\mingw64\bin\git.exe
-   C:\opt\Git-2.24.1\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.16\bin\mongod.exe
+   C:\opt\node-v12.14.1-win-x64\node.exe
+   C:\opt\node-v12.14.1-win-x64\npm.cmd
+   C:\opt\Git-2.25.0\bin\git.exe
+   C:\opt\Git-2.25.0\mingw64\bin\git.exe
+   C:\opt\Git-2.25.0\usr\bin\diff.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.17\bin\mongod.exe
 </pre>
 
 #### `npm.cmd`
@@ -241,9 +241,9 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.16.zip</a>  <i>(317 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.14.0-win-x64.zip</a>                     <i>( 17 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.24.1-64-bit.7z.exe</a>              <i>( 42 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.17.zip</a>  <i>(317 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.14.1-win-x64.zip</a>                     <i>( 17 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.25.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
@@ -261,7 +261,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [dotty_examples]: https://github.com/michelou/dotty-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.25.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
@@ -283,7 +283,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_downloads]: https://nodejs.org/en/download/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.14.0
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.14.1
 [siege_refman]: https://www.joedog.org/siege-manual/
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
