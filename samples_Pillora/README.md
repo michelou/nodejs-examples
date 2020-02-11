@@ -39,7 +39,27 @@ Done.
 
 Same as `4-02-project`.
 
+
+### `4-04-project`
+
+Same as `4-02-project`.
+
+
+### `4-05-project`
+
+Same as `4-02-project`.
+
+
+### `4-06-project`
+
+Same as `4-02-project`.
+
+
+### `4-07-project`
+
+Same as `4-02-project`.
+
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/January 2020* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/February 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

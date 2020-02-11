@@ -45,7 +45,7 @@ Command [**`npm start`**](./locales-1/package.json) executes application [**`app
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.14.1 (x64)
+Node runtime: 12.15.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -71,7 +71,7 @@ Command [**`npm start`**](./locales-2/package.json) executes application  [**`ap
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.14.1 (x64)
+Node runtime: 12.15.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -144,5 +144,5 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/January 2020* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/February 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

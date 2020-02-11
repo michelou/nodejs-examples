@@ -25,7 +25,7 @@ First we start the server application in a new console:
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.14.1 (x64)
+Node runtime: 12.15.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
@@ -63,12 +63,12 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.14.1 (x64)
+Node runtime: 12.15.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/January 2020* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/February 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

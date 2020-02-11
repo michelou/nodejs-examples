@@ -71,7 +71,7 @@ Scripts available in promises via `npm run-script`:
     babel src -d app & babel-node app/generator.js
 </pre>
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/January 2020* [**&#9650;**](#top)
+*[mics](http://lampwww.epfl.ch/~michelou/)/February 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
