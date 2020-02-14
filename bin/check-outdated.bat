@@ -150,7 +150,7 @@ rem output parameter: _CURRENT_MISSING
 set __PKG_NAME=%~1
 set _CURRENT_MISSING=
 
-for /f "usebackq delims=:, tokens=1,2,*" %%f in (`findstr /c:"%__PKG_NAME%" package.json`) do (
+for /f "usebackq delims=:, tokens=1,2,*" %%f in (`findstr /c:"""%__PKG_NAME%""" package.json`) do (
     for /f "usebackq" %%x in (`powershell -C "'%%g'.Trim()"`) do set _CURRENT_MISSING=%%x
     if "!_CURRENT_MISSING:~0,1!"=="^" ( set _CURRENT_MISSING=!_CURRENT_MISSING:~1!
     ) else if "!_CURRENT_MISSING:%~0,1!"=="~" ( set _CURRENT_MISSING=!_CURRENT_MISSING:~1!
