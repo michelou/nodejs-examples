@@ -2,14 +2,14 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="http://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> code examples coming from various websites and books.<br/>
   It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting">batch files</a> for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
   </td>
   </tr>
 </table>
 
-[Dotty][dotty_examples], [GraalVM][graalvm_examples], [Kotlin][kotlin_examples] and [LLVM][llvm_examples] are other topics we are currently investigating.
+[Dotty][dotty_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples] and [LLVM][llvm_examples] are other topics we are currently investigating.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -27,9 +27,9 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*February 2020*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.25.0\                                <i>(271 MB)</i>
+C:\opt\Git-2.25.1\                                <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.17\  <i>(1.1 GB)</i>
-C:\opt\node-v12.15.0-win-x64\                     <i>( 49 MB)</i>
+C:\opt\node-v12.16.1-win-x64\                     <i>( 49 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -93,9 +93,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; where node npm</b>
-    C:\opt\node-v12.15.0-win-x64\node.exe
-    C:\opt\node-v12.15.0-win-x64\npm
-    C:\opt\node-v12.15.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v12.16.1-win-x64\node.exe
+    C:\opt\node-v12.16.1-win-x64\npm
+    C:\opt\node-v12.16.1-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -123,25 +123,25 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v12.15.0, npm 6.13.4
-   git 2.25.0.windows.1, diff 3.7
+   node v12.16.1, npm 6.13.4
+   git 2.25.1.windows.1, diff 3.7
 &nbsp;
 <b>&gt; where npm</b>
-C:\opt\node-v12.15.0-win-x64\npm
-C:\opt\node-v12.15.0-win-x64\npm.cmd
+C:\opt\node-v12.16.1-win-x64\npm
+C:\opt\node-v12.16.1-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-Your environment has been set up for using Node.js 12.15.0 (x64) and npm.
+Your environment has been set up for using Node.js 12.16.1 (x64) and npm.
 Tool versions:
-   node v12.15.0, npm 6.13.4
-   git 2.25.0.windows.1, diff 3.7
+   node v12.16.1, npm 6.13.4
+   git 2.25.1.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v12.15.0-win-x64\node.exe
-   C:\opt\node-v12.15.0-win-x64\npm.cmd
+   C:\opt\node-v12.16.1-win-x64\node.exe
+   C:\opt\node-v12.16.1-win-x64\npm.cmd
    C:\opt\Git-2.25.0\bin\git.exe
    C:\opt\Git-2.25.0\usr\bin\diff.exe
 </pre>
@@ -179,11 +179,11 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v12.15.0, npm 6.13.4
-   git 2.25.0.windows.1, diff 3.7, mongod v3.6.17
+   node v12.16.1, npm 6.13.4
+   git 2.25.1.windows.1, diff 3.7, mongod v3.6.17
 Tool paths:
-   C:\opt\node-v12.15.0-win-x64\node.exe
-   C:\opt\node-v12.15.0-win-x64\npm.cmd
+   C:\opt\node-v12.16.1-win-x64\node.exe
+   C:\opt\node-v12.16.1-win-x64\npm.cmd
    C:\opt\Git-2.25.0\bin\git.exe
    C:\opt\Git-2.25.0\mingw64\bin\git.exe
    C:\opt\Git-2.25.0\usr\bin\diff.exe
@@ -242,13 +242,13 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.17.zip</a>  <i>(317 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.15.0-win-x64.zip</a>                     <i>( 17 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.16.1-win-x64.zip</a>                     <i>( 17 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.25.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
 
-*[mics](http://lampwww.epfl.ch/~michelou/)/February 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -261,11 +261,12 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [dotty_examples]: https://github.com/michelou/dotty-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.25.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.25.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
+[haskell_examples]: https://github.com/michelou/haskell-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
-[linux_opt]: http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
+[linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [llvm_examples]: https://github.com/michelou/llvm-examples
 [man1_awk]: https://www.linux.org/docs/man1/awk.html
 [man1_diff]: https://www.linux.org/docs/man1/diff.html
@@ -283,7 +284,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_downloads]: https://nodejs.org/en/download/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.15.0
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.16.1
 [siege_refman]: https://www.joedog.org/siege-manual/
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
