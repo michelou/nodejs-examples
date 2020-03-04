@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Dotty][dotty_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples] and [LLVM][llvm_examples] are other topics we are currently investigating.
+[Dotty][dotty_examples], [GraalSqueak][graalsqueak_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples] and [LLVM][llvm_examples] are other trending topics we are currently monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -47,7 +47,6 @@ samples_Cook\{basic_auth, ..}
 samples_Duuna\{chp-3-networking, ..}
 samples_Lambert\
 samples_Pillora\
-samples_Visual_Studio\
 README.md
 setenv.bat
 </pre>
@@ -142,8 +141,8 @@ Tool versions:
 Tool paths:
    C:\opt\node-v12.16.1-win-x64\node.exe
    C:\opt\node-v12.16.1-win-x64\npm.cmd
-   C:\opt\Git-2.25.0\bin\git.exe
-   C:\opt\Git-2.25.0\usr\bin\diff.exe
+   C:\opt\Git-2.25.1\bin\git.exe
+   C:\opt\Git-2.25.1\usr\bin\diff.exe
 </pre>
 
 #### `bin\check-outdated.bat`
@@ -184,9 +183,9 @@ Tool versions:
 Tool paths:
    C:\opt\node-v12.16.1-win-x64\node.exe
    C:\opt\node-v12.16.1-win-x64\npm.cmd
-   C:\opt\Git-2.25.0\bin\git.exe
-   C:\opt\Git-2.25.0\mingw64\bin\git.exe
-   C:\opt\Git-2.25.0\usr\bin\diff.exe
+   C:\opt\Git-2.25.1\bin\git.exe
+   C:\opt\Git-2.25.1\mingw64\bin\git.exe
+   C:\opt\Git-2.25.1\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.17\bin\mongod.exe
 </pre>
 
@@ -243,7 +242,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.17.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.16.1-win-x64.zip</a>                     <i>( 17 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.25.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.25.1-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
@@ -263,6 +262,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.25.1.txt
 [github_markdown]: https://github.github.com/gfm/
+[graalsqueak_examples]: https://github.com/michelou/graalsqueak-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
