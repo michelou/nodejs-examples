@@ -19,10 +19,10 @@
     "express": "^4.17.1",
     "express-paginate": "^1.0.0",
     "gridfs-stream": "^1.1.1",
-    "leveldown": "^5.4.1",
+    "leveldown": "^5.5.1",
     "levelup": "^4.3.2",
     "method-override": "^3.0.0",
-    "mongoose": "^5.9.0",
+    "mongoose": "^5.9.3",
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.9.1",
     "pug": "^2.0.4"
@@ -37,8 +37,8 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "engines": {
-    "node": ">=12.13.0",
-    "npm": ">=6.12.0"
+    "node": ">=12.14.0",
+    "npm": ">=6.13.0"
   },
   "dbpath": "C:/Temp/MongoDB"
 }
