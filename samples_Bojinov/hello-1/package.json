@@ -1,5 +1,5 @@
 {
-  "name": "hello1-app",
+  "name": "hello-1",
   "version": "0.0.1",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.20",
   "main": "app/app.js",
@@ -18,17 +18,17 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^6.7.1",
+    "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "mocha": "^6.2.2",
     "request": "^2.88.0"
   },
   "engines": {
-    "node": ">=12.13.0",
-    "npm": ">=6.12.0"
+    "node": ">=12.14.0",
+    "npm": ">=6.13.0"
   }
 }
