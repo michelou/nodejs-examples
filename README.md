@@ -45,7 +45,7 @@ samples\{auth-passport, ..}
 samples_Bojinov\{contacts-1-JSON, ..}
 samples_Cook\{basic_auth, ..}
 samples_Duuna\{chp-3-networking, ..}
-samples_Lambert\
+samples_Lambert\{04-concepts, ..}
 samples_Pillora\
 README.md
 setenv.bat

@@ -6,7 +6,7 @@
   "maintainers": [
     {
       "name": "Stéphane Micheloud",
-      "web": "http://lamp.epfl.ch/~michelou/"
+      "web": "http://lampwww.epfl.ch/~michelou/"
     }
   ],
   "private": true,
@@ -24,8 +24,8 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "mocha": "^6.2.2",
-    "request": "^2.88.0"
+    "mocha": "^7.1.1",
+    "request": "^2.88.2"
   },
   "engines": {
     "node": ">=12.14.0",

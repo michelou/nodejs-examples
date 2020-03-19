@@ -10,8 +10,8 @@
     "start": "node app/async-downloads.js"
   },
   "dependencies": {
-    "async": "^3.1.1",
-    "got": "^10.5.5"
+    "async": "^3.2.0",
+    "got": "^10.6.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
