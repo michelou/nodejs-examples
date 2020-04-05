@@ -20,7 +20,7 @@
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "mongoose": "^5.9.5",
+    "mongoose": "^5.9.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pug": "^2.0.4"
@@ -28,9 +28,9 @@
   "devDependencies": {
     "acorn": "7.1.1",
     "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-node": "^11.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
   },

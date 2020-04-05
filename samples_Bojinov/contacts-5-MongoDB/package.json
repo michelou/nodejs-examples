@@ -17,19 +17,19 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "leveldown": "5.5.1",
+    "leveldown": "5.6.0",
     "levelup": "^4.3.2",
     "method-override": "^3.0.0",
-    "mongoose": "^5.9.4",
-    "morgan": "^1.9.1",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0",
     "pug": "^2.0.4"
   },
   "devDependencies": {
     "errorhandler": "^1.5.1",
     "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-node": "^11.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
   },
