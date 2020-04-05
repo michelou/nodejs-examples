@@ -2,7 +2,7 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> code examples coming from various websites and books.<br/>
   It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting">batch files</a> for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
   </td>
@@ -24,7 +24,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*March 2020*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
+For instance our development environment looks as follows (*April 2020*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.26.0\                                <i>(271 MB)</i>
@@ -231,7 +231,7 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
-<tr><td><a href="">14.x</a></td><td>April 2020</td><td>April 2023</td></tr>
+<tr><td><a href="https://nodejs.org/download/rc/v14.0.0-rc.1/">14.x</a></td><td>April 2020</td><td>April 2023</td></tr>
 </table>
 </p>
 
@@ -248,7 +248,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
