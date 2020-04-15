@@ -2,7 +2,7 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Duuna\</code></strong> 
  contains <a href="https://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application">Düüna's book</a> "<i>Secure Your Node.js Web Application</i>" (<a href="https://pragprog.com/">The Pragmatic Programmers</a>, 2016).</td>
   </tr>
@@ -25,7 +25,7 @@ First we start the server application in a new console:
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.16.1 (x64)
+Node runtime: 12.16.2 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
@@ -63,12 +63,12 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.16.1 (x64)
+Node runtime: 12.16.2 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
