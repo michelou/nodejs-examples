@@ -6,19 +6,20 @@
   "scripts": {
     "start": "node ./npm_scripts/start_browser.js && node .",
     "client": "node ./npm_scripts/start_client.js",
+    "test": "mocha --recursive",
     "lint": "eslint app"
   },
   "maintainers": [
     {
       "name": "Stéphane Micheloud",
-      "web": "http://lamp.epfl.ch/~michelou/"
+      "web": "http://lampwww.epfl.ch/~michelou/"
     }
   ],
   "private": true,
   "license": "BSD",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "ejs": "^3.0.2",
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
     "i18n-abide": "^0.0.26",
     "method-override": "^3.0.0"
