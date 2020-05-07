@@ -3,14 +3,14 @@ setlocal enabledelayedexpansion
 
 set _DEBUG=0
 
-rem ##########################################################################
-rem ## Environment setup
+@rem #########################################################################
+@rem ## Environment setup
 
 set _BASENAME=%~n0
 
 set _EXITCODE=0
 
-for %%f in ("%~dp0..") do set _ROOT_DIR=%%~sf
+for %%f in ("%~dp0..") do set "_ROOT_DIR=%%~f"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -18,21 +18,21 @@ if not %_EXITCODE%==0 goto end
 call :args %*
 if not %_EXITCODE%==0 goto end
 
-rem ##########################################################################
-rem ## Main
+@rem #########################################################################
+@rem ## Main
 
 if %_HELP%==1 (
     call :help
     exit /b !_EXITCODE!
 )
-for /f "delims=" %%f in ('where /r "%_ROOT_DIR:~0,-1%" package.json ^| findstr /v node_modules 2^>NUL') do (
+for /f "delims=" %%f in ('where /r "%_ROOT_DIR%" package.json ^| findstr /v node_modules 2^>NUL') do (
     call :outdated "%%~dpf"
     if not !_EXITCODE!==0 goto end
 )
 goto end
 
-rem ##########################################################################
-rem ## Subroutines
+@rem #########################################################################
+@rem ## Subroutines
 
 rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL, _NPM_CMD
 :env
