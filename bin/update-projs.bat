@@ -77,7 +77,6 @@ set _ERROR_LABEL=[91mError[0m:
 set _WARNING_LABEL=[93mWarning[0m:
 goto :eof
 
-
 rem input parameter: %*
 rem output parameters: _CLONE, _COMPILE, _DOCUMENTATION, _SBT, _TIMER, _VERBOSE
 :args
