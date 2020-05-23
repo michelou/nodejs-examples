@@ -3,10 +3,8 @@ setlocal enabledelayedexpansion
 
 if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
 
-rem ##########################################################################
-rem ## Environment setup
-
-set _BASENAME=%~n0
+@rem #########################################################################
+@rem ## Environment setup
 
 set _EXITCODE=0
 
@@ -15,10 +13,14 @@ if not %_EXITCODE%==0 goto end
 
 call :args %*
 if not %_EXITCODE%==0 goto end
-if %_HELP%==1 call :help & exit /b %_EXITCODE%
 
-rem ##########################################################################
-rem ## Main
+@rem #########################################################################
+@rem ## Main
+
+if %_HELP%==1 (
+    call :help
+    exit /b !_EXITCODE!
+)
 
 set _GIT_PATH=
 set _CURL_PATH=
@@ -37,19 +39,21 @@ if not %_EXITCODE%==0 goto end
 
 goto end
 
-rem ##########################################################################
-rem ## Subroutines
+@rem #########################################################################
+@rem ## Subroutines
 
-rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+@rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
-rem ANSI colors in standard Windows 10 shell
-rem see https://gist.github.com/mlocati/#file-win10colors-cmd
+set _BASENAME=%~n0
+
+@rem ANSI colors in standard Windows 10 shell
+@rem see https://gist.github.com/mlocati/#file-win10colors-cmd
 set _DEBUG_LABEL=[46m[%_BASENAME%][0m
 set _ERROR_LABEL=[91mError[0m:
 set _WARNING_LABEL=[93mWarning[0m:
 goto :eof
 
-rem input parameter: %*
+@rem input parameter: %*
 :args
 set _HELP=0
 set _VERBOSE=0
@@ -59,7 +63,7 @@ set "__ARG=%~1"
 if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
-    rem option
+    @rem option
     if /i "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
@@ -68,14 +72,14 @@ if "%__ARG:~0,1%"=="-" (
         goto args_done
     )
 ) else (
-    rem subcommand
-    set /a __N=!__N!+1
+    @rem subcommand
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
         goto args_done
     )
+    set /a __N+=1
 )
 shift
 goto :args_loop
@@ -94,7 +98,7 @@ echo   Subcommands:
 echo     help        display this help message
 goto :eof
 
-rem output parameter(s): _GIT_PATH
+@rem output parameter(s): _GIT_PATH
 :git
 set _GIT_PATH=
 
@@ -114,7 +118,7 @@ if defined __GIT_CMD (
     ) else (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         if not defined __GIT_HOME (
-            set __PATH=C:\Progra~1
+            set "__PATH=%ProgramFiles%"
             for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         )
     )
@@ -124,7 +128,7 @@ if not exist "%__GIT_HOME%\bin\git.exe" (
     set _EXITCODE=1
     goto :eof
 )
-rem path name of installation directory may contain spaces
+@rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
 if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Git installation directory %__GIT_HOME% 1>&2
 
@@ -146,10 +150,10 @@ if defined __NPM_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
-        set __PATH=C:\progra~1
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+        set "__PATH=%ProgramFiles%"
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -186,13 +190,13 @@ if not exist "%NODE_HOME%\pm2.cmd" (
 )
 goto :eof
 
-rem output parameter(s): _CURL_PATH
+@rem output parameter(s): _CURL_PATH
 :curl
 where /q curl.exe
 if %ERRORLEVEL%==0 goto :eof
 
 if defined CURL_HOME (
-    set _CURL_HOME=%CURL_HOME%
+    set "_CURL_HOME=%CURL_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable CURL_HOME 1>&2
 ) else (
     where /q curl.exe
@@ -244,18 +248,18 @@ echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
-    rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
+    @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
 )
 goto :eof
 
-rem ##########################################################################
-rem ## Cleanups
+@rem #########################################################################
+@rem ## Cleanups
 
 :end
 endlocal & (
-    if not defined NODE_HOME set NODE_HOME=%_NODE_HOME%
+    if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
     set "PATH=%PATH%%_GIT_PATH%%_CURL_PATH%"
     if %_EXITCODE%==0 call :print_env %_VERBOSE%
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2

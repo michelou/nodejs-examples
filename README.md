@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Dotty][dotty_examples], [GraalSqueak][graalsqueak_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples] and [LLVM][llvm_examples] are other trending topics we are currently monitoring.
+[Dotty][dotty_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples] and [TruffleSqueak][trufflesqueak_examples] are other trending topics we are currently monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -21,15 +21,17 @@ This project depends on two external software for the **Microsoft Windows** plaf
 Optionally one may also install the following software:
 
 - [Git 2.26][git_downloads] ([*release notes*][git_relnotes])
+- [Node.js 14.x LTS][nodejs_unofficial] <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup> ([*release notes*][nodejs_relnotes_14])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*May 2020*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
+For instance our development environment looks as follows (*May 2020*) <sup id="anchor_03"><a href="#footnote_03">[3]</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.26.2\                                <i>(271 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.18\  <i>(1.1 GB)</i>
 C:\opt\node-v12.16.3-win-x64\                     <i>( 50 MB)</i>
+C:\opt\node-v14.3.0-win-x64\                      <i>( 75 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -231,11 +233,19 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
-<tr><td><a href="https://nodejs.org/download/rc/v14.0.0-rc.1/">14.x</a></td><td>April 2020</td><td>April 2023</td></tr>
+<tr><td><a href="https://nodejs.org/dist/v14.3.0/">14.x</a></td><td>April 2020</td><td>April 2023</td></tr>
 </table>
 </p>
 
-<a name="footnote_02">[2]</a> ***Downloads*** [↩](#anchor_02)
+<a name="footnote_02">[2]</a> ***Version 14 LTS*** [↩](#anchor_02)
+<p style="margin:0 0 1em 20px;">
+Start date for Node.js version 14 (LTS) is April 2020.
+
+- [IBM Developer][ibm_developer]: [Node.js 14 release][ibm_nodejs_14],<br/>by Michael Dawson, April 21, 2020.
+- [Medium][medium_home]: [Node.js version 14 available now][medium_nodejs_14], Node.js team, April 21, 2020. 
+</p>
+
+<a name="footnote_03">[3]</a> ***Downloads*** [↩](#anchor_03)
 
 <p style="margin:0 0 1em 20px;">
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
@@ -243,6 +253,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.18.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.16.3-win-x64.zip</a>                     <i>( 17 MB)</i>
+<a href="https://nodejs.org/dist//v14.3.0/">node-v14.3.0-win-x64.zip </a>                     <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.26.2-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
@@ -263,9 +274,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.26.2.txt
 [github_markdown]: https://github.github.com/gfm/
-[graalsqueak_examples]: https://github.com/michelou/graalsqueak-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [haskell_examples]: https://github.com/michelou/haskell-examples
+[ibm_developer]: https://developer.ibm.com/
+[ibm_nodejs_14]: https://developer.ibm.com/technologies/node-js/blogs/nodejs-14-ibm-release-blog/
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
 [linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [llvm_examples]: https://github.com/michelou/llvm-examples
@@ -278,6 +290,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [man1_rmdir]: https://www.linux.org/docs/man1/rmdir.html
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
+[medium_home]: https://medium.com/
+[medium_nodejs_14]: https://medium.com/@nodejs/node-js-version-14-available-now-8170d384567e
 [mongodb_downloads]: https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl
 [mongodb_mongod]: https://docs.mongodb.com/manual/reference/program/mongod/
 [mongodb_relnotes]: https://docs.mongodb.com/manual/release-notes/3.6/
@@ -285,8 +299,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_downloads]: https://nodejs.org/en/download/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.16.2
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.16.3
+[nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.3.0/
+[nodejs_unofficial]: https://unofficial-builds.nodejs.org/download/
 [siege_refman]: https://www.joedog.org/siege-manual/
+[trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
 [zip_archive]: https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/

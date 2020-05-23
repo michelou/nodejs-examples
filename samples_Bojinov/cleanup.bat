@@ -3,8 +3,8 @@ setlocal enabledelayedexpansion
 
 if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
 
-rem ##########################################################################
-rem ## Environment setup
+@rem #########################################################################
+@rem ## Environment setup
 
 set _BASENAME=%~n0
 
@@ -13,12 +13,12 @@ set _EXITCODE=0
 for %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
 
 if defined NODE_HOME (
-    set _NODE_HOME=%NODE_HOME%
+    set "_NODE_HOME=%NODE_HOME%"
     if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME 1>&2
 ) else (
     where /q node.exe
     if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f node.exe') do set _NODE_HOME=%%~dpsi
+        for /f %%i in ('where /f node.exe') do set "_NODE_HOME=%%~dpsi"
         if %_DEBUG%==1 echo [%_BASENAME%] Using path of Node executable found in PATH 1>&2
     ) else (
         set _PATH=C:\opt
@@ -42,12 +42,12 @@ if not %ERRORLEVEL%==0 (
     )
 )
 
-rem ##########################################################################
-rem ## Main
+@rem #########################################################################
+@rem ## Main
 
 set _N=0
 
-set _DIR=%_ROOT_DIR%node_modules\
+set "_DIR=%_ROOT_DIR%node_modules\"
 if exist "!_DIR!" (
     if %_DEBUG%==1 echo [%_BASENAME%] call rimraf.cmd "!_DIR!" 1>&2
     call rimraf.cmd "!_DIR!"
@@ -55,7 +55,7 @@ if exist "!_DIR!" (
 )
 
 for /f %%i in ('dir /ad /b 2^>NUL') do (
-    set _DIR=%_ROOT_DIR%%%i\node_modules
+    set "_DIR=%_ROOT_DIR%%%i\node_modules"
     if exist "!_DIR!" (
         if %_DEBUG%==1 echo [%_BASENAME%] call rimraf.cmd "!_DIR!" 1>&2
         call rimraf.cmd "!_DIR!"
@@ -69,8 +69,8 @@ if %_N% gtr 1 ( echo Removed %_N% directories
 
 goto end
 
-rem ##########################################################################
-rem ## Cleanups
+@rem #########################################################################
+@rem ## Cleanups
 
 :end
 if %_DEBUG%==1 echo [%_BASENAME%] _EXITCODE=%_EXITCODE% 1>&2
