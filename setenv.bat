@@ -100,8 +100,8 @@ set _NODE_HOME=
 set __NPM_CMD=
 for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
-    for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
-    for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
+    for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
+    for %%f in ("!__NODE_BIN_DIR!..") do set "_NODE_HOME=%%~sf"
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
@@ -124,12 +124,8 @@ if not exist "%_NODE_HOME%\npm.cmd" (
     set _EXITCODE=1
     goto :eof
 )
-@rem path name of installation directory may contain spaces
-for /f "delims=" %%f in ("%_NODE_HOME%") do set _NODE_HOME=%%~sf
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory %_NODE_HOME% 1>&2
-
-set NODE_HOME=%_NODE_HOME%
-call %NODE_HOME%\nodevars.bat
+set "NODE_HOME=%_NODE_HOME%"
+call "%NODE_HOME%\nodevars.bat"
 goto :eof
 
 @rem output parameter(s): _GIT_PATH
@@ -137,9 +133,9 @@ goto :eof
 set _GIT_PATH=
 
 set __GIT_HOME=
-set __GIT_EXE=
-for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_EXE=%%f"
-if defined __GIT_EXE (
+set __GIT_CMD=
+for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
     goto :eof
@@ -162,10 +158,6 @@ if not exist "%__GIT_HOME%\bin\git.exe" (
     set _EXITCODE=1
     goto :eof
 )
-@rem path name of installation directory may contain spaces
-for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Git installation directory %__GIT_HOME% 1>&2
-
 set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
 
@@ -210,7 +202,7 @@ goto :eof
 endlocal & (
     if %_EXITCODE%==0 (
         if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
-        set "PATH=%PATH%%_GIT_PATH%!_MODULES_BIN_PATH!"
+        set "PATH=%PATH%%_GIT_PATH%!_MODULES_BIN_PATH!;%~dp0bin"
         call :print_env %_VERBOSE%
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2

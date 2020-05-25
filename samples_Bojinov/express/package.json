@@ -3,24 +3,24 @@
   "version": "0.0.1",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.38",
   "main": "app/app.js",
-  "private": true,
   "scripts": {
     "lint": "eslint app && eslint --env mocha test",
     "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "node node_modules/mocha/bin/mocha"
   },
+  "private": true,
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "moment": "^2.26.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.0",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "acorn": "^7.3.0",
+    "acorn": "^7.2.0",
     "chai": "^4.2.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
@@ -29,7 +29,7 @@
     "grunt": "^1.1.0",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^7.1.2",
+    "mocha": "^7.2.0",
     "request": "^2.88.2"
   },
   "engines": {

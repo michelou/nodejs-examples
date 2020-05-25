@@ -128,10 +128,6 @@ if not exist "%__GIT_HOME%\bin\git.exe" (
     set _EXITCODE=1
     goto :eof
 )
-@rem path name of installation directory may contain spaces
-for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Git installation directory %__GIT_HOME% 1>&2
-
 set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
 
@@ -166,12 +162,8 @@ if not exist "%_NODE_HOME%\npm.cmd" (
     set _EXITCODE=1
     goto :eof
 )
-rem path name of installation directory may contain spaces
-for /f "delims=" %%f in ("%_NODE_HOME%") do set _NODE_HOME=%%~sf
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory %_NODE_HOME% 1>&2
-
-set NODE_HOME=%_NODE_HOME%
-call %NODE_HOME%\nodevars.bat
+set "NODE_HOME=%_NODE_HOME%"
+call "%NODE_HOME%\nodevars.bat"
 goto :eof
 
 :pm2

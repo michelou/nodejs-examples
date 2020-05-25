@@ -136,7 +136,7 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
 <b>&gt; setenv.bat -verbose</b>
-Your environment has been set up for using Node.js 12.16.1 (x64) and npm.
+Your environment has been set up for using Node.js 12.16.3 (x64) and npm.
 Tool versions:
    node v12.16.3, npm 6.14.4
    git 2.26.2.windows.1, diff 3.7

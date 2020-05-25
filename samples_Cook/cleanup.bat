@@ -12,29 +12,36 @@ set "_ROOT_DIR=%~dp0"
 call :env
 if not %_EXITCODE%==0 goto end
 
+call :args %*
+if not %_EXITCODE%==0 goto end
+
 @rem #########################################################################
 @rem ## Main
 
-set _N=0
+if %_HELP%==1 (
+    call :help
+    exit /b !_EXITCODE!
+)
 
-set _DIR=%_ROOT_DIR%node_modules\
+set _N=0
+set "_DIR=%_ROOT_DIR%node_modules"
 if exist "!_DIR!" (
-    if %_DEBUG%==1 echo [%_BASENAME%] call rimraf.cmd "!_DIR!" 1>&2
-    call rimraf.cmd "!_DIR!"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!_DIR!" 1>&2
+    call %_RIMRAF_CMD% "!_DIR!"
     set /a _N+=1
 )
 
 for /f %%i in ('dir /ad /b 2^>NUL') do (
-    set _DIR=%_ROOT_DIR%%%i\node_modules
+    set "_DIR=%_ROOT_DIR%%%i\node_modules"
     if exist "!_DIR!" (
-        if %_DEBUG%==1 echo [%_BASENAME%] call rimraf.cmd "!_DIR!" 1>&2
-        call rimraf.cmd "!_DIR!"
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!_DIR!" 1>&2
+        call %_RIMRAF_CMD% "!_DIR!"
         set /a _N+=1
     )
 )
 if %_N% gtr 1 ( echo Removed %_N% directories
 ) else if %_N% gtr 0 ( echo Removed %_N% directory 
-) else ( echo No directory 'node_modules' found
+) else if %_VERBOSE%==1 ( echo No directory 'node_modules' found 1>&2
 )
 
 goto end
@@ -74,13 +81,59 @@ if not exist "%_NODE_HOME%\npm.cmd" (
 where /q rimraf.cmd
 if not %ERRORLEVEL%==0 (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% npm.cmd -g install rimraf 1>&2
-    %_NODE_HOME%\npm.cmd -g install rimraf
+    call "%_NODE_HOME%\npm.cmd" -g install rimraf
     if not !ERRORLEVEL!==0 (
         echo %_ERROR_LABEL% Failed to install rimraf 1>&2
         set _EXITCODE=1
         goto end
     )
 )
+set _RIMRAF_CMD=rimraf.cmd
+goto :eof
+
+@rem input parameter: %*
+:args
+set _HELP=0
+set _VERBOSE=0
+set __N=0
+:args_loop
+set "__ARG=%~1"
+if not defined __ARG goto args_done
+
+if "%__ARG:~0,1%"=="-" (
+    @rem option
+    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    ) else (
+        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        set _EXITCODE=1
+        goto args_done
+    )
+) else (
+    @rem subcommand
+    if /i "%__ARG%"=="help" ( set _HELP=1
+    ) else (
+        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        set _EXITCODE=1
+        goto args_done
+    )
+    set /a __N+=1
+)
+shift
+goto :args_loop
+:args_done
+if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
+goto :eof
+
+:help
+echo Usage: %_BASENAME% { ^<option^> ^| ^<subcommand^> }
+echo.
+echo   Options:
+echo     -debug      show commands executed by this script
+echo     -verbose    display progress messages
+echo.
+echo   Subcommands:
+echo     help        display this help message
 goto :eof
 
 @rem #########################################################################
