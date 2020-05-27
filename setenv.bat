@@ -19,12 +19,13 @@ if not %_EXITCODE%==0 goto end
 @rem #########################################################################
 @rem ## Main
 
-set _GIT_PATH=
-
 if %_HELP%==1 (
     call :help
     exit /b !_EXITCODE!
 )
+
+set _GIT_PATH=
+
 call :npm
 if not %_EXITCODE%==0 goto end
 
@@ -36,7 +37,7 @@ goto end
 @rem #########################################################################
 @rem ## Subroutines
 
-@rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+@rem output parameters: _BASENAME, _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
 

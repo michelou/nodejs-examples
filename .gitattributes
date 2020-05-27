@@ -10,6 +10,7 @@
 *.java text
 *.json text
 *.js text
+*.rs text
 *.sbt text
 *.scala text
 *.txt text

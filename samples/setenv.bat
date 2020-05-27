@@ -134,10 +134,6 @@ if not exist "%_NODE_HOME%\npm.cmd" (
     set _EXITCODE=1
     goto :eof
 )
-rem path name of installation directory may contain spaces
-for /f "delims=" %%f in ("%_NODE_HOME%") do set _NODE_HOME=%%~sf
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory %_NODE_HOME% 1>&2
-
 set "NODE_HOME=%_NODE_HOME%"
 call %NODE_HOME%\nodevars.bat
 goto :eof
@@ -289,7 +285,7 @@ echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
-    rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
+    @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
 )
