@@ -7,7 +7,8 @@
   </tr>
 </table>
 
-### `express`
+
+## `express`
 
 Command [**`npm start`**](./express/package.json) executes application [**`app\app.js`**](./express/app/app.js) which performs two tasks:
 
@@ -15,6 +16,9 @@ Command [**`npm start`**](./express/package.json) executes application [**`app\a
 - it opens URL **`http:/127.0.0.1:8180`** in our default web browser.
 
 <pre style="font-size:80%;">
+<b>&gt; cd</b>
+N:\samples_Bojinov\express
+&nbsp;
 <b>&gt; npm start</b>
 
 > express-app@0.0.1 start N:\samples_Bojinov\express
@@ -31,7 +35,8 @@ The default browser displays the following contents in a new tab:
 2019-12-07T17:53:06+01:00
 </pre>
 
-### `hello-1`
+
+## `hello-1`
 
 Command [**`npm start`**](./hello-1/package.json) executes application [**`app\app.js`**](./hello-1/app/app.js) which performs two tasks:
 
@@ -51,9 +56,9 @@ requested (GET)
 </pre>
 
 
-### `math`
+## `math`
 
-Command **`npm run test`** executes all test functions contained in directory [**`test`**](math/test/):
+Command **`npm run test`** executes all test functions contained in directory [**`math\test`**](math/test/):
 
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
@@ -69,9 +74,9 @@ OK: 2 assertions (16ms)
 </pre>
 
 
-### `mock`
+## `mock`
 
-Command **`npm run test`** executes all test functions contained in directory [**`test`**](mock/test/), in this case [**`test-http-module.js`**](mock/test/test-http-module.js):
+Command **`npm run test`** executes all test functions contained in directory [**`mock\test`**](mock/test/), in this case [**`test-http-module.js`**](mock/test/test-http-module.js):
 
 <pre style="font-size:80%;">
 <b>&gt; npm run test</b>
@@ -87,7 +92,7 @@ OK: 0 assertions (184ms)
 </pre>
 
 
-### `routes`
+## `routes`
 
 Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./routes/app/app.js) which performs two tasks:
 

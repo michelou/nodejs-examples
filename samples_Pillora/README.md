@@ -8,9 +8,10 @@
   </tr>
 </table>
 
-### `4-02-project`
 
-Executing the **`npm start`** command in directory [**`samples_Pillora\4-02-project\`**](./4-02-project/) performs two tasks:
+## `4-02-project`
+
+Command **`npm start`** performs two tasks when started in directory [**`samples_Pillora\4-02-project\`**](./4-02-project/):
 
 - it builds your project using [Grunt](https://gruntjs.com/) (see Grunt tasks in file [**`Gruntfile.js`**](./4-02-project/Gruntfile.js)).
 - it opens the **`build/app.html`** Web page in your default web browser.
@@ -35,27 +36,27 @@ Done.
 </pre>
 
 
-### `4-03-project`
+## `4-03-project`
 
 Same as `4-02-project`.
 
 
-### `4-04-project`
+## `4-04-project`
 
 Same as `4-02-project`.
 
 
-### `4-05-project`
+## `4-05-project`
 
 Same as `4-02-project`.
 
 
-### `4-06-project`
+## `4-06-project`
 
 Same as `4-02-project`.
 
 
-### `4-07-project`
+## `4-07-project`
 
 Same as `4-02-project`.
 

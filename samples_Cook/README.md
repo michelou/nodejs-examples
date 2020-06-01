@@ -7,11 +7,15 @@
   </tr>
 </table>
 
-### `basic-auth`
 
-Executing command **`npm start`** in directory [**`samples_Cook\basic-auth\`**](./basic-auth/) starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./basic-auth/config.json)):
+## `basic-auth`
+
+Command **`npm start`** starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./basic-auth/config.json)):
 
 <pre style="font-size:80%;">
+<b>&gt; cd</b>
+N:\samples_Cook\basic_auth
+&nbsp;
 <b>&gt; npm start</b>
 
 > basic_auth@1.0.0 start N:\samples_Cook\basic_auth
@@ -23,7 +27,7 @@ Executing command **`npm start`** in directory [**`samples_Cook\basic-auth\`**](
 [2018-05-10 19:43:33 INFO] (app.js) Requested URL: /
 </pre>
 
-Executing command **`npm run client`** in directory [**`samples_Cook\basic-auth\`**](./basic-auth/) sends several requests to the server: 
+Command **`npm run client`** sends several requests to the server: 
 
 <pre style="font-size:80%;">
 <b>&gt; npm run client</b>

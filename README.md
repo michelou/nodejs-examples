@@ -21,7 +21,7 @@ This project depends on two external software for the **Microsoft Windows** plaf
 Optionally one may also install the following software:
 
 - [Git 2.26][git_downloads] ([*release notes*][git_relnotes])
-- [Node.js 14.x LTS][nodejs_unofficial] <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup> ([*release notes*][nodejs_relnotes_14])
+- [Node.js 14.x LTS][nodejs_downloads_14] <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup> ([*release notes*][nodejs_relnotes_14])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
@@ -233,7 +233,7 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
-<tr><td><a href="https://nodejs.org/dist/v14.3.0/">14.x</a></td><td>April 2020</td><td>April 2023</td></tr>
+<tr><td><a href="https://nodejs.org/dist/v14.3.0/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
 </table>
 </p>
 
@@ -253,7 +253,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.18.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.17.0-win-x64.zip</a>                     <i>( 17 MB)</i>
-<a href="https://nodejs.org/dist//v14.3.0/">node-v14.3.0-win-x64.zip </a>                     <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/v14.3.0/">node-v14.3.0-win-x64.zip </a>                     <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.26.2-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
@@ -301,7 +301,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
 [nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.17.0
 [nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.3.0/
-[nodejs_unofficial]: https://unofficial-builds.nodejs.org/download/
+[nodejs_downloads_14]: https://nodejs.org/dist/v14.3.0/
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
