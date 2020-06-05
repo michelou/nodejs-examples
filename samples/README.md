@@ -7,7 +7,7 @@
   </tr>
 </table>
 
-### `auth-passport`
+## `auth-passport`
 
 Command [**`npm start`**](auth-passport/package.json) executes application [**`app\app.js`**](./auth-passport/app/app.js) which prints the following output:
 
@@ -31,7 +31,7 @@ Express server listening on port 8180
 </pre>
 
 
-### `locales-1`
+## `locales-1`
 
 Command [**`npm start`**](./locales-1/package.json) executes application [**`app\app.js`**](./locales-1/app/app.js) which performs two tasks:
 
@@ -45,7 +45,7 @@ Command [**`npm start`**](./locales-1/package.json) executes application [**`app
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.17.0 (x64)
+Node runtime: 12.18.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -57,7 +57,7 @@ Salut
 </pre>
 
 
-### `locales-2`
+## `locales-2`
 
 Command [**`npm start`**](./locales-2/package.json) executes application  [**`app\app.js`**](./locales-2/app/app.js) which performs two tasks:
 
@@ -71,7 +71,7 @@ Command [**`npm start`**](./locales-2/package.json) executes application  [**`ap
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.17.0 (x64)
+Node runtime: 12.18.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -126,7 +126,7 @@ de
 </pre>
 
 
-### `webaudio-sample`
+## `webaudio-sample`
 
 Executing command **`npm start`** in directory [**`samples\webaudio-sample\`**](./webaudio-sample/) plays the audio file [**`Paradise.m4a`**](./webaudio-sample/Paradise.m4a) in your default web browser:
 
@@ -144,5 +144,5 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

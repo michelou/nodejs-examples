@@ -233,7 +233,7 @@ if defined __CURL_CMD (
     @rem keep _CURL_PATH undefined since executable already in path
     goto :eof
 ) else if defined CURL_HOME (
-    set __CURL_HOME=%CURL_HOME%
+    set "__CURL_HOME=%CURL_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable CURL_HOME 1>&2
 ) else (
     set __PATH=C:\opt

@@ -9,7 +9,7 @@
 </table>
 
 
-### `chp-3-networking`
+## `chp-3-networking`
 
 Executing command **`npm start`** in directory [**`samples_Duuna\chp-3-networking\`**](./chp-3-networking/) performs two tasks:
 
@@ -25,7 +25,7 @@ First we start the server application in a new console:
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.17.0 (x64)
+Node runtime: 12.18.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
@@ -49,7 +49,7 @@ hello world
 </pre>
 
 
-### `chp-4-code-injection`
+## `chp-4-code-injection`
 
 Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-injection\`**](./chp-4-code-injection/) performs two tasks:
 
@@ -63,12 +63,12 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.17.0 (x64)
+Node runtime: 12.18.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

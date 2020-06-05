@@ -8,7 +8,7 @@
   </tr>
 </table>
 
-### `04-concepts`
+## `04-concepts`
 
 Command [**`npm start`**](./04-concepts/async-downloads/package.json) executes application [**`app\async-downloads.js`**](./04-concepts/async-downloads/app/async-downloads.js) which produces the following output:
 
@@ -21,7 +21,7 @@ Command [**`npm start`**](./04-concepts/async-downloads/package.json) executes a
 Tout s'est bien passé
 </pre>
 
-### `06_files`
+## `06_files`
 
 Command [**`npm run`**](./06_files/package.json) displays the available [**`npm`** scripts][npm_scripts].
 
@@ -55,7 +55,7 @@ arborescence créée
 arborescence supprimée
 </pre>
 
-### `07_promises`
+## `07_promises`
 
 Command [**`npm run`**](./07_promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
@@ -70,7 +70,7 @@ Scripts available in promises via `npm run-script`:
     babel src -d app & babel-node app/generator.js
 </pre>
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

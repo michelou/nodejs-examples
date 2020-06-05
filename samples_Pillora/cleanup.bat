@@ -7,7 +7,6 @@ if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
 @rem ## Environment setup
 
 set _EXITCODE=0
-set "_ROOT_DIR=%~dp0"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -27,7 +26,7 @@ set _N=0
 set "_DIR=%_ROOT_DIR%node_modules"
 if exist "!_DIR!" (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!_DIR!"
-    call %_RIMRAF_CMD% "!_DIR!"
+    call "%_RIMRAF_CMD%" "!_DIR!"
     set /a _N+=1
 )
 
@@ -35,7 +34,7 @@ for /f %%i in ('dir /ad /b 2^>NUL') do (
     set "_DIR=%_ROOT_DIR%%%i\node_modules"
     if exist "!_DIR!" (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!_DIR!"
-        call %_RIMRAF_CMD% "!_DIR!"
+        call "%_RIMRAF_CMD%" "!_DIR!"
         set /a _N+=1
     )
 )
@@ -52,6 +51,7 @@ goto end
 @rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
+set "_ROOT_DIR=%~dp0"
 
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd

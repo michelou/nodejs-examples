@@ -48,7 +48,7 @@ set _BASENAME=%~n0
 
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _DEBUG_LABEL=[46m[%_BASENAME%][0m
+set _DEBUG_LABEL=[46m%_DEBUG_LABEL%[0m
 set _ERROR_LABEL=[91mError[0m:
 set _WARNING_LABEL=[93mWarning[0m:
 goto :eof
@@ -67,7 +67,7 @@ if "%__ARG:~0,1%"=="-" (
     if /i "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo Error: Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -84,7 +84,7 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto :args_loop
 :args_done
-if %_DEBUG%==1 echo [%_BASENAME%] _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
 
 :help
@@ -110,7 +110,7 @@ if defined __NPM_CMD (
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable NODE_HOME 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
@@ -139,17 +139,17 @@ set _GIT_PATH=
 
 set __GIT_HOME=
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set __GIT_CMD=%%f
+for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
-    if %_DEBUG%==1 echo [%_BASENAME%] Using path of Git executable found in PATH 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
     set "__GIT_HOME=%GIT_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable GIT_HOME 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
+    if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
     ) else (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         if not defined __GIT_HOME (
@@ -188,17 +188,17 @@ if %ERRORLEVEL%==0 goto :eof
 
 if defined MONGO_HOME (
     set "_MONGO_HOME=%MONGO_HOME%"
-    if %_DEBUG%==1 echo [%_BASENAME%] Using environment variable MONGO_HOME 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGO_HOME 1>&2
 ) else (
     where /q mongod.exe
     if !ERRORLEVEL!==0 (
         for /f %%i in ('where /f mongod.exe') do set _MONGO_HOME=%%~dpsi
-        if %_DEBUG%==1 echo [%_BASENAME%] Using path of MongoDB executable found in PATH 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
     ) else (
-        set "_PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!_PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!_PATH!\%%f
+        set "__PATH=%ProgramFiles%"
+        for /f %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
         if defined _MONGO_HOME (
-            if %_DEBUG%==1 echo [%_BASENAME%] Using default MongoDB installation directory !_MONGO_HOME! 1>&2
+            if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default MongoDB installation directory !_MONGO_HOME! 1>&2
         )
     )
 )
@@ -242,7 +242,7 @@ echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
-    @rem if %_DEBUG%==1 echo [%_BASENAME%] where %__WHERE_ARGS% 1>&2
+    @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS% 1>&2
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
 )

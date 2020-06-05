@@ -122,7 +122,7 @@ if defined __GIT_CMD (
     ) else (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         if not defined __GIT_HOME (
-            set __PATH=C:\Progra~1
+            set "__PATH=%ProgramFiles%"
             for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         )
     )
@@ -156,7 +156,7 @@ if defined __NPM_CMD (
     set __PATH=C:\opt
     for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
-        set __PATH=C:\progra~1
+        set "__PATH=%ProgramFiles%"
         for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
@@ -186,7 +186,7 @@ if not exist "%NODE_HOME%\pm2.cmd" (
     echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
     set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
     if /i "!__PM2_ANSWER!"=="y" (
-        %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
+        call "%NODE_HOME%\npm.cmd" -g install pm2 --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
         goto :eof

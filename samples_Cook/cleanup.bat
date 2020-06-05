@@ -7,7 +7,6 @@ if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
 @rem ## Environment setup
 
 set _EXITCODE=0
-set "_ROOT_DIR=%~dp0"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -52,6 +51,7 @@ goto end
 @rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
+set "_ROOT_DIR=%~dp0"
 
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
@@ -65,11 +65,11 @@ if defined NODE_HOME (
 ) else (
     where /q node.exe
     if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f node.exe') do set _NODE_HOME=%%~dpsi
+        for /f %%i in ('where /f node.exe') do set "_NODE_HOME=%%~dpsi"
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Node executable found in PATH 1>&2
     ) else (
         set _PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!_PATH!\%%f
+        for /f %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set "_NODE_HOME=!_PATH!\%%f"
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory !_NODE_HOME! 1>&2
     )
 )

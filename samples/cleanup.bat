@@ -7,7 +7,6 @@ if defined DEBUG ( set _DEBUG=1 ) else ( set _DEBUG=0 )
 @rem ## Environment setup
 
 set _EXITCODE=0
-set "_ROOT_DIR=%~dp0"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -30,7 +29,7 @@ for %%i in (auth-passport locales-1 locales-2 webaudio-sample) do (
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!__DIR!" 1>&2
         ) else if %_VERBOSE%==1 ( echo Delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
         )
-        call %_RIMRAF_CMD% "!__DIR!"
+        call "%_RIMRAF_CMD%" "!__DIR!"
         set /a _N+=1
     )
 )
@@ -47,6 +46,7 @@ goto end
 @rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
+set "_ROOT_DIR=%~dp0"
 
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
