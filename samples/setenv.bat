@@ -32,13 +32,17 @@ if not %_EXITCODE%==0 goto end
 call :npm
 if not %_EXITCODE%==0 goto end
 
-call :pm2
-if not %_EXITCODE%==0 goto end
-
 call :mongod
 if not %_EXITCODE%==0 goto end
 
 call :curl
+if not %_EXITCODE%==0 goto end
+
+@rem global npm packages: pm2, rimraf
+call :pm2
+if not %_EXITCODE%==0 goto end
+
+call :rimraf
 if not %_EXITCODE%==0 goto end
 
 goto end
@@ -46,7 +50,7 @@ goto end
 @rem #########################################################################
 @rem ## Subroutines
 
-@rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+@rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
 
@@ -109,8 +113,8 @@ set _NODE_HOME=
 set __NPM_CMD=
 for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
-    for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
-    for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
+    for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
+    for %%f in ("!__NODE_BIN_DIR!..") do set "_NODE_HOME=%%~sf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
 ) else if defined NODE_HOME (
@@ -135,7 +139,7 @@ if not exist "%_NODE_HOME%\npm.cmd" (
     goto :eof
 )
 set "NODE_HOME=%_NODE_HOME%"
-call %NODE_HOME%\nodevars.bat
+call "%NODE_HOME%\nodevars.bat"
 goto :eof
 
 :pm2
@@ -143,10 +147,26 @@ where /q pm2.cmd
 if %ERRORLEVEL%==0 goto :eof
 
 if not exist "%NODE_HOME%\pm2.cmd" (
-    echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
+    echo pm2 command not found in Node installation directory ^(%NODE_HOME%^)
     set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
     if /i "!__PM2_ANSWER!"=="y" (
-        %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
+        call "%NODE_HOME%\npm.cmd" -g install pm2 --prefix %NODE_HOME%
+    ) else (
+        set _EXITCODE=1
+        goto :eof
+    )
+)
+goto :eof
+
+:rimraf
+where /q rimraf.cmd
+if %ERRORLEVEL%==0 goto :eof
+
+if not exist "%NODE_HOME%\rimraf.cmd" (
+    echo rimraf command not found in Node installation directory ^(%NODE_HOME%^)
+    set /p __RIMRAF_ANSWER="Execute 'npm -g install rimraf --prefix %NODE_HOME%' (Y/N)? "
+    if /i "!__RIMRAF_ANSWER!"=="y" (
+        %NODE_HOME%\npm.cmd -g install rimraf --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
         goto :eof
@@ -161,7 +181,7 @@ set _MONGO_PATH=
 
 set __MONGO_HOME=
 set __MONGOD_CMD=
-for /f %%f in ('where mongod.exe 2^>NUL') do set __MONGOD_CMD=%%f
+for /f %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
 if defined __MONGOD_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path
@@ -171,7 +191,7 @@ if defined __MONGOD_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGODB_HOME 1>&2
 ) else (
     set __PATH=c:\opt
-    if exist "!__PATH!\mongodb\" ( set __MONGO_HOME=!__PATH!\mongodb
+    if exist "!__PATH!\mongodb\" ( set "__MONGO_HOME=!__PATH!\mongodb"
     ) else (
         for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "__MONGO_HOME=!__PATH!\%%f"
         if not defined __MONGO_HOME (
@@ -194,7 +214,7 @@ set _GIT_PATH=
 
 set __GIT_HOME=
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set __GIT_CMD=%%f
+for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path
@@ -204,7 +224,7 @@ if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
+    if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
     ) else (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         if not defined __GIT_HOME (
@@ -285,7 +305,7 @@ echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
-    @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
+    @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS% 1>&2
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
 )

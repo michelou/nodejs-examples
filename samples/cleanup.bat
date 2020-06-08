@@ -23,10 +23,18 @@ if %_HELP%==1 (
 )
 
 set _N=0
+set "_DIR=%_ROOT_DIR%node_modules"
+if exist "!_DIR!" (
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!_DIR!" 1>&2
+    ) else if %_VERBOSE%==1 ( echo Delete directory "!_DIR:%_ROOT_DIR%=!" 1>&2
+    )
+    call "%_RIMRAF_CMD%" "!_DIR!"
+    set /a _N+=1
+)
 for %%i in (auth-passport locales-1 locales-2 webaudio-sample) do (
     set "__DIR=%_ROOT_DIR%%%i\node_modules"
     if exist "!__DIR!\" (
-        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!__DIR!" 1>&2
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_RIMRAF_CMD%" "!__DIR!" 1>&2
         ) else if %_VERBOSE%==1 ( echo Delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
         )
         call "%_RIMRAF_CMD%" "!__DIR!"
@@ -35,7 +43,7 @@ for %%i in (auth-passport locales-1 locales-2 webaudio-sample) do (
 )
 if %_N% gtr 1 ( echo Removed %_N% directories
 ) else if %_N% gtr 0 ( echo Removed %_N% directory 
-) else if %_VERBOSE%==1 ( echo No directory 'node_modules' found 1>&2
+) else if %_VERBOSE%==1 ( echo No directory 'node_modules' was found 1>&2
 )
 
 goto end
@@ -43,7 +51,7 @@ goto end
 @rem #########################################################################
 @rem ## Subroutines
 
-@rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+@rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
 set "_ROOT_DIR=%~dp0"
@@ -54,13 +62,12 @@ set _DEBUG_LABEL=[46m[%_BASENAME%][0m
 set _ERROR_LABEL=[91mError[0m:
 set _WARNING_LABEL=[93mWarning[0m:
 
-where /q rimraf.cmd
-if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% rimraf command not found 1>&2
+set "_RIMRAF_CMD=%NODE_HOME%\rimraf.cmd"
+if not exist "%_RIMRAF_CMD%" (
+    echo %_ERROR_LABEL% Command rimraf.cmd not found 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set _RIMRAF_CMD=rimraf.cmd
 goto :eof
 
 @rem input parameter: %*

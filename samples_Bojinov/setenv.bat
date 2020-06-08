@@ -31,10 +31,14 @@ if not %_EXITCODE%==0 goto end
 call :git
 if not %_EXITCODE%==0 goto end
 
+call :mongod
+if not %_EXITCODE%==0 goto end
+
+@rem global npm packages: pm2, rimrad
 call :pm2
 if not %_EXITCODE%==0 goto end
 
-call :mongod
+call :rimraf
 if not %_EXITCODE%==0 goto end
 
 goto end
@@ -147,6 +151,22 @@ if not exist "%NODE_HOME%\pm2.cmd" (
     set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
     if /i "!__PM2_ANSWER!"=="y" (
         %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
+    ) else (
+        set _EXITCODE=1
+        goto :eof
+    )
+)
+goto :eof
+
+:rimraf
+where /q rimraf.cmd
+if %ERRORLEVEL%==0 goto :eof
+
+if not exist "%NODE_HOME%\rimraf.cmd" (
+    echo rimraf command not found in Node installation directory ^(%NODE_HOME% ^)
+    set /p __RIMRAF_ANSWER="Execute 'npm -g install rimraf --prefix %NODE_HOME%' (Y/N)? "
+    if /i "!__RIMRAF_ANSWER!"=="y" (
+        %NODE_HOME%\npm.cmd -g install rimraf --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
         goto :eof

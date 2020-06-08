@@ -31,20 +31,19 @@ if exist "!_DIR!" (
     call "%_RIMRAF_CMD%" "!_DIR!"
     set /a _N+=1
 )
-
-for /f %%i in ('dir /ad /b 2^>NUL') do (
-    set "_DIR=%_ROOT_DIR%%%i\node_modules"
-    if exist "!_DIR!" (
-        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_RIMRAF_CMD% "!_DIR!" 1>&2
-        ) else if %_VERBOSE%==1 ( echo Delete directory "!_DIR:%_ROOT_DIR%=!" 1>&2
+for %%i in (04-concepts 06-files 07-promises 10-databases 11-tests) do (
+    set "__DIR=%_ROOT_DIR%%%i\node_modules"
+    if exist "!__DIR!\" (
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_RIMRAF_CMD%" "!__DIR!" 1>&2
+        ) else if %_VERBOSE%==1 ( echo Delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
         )
-        call "%_RIMRAF_CMD%" "!_DIR!"
+        call "%_RIMRAF_CMD%" "!__DIR!"
         set /a _N+=1
     )
 )
 if %_N% gtr 1 ( echo Removed %_N% directories
 ) else if %_N% gtr 0 ( echo Removed %_N% directory 
-) else if %_VERBOSE%==1 ( echo Directory 'node_modules' not found 1>&2
+) else if %_VERBOSE%==1 ( echo No directory 'node_modules' was found 1>&2
 )
 
 goto end
@@ -63,36 +62,12 @@ set _DEBUG_LABEL=[46m[%_BASENAME%][0m
 set _ERROR_LABEL=[91mError[0m:
 set _WARNING_LABEL=[93mWarning[0m:
 
-if defined NODE_HOME (
-    set "_NODE_HOME=%NODE_HOME%"
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
-) else (
-    where /q node.exe
-    if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f node.exe') do set "_NODE_HOME=%%~dpsi"
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Node executable found in PATH 1>&2
-    ) else (
-        set _PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set "_NODE_HOME=!_PATH!\%%f"
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory !_NODE_HOME! 1>&2
-    )
-)
-if not exist "%_NODE_HOME%\npm.cmd" (
-    echo %_ERROR_LABEL% npm command not found ^(%_NODE_HOME%^) 1>&2
+set "_RIMRAF_CMD=%NODE_HOME%\rimraf.cmd"
+if not exist "%_RIMRAF_CMD%" (
+    echo %_ERROR_LABEL% Command rimraf.cmd not found 1>&2
     set _EXITCODE=1
-    goto end
+    goto :eof
 )
-where /q rimraf.cmd
-if not %ERRORLEVEL%==0 (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% npm.cmd -g install rimraf 1>&2
-    call "%_NODE_HOME%\npm.cmd" -g install rimraf
-    if not !ERRORLEVEL!==0 (
-        echo %_ERROR_LABEL% Failed to install rimraf 1>&2
-        set _EXITCODE=1
-        goto end
-    )
-)
-set _RIMRAF_CMD=rimraf.cmd
 goto :eof
 
 @rem input parameter: %*

@@ -31,10 +31,14 @@ if not %_EXITCODE%==0 goto end
 call :git
 if not %_EXITCODE%==0 goto end
 
+call :mongod
+if not %_EXITCODE%==0 goto end
+
+@rem global npm packages: pm2, rimraf
 call :pm2
 if not %_EXITCODE%==0 goto end
 
-call :mongod
+call :rimraf
 if not %_EXITCODE%==0 goto end
 
 goto end
@@ -48,7 +52,7 @@ set _BASENAME=%~n0
 
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _DEBUG_LABEL=[46m%_DEBUG_LABEL%[0m
+set _DEBUG_LABEL=[46m[%_BASENAME%][0m
 set _ERROR_LABEL=[91mError[0m:
 set _WARNING_LABEL=[93mWarning[0m:
 goto :eof
@@ -63,7 +67,7 @@ set "__ARG=%~1"
 if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
-    rem option
+    @rem option
     if /i "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
@@ -72,14 +76,14 @@ if "%__ARG:~0,1%"=="-" (
         goto args_done
     )
 ) else (
-    rem subcommand
-    set /a __N=!__N!+1
+    @rem subcommand
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
         goto args_done
     )
+    set /a __N+=1
 )
 shift
 goto :args_loop
@@ -98,15 +102,16 @@ echo   Subcommands:
 echo     help        display this help message
 goto :eof
 
-rem postcondition: NODE_HOME is defined and valid
+@rem postcondition: NODE_HOME is defined and valid
 :npm
 set _NODE_HOME=
 
 set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set __NPM_CMD=%%f
+for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
-    for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
-    for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
+    for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
+    for %%f in ("!__NODE_BIN_DIR!..") do set "_NODE_HOME=%%~sf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
@@ -131,6 +136,72 @@ if not exist "%_NODE_HOME%\npm.cmd" (
 )
 set "NODE_HOME=%_NODE_HOME%"
 call "%NODE_HOME%\nodevars.bat"
+goto :eof
+
+:pm2
+where /q pm2.cmd
+if %ERRORLEVEL%==0 goto :eof
+
+if not exist "%NODE_HOME%\pm2.cmd" (
+    echo pm2 command not found in Node installation directory ^(%NODE_HOME%^)
+    set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
+    if /i "!__PM2_ANSWER!"=="y" (
+        call "%NODE_HOME%\npm.cmd" -g install pm2 --prefix %NODE_HOME%
+    ) else (
+        set _EXITCODE=1
+        goto :eof
+    )
+)
+goto :eof
+
+:rimraf
+where /q rimraf.cmd
+if %ERRORLEVEL%==0 goto :eof
+
+if not exist "%NODE_HOME%\rimraf.cmd" (
+    echo rimraf command not found in Node installation directory ^(%NODE_HOME%^)
+    set /p __RIMRAF_ANSWER="Execute 'npm -g install rimraf --prefix %NODE_HOME%' (Y/N)? "
+    if /i "!__RIMRAF_ANSWER!"=="y" (
+        %NODE_HOME%\npm.cmd -g install rimraf --prefix %NODE_HOME%
+    ) else (
+        set _EXITCODE=1
+        goto :eof
+    )
+)
+goto :eof
+
+@rem output parameter(s): _MONGO_PATH
+@rem https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl
+:mongod
+set _MONGO_PATH=
+
+set __MONGO_HOME=
+set __MONGOD_CMD=
+for /f %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
+if defined __MONGOD_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
+    rem keep _GIT_PATH undefined since executable already in path
+    goto :eof
+) else if defined MONGODB_HOME (
+    set "__MONGO_HOME=%MONGODB_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGODB_HOME 1>&2
+) else (
+    set __PATH=c:\opt
+    if exist "!__PATH!\mongodb\" ( set "__MONGO_HOME=!__PATH!\mongodb"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "__MONGO_HOME=!__PATH!\%%f"
+        if not defined __MONGO_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "__MONGO_HOME=!__PATH!\%%f"
+        )
+    )
+)
+if not exist "%__MONGO_HOME%\bin\mongod.exe" (
+    echo Error: MongoDB executable not found ^(%__MONGO_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_MONGO_PATH=;%__MONGO_HOME%\bin"
 goto :eof
 
 @rem output parameter(s): _GIT_PATH
@@ -166,53 +237,6 @@ if not exist "%__GIT_HOME%\bin\git.exe" (
 set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
 
-:pm2
-where /q pm2.cmd
-if %ERRORLEVEL%==0 goto :eof
-
-if not exist "%NODE_HOME%\pm2.cmd" (
-    echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
-    set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
-    if /i "!__PM2_ANSWER!"=="y" (
-        call "%NODE_HOME%\npm.cmd" -g install pm2 --prefix %NODE_HOME%
-    ) else (
-        set _EXITCODE=1
-        goto :eof
-    )
-)
-goto :eof
-
-:mongod
-where /q mongod.exe
-if %ERRORLEVEL%==0 goto :eof
-
-if defined MONGO_HOME (
-    set "_MONGO_HOME=%MONGO_HOME%"
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGO_HOME 1>&2
-) else (
-    where /q mongod.exe
-    if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f mongod.exe') do set _MONGO_HOME=%%~dpsi
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
-    ) else (
-        set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
-        if defined _MONGO_HOME (
-            if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default MongoDB installation directory !_MONGO_HOME! 1>&2
-        )
-    )
-)
-if not defined _MONGO_BIN_DIR (
-    for /f "delims=" %%i in ('where /f /r "%_MONGO_HOME%" mongod.exe 2^>NUL') do set _MONGO_BIN_DIR=%%~dpsi
-)
-if not exist "%_MONGO_BIN_DIR%\mongod.exe" (
-    echo %_ERROR_LABEL% MongoDB executable not found ^(%_MONGO_HOME%^) 1>&2
-    set _EXITCODE=1
-    goto :eof
-)
-set "_MONGO_PATH=;%_MONGO_BIN_DIR%"
-goto :eof
-
 :print_env
 set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
@@ -232,6 +256,11 @@ where /q git.exe
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% git.exe
+)
+where /q diff.exe
+if %ERRORLEVEL%==0 (
+   for /f "tokens=1-3,*" %%i in ('diff.exe --version ^| findstr diff') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% diff %%l"
+    set __WHERE_ARGS=%__WHERE_ARGS% diff.exe
 )
 where /q mongod.exe
 if %ERRORLEVEL%==0 (
@@ -255,7 +284,7 @@ goto :eof
 endlocal & (
     if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
     if not defined NODE_PATH set "NODE_PATH=%~dp0\node_modules"
-    set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%"
+    set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%;%~dp0bin"
     if %_EXITCODE%==0 call :print_env %_VERBOSE%
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2
     for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=

@@ -7,7 +7,6 @@ set _DEBUG=0
 @rem ## Environment setup
 
 set _EXITCODE=0
-for %%f in ("%~dp0..") do set "_ROOT_DIR=%%~f"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -34,6 +33,7 @@ goto end
 @rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL, _NPM_CMD
 :env
 set _BASENAME=%~n0
+for %%f in ("%~dp0..") do set "_ROOT_DIR=%%~f"
 
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
@@ -86,7 +86,7 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto :args_loop
 :args_done
-if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _INSTALL=%_INSTALL% _VERBOSE=%_VERBOSE% 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _INSTALL=%_INSTALL% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
 if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof
 
