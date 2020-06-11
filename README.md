@@ -94,9 +94,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; where node npm</b>
-    C:\opt\node-v12.17.0-win-x64\node.exe
-    C:\opt\node-v12.17.0-win-x64\npm
-    C:\opt\node-v12.17.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v12.18.0-win-x64\node.exe
+    C:\opt\node-v12.18.0-win-x64\npm
+    C:\opt\node-v12.18.0-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -124,12 +124,12 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; setenv</b>
 Tool versions:
-   node v12.17.0, npm 6.14.4
+   node v12.18.0, npm 6.14.4
    git 2.27.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; where npm</b>
-C:\opt\node-v12.17.0-win-x64\npm
-C:\opt\node-v12.17.0-win-x64\npm.cmd
+C:\opt\node-v12.18.0-win-x64\npm
+C:\opt\node-v12.18.0-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -138,11 +138,11 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; setenv.bat -verbose</b>
 Your environment has been set up for using Node.js 12.17.0 (x64) and npm.
 Tool versions:
-   node v12.17.0, npm 6.14.4
+   node v12.18.0, npm 6.14.4
    git 2.27.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v12.17.0-win-x64\node.exe
-   C:\opt\node-v12.17.0-win-x64\npm.cmd
+   C:\opt\node-v12.18.0-win-x64\node.exe
+   C:\opt\node-v12.18.0-win-x64\npm.cmd
    C:\opt\Git-2.27.0\bin\git.exe
    C:\opt\Git-2.27.0\usr\bin\diff.exe
 </pre>
@@ -180,11 +180,11 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v12.17.0, npm 6.14.4
+   node v12.18.0, npm 6.14.4
    git 2.27.0.windows.1, diff 3.7, mongod v3.6.18
 Tool paths:
-   C:\opt\node-v12.17.0-win-x64\node.exe
-   C:\opt\node-v12.17.0-win-x64\npm.cmd
+   C:\opt\node-v12.18.0-win-x64\node.exe
+   C:\opt\node-v12.18.0-win-x64\npm.cmd
    C:\opt\Git-2.27.0\bin\git.exe
    C:\opt\Git-2.27.0\mingw64\bin\git.exe
    C:\opt\Git-2.27.0\usr\bin\diff.exe
@@ -233,7 +233,7 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
-<tr><td><a href="https://nodejs.org/dist/v14.3.0/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v14.x/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
 </table>
 </p>
 
@@ -301,7 +301,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
 [nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.18.0
 [nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.4.0/
-[nodejs_downloads_14]: https://nodejs.org/dist/v14.4.0/
+[nodejs_downloads_14]: https://nodejs.org/dist/latest-v14.x/
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
