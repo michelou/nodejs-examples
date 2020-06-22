@@ -1,6 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
+@rem only for interactive debugging
 set _DEBUG=0
 
 @rem #########################################################################
@@ -33,9 +34,11 @@ goto end
 @rem output parameter(s): _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL, _NPM_CMD
 :env
 set _BASENAME=%~n0
-for %%f in ("%~dp0..") do set "_ROOT_DIR=%%~f"
+for %%f in ("%~dp0\.") do set "_ROOT_DIR=%%~dpf"
+@rem remove trailing backslash for virtual drives
+if "%_ROOT_DIR:~-2%"==":\" set "_ROOT_DIR=%_ROOT_DIR:~0,-1%"
 
-call :env_ansi
+call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
 set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
@@ -50,7 +53,7 @@ set _NPM_CMD=npm.cmd
 set _NPM_OPTS=
 goto :eof
 
-:env_ansi
+:env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
 set _RESET=[0m
@@ -147,7 +150,7 @@ if %_VERBOSE%==1 (
     set __BEG_N=
     set __END=
 )
-echo Usage: %_BASENAME% { ^<option^> ^| ^<subcommand^> }
+echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      show commands executed by this script
@@ -160,7 +163,7 @@ echo     %__BEG_O%help%__END%        display this help message
 goto :eof
 
 :outdated
-set __PROJ_DIR=%~1
+set "__PROJ_DIR=%~1"
 
 if %_VERBOSE%==1 (
     set __BEG_C=%_STRONG_FG_RED%
@@ -174,10 +177,10 @@ if %_VERBOSE%==1 (
 pushd "%__PROJ_DIR%"
 @rem echo Current directory: !__PROJ_DIR:%_ROOT_DIR%=!
 
-if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_NPM_CMD% outdated ^| findstr /v Wanted 1>&2
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_NPM_CMD%" outdated ^| findstr /v Wanted 1>&2
 ) else if %_VERBOSE%==1 ( echo Search for outdated packages in directory !__PROJ_DIR:%_ROOT_DIR%=! 1>&2
 )
-for /f "tokens=1,2,3,4,*" %%i in ('%_NPM_CMD% outdated ^| findstr /v Wanted') do (
+for /f "tokens=1,2,3,4,*" %%i in ('"%_NPM_CMD%" outdated ^| findstr /v Wanted') do (
     set __PKG_NAME=%%i
     set __CURRENT=%%j
     set __WANTED=%%k
@@ -194,10 +197,10 @@ for /f "tokens=1,2,3,4,*" %%i in ('%_NPM_CMD% outdated ^| findstr /v Wanted') do
     ) else if not "!__CURRENT!"=="!__LATEST!" (
         echo    Outdated package !__PKG_NAME!: current=%__BEG_C%!__CURRENT!%__END%, latest=%__BEG_L%!__LATEST!%__END%
         if %_INSTALL%==1 (
-            if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_NPM_CMD% install -audit !__PKG_NAME!@!__LATEST! --save 1^>NUL 1>&2
+            if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_NPM_CMD%" install -audit !__PKG_NAME!@!__LATEST! --save 1^>NUL 1>&2
             ) else if %_VERBOSE%==1 ( echo    Install package !__PKG_NAME!@!__LATEST! 1>&2
             )
-            call %_NPM_CMD% install -audit !__PKG_NAME!@!__LATEST! --save 1>NUL
+            call "%_NPM_CMD%" install -audit !__PKG_NAME!@!__LATEST! --save 1>NUL
             if not !ERRORLEVEL!==0 (
                 set _EXITCODE=1
             )

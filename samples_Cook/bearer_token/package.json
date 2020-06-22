@@ -1,19 +1,25 @@
 {
-  "name": "webaudio-example",
+  "name": "bearer_token",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js Essentials, Packt 2015, p.72",
   "main": "app/app.js",
+  "private": true,
   "scripts": {
-    "start": "node ./npm_scripts/start_browser.js && node .",
+    "clean": "node ./npm_scripts/clean.js",
+    "start": "node .",
+    "client": "node npm_scripts/start_client.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint app"
   },
-  "author": "",
-  "private": "true",
-  "license": "BSD",
+  "author": "Fabian Cook",
+  "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.3",
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^7.3.0",

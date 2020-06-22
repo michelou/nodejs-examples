@@ -1,17 +1,15 @@
 'use strict'
 
-var bodyParser = require('body-parser')
-var express = require('express')
-var passport = require('passport')
+var BodyParser = require('body-parser')
+var Express = require('express')
+var Passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 
-var localStrategy = new LocalStrategy(
-  {
+var localStrategy = new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password'
   },
   function (username, password, done) {
-    console.log('111111111111111')
     var user = users[username]
     if (user == null) {
       return done(null, false, { message: 'Invalid user' })
@@ -36,12 +34,12 @@ var users = {
   }
 }
 
-passport.use('local', localStrategy)
+Passport.use('local', localStrategy)
 
-var app = express()
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(passport.initialize())
+var app = Express()
+app.use(BodyParser.urlencoded({ extended: false }))
+app.use(BodyParser.json())
+app.use(Passport.initialize())
 
 app.get('/', function (request, response) {
   logInfo('Requested URL: ' + request.url)

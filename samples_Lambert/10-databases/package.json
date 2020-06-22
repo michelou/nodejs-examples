@@ -10,7 +10,7 @@
     "start": "node app/mongoose.js"
   },
   "dependencies": {
-    "mongoose": "^5.9.18"
+    "mongoose": "^5.9.19"
   },
   "devDependencies": {
     "eslint": "^7.2.0",

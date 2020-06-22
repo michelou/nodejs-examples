@@ -11,41 +11,52 @@ set _BASENAME=%~n0
 
 set _EXITCODE=0
 
-for %%f in ("%~dp0..") do set _ROOT_DIR=%%~sf
+for %%f in ("%~dp0\.") do set "_ROOT_DIR=%%~dpf"
 @rem remove trailing backslash for virtual drives
 if "%_ROOT_DIR:~-2%"==":\" set "_ROOT_DIR=%_ROOT_DIR:~0,-1%"
 
-rem file package.json (NB. PS regex)
+@rem file package.json (NB. PS regex)
+
+@rem https://www.npmjs.com/package/async
 set _ASYNC_VERSION_OLD="async": "^(.+^)3.1.0"
 set _ASYNC_VERSION_NEW="async": "${1}3.2.0"
 
 set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.17.0"
 set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.17.1"
 
-set _GOT_VERSION_OLD="got": "^(.+^)11.0.2"
-set _GOT_VERSION_NEW="got": "${1}11.1.1"
+@rem https://www.npmjs.com/package/got
+set _GOT_VERSION_OLD="got": "^(.+^)11.1.1"
+set _GOT_VERSION_NEW="got": "${1}11.3.0"
 
-set _I18N_VERSION_OLD="i18n": "^(.+^)0.9.0"
-set _I18N_VERSION_NEW="i18n": "${1}0.9.1"
+@rem https://www.npmjs.com/package/i18n
+set _I18N_VERSION_OLD="i18n": "^(.+^)0.9.1"
+set _I18N_VERSION_NEW="i18n": "${1}0.10.0"
 
+@rem https://www.npmjs.com/package/leveldown
 set _LEVELDOWN_VERSION_OLD="leveldown": "^(.+^)5.5.1"
 set _LEVELDOWN_VERSION_NEW="leveldown": "${1}5.6.0"
 
+@rem https://www.npmjs.com/package/levelup
 set _LEVELUP_VERSION_OLD="levelup": "^(.+^)4.3.2"
 set _LEVELUP_VERSION_NEW="levelup": "${1}4.4.0"
 
-set _MOMENT_VERSION_OLD="moment": "^(.+^)2.24.0"
-set _MOMENT_VERSION_NEW="moment": "${1}2.25.3"
+@rem https://www.npmjs.com/package/moment
+set _MOMENT_VERSION_OLD="moment": "^(.+^)2.25.3"
+set _MOMENT_VERSION_NEW="moment": "${1}2.26.0"
 
-set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.9.10"
-set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.9.12"
+@rem https://www.npmjs.com/package/mongoose
+set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.9.18"
+set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.9.19"
 
+@rem https://www.npmjs.com/package/morgan
 set _MORGAN_VERSION_OLD="morgan": "^(.+^)1.9.1"
 set _MORGAN_VERSION_NEW="morgan": "${1}1.10.0"
 
+@rem deprecated
 set _REQUEST_VERSION_OLD="request": "^(.+^)2.88.0"
 set _REQUEST_VERSION_NEW="request": "${1}2.88.2"
 
+@rem https://www.npmjs.com/package/webpack
 set _WEBPACK_VERSION_OLD="webpack": "^(.+^)4.41.6"
 set _WEBPACK_VERSION_NEW="wekpack": "${1}4.43.0"
 
@@ -58,7 +69,7 @@ if not %_EXITCODE%==0 goto end
 @rem #########################################################################
 @rem ## Main
 
-for %%i in (samples samples_Bojinov samples_Cook samples_Lambert) do (
+for %%i in (samples samples_Bojinov samples_Cook samples_Duuna samples_Lambert) do (
 @rem for %%i in (samples_Cook) do (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% call :update_project "%_ROOT_DIR%\%%i" 1>&2
     call :update_project "%_ROOT_DIR%\%%i"
@@ -70,13 +81,13 @@ goto end
 
 @rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
-call :env_ansi
+call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
 set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 goto :eof
 
-:env_ansi
+:env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
 set _RESET=[0m
@@ -174,7 +185,7 @@ if %_VERBOSE%==1 (
     set __BEG_N=
     set __END=
 )
-echo Usage: %_BASENAME% { ^<option^> ^| ^<subcommand^> }
+echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      display commands executed by this script
@@ -204,8 +215,9 @@ if not %ERRORLEVEL%==0 (
 )
 goto :eof
 
+@rem input parameter: %1=parent directory path
 :update_project
-set __PARENT_DIR=%~1
+set "__PARENT_DIR=%~1"
 set __N1=0
 echo Parent directory: %__PARENT_DIR%
 for /f %%i in ('dir /ad /b "%__PARENT_DIR%" ^| findstr /v node_modules') do (

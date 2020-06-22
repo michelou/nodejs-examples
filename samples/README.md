@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples\</code></strong> directory contains <a href="https://nodejs.org/" alt="Node.js">Node.js</a> examples coming from various websites - mostly from the <a href="https://nodejs.org/">Node.js</a> project.</td>
+  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples\</code></strong> directory contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples coming from various websites - mostly from the <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> project.</td>
   </tr>
 </table>
 
@@ -45,7 +45,7 @@ Command [**`npm start`**](./locales-1/package.json) executes application [**`app
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.18.0 (x64)
+Node runtime: 12.18.1 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -71,7 +71,7 @@ Command [**`npm start`**](./locales-2/package.json) executes application  [**`ap
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 12.18.0 (x64)
+Node runtime: 12.18.1 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3

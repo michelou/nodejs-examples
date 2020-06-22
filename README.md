@@ -2,9 +2,9 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://nodejs.org/en/">Node.js</a> code examples coming from various websites and books.<br/>
-  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting">batch files</a> for experimenting with <a href="https://nodejs.org/en/">Node.js</a> on the <b>Microsoft Windows</b> platform.
+  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting">batch files</a> for experimenting with <a href="https://nodejs.org/en/" rel="external">Node.js</a> on the <b>Microsoft Windows</b> platform.
   </td>
   </tr>
 </table>
@@ -28,9 +28,9 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*June 2020*) <sup id="anchor_03"><a href="#footnote_03">[3]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.27.0\                                <i>(271 MB)</i>
+C:\opt\Git-2.27.0\                                <i>(278 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.18\  <i>(1.1 GB)</i>
-C:\opt\node-v12.18.0-win-x64\                     <i>( 50 MB)</i>
+C:\opt\node-v12.18.1-win-x64\                     <i>( 50 MB)</i>
 C:\opt\node-v14.4.0-win-x64\                      <i>( 75 MB)</i>
 </pre>
 
@@ -83,7 +83,7 @@ We distinguish different sets of batch commands:
 1. [**`setenv.bat`**](setenv.bat) - This batch command makes the external tools such as [**`node.exe`**][nodejs_node], [**`npm.cmd`**][nodejs_npm] directly available from the command prompt.
 
     <pre style="font-size:80%;">
-    <b>&gt; setenv help</b>
+    <b>&gt; <a href="setenv.bat">setenv</a> help</b>
     Usage: setenv { &lt;option&gt; | &lt;subcommand&gt; }
     &nbsp;
       Options:
@@ -94,14 +94,14 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; where node npm</b>
-    C:\opt\node-v12.18.0-win-x64\node.exe
-    C:\opt\node-v12.18.0-win-x64\npm
-    C:\opt\node-v12.18.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v12.18.1-win-x64\node.exe
+    C:\opt\node-v12.18.1-win-x64\npm
+    C:\opt\node-v12.18.1-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
    <pre style="font-size:80%;">
-   <b>&gt; bin\check-outdated.bat help</b>
+   <b>&gt; <a href="bin/check-outdated.bat">bin\check-outdated</a> help</b>
    Usage: check-outdated { &lt;option&gt; | &lt;subcommand&gt; }
    &nbsp;
      Options:
@@ -122,27 +122,27 @@ We distinguish different sets of batch commands:
 Command [**`setenv`**](setenv.bat) is executed once to setup your development environment:
 
 <pre style="font-size:80%;">
-<b>&gt; setenv</b>
+<b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v12.18.0, npm 6.14.4
+   node v12.18.1, npm 6.14.5
    git 2.27.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; where npm</b>
-C:\opt\node-v12.18.0-win-x64\npm
-C:\opt\node-v12.18.0-win-x64\npm.cmd
+C:\opt\node-v12.18.1-win-x64\npm
+C:\opt\node-v12.18.1-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
-<b>&gt; setenv.bat -verbose</b>
+<b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Your environment has been set up for using Node.js 12.17.0 (x64) and npm.
 Tool versions:
-   node v12.18.0, npm 6.14.4
+   node v12.18.1, npm 6.14.5
    git 2.27.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v12.18.0-win-x64\node.exe
-   C:\opt\node-v12.18.0-win-x64\npm.cmd
+   C:\opt\node-v12.18.1-win-x64\node.exe
+   C:\opt\node-v12.18.1-win-x64\npm.cmd
    C:\opt\Git-2.27.0\bin\git.exe
    C:\opt\Git-2.27.0\usr\bin\diff.exe
 </pre>
@@ -152,7 +152,7 @@ Tool paths:
 Command [**`bin\check-outdated`**](bin/check-outdated.bat) visits all project directories and prints out outdated package dependencies. For instance package we see in the following output that package **`eslint-plugin-node`** is outdated in several projects:
 
 <pre style="font-size:80%;">
-<b>&gt; bin\check-outdated</b>
+<b>&gt; <a href="bin/check-outdated.bat">bin\check-outdated</a></b>
 directory samples\auth-passport\
 directory samples\locales-1\
 directory samples\locales-2\
@@ -180,11 +180,11 @@ Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project direc
 N:\samples
 <b>&gt; setenv -verbose</b>
 Tool versions:
-   node v12.18.0, npm 6.14.4
+   node v12.18.1, npm 6.14.5
    git 2.27.0.windows.1, diff 3.7, mongod v3.6.18
 Tool paths:
-   C:\opt\node-v12.18.0-win-x64\node.exe
-   C:\opt\node-v12.18.0-win-x64\npm.cmd
+   C:\opt\node-v12.18.1-win-x64\node.exe
+   C:\opt\node-v12.18.1-win-x64\npm.cmd
    C:\opt\Git-2.27.0\bin\git.exe
    C:\opt\Git-2.27.0\mingw64\bin\git.exe
    C:\opt\Git-2.27.0\usr\bin\diff.exe
@@ -252,7 +252,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.18.zip</a>  <i>(317 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.18.0-win-x64.zip</a>                     <i>( 17 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.18.1-win-x64.zip</a>                     <i>( 17 MB)</i>
 <a href="https://nodejs.org/dist/v14.3.0/">node-v14.4.0-win-x64.zip </a>                     <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.27.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>

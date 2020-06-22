@@ -1,7 +1,7 @@
 {
   "name": "express-LevelDB-app",
   "version": "0.0.1",
-  "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.60",
+  "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.60",
   "main": "app/app.js",
   "maintainers": [
     {
@@ -26,7 +26,7 @@
   "devDependencies": {
     "acorn": "^7.3.0",
     "errorhandler": "^1.5.1",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",

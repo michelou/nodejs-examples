@@ -17,11 +17,11 @@
     "lint": "eslint app"
   },
   "dependencies": {
-    "moment": "^2.26.0",
-    "mongoose": "^5.9.18"
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.19"
   },
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",
