@@ -4,7 +4,9 @@
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.38",
   "main": "app/app.js",
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
     "lint": "eslint app && eslint --env mocha test",
+    "reinstall": "npm run clean && npm install -audit",
     "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "node node_modules/mocha/bin/mocha"
   },
@@ -13,7 +15,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "moment": "^2.26.0",
+    "moment": "^2.27.0",
     "pug": "^3.0.0",
     "serve-favicon": "^2.5.0"
   },

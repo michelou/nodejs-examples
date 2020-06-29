@@ -5,8 +5,10 @@
   "main": "app/cluster-main.js",
   "private": true,
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
     "client": "node ./npm_scripts/start_client.js",
     "lint": "eslint app",
+    "reinstall": "npm run clean && npm install -audit",
     "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "mocha test"
   },
@@ -15,7 +17,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",

@@ -5,7 +5,9 @@
   "main": "app/calculator.js",
   "private": true,
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
     "lint": "eslint app test",
+    "reinstall": "npm run clean && npm install -audit",
     "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "./node_modules/.bin/mocha test"
   },
@@ -17,7 +19,7 @@
   "devDependencies": {
     "acorn": "^7.2.1",
     "chai": "^4.2.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",

@@ -4,10 +4,12 @@
   "description": "https://github.com/mashpie/i18n-node",
   "main": "app/app.js",
   "scripts": {
-    "start": "node ./npm_scripts/start_browser.js && node .",
+    "clean": "node ./npm_scripts/clean.js",
     "client": "node ./npm_scripts/start_client.js",
-    "test": "mocha --recursive",
-    "lint": "eslint app"
+    "lint": "eslint app",
+    "reinstall": "npm run clean && npm install -audit",
+    "start": "node ./npm_scripts/start_browser.js && node .",
+    "test": "mocha --recursive"
   },
   "maintainers": [
     {

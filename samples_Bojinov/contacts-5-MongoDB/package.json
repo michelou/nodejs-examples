@@ -1,7 +1,7 @@
 {
   "name": "express-LevelDB-app",
   "version": "0.0.1",
-  "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.60",
+  "description": "RESTful Web API Design with Node.js, Packt 2015, p.60",
   "main": "app/app.js",
   "maintainers": [
     {
@@ -11,6 +11,8 @@
   ],
   "private": true,
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
+    "reinstall": "npm run clean && npm install -audit",
     "start": "node ./npm_scripts/start_browser.js && node .",
     "lint": "eslint app"
   },

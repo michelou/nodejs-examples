@@ -3,10 +3,10 @@
 var BodyParser = require('body-parser')
 var Express = require('express')
 var Passport = require('passport')
-var LocalStrategy = require('passport-local').Strategy
 
-var JSONWebToken = require('jsonwebtoken')
 var Crypto = require('crypto')
+var JSONWebToken = require('jsonwebtoken')
+var LocalStrategy = require('passport-local').Strategy
 
 var users = {
   foo: {

@@ -1,7 +1,7 @@
 {
   "name": "hello-2",
   "version": "0.0.1",
-  "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.21",
+  "description": "RESTful Web API Design with Node.js, Packt 2015, p.21",
   "main": "app/app.js",
   "maintainers": [
     {
@@ -11,8 +11,10 @@
   ],
   "private": true,
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
     "client": "node .npm_scrips/start_client.js",
     "lint": "eslint app && eslint --env mocha test",
+    "reinstall": "npm run clean && npm install -audit",
     "start": "node ./npm_scripts/start_browser.js && node .",
     "test": "mocha test"
   },
