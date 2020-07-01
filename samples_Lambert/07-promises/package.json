@@ -6,9 +6,13 @@
   "author": "Olivier Lambert",
   "private": true,
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
     "creation": "node src/creation.js",
     "dl-two-files": "node src/dl-two-files.js",
-    "generator": "babel src -d app & babel-node app/generator.js"
+    "generator": "babel src -d app & babel-node app/generator.js",
+    "lint": "eslint app",
+    "reinstall": "npm run clean && npm install -audit",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
@@ -22,7 +26,7 @@
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-node5": "^1.2.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.1",
     "got": "^11.3.0",
     "webpack": "^4.43.0"
   },

@@ -21,6 +21,12 @@ if "%_ROOT_DIR:~-2%"==":\" set "_ROOT_DIR=%_ROOT_DIR:~0,-1%"
 set _ASYNC_VERSION_OLD="async": "^(.+^)3.1.0"
 set _ASYNC_VERSION_NEW="async": "${1}3.2.0"
 
+set _ESLINT_VERSION_OLD="eslint": "^(.+^)7.3.0"
+set _ESLINT_VERSION_NEW="eslint": "^7.3.1"
+
+set _ESLINT_PLUGIN_IMPORT_OLD="eslint-plugin-import": "^(.+^)2.21.2"
+set _ESLINT_PLUGIN_IMPORT_NEW="eslint-plugin-import": "2.22.0"
+
 set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.17.0"
 set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.17.1"
 
@@ -45,8 +51,8 @@ set _MOMENT_VERSION_OLD="moment": "^(.+^)2.25.3"
 set _MOMENT_VERSION_NEW="moment": "${1}2.26.0"
 
 @rem https://www.npmjs.com/package/mongoose
-set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.9.18"
-set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.9.19"
+set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.9.19"
+set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.9.20"
 
 @rem https://www.npmjs.com/package/morgan
 set _MORGAN_VERSION_OLD="morgan": "^(.+^)1.9.1"
@@ -69,6 +75,11 @@ if not %_EXITCODE%==0 goto end
 @rem #########################################################################
 @rem ## Main
 
+if %_HELP%==1 (
+    call :help
+    exit /b !_EXITCODE!
+)
+
 for %%i in (samples samples_Bojinov samples_Cook samples_Duuna samples_Lambert) do (
 @rem for %%i in (samples_Cook) do (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% call :update_project "%_ROOT_DIR%\%%i" 1>&2
@@ -81,6 +92,8 @@ goto end
 
 @rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
+set _BASENAME=%~n0
+
 call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
 set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
@@ -136,21 +149,19 @@ goto :eof
 rem input parameter: %*
 rem output parameters: _CLONE, _COMPILE, _DOCUMENTATION, _SBT, _TIMER, _VERBOSE
 :args
-set _HELP=
+set _HELP=0
 set _TIMER=0
 set _VERBOSE=0
 set __N=0
 :args_loop
 set "__ARG=%~1"
-if not defined __ARG (
-    if !__N!==0 set _HELP=1
-    goto args_done
-)
+if not defined __ARG goto args_done
+
 if "%__ARG:~0,1%"=="-" (
     @rem option
-    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if /i "%__ARG%"=="-timer" ( set _TIMER=1
-    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    if "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-timer" ( set _TIMER=1
+    ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
         set _EXITCODE=1
@@ -158,7 +169,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     @rem subcommand
-    if /i "%__ARG%"=="help" ( set _HELP=1
+    if "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
@@ -223,10 +234,16 @@ echo Parent directory: %__PARENT_DIR%
 for /f %%i in ('dir /ad /b "%__PARENT_DIR%" ^| findstr /v node_modules') do (
     set "__PACKAGE_JSON=%__PARENT_DIR%\%%i\package.json"
     if exist "!__PACKAGE_JSON!" (
-        if %_VERBOSE%==1 echo Process file %%i\package.json
+        if %_VERBOSE%==1 echo    Process file %%i\package.json
 
         if %_DEBUG%==1 echo %_DEBUG_LABEL% call :replace "!__PACKAGE_JSON!" "%_ASYNC_VERSION_OLD%" "%_ASYNC_VERSION_NEW%" 1>&2
         call :replace "!__PACKAGE_JSON!" "%_ASYNC_VERSION_OLD%" "%_ASYNC_VERSION_NEW%"
+
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% call :replace "!__PACKAGE_JSON!" "%_ESLINT_VERSION_OLD%" "%_ESLINT_VERSION_NEW%" 1>&2
+        call :replace "!__PACKAGE_JSON!" "%_ESLINT_VERSION_OLD%" "%_ESLINT_VERSION_NEW%"
+
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% call :replace "!__PACKAGE_JSON!" "%_ESLINT_PLUGIN_IMPORT_VERSION_OLD%" "%_ESLINT_PLUGIN_IMPORT_VERSION_NEW%" 1>&2
+        call :replace "!__PACKAGE_JSON!" "%_ESLINT_PLUGIN_IMPORT_VERSION_OLD%" "%_ESLINT_PLUGIN_IMPORT_VERSION_NEW%"
 
         if %_DEBUG%==1 echo %_DEBUG_LABEL% call :replace "!__PACKAGE_JSON!" "%_EXPRESS_SESSION_VERSION_OLD%" "%_EXPRESS_SESSION_VERSION_NEW%" 1>&2
         call :replace "!__PACKAGE_JSON!" "%_EXPRESS_SESSION_VERSION_OLD%" "%_EXPRESS_SESSION_VERSION_NEW%"

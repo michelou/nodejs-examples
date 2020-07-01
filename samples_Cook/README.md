@@ -42,5 +42,5 @@ de /
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

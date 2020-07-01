@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Pillora\</code></strong> directory contains <a href="https://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner">Pillora's book</a> "<i>Getting Started with Grunt: The JavaScript Task Runner</i>" (Packet Publishing, 2014).<br/>
+  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples_Pillora\</code></strong> directory contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples presented in <a href="https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner">Pillora's book</a> "<i>Getting Started with Grunt: The JavaScript Task Runner</i>" (Packet Publishing, 2014).<br/>
   Github: <a href="https://github.com/jpillora/gswg-examples.git">https://github.com/jpillora/gswg-examples.git</a></td>
   </tr>
 </table>
@@ -62,5 +62,5 @@ Same as `4-02-project`.
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

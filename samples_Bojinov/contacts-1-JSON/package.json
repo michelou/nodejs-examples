@@ -11,8 +11,10 @@
   ],
   "private": true,
   "scripts": {
-    "start": "node ./npm_scripts/start_browser.js && node .",
-    "lint": "eslint app"
+    "clean": "node ./npm_scripts/clean.js",
+    "lint": "eslint app",
+    "reinstall": "npm run clean && npm install -audit",
+    "start": "node ./npm_scripts/start_browser.js && node ."
   },
   "dependencies": {
     "audit": "0.0.6",
@@ -23,7 +25,7 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "eslint": "^7.3.0",
+    "eslint": "7.3.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",

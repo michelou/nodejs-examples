@@ -11,17 +11,19 @@
   ],
   "private": true,
   "scripts": {
-    "start": "node app/app.js",
+    "clean": "node ./npm_scripts/clean.js",
+    "lint": "eslint app",
     "mongo": "node start_mongo.js",
     "mongod": "node start_mongod.js",
-    "lint": "eslint app"
+    "reinstall": "npm run clean && npm install -audit",
+    "start": "node app/app.js"
   },
   "dependencies": {
     "moment": "^2.27.0",
-    "mongoose": "^5.9.19"
+    "mongoose": "^5.9.20"
   },
   "devDependencies": {
-    "eslint": "^7.3.0",
+    "eslint": "7.3.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",

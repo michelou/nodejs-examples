@@ -6,13 +6,15 @@
   "author": "Olivier Lambert",
   "private": true,
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
     "lint": "eslint app",
+    "reinstall": "npm run clean && npm install -audit",
     "start": "node app/add.js",
     "test": "mocha app/*.spec.js"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-node": "^11.1.0",

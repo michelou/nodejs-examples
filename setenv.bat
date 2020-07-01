@@ -231,7 +231,7 @@ if %ERRORLEVEL%==0 (
 )
 where /q npm.cmd
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% npm.cmd
 )
 where /q git.exe
