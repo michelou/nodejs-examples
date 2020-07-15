@@ -1,7 +1,7 @@
 {
   "name": "databases",
-  "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
   "version": "0.0.1",
+  "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
   "private": true,
@@ -13,12 +13,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mongoose": "^5.9.20"
+    "mongoose": "^5.9.24"
   },
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^7.4.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.21.1",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"

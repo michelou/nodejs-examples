@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "description": "Authenticating Node.js Applications with Passport",
   "main": "app.js",
+  "maintainers": [
+    {
+      "name": "Stéphane Micheloud",
+      "web": "http://lampwww.epfl.ch/~michelou/"
+    }
+  ],
   "private": true,
   "scripts": {
     "clean": "node ./npm_scripts/clean.js",
@@ -22,17 +28,16 @@
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "mongoose": "^5.9.20",
+    "mongoose": "^5.9.24",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pug": "^3.0.0",
     "start": "^5.1.0"
   },
   "devDependencies": {
-    "acorn": "7.3.1",
-    "eslint": "7.3.1",
+    "eslint": "7.4.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"

@@ -1,0 +1,34 @@
+{
+  "name": "logging_morgan",
+  "version": "1.0.0",
+  "description": "Node.js Essentials, Packt 2015, p.83",
+  "main": "app/app.js",
+  "private": true,
+  "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
+    "client": "node npm_scripts/start_client.js",
+    "lint": "eslint app",
+    "reinstall": "npm run clean && npm install -audit",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabian Cook",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.27.0",
+    "morgan": "^1.10.0",
+    "router": "^1.3.5"
+  },
+  "devDependencies": {
+    "eslint": "7.4.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=12.14.0",
+    "npm": ">=6.13.0"
+  }
+}

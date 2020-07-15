@@ -7,18 +7,19 @@
   </tr>
 </table>
 
+> **:mag_right:** The numbering used below &ndash; eg. `03` in example `03_basic_auth` &ndash; refers to the chapter where the example belongs to.
 
-## `basic-auth`
+## <span id="03_basic_auth">`03_basic_auth`</span>
 
-Command **`npm start`** starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./basic-auth/config.json)):
+Command **`npm start`** starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_basic_auth/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
 <b>&gt; cd</b>
-N:\samples_Cook\basic_auth
+N:\samples_Cook\03_basic_auth
 &nbsp;
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "basic_auth" npm start</b>
 
-> basic_auth@1.0.0 start N:\samples_Cook\basic_auth
+> basic_auth@1.0.0 start N:\samples_Cook\03_basic_auth
 > node app/app.js
 
 [2018-05-10 19:43:17 INFO] (app.js) Listening on port 8180
@@ -30,15 +31,52 @@ N:\samples_Cook\basic_auth
 Command **`npm run client`** sends several requests to the server: 
 
 <pre style="font-size:80%;">
-<b>&gt; npm run client</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/npm">npm</a> run client</b>
 
-> basic_auth@1.0.0 client N:\samples_Cook\basic_auth
+> basic_auth@1.0.0 client N:\samples_Cook\03_basic_auth
 > node npm_scripts/start_client.js
 
 en /
 fr /
 de /
 </pre>
+
+## <span id="03_bear_token">`03_bear_token`</span>
+
+Command **`npm start`** starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token/config_TEMPLATE.json)):
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token" npm start</b>
+
+> bearer_token@1.0.0 start N:\samples_Cook\03_bearer_token
+> node .
+
+[2020-07-14 19:06:21 INFO] (app.js) Listening on port 8180
+</pre>
+
+Command **`npm run client`** sends a `POST` request to the server (endpoint `/login`): 
+
+<pre style="font-size:80%;">
+npm run client
+
+> bearer_token@1.0.0 client N:\samples_Cook\03_bearer_token
+> node npm_scripts/start_client.js
+
+[2020-07-14 19:08:02 INFO] (start_client.js) login: username=foo
+[2020-07-14 19:08:02 INFO] (start_client.js) curl -H "User-Agent: Mozilla/5.0" -H "Content-Type: application/json" -X POST -d "{\"username\": \"foo\", \"password\":\"bar\"}" http://127.0.0.1:8180/login
+token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpYXQiOjE1OTQ3NDY0ODJ9.xCpqkBxRTZ-JfC_HpB15GKur4tjJNuHEWFqhkXkCqtM
+</pre>
+
+## <span id="03_bear_token2">`03_bear_token2`</span>
+
+<!--
+## <span id="03_oauth">`03_oauth`</span>
+
+
+## <span id="04_logging_bunyan">`04_logging_bunyan`</span>
+-->
+
+## <span id="04_logging_morgan">`04_logging_morgan`</span>
 
 ***
 

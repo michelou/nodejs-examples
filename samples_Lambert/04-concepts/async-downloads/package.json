@@ -1,22 +1,25 @@
 {
   "name": "async-downloads",
-  "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
   "version": "0.0.1",
+  "description": "NodeJS – Exploitez la puissance de JavaScript côté serveur (ENI, 2015)",
   "repository": "https://github.com/vatesfr/eni-nodejs.git",
   "author": "Olivier Lambert",
   "private": true,
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
     "lint": "eslint app",
-    "start": "node app/async-downloads.js"
+    "reinstall": "npm run clean && npm install -audit",
+    "start": "node app/async-downloads.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "async": "^3.2.0",
-    "got": "^11.3.0"
+    "got": "^11.5.0"
   },
   "devDependencies": {
-    "eslint": "^7.3.0",
+    "eslint": "^7.4.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"

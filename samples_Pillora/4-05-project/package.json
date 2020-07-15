@@ -1,15 +1,17 @@
 {
   "name": "gswg-4-05-project",
-  "description": "See https://github.com/jpillora/gswg-examples/tree/master/4/05-project",
   "version": "0.1.0",
+  "description": "See https://github.com/jpillora/gswg-examples/tree/master/4/05-project",
   "repository": "https://github.com/jpillora/gswg-examples.git",
   "author": "Jaime Pillora <gswg@jpillora.com>",
   "license": "MIT",
   "scripts": {
+    "clean": "node ./npm_scripts/clean.js",
+    "reinstall": "npm run clean && npm install -audit",
     "start": "grunt & node ./npm_scripts/start_browser.js build/app.html"
   },
   "devDependencies": {
-    "grunt": "^1.1.0",
+    "grunt": "^1.2.1",
     "grunt-contrib-coffee": "^2.1.0",
     "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-htmlmin": "^3.1.0",
