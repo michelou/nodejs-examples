@@ -106,8 +106,8 @@ if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
     @rem option
-    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    if "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
         set _EXITCODE=1
@@ -115,7 +115,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     @rem subcommand
-    if /i "%__ARG%"=="help" ( set _HELP=1
+    if "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
@@ -160,6 +160,7 @@ for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
     for %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"

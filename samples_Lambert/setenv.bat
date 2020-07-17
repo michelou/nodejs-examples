@@ -113,8 +113,8 @@ if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
     @rem option
-    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    if "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
         set _EXITCODE=1
@@ -122,7 +122,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     @rem subcommand
-    if /i "%__ARG%"=="help" ( set _HELP=1
+    if "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
@@ -166,7 +166,7 @@ set __NPM_CMD=
 for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
-    for %%f in ("!__NODE_BIN_DIR!..") do set "_NODE_HOME=%%~sf"
+    for %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
 ) else if defined NODE_HOME (
@@ -201,7 +201,7 @@ if %ERRORLEVEL%==0 goto :eof
 if not exist "%NODE_HOME%\pm2.cmd" (
     echo pm2 command not found in Node installation directory ^(%NODE_HOME%^)
     set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
-    if /i "!__PM2_ANSWER!"=="y" (
+    if "!__PM2_ANSWER!"=="y" (
         call "%NODE_HOME%\npm.cmd" -g install pm2 --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
@@ -217,7 +217,7 @@ if %ERRORLEVEL%==0 goto :eof
 if not exist "%NODE_HOME%\rimraf.cmd" (
     echo rimraf command not found in Node installation directory ^(%NODE_HOME%^)
     set /p __RIMRAF_ANSWER="Execute 'npm -g install rimraf --prefix %NODE_HOME%' (Y/N)? "
-    if /i "!__RIMRAF_ANSWER!"=="y" (
+    if "!__RIMRAF_ANSWER!"=="y" (
         %NODE_HOME%\npm.cmd -g install rimraf --prefix %NODE_HOME%
     ) else (
         set _EXITCODE=1
@@ -269,7 +269,7 @@ set __GIT_CMD=
 for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
-    rem keep _GIT_PATH undefined since executable already in path
+    @rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
     set "__GIT_HOME=%GIT_HOME%"
