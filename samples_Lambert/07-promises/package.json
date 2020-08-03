@@ -21,13 +21,13 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "@babel/core": "^7.10.2",
+    "@babel/core": "^7.11.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-node5": "^1.2.0",
-    "eslint": "^7.4.0",
-    "got": "^11.3.0",
+    "eslint": "^7.6.0",
+    "got": "^11.5.1",
     "webpack": "^4.43.0"
   },
   "engines": {

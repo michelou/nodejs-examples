@@ -26,9 +26,9 @@
     "pug": "^3.0.0"
   },
   "devDependencies": {
-    "acorn": "^7.3.0",
+    "acorn": "^7.4.0",
     "errorhandler": "^1.5.1",
-    "eslint": "7.4.0",
+    "eslint": "7.6.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
