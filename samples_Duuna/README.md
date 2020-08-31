@@ -19,7 +19,7 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-3-networkin
 First we start the server application in a new console:
 
 <pre style="font-size:80%;">
-<b>&gt; start npm start</b>
+<b>&gt; start <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
 > cluster-main@1.0.0 start N:\samples_Duuna\chp-3-networking
 > node ./npm_scripts/start_browser.js && node .
@@ -57,7 +57,7 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 - it opens the **`http:/127.0.0.1:3000`** URL in your default web browser.
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
 > calculator@0.0.1 start N:\samples_Duuna\chp-4-code-injection
 > node ./npm_scripts/start_browser.js && node .

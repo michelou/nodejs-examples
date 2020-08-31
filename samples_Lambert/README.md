@@ -13,7 +13,7 @@
 Command [**`npm start`**](./04-concepts/async-downloads/package.json) executes application [**`app\async-downloads.js`**](./04-concepts/async-downloads/app/async-downloads.js) which produces the following output:
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-commands/start.html">npm start</a></b>
 
 > async-downloads@0.0.1 start N:\samples_Lambert\04-concepts\async-downloads
 > node app/async-downloads.js
@@ -60,7 +60,7 @@ arborescence supprimée
 Command [**`npm run`**](./07_promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
 <pre style="font-size:80%;">
-<b>&gt; npm run</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a></b>
 Scripts available in promises via `npm run-script`:
   creation
     node src/creation.js

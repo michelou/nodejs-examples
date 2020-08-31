@@ -29,9 +29,9 @@ For instance our development environment looks as follows (*August 2020*) <sup i
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.28.0\                                <i>(290 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.18\  <i>(1.1 GB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.19\  <i>(1.1 GB)</i>
 C:\opt\node-v12.18.3-win-x64\                     <i>( 50 MB)</i>
-C:\opt\node-v14.7.0-win-x64\                      <i>( 75 MB)</i>
+C:\opt\node-v14.9.0-win-x64\                      <i>( 75 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -71,7 +71,7 @@ We also define a virtual drive **`N:`** in our working environment in order to r
 > **:mag_right:** We use the Windows external command [**`subst`**][windows_subst] to create virtual drives; for instance:
 >
 > <pre style="font-size:80%;">
-> <b>&gt; subst N: %USERPROFILE%\workspace\nodejs-examples</b>
+> <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst">subst</a> N: %USERPROFILE%\workspace\nodejs-examples</b>
 > </pre>
 
 In the next section we give a brief description of the batch files present in this project.
@@ -93,7 +93,7 @@ We distinguish different sets of batch commands:
       Subcommands:
         help        display this help message
     &nbsp;
-    <b>&gt; where node npm</b>
+    <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
     C:\opt\node-v12.18.3-win-x64\node.exe
     C:\opt\node-v12.18.3-win-x64\npm
     C:\opt\node-v12.18.3-win-x64\npm.cmd</pre>
@@ -117,7 +117,7 @@ We distinguish different sets of batch commands:
 
 ## <span id="usage_examples">Usage examples</span>
 
-#### `setenv.bat`
+### **`setenv.bat`**
 
 Command [**`setenv`**](setenv.bat) is executed once to setup your development environment:
 
@@ -127,7 +127,7 @@ Tool versions:
    node v12.18.3, npm 6.14.6
    git 2.28.0.windows.1, diff 3.7
 &nbsp;
-<b>&gt; where npm</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v12.18.3-win-x64\npm
 C:\opt\node-v12.18.3-win-x64\npm.cmd
 </pre>
@@ -147,7 +147,7 @@ Tool paths:
    C:\opt\Git-2.28.0\usr\bin\diff.exe
 </pre>
 
-#### `bin\check-outdated.bat`
+### **`bin\check-outdated.bat`**
 
 Command [**`bin\check-outdated`**](bin/check-outdated.bat) visits all project directories and prints out outdated package dependencies. For instance package we see in the following output that package **`eslint-plugin-node`** is outdated in several projects:
 
@@ -171,7 +171,7 @@ directory samples_Bojinov\contacts-6-Image\
 
 Command [**`bin\check-outdated -install`**](bin/check-outdated.bat) also updates the outdated package dependencies (and file **`package.json`**).
 
-#### `samples\setenv.bat`
+### **`samples\setenv.bat`**
 
 Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**][mongodb_mongod] tool to the path:
 
@@ -182,17 +182,17 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v12.18.3, npm 6.14.6
-   git 2.28.0.windows.1, diff 3.7, mongod v3.6.18
+   git 2.28.0.windows.1, diff 3.7, mongod v3.6.19
 Tool paths:
    C:\opt\node-v12.18.3-win-x64\node.exe
    C:\opt\node-v12.18.3-win-x64\npm.cmd
    C:\opt\Git-2.28.0\bin\git.exe
    C:\opt\Git-2.28.0\mingw64\bin\git.exe
    C:\opt\Git-2.28.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.18\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.19\bin\mongod.exe
 </pre>
 
-#### `npm.cmd`
+### **`npm.cmd`**
 
 Command **`npm`** works as expected inside every project directory; for instance in project [**`samples\webaudio-sample\`**](samples/webaudio-sample/).
 
@@ -200,11 +200,11 @@ Command **`npm`** works as expected inside every project directory; for instance
 <b>&gt; cd</b>
 N:\samples\webaudio-sample
 
-<b>&gt; npm install -audit</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/install.html">npm install</a> -audit</b>
 audited 406 packages in 2.527s
 found 0 vulnerabilities
 
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
 > webaudio-example@1.0.0 start N:\samples\webaudio-sample
 > node ./npm_scripts/start_browser.js && node .
@@ -217,15 +217,15 @@ Returning Paradise.m4a for request /music
 
 > **:mag_right:** From time to time we also run one of the following command to search for <a href="https://eslint.org/docs/rules/">possible syntax or logic errors</a> in our JavaScript code:
 > <pre style="margin-left:10px; font-size:80%;">
-> <b>&gt; npm run lint</b>
+> <b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a> lint</b>
 > &nbsp;
 > > async-downloads@0.0.1 lint N:\samples\webaudio-sample
 > > eslint app
 > </pre></li>
 
-## Footnotes
+## <span id="footnotes">Footnotes</span>
 
-<a name="footnote_01">[1]</a> ***Node.js LTS** (Long Term Support)* [↩](#anchor_01)
+<b name="footnote_01">[1]</b> ***Node.js LTS** (Long Term Support)* [↩](#anchor_01)
 
 <p style="margin:0 0 1em 20px;">
 We make the choice to work with the latest <a href="https://github.com/nodejs/Release">LTS version</a> of <a href="https://nodejs.org/en/">Node.js</a>. We started this project with version 8 LTS and successively upgraded it to version 10 LTS and version 12 LTS.
@@ -238,7 +238,8 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 </table>
 </p>
 
-<a name="footnote_02">[2]</a> ***Version 14 LTS*** [↩](#anchor_02)
+<b name="footnote_02">[2]</b> ***Version 14 LTS*** [↩](#anchor_02)
+
 <p style="margin:0 0 1em 20px;">
 Node.js version 14 (LTS) has been announced in April 2020.
 
@@ -246,15 +247,15 @@ Node.js version 14 (LTS) has been announced in April 2020.
 - [Medium][medium_home]: [Node.js version 14 available now][medium_nodejs_14], Node.js team, April 21, 2020. 
 </p>
 
-<a name="footnote_03">[3]</a> ***Downloads*** [↩](#anchor_03)
+<b name="footnote_03">[3]</b> ***Downloads*** [↩](#anchor_03)
 
 <p style="margin:0 0 1em 20px;">
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.18.zip</a>  <i>(317 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.19.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.18.3-win-x64.zip</a>                     <i>( 17 MB)</i>
-<a href="https://nodejs.org/dist/v14.3.0/">node-v14.7.0-win-x64.zip </a>                     <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/v14.3.0/">node-v14.9.0-win-x64.zip </a>                     <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.28.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
@@ -301,7 +302,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
 [nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.18.0
-[nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.7.0/
+[nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.9.0/
 [nodejs_downloads_14]: https://nodejs.org/dist/latest-v14.x/
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples

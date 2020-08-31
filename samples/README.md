@@ -131,7 +131,7 @@ de
 Executing command **`npm start`** in directory [**`samples\webaudio-sample\`**](./webaudio-sample/) plays the audio file [**`Paradise.m4a`**](./webaudio-sample/Paradise.m4a) in your default web browser:
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
 > music-engine@1.0.0 start N:\samples\webaudio-sample
 > node ./npm_scripts/start_browser.js && node .

@@ -79,7 +79,7 @@ if not exist "%_NODE_HOME%\npm.cmd" (
 )
 where /q rimraf.cmd
 if not %ERRORLEVEL%==0 (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% npm.cmd -g install rimraf 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_NODE_HOME%\npm.cmd" -g install rimraf 1>&2
     call "%_NODE_HOME%\npm.cmd" -g install rimraf
     if not !ERRORLEVEL!==0 (
         echo %_ERROR_LABEL% Failed to install rimraf 1>&2
