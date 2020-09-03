@@ -12,7 +12,7 @@
 Command [**`npm start`**](auth-passport/package.json) executes application [**`app\app.js`**](./auth-passport/app/app.js) which prints the following output:
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
 > auth-passport@0.0.1 start N:\samples\auth-passport
 > node app/app.js
@@ -39,7 +39,7 @@ Command [**`npm start`**](./locales-1/package.json) executes application [**`app
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
 > locales-1-app@0.0.1 start N:\samples\locales-1
 > node ./npm_scripts/start_browser.js && node .
@@ -65,7 +65,7 @@ Command [**`npm start`**](./locales-2/package.json) executes application  [**`ap
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
 > locales-2-app@0.0.1 start N:\samples\locales-2
 > node ./npm_scripts/start_browser.js && node .
@@ -144,5 +144,5 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
