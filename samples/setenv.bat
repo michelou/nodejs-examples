@@ -185,12 +185,12 @@ if defined __NPM_CMD (
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
-    echo %_ERROR_LABEL% Node installation directory not found ^(%_NODE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Node installation directory not found ^("%_NODE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 if not exist "%_NODE_HOME%\npm.cmd" (
-    echo %_ERROR_LABEL% npm not found in Node installation directory ^(%_NODE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% npm not found in Node installation directory ^("%_NODE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -203,10 +203,10 @@ where /q pm2.cmd
 if %ERRORLEVEL%==0 goto :eof
 
 if not exist "%NODE_HOME%\pm2.cmd" (
-    echo pm2 command not found in Node installation directory ^(%NODE_HOME%^)
+    echo pm2 command not found in Node installation directory ^("%NODE_HOME%"^)
     set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
     if /i "!__PM2_ANSWER!"=="y" (
-        call "%NODE_HOME%\npm.cmd" -g install pm2 --prefix %NODE_HOME%
+        call "%NODE_HOME%\npm.cmd" -g install pm2 --prefix "%NODE_HOME%"
     ) else (
         set _EXITCODE=1
         goto :eof
@@ -219,10 +219,10 @@ where /q rimraf.cmd
 if %ERRORLEVEL%==0 goto :eof
 
 if not exist "%NODE_HOME%\rimraf.cmd" (
-    echo rimraf command not found in Node installation directory ^(%NODE_HOME%^)
+    echo rimraf command not found in Node installation directory ^("%NODE_HOME%"^)
     set /p __RIMRAF_ANSWER="Execute 'npm -g install rimraf --prefix %NODE_HOME%' (Y/N)? "
     if /i "!__RIMRAF_ANSWER!"=="y" (
-        %NODE_HOME%\npm.cmd -g install rimraf --prefix %NODE_HOME%
+        %NODE_HOME%\npm.cmd -g install rimraf --prefix "%NODE_HOME%"
     ) else (
         set _EXITCODE=1
         goto :eof
@@ -257,7 +257,7 @@ if defined __MONGOD_CMD (
     )
 )
 if not exist "%__MONGO_HOME%\bin\mongod.exe" (
-    echo Error: MongoDB executable not found ^(%__MONGO_HOME%^) 1>&2
+    echo Error: MongoDB executable not found ^("%__MONGO_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
