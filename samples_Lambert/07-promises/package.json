@@ -26,9 +26,9 @@
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-node5": "^1.2.0",
-    "eslint": "^7.9.0",
-    "got": "^11.6.2",
-    "webpack": "^4.44.1"
+    "eslint": "^7.10.0",
+    "got": "^11.7.0",
+    "webpack": "^4.44.2"
   },
   "engines": {
     "node": ">=12.14.0",
