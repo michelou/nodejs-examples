@@ -23,7 +23,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "nodeunit": "^0.11.3",
-    "sinon": "^9.0.3"
+    "sinon": "^9.1.0"
   },
   "engines": {
     "node": ">=12.14.0",
