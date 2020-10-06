@@ -47,12 +47,12 @@ set _LEVELUP_VERSION_OLD="levelup": "^(.+^)4.3.2"
 set _LEVELUP_VERSION_NEW="levelup": "${1}4.4.0"
 
 @rem https://www.npmjs.com/package/moment
-set _MOMENT_VERSION_OLD="moment": "^(.+^)2.25.3"
-set _MOMENT_VERSION_NEW="moment": "${1}2.26.0"
+set _MOMENT_VERSION_OLD="moment": "^(.+^)2.26.0"
+set _MOMENT_VERSION_NEW="moment": "${1}2.29.1"
 
 @rem https://www.npmjs.com/package/mongoose
-set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.9.19"
-set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.9.20"
+set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.9.20"
+set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.10.8"
 
 @rem https://www.npmjs.com/package/morgan
 set _MORGAN_VERSION_OLD="morgan": "^(.+^)1.9.1"

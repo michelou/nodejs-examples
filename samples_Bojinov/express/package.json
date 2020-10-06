@@ -21,12 +21,15 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "moment": "^2.29.0",
+    "moment": "^2.29.1",
     "pug": "^3.0.0",
     "serve-favicon": "^2.5.0"
   },
+  "_devDependencies": {
+    "acorn": "explicit dependency on package 'acorn' to force latest version"
+  },
   "devDependencies": {
-    "acorn": "^8.0.1",
+    "acorn": "^6.4.2",
     "chai": "^4.2.0",
     "eslint": "7.10.0",
     "eslint-config-standard": "^14.1.1",

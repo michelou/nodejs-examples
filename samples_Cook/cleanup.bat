@@ -75,16 +75,16 @@ if defined NODE_HOME (
 if not exist "%_NODE_HOME%\npm.cmd" (
     echo %_ERROR_LABEL% npm command not found ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
-    goto end
+    goto :eof
 )
 where /q rimraf.cmd
 if not %ERRORLEVEL%==0 (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% npm.cmd -g install rimraf 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_NODE_HOME%\npm.cmd" -g install rimraf 1>&2
     call "%_NODE_HOME%\npm.cmd" -g install rimraf
     if not !ERRORLEVEL!==0 (
         echo %_ERROR_LABEL% Failed to install rimraf 1>&2
         set _EXITCODE=1
-        goto end
+        goto :eof
     )
 )
 set _RIMRAF_CMD=rimraf.cmd
