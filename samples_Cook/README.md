@@ -14,7 +14,7 @@
 Command **`npm start`** starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_basic_auth/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
-<b>&gt; cd</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cd">cd</a></b>
 N:\samples_Cook\03_basic_auth
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "basic_auth" npm start</b>
@@ -57,7 +57,7 @@ Command **`npm start`** starts the server application which listen to our reques
 Command **`npm run client`** sends a `POST` request to the server (endpoint `/login`): 
 
 <pre style="font-size:80%;">
-npm run client
+<b>&gt; <a href="https://docs.npmjs.com/cli/npm">npm</a> run client</b>
 
 > bearer_token@1.0.0 client N:\samples_Cook\03_bearer_token
 > node npm_scripts/start_client.js
@@ -80,5 +80,5 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

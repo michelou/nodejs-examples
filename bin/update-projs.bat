@@ -21,22 +21,25 @@ if "%_ROOT_DIR:~-2%"==":\" set "_ROOT_DIR=%_ROOT_DIR:~0,-1%"
 set _ASYNC_VERSION_OLD="async": "^(.+^)3.1.0"
 set _ASYNC_VERSION_NEW="async": "${1}3.2.0"
 
-set _ESLINT_VERSION_OLD="eslint": "^(.+^)7.3.0"
-set _ESLINT_VERSION_NEW="eslint": "^7.3.1"
+@rem https://www.npmjs.com/package/eslint
+set _ESLINT_VERSION_OLD="eslint": "^(.+^)7.3.1"
+set _ESLINT_VERSION_NEW="eslint": "^7.11.0"
 
-set _ESLINT_PLUGIN_IMPORT_OLD="eslint-plugin-import": "^(.+^)2.21.2"
-set _ESLINT_PLUGIN_IMPORT_NEW="eslint-plugin-import": "2.22.0"
+@rem https://www.npmjs.com/package/eslint-plugin-import
+set _ESLINT_PLUGIN_IMPORT_OLD="eslint-plugin-import": "^(.+^)2.22.0"
+set _ESLINT_PLUGIN_IMPORT_NEW="eslint-plugin-import": "2.22.1"
 
+@rem https://www.npmjs.com/package/express-session
 set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.17.0"
 set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.17.1"
 
 @rem https://www.npmjs.com/package/got
-set _GOT_VERSION_OLD="got": "^(.+^)11.1.1"
-set _GOT_VERSION_NEW="got": "${1}11.3.0"
+set _GOT_VERSION_OLD="got": "^(.+^)11.3.0"
+set _GOT_VERSION_NEW="got": "${1}11.7.0"
 
 @rem https://www.npmjs.com/package/i18n
-set _I18N_VERSION_OLD="i18n": "^(.+^)0.9.1"
-set _I18N_VERSION_NEW="i18n": "${1}0.10.0"
+set _I18N_VERSION_OLD="i18n": "^(.+^)0.10.0"
+set _I18N_VERSION_NEW="i18n": "${1}0.13.2"
 
 @rem https://www.npmjs.com/package/leveldown
 set _LEVELDOWN_VERSION_OLD="leveldown": "^(.+^)5.5.1"
@@ -51,8 +54,8 @@ set _MOMENT_VERSION_OLD="moment": "^(.+^)2.26.0"
 set _MOMENT_VERSION_NEW="moment": "${1}2.29.1"
 
 @rem https://www.npmjs.com/package/mongoose
-set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.9.20"
-set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.10.8"
+set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.10.8"
+set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.10.9"
 
 @rem https://www.npmjs.com/package/morgan
 set _MORGAN_VERSION_OLD="morgan": "^(.+^)1.9.1"
@@ -63,8 +66,8 @@ set _REQUEST_VERSION_OLD="request": "^(.+^)2.88.0"
 set _REQUEST_VERSION_NEW="request": "${1}2.88.2"
 
 @rem https://www.npmjs.com/package/webpack
-set _WEBPACK_VERSION_OLD="webpack": "^(.+^)4.41.6"
-set _WEBPACK_VERSION_NEW="wekpack": "${1}4.43.0"
+set _WEBPACK_VERSION_OLD="webpack": "^(.+^)4.43.0"
+set _WEBPACK_VERSION_NEW="wekpack": "${1}4.44.2"
 
 call :env
 if not %_EXITCODE%==0 goto end
