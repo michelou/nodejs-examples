@@ -26,8 +26,11 @@ if %_HELP%==1 (
 set _PYTHON_PATH=
 set _GIT_PATH=
 
-call :npm
+call :node 12
 if not %_EXITCODE%==0 goto end
+
+call :node 14
+@rem if not %_EXITCODE%==0 goto end
 
 call :git
 if not %_EXITCODE%==0 goto end
@@ -151,26 +154,38 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        display this help message
 goto :eof
 
-@rem postcondition: NODE_HOME is defined and valid
-:npm
-set _NODE_HOME=
+@rem input parameter: %1=major version
+@rem output parameter: NODE12_HOME (resp. NODE14_HOME)
+:node
+set __NODE_MAJOR=%~1
+set "_NODE!__NODE_MAJOR!_HOME="
 
-set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
-if defined __NPM_CMD (
-    for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
-    for %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
+set __NODE_CMD=
+for /f %%f in ('where node.exe 2^>NUL') do set "__NODE_CMD=%%f"
+if defined __NODE_CMD (
+    for /f "delims=. tokens=1,*" %%i in ('"%__NODE_CMD%" --version') do (
+        if not "%%i"=="v%__NODE_MAJOR%" set __NODE_CMD=
+    )
+)
+set "__NODE_HOME=%NODE_HOME%"
+if defined __NODE_HOME (
+    for /f "delims=. tokens=1,*" %%i in ('"%__NODE_HOME%\node.exe" --version') do (
+        if not "%%i"=="v%__NODE_MAJOR%" set __NODE_HOME=
+    )
+)
+if defined __NODE_CMD (
+    for /f "delims=" %%i in ("%__NODE_CMD%") do set "_NODE!__NODE_MAJOR!_HOME=%%~dpi"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
-) else if defined NODE_HOME (
-    set "_NODE_HOME=%NODE_HOME%"
+) else if defined __NODE_HOME (
+    set "_NODE_HOME=%__NODE_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f %%f in ('dir /ad /b "!__PATH!\node-v%__NODE_MAJOR%*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+        for /f %%f in ('dir /ad /b "!__PATH!\node-v%__NODE_MAJOR%*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -178,16 +193,16 @@ if not exist "%_NODE_HOME%\nodevars.bat" (
     set _EXITCODE=1
     goto :eof
 )
-if not exist "%_NODE_HOME%\npm.cmd" (
-    echo %_ERROR_LABEL% npm not found in Node installation directory ^(%_NODE_HOME%^) 1>&2
+if not exist "%_NODE_HOME%\node.exe" (
+    echo %_ERROR_LABEL% Node executable not found ^(%_NODE_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "NODE_HOME=%_NODE_HOME%"
-call "%NODE_HOME%\nodevars.bat"
+set "_NODE!__NODE_MAJOR!_HOME=%_NODE_HOME%"
+@rem call "%NODE_HOME%\nodevars.bat"
 goto :eof
 
-@rem output parameter(s): _GIT_PATH
+@rem output parameter: _GIT_PATH
 :git
 set _GIT_PATH=
 
@@ -225,15 +240,25 @@ set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
 set "__VERSIONS_LINE2=  "
 set __WHERE_ARGS=
-where /q node.exe
+where /q "%NODE12_HOME%:node.exe"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('node.exe --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% node.exe
+    for /f %%i in ('"%NODE12_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE12_HOME%:node.exe"
 )
-where /q npm.cmd
+where /q "%NODE12_HOME%:npm.cmd"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% npm.cmd
+    for /f %%i in ('"%NODE12_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE12_HOME%:npm.cmd"
+)
+where /q "%NODE14_HOME%:node.exe"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE14_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE14_HOME%:node.exe"
+)
+where /q "%NODE14_HOME%:npm.cmd"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE14_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE14_HOME%:npm.cmd"
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (
@@ -251,6 +276,10 @@ echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
+    echo Environment variables: 1>&2
+    if defined NODE_HOME echo    NODE_HOME=%NODE_HOME% 1>&2
+    if defined NODE12_HOME echo    NODE12_HOME=%NODE12_HOME% 1>&2
+    if defined NODE14_HOME echo    NODE14_HOME=%NODE14_HOME% 1>&2
 )
 goto :eof
 
@@ -260,8 +289,10 @@ goto :eof
 :end
 endlocal & (
     if %_EXITCODE%==0 (
-        if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
-        set "PATH=%PATH%%_GIT_PATH%!_MODULES_BIN_PATH!;%~dp0bin"
+        if not defined NODE_HOME set "NODE_HOME=%_NODE12_HOME%"
+        if not defined NODE12_HOME set "NODE12_HOME=%_NODE12_HOME%"
+        if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
+        set "PATH=%PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2

@@ -28,19 +28,19 @@
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "mongoose": "^5.10.9",
+    "mongoose": "^5.10.10",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pug": "^3.0.0",
     "start": "^5.1.0"
   },
   "devDependencies": {
-    "eslint": "7.11.0",
-    "eslint-config-standard": "^14.1.1",
+    "eslint": "7.12.0",
+    "eslint-config-standard": "^15.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.2"
   },
   "engines": {
     "node": ">=12.14.0",

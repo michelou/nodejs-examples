@@ -20,7 +20,7 @@ This project depends on two external software for the **Microsoft Windows** plaf
 
 Optionally one may also install the following software:
 
-- [Git 2.28][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.29][git_downloads] ([*release notes*][git_relnotes])
 - [Node.js 14.x LTS][nodejs_downloads_14] <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup> ([*release notes*][nodejs_relnotes_14])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -28,10 +28,10 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*October 2020*) <sup id="anchor_03"><a href="#footnote_03">[3]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.28.0\                                <i>(290.0 MB)</i>
+C:\opt\Git-2.29.0\                                <i>(290.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.20\  <i>(  1.1 GB)</i>
 C:\opt\node-v12.19.0-win-x64\                     <i>( 50.4 MB)</i>
-C:\opt\node-v14.13.1-win-x64\                     <i>( 75 MB)</i>
+C:\opt\node-v14.14.0-win-x64\                     <i>( 75 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -125,7 +125,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v12.19.0, npm 6.14.8
-   git 2.28.0.windows.1, diff 3.7
+   git 2.29.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v12.19.0-win-x64\npm
@@ -139,12 +139,12 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 Your environment has been set up for using Node.js 12.17.0 (x64) and npm.
 Tool versions:
    node v12.19.0, npm 6.14.8
-   git 2.28.0.windows.1, diff 3.7
+   git 2.29.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v12.19.0-win-x64\node.exe
    C:\opt\node-v12.19.0-win-x64\npm.cmd
-   C:\opt\Git-2.28.0\bin\git.exe
-   C:\opt\Git-2.28.0\usr\bin\diff.exe
+   C:\opt\Git-2.29.0\bin\git.exe
+   C:\opt\Git-2.29.0\usr\bin\diff.exe
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -182,13 +182,13 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v12.19.0, npm 6.14.8
-   git 2.28.0.windows.1, diff 3.7, mongod v3.6.20
+   git 2.29.0.windows.1, diff 3.7, mongod v3.6.20
 Tool paths:
    C:\opt\node-v12.19.0-win-x64\node.exe
    C:\opt\node-v12.19.0-win-x64\npm.cmd
-   C:\opt\Git-2.28.0\bin\git.exe
-   C:\opt\Git-2.28.0\mingw64\bin\git.exe
-   C:\opt\Git-2.28.0\usr\bin\diff.exe
+   C:\opt\Git-2.29.0\bin\git.exe
+   C:\opt\Git-2.29.0\mingw64\bin\git.exe
+   C:\opt\Git-2.29.0\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.20\bin\mongod.exe
 </pre>
 
@@ -255,8 +255,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.20.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.19.0-win-x64.zip</a>                     <i>( 17 MB)</i>
-<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.13.1-win-x64.zip </a>                    <i>( 27 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.28.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
+<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.14.0-win-x64.zip </a>                    <i>( 27 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.29.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
@@ -274,7 +274,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [dotty_examples]: https://github.com/michelou/dotty-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.28.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.29.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [haskell_examples]: https://github.com/michelou/haskell-examples
@@ -298,11 +298,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [mongodb_mongod]: https://docs.mongodb.com/manual/reference/program/mongod/
 [mongodb_relnotes]: https://docs.mongodb.com/manual/release-notes/3.6/
 [nodejs]: https://nodejs.org/
-[nodejs_downloads]: https://nodejs.org/en/download/
+[nodejs_downloads]: https://nodejs.org/dist/latest-v12.x/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
 [nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.19.0
-[nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.13.1/
+[nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.14.0/
 [nodejs_downloads_14]: https://nodejs.org/dist/latest-v14.x/
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples

@@ -36,7 +36,7 @@ goto end
 set _BASENAME=%~n0
 for %%f in ("%~dp0\.") do set "_ROOT_DIR=%%~dpf"
 @rem remove trailing backslash for virtual drives
-if "%_ROOT_DIR:~-2%"==":\" set "_ROOT_DIR=%_ROOT_DIR:~0,-1%"
+if "%_ROOT_DIR:~-1%"=="\" set "_ROOT_DIR=%_ROOT_DIR:~0,-1%"
 
 call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
@@ -134,7 +134,10 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto :args_loop
 :args_done
-if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _INSTALL=%_INSTALL% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
+if %_DEBUG%==1 (
+    echo %_DEBUG_LABEL% Options    : _INSTALL=%_INSTALL% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
+)
 if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof
 
@@ -178,7 +181,7 @@ pushd "%__PROJ_DIR%"
 @rem echo Current directory: !__PROJ_DIR:%_ROOT_DIR%=!
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_NPM_CMD%" outdated ^| findstr /v Wanted 1>&2
-) else if %_VERBOSE%==1 ( echo Search for outdated packages in directory !__PROJ_DIR:%_ROOT_DIR%=! 1>&2
+) else if %_VERBOSE%==1 ( echo Search for outdated packages in directory "!__PROJ_DIR:%_ROOT_DIR%=!" 1>&2
 )
 for /f "tokens=1,2,3,4,*" %%i in ('"%_NPM_CMD%" outdated ^| findstr /v Wanted') do (
     set __PKG_NAME=%%i
