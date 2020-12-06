@@ -2,15 +2,15 @@
 
 // Bluebird est une bibliothèque de promesses très performante
 // proposant des fonctionnalités haut niveau.
-var Bluebird = require('bluebird');
+const Bluebird = require('bluebird');
 
 // Les deux fonctions suivantes `got()` et `writeFile()` sont
 // promessifiées afin de renvoyer des promesses au lieu de prendre une
 // callback en dernier paramètre.
-var got = Bluebird.promisify(require('got'));
-var writeFile = Bluebird.promisify(require('fs').writeFile);
+const got = Bluebird.promisify(require('got'));
+const writeFile = Bluebird.promisify(require('fs').writeFile);
 
-var files = [
+const files = [
   {
     name: 'example-net.html',
     url: 'http://example.net/',

@@ -15,9 +15,9 @@ const leche = require('leche')
 
 describe('add()', function () {
   leche.withData({
-    'naturals': [42, 1024, 1066],
-    'integers': [-69, -2, -71],
-    'floats': [6.28, 2.72, 9]
+    naturals: [42, 1024, 1066],
+    integers: [-69, -2, -71],
+    floats: [6.28, 2.72, 9]
   }, function (a, b, sum) {
     it('computes the sum', function () {
       expect(add(a, b)).to.equal(sum)

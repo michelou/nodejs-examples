@@ -323,7 +323,7 @@ endlocal & (
         if not defined NODE_HOME set "NODE_HOME=%_NODE14_HOME%"
         if not defined NODE12_HOME set "NODE12_HOME=%_NODE12_HOME%"
         if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
-        set "PATH=%PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%PATH%;%_NODE14_HOME%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%:" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME%: 1>&2

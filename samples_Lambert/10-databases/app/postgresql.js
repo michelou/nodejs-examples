@@ -1,10 +1,10 @@
 'use strict'
 
-var pg = require('pg')
+const pg = require('pg')
 
-var conString = 'postgres://myuser:mypassword@myhost/mydatabase'
+const conString = 'postgres://myuser:mypassword@myhost/mydatabase'
 
-var client = new pg.Client(conString)
+const client = new pg.Client(conString)
 client.connect(function (err) {
   if (err) {
     return console.error('impossible de se connecter à PostgreSQL', err)

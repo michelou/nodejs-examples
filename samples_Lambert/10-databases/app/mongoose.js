@@ -1,6 +1,6 @@
 'use strict'
 
-var mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost/test', {
   useNewUrlParser: true,
@@ -9,9 +9,9 @@ mongoose.connect('mongodb://localhost/test', {
   console.error('Connection failed', err)
 })
 
-var Cat = mongoose.model('Cat', { name: String })
+const Cat = mongoose.model('Cat', { name: String })
 
-var kitty = new Cat({ name: 'Zildjian' })
+const kitty = new Cat({ name: 'Zildjian' })
 kitty.save(function (err) {
   if (err) {
     // ...

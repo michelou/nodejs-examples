@@ -21,9 +21,9 @@ Command [**`npm start`**](./04-concepts/async-downloads/package.json) executes a
 Tout s'est bien passé
 </pre>
 
-## `06_files`
+## `06-files`
 
-Command [**`npm run`**](./06_files/package.json) displays the available [**`npm`** scripts][npm_scripts].
+Command [**`npm run`**](./06-files/package.json) displays the available [**`npm`** scripts][npm_scripts].
 
 <pre style="font-size:80%;">
 <b>&gt; npm run</b>
@@ -40,7 +40,7 @@ Scripts available in files via `npm run-script`:
     node app/watch.js
 </pre>
 
-Command [**`npm run dirs`**](./06_files/package.json) executes application [**`app/directories.js`**](./06_files/app/directories.js):
+Command [**`npm run dirs`**](./06-files/package.json) executes application [**`app/directories.js`**](./06-files/app/directories.js):
 
 <pre style="font-size:80%;">
 <b>&gt; npm run dirs</b>
@@ -55,9 +55,9 @@ arborescence créée
 arborescence supprimée
 </pre>
 
-## `07_promises`
+## `07-promises`
 
-Command [**`npm run`**](./07_promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
+Command [**`npm run`**](./07-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a></b>
@@ -70,7 +70,30 @@ Scripts available in promises via `npm run-script`:
     babel src -d app & babel-node app/generator.js
 </pre>
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2020* [**&#9650;**](#top)
+## `10-databases`
+
+Command [**`npm run`**](./10-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a></b>
+Lifecycle scripts included in databases:
+  start
+    node app/mongoose.js
+  test
+    echo "Error: no test specified" && exit 1
+
+available via `npm run-script`:
+  clean
+    node ./npm_scripts/clean.js
+  lint
+    eslint app
+  reinstall
+    npm run clean && npm install -audit
+</pre>
+
+***
+
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

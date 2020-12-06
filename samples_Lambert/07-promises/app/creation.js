@@ -1,7 +1,7 @@
 'use strict';
 
-var Bluebird = require('bluebird');
-var readFile = require('fs').readFile;
+const Bluebird = require('bluebird');
+const readFile = require('fs').readFile;
 
 //====================================================================
 
@@ -12,7 +12,7 @@ var readFile = require('fs').readFile;
 // Le constructeur prend comme seul argument une fonction qui reçoit
 // `resolve()` et `reject()` qui peuvent servir respectivement à
 // résoudre la promesse avec succès ou avec erreur.
-var promise = new Bluebird(function (resolve, reject) {
+const promise = new Bluebird(function (resolve, reject) {
   readFile(__filename, function (error, content) {
     if (error) {
       // Si `readFile()` a échoué, il suffit d'appeler `reject()` en

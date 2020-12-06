@@ -1,8 +1,8 @@
 'use strict'
 
-var pathLib = require('path')
+const pathLib = require('path')
 
-var path = '/usr/local/include/node/node.h'
+const path = '/usr/local/include/node/node.h'
 
 //      Dossier (dir)     Extension (ext)
 // ┌──────────┴──────────┐     ┌┴┐
@@ -27,7 +27,7 @@ console.log(pathLib.extname(path))
 // > .h
 
 // Vérifier si un chemin est absolu.
-var isAbsolute = require('absolute-path')
+const isAbsolute = require('absolute-path')
 console.log(isAbsolute(path))
 // > true
 

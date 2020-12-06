@@ -1,9 +1,9 @@
 'use strict'
 
-var sinon = require('sinon')
+const sinon = require('sinon')
 
 // Création du bouchon.
-var stub = sinon.stub()
+const stub = sinon.stub()
 
 // Configuration pour qu'il lève une exception.
 stub.throws()

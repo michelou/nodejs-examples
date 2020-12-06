@@ -1,21 +1,20 @@
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
+const fs = require('fs')
+const path = require('path')
 
-// Ce programme créé pour certains exemples des fichiers temporaires
+// Ce programme crée pour certains exemples des fichiers temporaires
 // qui n'ont pas vocation à rester une fois l'exécution terminée.
 //
 // La fonction `cleanOnExit()` permet justement d'enregistrer ces
 // fichiers afin de les supprimer automatiquement à la fin de
 // l'exécution.
-var cleanOnExit = (function () {
-  var rimraf = require('rimraf').sync
-  var entries = {}
+const cleanOnExit = (function () {
+  const rimraf = require('rimraf').sync
+  const entries = {}
 
   process.on('exit', function () {
-    var entry
-    for (entry in entries) {
+    for (const entry in entries) {
       try {
         rimraf(entry)
       }
@@ -32,9 +31,9 @@ var cleanOnExit = (function () {
 
 // Cette fonction retourne un chemin temporaire unique et l'enregistre
 // pour nettoyage avec la fonction `cleanOnExit()`.
-var i = 0
+let i = 0
 function getTmpPath() {
-  var tmpPath = path.join(__dirname, '.tmp-' + (i++))
+  const tmpPath = path.join(__dirname, '.tmp-' + (i++))
 
   cleanOnExit(tmpPath)
 
@@ -50,8 +49,10 @@ fs.stat(__filename, function (error, stats) {
     return
   }
 
-  var type = stats.isFile() ? 'fichier'
-    : stats.isDirectory() ? 'dossier'
+  const type = stats.isFile()
+    ? 'fichier'
+    : stats.isDirectory()
+      ? 'dossier'
       : 'inconnu'
 
   console.log('stat: Ce fichier est de type %s.', type)
@@ -85,8 +86,8 @@ fs.chmod(__filename, '644', function (error) {
 // ===================================================================
 // Changement des dates d'accès et de modification.
 
-var atime = new Date('2012-09-17')
-var mtime = new Date('2012-07-04')
+const atime = new Date('2012-09-17')
+const mtime = new Date('2012-07-04')
 
 fs.utimes(__filename, atime, mtime, function (error) {
   if (error) {

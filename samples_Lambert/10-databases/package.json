@@ -7,21 +7,25 @@
   "private": true,
   "scripts": {
     "clean": "node ./npm_scripts/clean.js",
+    "leveldb": "node app/leveldb.js",
     "lint": "eslint app",
     "reinstall": "npm run clean && npm install -audit",
     "start": "node app/mongoose.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mongoose": "^5.10.10"
+    "mongoose": "^5.11.3",
+    "leveldown": "^5.6.0",
+    "levelup": "^4.4.0"
   },
   "devDependencies": {
-    "eslint": "^7.12.0",
-    "eslint-config-standard": "^15.0.0",
+    "eslint": "^7.14.0",
+    "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.2"
+    "level-party": "^4.0.0",
+    "level-sublevel": "^6.6.5"
   },
   "engines": {
     "node": ">=12.14.0",

@@ -1,7 +1,7 @@
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
+const fs = require('fs')
+const path = require('path')
 
 // ===================================================================
 // Lecture d'un répertoire.
@@ -18,7 +18,7 @@ fs.readdir(__dirname, function (error, files) {
 // ===================================================================
 // Création et suppression d'un répertoire vide.
 
-var tmpDir = path.join(__dirname, 'tmp-dir')
+const tmpDir = path.join(__dirname, 'tmp-dir')
 fs.mkdir(tmpDir, function (error) {
   if (error) {
     console.error('échec de la création du répertoire', error)
@@ -42,14 +42,14 @@ fs.mkdir(tmpDir, function (error) {
 // Crée un dossier et tous ses parents.
 //
 // Le nom vient de la commande Unix `mkdir -p`.
-var mkdirp = require('mkdirp')
+const mkdirp = require('mkdirp')
 
 // Supprime un dossier et tous ses enfants.
 //
 // Le nom vient de la commande Unix `rm -rf`.
-var rimraf = require('rimraf')
+const rimraf = require('rimraf')
 
-var tmpTree = path.join(__dirname, 'tmp-tree')
+const tmpTree = path.join(__dirname, 'tmp-tree')
 mkdirp(tmpTree + '/foo/bar/baz', function (error) {
   if (error) {
     console.error('échec de la création de l\'arborescence', error)

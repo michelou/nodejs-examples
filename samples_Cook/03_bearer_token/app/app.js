@@ -1,14 +1,14 @@
 'use strict'
 
-var BodyParser = require('body-parser')
-var Express = require('express')
-var Passport = require('passport')
+const BodyParser = require('body-parser')
+const Express = require('express')
+const Passport = require('passport')
 
-var Crypto = require('crypto')
-var JSONWebToken = require('jsonwebtoken')
-var LocalStrategy = require('passport-local').Strategy
+const Crypto = require('crypto')
+const JSONWebToken = require('jsonwebtoken')
+const LocalStrategy = require('passport-local').Strategy
 
-var users = {
+const users = {
   foo: {
     username: 'foo',
     password: 'bar',
@@ -21,12 +21,12 @@ var users = {
   }
 }
 
-var localStrategy = new LocalStrategy({
+const localStrategy = new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password'
 },
 function (username, password, done) {
-  var user = users[username]
+  const user = users[username]
   if (user == null) {
     return done(null, false, { message: 'Invalid user' })
   }
@@ -38,21 +38,21 @@ function (username, password, done) {
 
 Passport.use('local', localStrategy)
 
-var generateToken = function (user) {
+const generateToken = function (user) {
   // The payload just contains the id of the user
   // and their username, we can verify whether the
   // claim is correct using JSONWebToken.verify
-  var payload = {
+  const payload = {
     id: user.id,
     username: user.username
   }
   // Generate a random string
   // Usually this would be an app wide constant
   // But can be done both ways
-  var secret = Crypto.randomBytes(128).toString('base64')
+  const secret = Crypto.randomBytes(128).toString('base64')
 
   // Create the token with a payload and secret
-  var token = JSONWebToken.sign(payload, secret)
+  const token = JSONWebToken.sign(payload, secret)
   // The user is still referencing the same object
   // in users, so no need to set it again
   // If we were using a database, we would save
@@ -61,15 +61,15 @@ var generateToken = function (user) {
   return token
 }
 
-var generateTokenHandler = function (request, response) {
-  var user = request.user
+const generateTokenHandler = function (request, response) {
+  const user = request.user
   // Generate our token
-  var token = generateToken(user)
+  const token = generateToken(user)
   // Return the user a token to use
   response.send(token)
 }
 
-var app = Express()
+const app = Express()
 app.use(BodyParser.urlencoded({ extended: false }))
 app.use(BodyParser.json())
 app.use(Passport.initialize())
@@ -80,7 +80,7 @@ app.post(
   generateTokenHandler
 )
 
-var port = require('../config.json').port
+const port = require('../config.json').port
 
 app.listen(port, function () {
   logInfo('Listening on port ' + port)
@@ -91,7 +91,7 @@ app.listen(port, function () {
 
 const basename = require('path').basename(__filename)
 
-var logInfo = function (msg) {
-  var timestamp = require('moment')().format('YYYY-MM-DD HH:mm:ss')
+const logInfo = function (msg) {
+  const timestamp = require('moment')().format('YYYY-MM-DD HH:mm:ss')
   console.log('[' + timestamp + ' INFO] (' + basename + ') ' + msg)
 }

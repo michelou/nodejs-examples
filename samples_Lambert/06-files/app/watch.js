@@ -13,10 +13,10 @@
 
 'use strict'
 
-var chokidar = require('chokidar')
+const chokidar = require('chokidar')
 
 // Création d'un surveillant (watcher).
-var watcher = chokidar.watch(__dirname)
+const watcher = chokidar.watch(__dirname)
 
 watcher.once('ready', function () {
   console.log('[WATCH] début de la surveillance')

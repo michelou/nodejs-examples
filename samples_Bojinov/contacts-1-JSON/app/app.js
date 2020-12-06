@@ -1,17 +1,17 @@
 'use strict'
 
-var express = require('express')
-var bodyParser = require('body-parser')
-var http = require('http')
-var methodOverride = require('method-override')
-var path = require('path')
-var url = require('url')
+const express = require('express')
+const bodyParser = require('body-parser')
+const http = require('http')
+const methodOverride = require('method-override')
+const path = require('path')
+const url = require('url')
 
 // project modules
-var contacts = require('./modules/contacts')
+const contacts = require('./modules/contacts')
 
-var app = express()
-var port = process.env.PORT || 8180
+const app = express()
+const port = process.env.PORT || 8180
 
 // all environments
 app.set('port', port)
@@ -43,7 +43,7 @@ app.get('/contacts', function (request, response) {
 
 // eg. http://127.0.0.1:8180/contacts/+359777123456
 app.get('/contacts/:number', function (request, response) {
-  var number = request.params.number
+  const number = request.params.number
   console.log('GET /contacts/' + number)
   response.setHeader('content-type', 'application/json')
   response.end(JSON.stringify(contacts.query(number)))
@@ -73,7 +73,7 @@ app.get('/groups1', function (request, response) {
 
 // eg. http://127.0.0.1:8180/groups/Family
 app.get('/groups/:name', function (request, response) {
-  var name = request.params.name
+  const name = request.params.name
   console.log('GET /groups/' + name)
   response.setHeader('content-type', 'application/json')
   response.end(JSON.stringify(contacts.get_members(name)))

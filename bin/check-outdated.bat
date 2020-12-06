@@ -43,13 +43,12 @@ set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
 set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 
-where /q npm.cmd
-if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Executable npm.cmd not found 1>&2
+if not exist "%NODE_HOME%\npm.cmd" (
+    echo %_ERROR_LABEL% Node installation not found 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set _NPM_CMD=npm.cmd
+set "_NPM_CMD=%NODE_HOME%\npm.cmd"
 set _NPM_OPTS=
 goto :eof
 
@@ -112,10 +111,10 @@ if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
     @rem option
-    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if /i "%__ARG%"=="-install" ( set _INSTALL=1
-    ) else if /i "%__ARG%"=="-timer" ( set _TIMER=1
-    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    if "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-install" ( set _INSTALL=1
+    ) else if "%__ARG%"=="-timer" ( set _TIMER=1
+    ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
         set _EXITCODE=1
@@ -123,7 +122,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     @rem subcommand
-    if /i "%__ARG%"=="help" ( set _HELP=1
+    if "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
@@ -137,6 +136,7 @@ goto :args_loop
 if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options    : _INSTALL=%_INSTALL% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
+    echo %_DEBUG_LABEL% Variables  : NODE_HOME="%NODE_HOME%" 1>&2
 )
 if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof

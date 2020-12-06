@@ -16,17 +16,17 @@
 This project depends on two external software for the **Microsoft Windows** plaform:
 
 - [Git 2.29][git_downloads] ([*release notes*][git_relnotes])
-- [Node.js 14.x LTS][nodejs_downloads_14] <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup> ([*release notes*][nodejs_relnotes_14])
+- [Node.js 14.x LTS][nodejs_downloads] <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup> ([*release notes*][nodejs_relnotes])
 - [MongoDB 3.6][mongodb_downloads] ([*release notes*][mongodb_relnotes])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*November 2020*) <sup id="anchor_03"><a href="#footnote_03">[3]</a></sup>:
+For instance our development environment looks as follows (*December 2020*) <sup id="anchor_03"><a href="#footnote_03">[3]</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.29.2\                                <i>(290.0 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.20\  <i>(  1.1 GB)</i>
-C:\opt\node-v14.15.0-win-x64\                     <i>( 81.7 MB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.21\  <i>(  1.1 GB)</i>
+C:\opt\node-v14.15.1-win-x64\                     <i>( 81.7 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -89,9 +89,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
-    C:\opt\node-v14.15.0-win-x64\node.exe
-    C:\opt\node-v14.15.0-win-x64\npm
-    C:\opt\node-v14.15.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v14.15.1-win-x64\node.exe
+    C:\opt\node-v14.15.1-win-x64\npm
+    C:\opt\node-v14.15.1-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -119,12 +119,12 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.15.0, npm 6.14.8
+   node v14.15.1, npm 6.14.8
    git 2.29.2.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
-C:\opt\node-v14.15.0-win-x64\npm
-C:\opt\node-v14.15.0-win-x64\npm.cmd
+C:\opt\node-v14.15.1-win-x64\npm
+C:\opt\node-v14.15.1-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -133,18 +133,18 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Your environment has been set up for using Node.js 12.17.0 (x64) and npm.
 Tool versions:
-   node v14.15.0, npm 6.14.8
+   node v14.15.1, npm 6.14.8
    git 2.29.2.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v14.15.0-win-x64\node.exe
-   C:\opt\node-v14.15.0-win-x64\npm.cmd
+   C:\opt\node-v14.15.1-win-x64\node.exe
+   C:\opt\node-v14.15.1-win-x64\npm.cmd
    C:\opt\Git-2.29.2\bin\git.exe
    C:\opt\Git-2.29.2\usr\bin\diff.exe
 </pre>
 
 ### **`bin\check-outdated.bat`**
 
-Command [**`bin\check-outdated`**](bin/check-outdated.bat) visits all project directories and prints out outdated package dependencies. For instance package we see in the following output that package **`eslint-plugin-node`** is outdated in several projects:
+Command [**`bin\check-outdated`**](bin/check-outdated.bat) visits all project directories and prints out outdated package dependencies. For instance we see in the following output that package **`eslint-plugin-node`** is outdated in several projects:
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="bin/check-outdated.bat">bin\check-outdated</a></b>
@@ -171,20 +171,20 @@ Command [**`bin\check-outdated -install`**](bin/check-outdated.bat) also updates
 Command [**`samples\setenv -verbose`**](samples/setenv.bat) inside project directory [**`samples\`**](samples/) also adds the [**`mongod`**][mongodb_mongod] tool to the path:
 
 <pre style="font-size:80%;">
-<b>&gt; cd</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cd">cd</a></b>
 N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.15.0, npm 6.14.8
-   git 2.29.2.windows.1, diff 3.7, mongod v3.6.20
+   node v14.15.1, npm 6.14.8
+   git 2.29.2.windows.1, diff 3.7, mongod v3.6.21
 Tool paths:
-   C:\opt\node-v14.15.0-win-x64\node.exe
-   C:\opt\node-v14.15.0-win-x64\npm.cmd
+   C:\opt\node-v14.15.1-win-x64\node.exe
+   C:\opt\node-v14.15.1-win-x64\npm.cmd
    C:\opt\Git-2.29.2\bin\git.exe
    C:\opt\Git-2.29.2\mingw64\bin\git.exe
    C:\opt\Git-2.29.2\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.20\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.21\bin\mongod.exe
 </pre>
 
 ### **`npm.cmd`**
@@ -248,14 +248,14 @@ Node.js version 14 (LTS) has been announced in April 2020.
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.20.zip</a>  <i>(317 MB)</i>
-<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.15.0-win-x64.zip </a>                    <i>( 27 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.21.zip</a>  <i>(317 MB)</i>
+<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.15.1-win-x64.zip </a>                    <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.29.2-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2020* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -292,12 +292,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [mongodb_mongod]: https://docs.mongodb.com/manual/reference/program/mongod/
 [mongodb_relnotes]: https://docs.mongodb.com/manual/release-notes/3.6/
 [nodejs]: https://nodejs.org/
-[nodejs_downloads]: https://nodejs.org/dist/latest-v12.x/
+[nodejs_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.19.0
-[nodejs_relnotes_14]: https://nodejs.org/en/blog/release/v14.14.0/
-[nodejs_downloads_14]: https://nodejs.org/dist/latest-v14.x/
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.15.1
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
