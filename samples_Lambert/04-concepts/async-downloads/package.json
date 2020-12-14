@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "async": "^3.2.0",
-    "got": "^11.8.0"
+    "got": "^11.8.1"
   },
   "devDependencies": {
     "eslint": "^7.15.0",
