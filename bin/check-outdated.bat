@@ -112,6 +112,7 @@ if not defined __ARG goto args_done
 if "%__ARG:~0,1%"=="-" (
     @rem option
     if "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-help" ( set _HELP=1
     ) else if "%__ARG%"=="-install" ( set _INSTALL=1
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1

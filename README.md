@@ -26,7 +26,7 @@ For instance our development environment looks as follows (*January 2021*) <sup 
 <pre style="font-size:80%;">
 C:\opt\Git-2.30.0\                                <i>(276.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.21\  <i>(  1.1 GB)</i>
-C:\opt\node-v14.15.3-win-x64\                     <i>( 81.7 MB)</i>
+C:\opt\node-v14.15.4-win-x64\                     <i>( 81.7 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -89,9 +89,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
-    C:\opt\node-v14.15.3-win-x64\node.exe
-    C:\opt\node-v14.15.3-win-x64\npm
-    C:\opt\node-v14.15.3-win-x64\npm.cmd</pre>
+    C:\opt\node-v14.15.4-win-x64\node.exe
+    C:\opt\node-v14.15.4-win-x64\npm
+    C:\opt\node-v14.15.4-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -119,12 +119,12 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.15.3, npm 6.14.8
+   node v14.15.4, npm 6.14.8
    git 2.30.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
-C:\opt\node-v14.15.3-win-x64\npm
-C:\opt\node-v14.15.3-win-x64\npm.cmd
+C:\opt\node-v14.15.4-win-x64\npm
+C:\opt\node-v14.15.4-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -133,11 +133,11 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Your environment has been set up for using Node.js 12.17.0 (x64) and npm.
 Tool versions:
-   node v14.15.3, npm 6.14.8
+   node v14.15.4, npm 6.14.8
    git 2.30.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v14.15.3-win-x64\node.exe
-   C:\opt\node-v14.15.3-win-x64\npm.cmd
+   C:\opt\node-v14.15.4-win-x64\node.exe
+   C:\opt\node-v14.15.4-win-x64\npm.cmd
    C:\opt\Git-2.30.0\bin\git.exe
    C:\opt\Git-2.30.0\usr\bin\diff.exe
 </pre>
@@ -176,11 +176,11 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.15.3, npm 6.14.8
+   node v14.15.4, npm 6.14.8
    git 2.30.0.windows.1, diff 3.7, mongod v3.6.21
 Tool paths:
-   C:\opt\node-v14.15.3-win-x64\node.exe
-   C:\opt\node-v14.15.3-win-x64\npm.cmd
+   C:\opt\node-v14.15.4-win-x64\node.exe
+   C:\opt\node-v14.15.4-win-x64\npm.cmd
    C:\opt\Git-2.30.0\bin\git.exe
    C:\opt\Git-2.30.0\mingw64\bin\git.exe
    C:\opt\Git-2.30.0\usr\bin\diff.exe
@@ -249,7 +249,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.21.zip</a>  <i>(317 MB)</i>
-<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.15.3-win-x64.zip </a>                    <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.15.4-win-x64.zip </a>                    <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.30.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
@@ -295,7 +295,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.15.3
+[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.15.4
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
