@@ -31,7 +31,7 @@ N:\samples_Cook\03_basic_auth
 Command **`npm run client`** sends several requests to the server: 
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli/npm">npm</a> run client</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-run-script">npm run</a> client</b>
 
 > basic_auth@1.0.0 client N:\samples_Cook\03_basic_auth
 > node npm_scripts/start_client.js
@@ -57,7 +57,7 @@ Command **`npm start`** starts the server application which listen to our reques
 Command **`npm run client`** sends a `POST` request to the server (endpoint `/login`): 
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli/npm">npm</a> run client</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-run-script">npm run</a> client</b>
 
 > bearer_token@1.0.0 client N:\samples_Cook\03_bearer_token
 > node npm_scripts/start_client.js
@@ -80,5 +80,5 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

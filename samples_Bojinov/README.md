@@ -16,10 +16,10 @@ Command [**`npm start`**](./express/package.json) executes application [**`app\a
 - it opens URL **`http:/127.0.0.1:8180`** in our default web browser.
 
 <pre style="font-size:80%;">
-<b>&gt; cd</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cd">cd</a></b>
 N:\samples_Bojinov\express
 &nbsp;
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 > express-app@0.0.1 start N:\samples_Bojinov\express
 > node ./npm_scripts/start_browser.js && node .
@@ -44,12 +44,12 @@ Command [**`npm start`**](./hello-1/package.json) executes application [**`app\a
 - it opens URL **`http:/127.0.0.1:8180`** in our default web browser.
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 &gt; hello1-app@0.0.1 start N:\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
-Node runtime: 14.15.1 (x64)
+Node runtime: 14.15.4 (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
@@ -61,7 +61,7 @@ requested (GET)
 Command **`npm run test`** executes all test functions contained in directory [**`math\test`**](math/test/):
 
 <pre style="font-size:80%;">
-<b>&gt; npm run test</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-run-script">npm run</a> test</b>
 
 &gt; math@0.0.1 test N:\samples_Bojinov\math
 &gt; nodeunit test
@@ -79,7 +79,7 @@ OK: 2 assertions (16ms)
 Command **`npm run test`** executes all test functions contained in directory [**`mock\test`**](mock/test/), in this case [**`test-http-module.js`**](mock/test/test-http-module.js):
 
 <pre style="font-size:80%;">
-<b>&gt; npm run test</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-run-script">npm run</a> test</b>
 
 > mock-example@0.0.1 test N:\samples_Bojinov\mock
 > nodeunit test
@@ -100,18 +100,18 @@ Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./r
 - it opens URL **`http:/127.0.0.1:8180/salut?name=tom`** in our default web browser.
 
 <pre style="font-size:80%;">
-<b>&gt; npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 &gt; routes-app@0.0.1 start N:\samples_Bojinov\routes
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: 14.15.1 (x64)
+Node runtime: 14.15.4 (x64)
 Module search path: N:\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

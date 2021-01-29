@@ -17,7 +17,7 @@ Command **`npm start`** performs two tasks when started in directory [**`samples
 - it opens the **`build/app.html`** Web page in your default web browser.
 
 <pre style="font-size:80%;">
-<b>&gt; npm i & npm start</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-install">npm i</a> & npm start</b>
 up to date in 0.748s
 
 > gswg-4-02-project@0.1.0 start C:\nodejs-examples\samples_Pillora\4-02-project
@@ -62,5 +62,5 @@ Same as `4-02-project`.
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
