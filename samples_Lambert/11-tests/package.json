@@ -13,8 +13,8 @@
     "test": "mocha app/*.spec.js"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.18.0",
+    "chai": "^4.3.0",
+    "eslint": "^7.19.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",

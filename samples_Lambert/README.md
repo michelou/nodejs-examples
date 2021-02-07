@@ -26,7 +26,7 @@ Tout s'est bien passé
 Command [**`npm run`**](./06-files/package.json) displays the available [**`npm`** scripts][npm_scripts].
 
 <pre style="font-size:80%;">
-<b>&gt; npm run</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a></b>
 Scripts available in files via `npm run-script`:
   dirs
     node app/directories.js
@@ -43,7 +43,7 @@ Scripts available in files via `npm run-script`:
 Command [**`npm run dirs`**](./06-files/package.json) executes application [**`app/directories.js`**](./06-files/app/directories.js):
 
 <pre style="font-size:80%;">
-<b>&gt; npm run dirs</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a> dirs</b>
 
 > files@0.0.1 dirs N:\samples_Lambert\06-files
 > node app/directories.js
@@ -93,7 +93,7 @@ available via `npm run-script`:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2020* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

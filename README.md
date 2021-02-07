@@ -21,11 +21,11 @@ This project depends on two external software for the **Microsoft Windows** plaf
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*January 2021*) <sup id="anchor_03"><a href="#footnote_03">[3]</a></sup>:
+For instance our development environment looks as follows (*February 2021*) <sup id="anchor_03"><a href="#footnote_03">[3]</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.30.0\                                <i>(276.0 MB)</i>
-C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.21\  <i>(  1.1 GB)</i>
+C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.22\  <i>(  1.1 GB)</i>
 C:\opt\node-v14.15.4-win-x64\                     <i>( 81.7 MB)</i>
 </pre>
 
@@ -177,14 +177,14 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.15.4, npm 6.14.8
-   git 2.30.0.windows.1, diff 3.7, mongod v3.6.21
+   git 2.30.0.windows.1, diff 3.7, mongod v3.6.22
 Tool paths:
    C:\opt\node-v14.15.4-win-x64\node.exe
    C:\opt\node-v14.15.4-win-x64\npm.cmd
    C:\opt\Git-2.30.0\bin\git.exe
    C:\opt\Git-2.30.0\mingw64\bin\git.exe
    C:\opt\Git-2.30.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.21\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.22\bin\mongod.exe
 </pre>
 
 ### **`npm.cmd`**
@@ -248,14 +248,14 @@ Node.js version 14 (LTS) has been announced in April 2020.
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.21.zip</a>  <i>(317 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.22.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.15.4-win-x64.zip </a>                    <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.30.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
