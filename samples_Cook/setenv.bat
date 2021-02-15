@@ -109,8 +109,9 @@ if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
     @rem option
-    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    if "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-help" ( set _HELP=1
+    ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
         set _EXITCODE=1
@@ -118,7 +119,7 @@ if "%__ARG:~0,1%"=="-" (
     )
 ) else (
     @rem subcommand
-    if /i "%__ARG%"=="help" ( set _HELP=1
+    if "%__ARG%"=="help" ( set _HELP=1
     ) else (
         echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
         set _EXITCODE=1
@@ -170,7 +171,7 @@ if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
+    if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
     ) else (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         if not defined __GIT_HOME (
@@ -194,8 +195,8 @@ set _NODE_HOME=
 set __NPM_CMD=
 for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
-    for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
-    for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
+    for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
+    for %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
@@ -249,13 +250,13 @@ if defined CURL_HOME (
 ) else (
     where /q curl.exe
     if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f curl.exe') do set _CURL_HOME=%%~dpsi
+        for /f %%i in ('where /f curl.exe') do set "_CURL_HOME=%%~dpi"
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of cURL executable found in PATH 1>&2
     ) else (
         set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set _CURL_HOME=!__PATH!\%%f
+        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
         if defined _CURL_HOME (
-            if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default cURL installation directory !_CURL_HOME! 1>&2
+            if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default cURL installation directory "!_CURL_HOME!" 1>&2
         )
     )
 )
