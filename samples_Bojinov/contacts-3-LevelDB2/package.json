@@ -23,10 +23,10 @@
     "levelup": "^4.4.0",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
-    "pug": "^3.0.0"
+    "pug": "^3.0.2"
   },
   "devDependencies": {
-    "eslint": "7.20.0",
+    "eslint": "7.21.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
