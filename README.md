@@ -16,7 +16,7 @@ exit
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
-- [Git 2.30][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.31][git_downloads] ([*release notes*][git_relnotes])
 - [Node.js 14.x LTS][nodejs_downloads] <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*release notes*][nodejs_relnotes])
 - [MongoDB 3.6][mongodb_downloads] ([*release notes*][mongodb_relnotes])
 
@@ -25,7 +25,7 @@ This project depends on two external software for the **Microsoft Windows** plaf
 For instance our development environment looks as follows (*March 2021*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.30.1\                                <i>(276.0 MB)</i>
+C:\opt\Git-2.31.0\                                <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.22\  <i>(  1.1 GB)</i>
 C:\opt\node-v14.16.0-win-x64\                     <i>( 81.7 MB)</i>
 </pre>
@@ -121,7 +121,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v14.16.0, npm 6.14.11
-   git 2.30.1.windows.1, diff 3.7
+   git 2.31.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v14.16.0-win-x64\npm
@@ -135,12 +135,12 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 Your environment has been set up for using Node.js 12.17.0 (x64) and npm.
 Tool versions:
    node v14.16.0, npm 6.14.11
-   git 2.30.1.windows.1, diff 3.7
+   git 2.31.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.16.0-win-x64\node.exe
    C:\opt\node-v14.16.0-win-x64\npm.cmd
-   C:\opt\Git-2.30.1\bin\git.exe
-   C:\opt\Git-2.30.1\usr\bin\diff.exe
+   C:\opt\Git-2.31.0\bin\git.exe
+   C:\opt\Git-2.31.0\usr\bin\diff.exe
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -178,13 +178,13 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.16.0, npm 6.14.11
-   git 2.30.1.windows.1, diff 3.7, mongod v3.6.22
+   git 2.31.0.windows.1, diff 3.7, mongod v3.6.22
 Tool paths:
    C:\opt\node-v14.16.0-win-x64\node.exe
    C:\opt\node-v14.16.0-win-x64\npm.cmd
-   C:\opt\Git-2.30.1\bin\git.exe
-   C:\opt\Git-2.30.1\mingw64\bin\git.exe
-   C:\opt\Git-2.30.1\usr\bin\diff.exe
+   C:\opt\Git-2.31.0\bin\git.exe
+   C:\opt\Git-2.31.0\mingw64\bin\git.exe
+   C:\opt\Git-2.31.0\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.22\bin\mongod.exe
 </pre>
 
@@ -231,6 +231,7 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v14.x/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
+<tr><td><a href="https://github.com/nodejs/Release">16.x</a></td><td>April 2021</td><td>October 2022</td></tr>
 </table>
 </p>
 <p style="margin:0 0 1em 20px;">
@@ -248,7 +249,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.22.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.16.0-win-x64.zip </a>                    <i>( 27 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.30.1-64-bit.7z.exe</a>              <i>( 42 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.31.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
@@ -266,7 +267,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [dotty_examples]: https://github.com/michelou/dotty-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.30.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.31.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [haskell_examples]: https://github.com/michelou/haskell-examples
