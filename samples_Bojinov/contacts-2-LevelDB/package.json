@@ -27,7 +27,8 @@
     "websocket-extensions": "^0.1.4"
   },
   "devDependencies": {
-    "eslint": "^7.22.0",
+    "errorhandler": "^1.5.1",
+    "eslint": "^7.23.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",

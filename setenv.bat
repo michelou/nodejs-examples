@@ -23,8 +23,10 @@ if %_HELP%==1 (
     exit /b !_EXITCODE!
 )
 
-set _PYTHON_PATH=
 set _GIT_PATH=
+
+call :mongo
+if not %_EXITCODE%==0 goto end
 
 call :node 14
 if not %_EXITCODE%==0 goto end
@@ -195,6 +197,36 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        display this help message
 goto :eof
 
+@rem output parameter: _MONGO_HOME
+:mongo
+set _MONGO_HOME=
+
+set __MONGO_CMD=
+for /f %%f in ('where mongo.exe 2^>NUL') do set "__MONGO_CMD=%%f"
+if defined __MONGO_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
+    goto :eof
+) else if defined MONGO_HOME (
+    set "_MONGO_HOME=%MONGO_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGO_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\mongodb\" ( set "_MONGO_HOME=!__PATH!\Git"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32*-3.6*" 2^>NUL') do set "_MONGO_HOME=!__PATH!\%%f"
+        if not defined _MONGO_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32*-3.6*" 2^>NUL') do set "_MONGO_HOME=!__PATH!\%%f"
+        )
+    )
+)
+if not exist "%_MONGO_HOME%\bin\mongo.exe" (
+    echo %_ERROR_LABEL% Mongo executable not found ^(%_MONGO_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+goto :eof
+
 @rem input parameter: %1=major version
 @rem output parameter: NODE12_HOME (resp. NODE14_HOME)
 :node
@@ -243,11 +275,11 @@ set "_NODE!__NODE_MAJOR!_HOME=%_NODE_HOME%"
 @rem call "%NODE_HOME%\nodevars.bat"
 goto :eof
 
-@rem output parameter: _GIT_PATH
+@rem output parameter: _GIT_HOME, _GIT_PATH
 :git
+set _GIT_HOME=
 set _GIT_PATH=
 
-set __GIT_HOME=
 set __GIT_CMD=
 for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
@@ -255,25 +287,25 @@ if defined __GIT_CMD (
     @rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
-    set "__GIT_HOME=%GIT_HOME%"
+    set "_GIT_HOME=%GIT_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
+    if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
-        if not defined __GIT_HOME (
+        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         )
     )
 )
-if not exist "%__GIT_HOME%\bin\git.exe" (
-    echo %_ERROR_LABEL% Git executable not found ^(%__GIT_HOME%^) 1>&2
+if not exist "%_GIT_HOME%\bin\git.exe" (
+    echo %_ERROR_LABEL% Git executable not found ^(%_GIT_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
+set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
 goto :eof
 
 :print_env
@@ -290,6 +322,11 @@ where /q "%NODE14_HOME%:npm.cmd"
 if %ERRORLEVEL%==0 (
     for /f %%i in ('"%NODE14_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%NODE14_HOME%:npm.cmd"
+)
+where /q "%MONGO_HOME%\bin:mongo.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,3,*" %%i in ('"%MONGO_HOME%\bin\mongo.exe" --version ^| findstr /b MongoDB') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongo %%l,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%MONGO_HOME%\bin:mongo.exe"
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (
@@ -308,9 +345,11 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
     echo Environment variables: 1>&2
-    if defined NODE_HOME echo    NODE_HOME=%NODE_HOME% 1>&2
-    if defined NODE12_HOME echo    NODE12_HOME=%NODE12_HOME% 1>&2
-    if defined NODE14_HOME echo    NODE14_HOME=%NODE14_HOME% 1>&2
+    if defined GIT_HOME echo    GIT_HOME="%GIT_HOME%" 1>&2
+    if defined MONGO_HOME echo    MONGO_HOME="%MONGO_HOME%" 1>&2
+    if defined NODE_HOME echo    NODE_HOME="%NODE_HOME%" 1>&2
+    if defined NODE12_HOME echo    NODE12_HOME="%NODE12_HOME%" 1>&2
+    if defined NODE14_HOME echo    NODE14_HOME="%NODE14_HOME%" 1>&2
 )
 goto :eof
 
@@ -320,6 +359,7 @@ goto :eof
 :end
 endlocal & (
     if %_EXITCODE%==0 (
+        if not defined MONGO_HOME set "MONGO_HOME=%_MONGO_HOME%"
         if not defined NODE_HOME set "NODE_HOME=%_NODE14_HOME%"
         if not defined NODE12_HOME set "NODE12_HOME=%_NODE12_HOME%"
         if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
