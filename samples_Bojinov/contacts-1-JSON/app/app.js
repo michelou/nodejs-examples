@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const http = require('http')
 const methodOverride = require('method-override')
 const path = require('path')
+const querystring = require('querystring')
 const url = require('url')
 
 // project modules
@@ -16,7 +17,7 @@ const port = process.env.PORT || 8180
 // all environments
 app.set('port', port)
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'jade')
+app.set('view engine', 'pug')
 
 // app.use(express.favicon())
 // app.use(express.logger('dev'))
@@ -27,16 +28,16 @@ app.use(methodOverride())
 // eg. http://127.0.0.1:8180/contacts?firstname=Joe
 app.get('/contacts', function (request, response) {
   console.log('GET ' + request.url)
-  // OLD: var get_params = url.parse(request.url, true).query
-  const get_params = new url.URLSearchParams(request.url.search).values().next()
+  var get_params = request.query
   if (Object.keys(get_params).length === 0) {
     response.setHeader('content-type', 'application/json')
     response.end(JSON.stringify(contacts.list()))
   }
   else {
+    var arg = Object.keys(get_params)[0]
     response.setHeader('content-type', 'application/json')
     response.end(JSON.stringify(
-      contacts.query_by_arg(get_params.arg, get_params.value)
+      contacts.query_by_arg(arg, get_params[arg])
     ))
   }
 })
@@ -60,9 +61,11 @@ app.get('/groups1', function (request, response) {
   console.log('GET /groups1')
   response.format({
     'text/xml': function () {
+      response.setHeader('content-type', 'text/xml')
       response.end(contacts.list_groups_from_xml(true))
     },
     'application/json': function () {
+      response.setHeader('content-type', 'application/json')
       response.end(JSON.stringify(contacts.list_groups_from_xml(false)))
     },
     default: function () {
