@@ -20,7 +20,8 @@ var port = +process.env.PORT || 8180
 // all environments
 app.set('port', port)
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'jade')
+// see https://expressjs.com/en/resources/template-engines.html
+app.set('view engine', 'pug')
 app.use(methodOverride())
 app.use(bodyParser.json())
 
@@ -32,7 +33,7 @@ if (app.get('env') === 'development') {
 
 var db = levelup(leveldown('./contact'), { valueEncoding: 'json' }, function (err, db) {
   if (err) throw err
-  console.log("LevelDB connected")
+  console.log('[app.js] LevelDB connected')
 })
 contacts.fill(db)
 
@@ -47,7 +48,7 @@ app.get('/contacts/:number', function (request, response) {
       return
     }
     response.setHeader('content-type', 'application/json')
-    response.send(value)
+    response.send('value=' + value.toString('utf8'))
   })
 })
 

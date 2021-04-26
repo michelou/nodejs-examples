@@ -20,7 +20,7 @@ var port = process.env.PORT || 8180
 // all environments
 app.set('port', port)
 app.set('views', path.join(__dirname, '/views'))
-app.set('view engine', 'jade')
+app.set('view engine', 'pug')
 app.use(methodOverride())
 app.use(bodyParser.json())
 
