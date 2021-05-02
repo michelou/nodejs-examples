@@ -31,6 +31,9 @@ if not %_EXITCODE%==0 goto end
 call :node 14
 if not %_EXITCODE%==0 goto end
 
+call :node 16
+if not %_EXITCODE%==0 goto end
+
 call :git
 if not %_EXITCODE%==0 goto end
 
@@ -228,7 +231,7 @@ if not exist "%_MONGO_HOME%\bin\mongo.exe" (
 goto :eof
 
 @rem input parameter: %1=major version
-@rem output parameter: NODE12_HOME (resp. NODE14_HOME)
+@rem output parameter: NODE14_HOME (resp. NODE16_HOME)
 :node
 set __NODE_MAJOR=%~1
 set "_NODE!__NODE_MAJOR!_HOME="
@@ -323,6 +326,16 @@ if %ERRORLEVEL%==0 (
     for /f %%i in ('"%NODE14_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%NODE14_HOME%:npm.cmd"
 )
+where /q "%NODE16_HOME%:node.exe"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE16_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE16_HOME%:node.exe"
+)
+where /q "%NODE16_HOME%:npm.cmd"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE16_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE16_HOME%:npm.cmd"
+)
 where /q "%MONGO_HOME%\bin:mongo.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,*" %%i in ('"%MONGO_HOME%\bin\mongo.exe" --version ^| findstr /b MongoDB') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongo %%l,"
@@ -350,6 +363,7 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     if defined NODE_HOME echo    NODE_HOME="%NODE_HOME%" 1>&2
     if defined NODE12_HOME echo    NODE12_HOME="%NODE12_HOME%" 1>&2
     if defined NODE14_HOME echo    NODE14_HOME="%NODE14_HOME%" 1>&2
+    if defined NODE16_HOME echo    NODE16_HOME="%NODE16_HOME%" 1>&2
 )
 goto :eof
 
@@ -359,10 +373,12 @@ goto :eof
 :end
 endlocal & (
     if %_EXITCODE%==0 (
+        if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined MONGO_HOME set "MONGO_HOME=%_MONGO_HOME%"
         if not defined NODE_HOME set "NODE_HOME=%_NODE14_HOME%"
         if not defined NODE12_HOME set "NODE12_HOME=%_NODE12_HOME%"
         if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
+        if not defined NODE16_HOME set "NODE16_HOME=%_NODE16_HOME%"
         set "PATH=%PATH%;%_NODE14_HOME%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%:" (

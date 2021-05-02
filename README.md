@@ -16,17 +16,25 @@
 This project depends on two external software for the **Microsoft Windows** plaform:
 
 - [Git 2.31][git_downloads] ([*release notes*][git_relnotes])
-- [Node.js 14.x LTS][nodejs_downloads] <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*release notes*][nodejs_relnotes])
+- [Node.js 14.x LTS][nodejs_downloads] <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*change log*][nodejs14_changelog])
 - [MongoDB 3.6][mongodb_downloads] ([*release notes*][mongodb_relnotes])
+
+
+Optionally one may also install the following software:
+
+- [Node.js 12.x LTS][nodejs_downloads] ([*change log*][nodejs12_changelog])
+- [Node.js 16.x *upcoming* LTS][nodejs_downloads] ([*change log*][nodejs16_changelog])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*April 2021*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
+For instance our development environment looks as follows (*May 2021*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.31.1\                                <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\  <i>(  1.1 GB)</i>
-C:\opt\node-v14.16.1-win-x64\                     <i>( 81.7 MB)</i>
+C:\opt\node-v12.22.1-win-x64\                     <i>( 49.7 MB)</i>
+C:\opt\node-v14.16.1-win-x64\                     <i>( 74.6 MB)</i>
+C:\opt\node-v16.0.0-win-x64\                      <i>( 68.8 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -121,8 +129,8 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.16.1, npm 6.14.12
-   git 2.31.1.windows.1, diff 3.7
+   node v14.16.1, npm 6.14.12, node v16.0.0, npm 7.10.0
+   mongo v3.6.23, git 2.31.1.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v14.16.1-win-x64\npm
@@ -133,15 +141,23 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
-Your environment has been set up for using Node.js 12.16.0 (x64) and npm.
 Tool versions:
-   node v14.16.1, npm 6.14.12
-   git 2.31.1.windows.1, diff 3.7
+   node v14.16.1, npm 6.14.12, node v16.0.0, npm 7.10.0
+   mongo v3.6.23, git 2.31.1.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.16.1-win-x64\node.exe
    C:\opt\node-v14.16.1-win-x64\npm.cmd
+   C:\opt\node-v16.0.0-win-x64\node.exe
+   C:\opt\node-v16.0.0-win-x64\npm.cmd
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongo.exe
    C:\opt\Git-2.31.1\bin\git.exe
+   C:\opt\Git-2.31.1\mingw64\bin\git.exe
    C:\opt\Git-2.31.1\usr\bin\diff.exe
+Environment variables:
+   MONGO_HOME="C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23"
+   NODE_HOME="C:\opt\node-v14.16.1-win-x64"
+   NODE14_HOME="C:\opt\node-v14.16.1-win-x64"
+   NODE16_HOME="C:\opt\node-v16.0.0-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -222,7 +238,7 @@ Returning Paradise.m4a for request /music
 
 ## <span id="footnotes">Footnotes</span>
 
-<b name="footnote_01">[1]</b> ***Node.js LTS** (Long Term Support)* [↩](#anchor_01)
+<span name="footnote_01">[1]</span> ***Node.js LTS** (Long Term Support)* [↩](#anchor_01)
 
 <p style="margin:0 0 1em 20px;">
 We make the choice to work with the latest <a href="https://github.com/nodejs/Release">LTS version</a> of <a href="https://nodejs.org/en/">Node.js</a>. We started this project with version 8 LTS and successively upgraded it to version 10 LTS, version 12 LTS and version 14 LTS.
@@ -232,7 +248,8 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v14.x/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
-<tr><td><a href="https://github.com/nodejs/Release">16.x</a></td><td>April 2021</td><td>October 2022</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v16.x/">16.x</a></td><td>October 2021</td><td>April 2024</td></tr>
+<tr><td><a href="https://github.com/nodejs/Release">18.x</a></td><td>October 2022</td><td>April 2025</td></tr>
 </table>
 </p>
 <p style="margin:0 0 1em 20px;">
@@ -242,20 +259,22 @@ Node.js version 14 LTS has been announced in April 2020.
 - [Medium][medium_home]: [Node.js version 14 available now][medium_nodejs_14], Node.js team, April 21, 2020. 
 </p>
 
-<b name="footnote_02">[2]</b> ***Downloads*** [↩](#anchor_02)
+<span name="footnote_02">[2]</span> ***Downloads*** [↩](#anchor_02)
 
 <p style="margin:0 0 1em 20px;">
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.22.zip</a>  <i>(317 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.1-win-x64.zip </a>                    <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.16.1-win-x64.zip </a>                    <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.0.0-win-x64.zip</a>                      <i>( 25 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.31.1-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -295,7 +314,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs_relnotes]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.16.1
+[nodejs12_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.22.1
+[nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.16.1
+[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.0.0
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
