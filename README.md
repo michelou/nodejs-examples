@@ -16,14 +16,14 @@
 This project depends on two external software for the **Microsoft Windows** plaform:
 
 - [Git 2.31][git_downloads] ([*release notes*][git_relnotes])
-- [Node.js 14.x LTS][nodejs_downloads] <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*change log*][nodejs14_changelog])
+- [Node.js 14.x LTS][nodejs14_downloads] <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*change log*][nodejs14_changelog])
 - [MongoDB 3.6][mongodb_downloads] ([*release notes*][mongodb_relnotes])
 
 
 Optionally one may also install the following software:
 
-- [Node.js 12.x LTS][nodejs_downloads] ([*change log*][nodejs12_changelog])
-- [Node.js 16.x *upcoming* LTS][nodejs_downloads] ([*change log*][nodejs16_changelog])
+- [Node.js 12.x LTS][nodejs12_downloads] ([*change log*][nodejs12_changelog])
+- [Node.js 16.x *upcoming* LTS][nodejs16_downloads] ([*change log*][nodejs16_changelog])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
@@ -311,12 +311,14 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [mongodb_mongod]: https://docs.mongodb.com/manual/reference/program/mongod/
 [mongodb_relnotes]: https://docs.mongodb.com/manual/release-notes/3.6/
 [nodejs]: https://nodejs.org/
-[nodejs_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
 [nodejs12_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.22.1
+[nodejs12_downloads]: https://nodejs.org/dist/latest-v12.x/
 [nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.16.1
+[nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.0.0
+[nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
