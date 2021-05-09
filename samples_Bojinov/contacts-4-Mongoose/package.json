@@ -1,6 +1,6 @@
 {
   "name": "contacts-Mongoose-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "1015_Packt_RESTful_Web_API_Design_with Node.js, p.68",
   "main": "app/app.js",
   "maintainers": [
@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "moment": "^2.29.1",
-    "mongoose": "^5.12.5"
+    "mongoose": "^5.12.7"
   },
   "devDependencies": {
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
