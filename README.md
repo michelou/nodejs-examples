@@ -27,14 +27,14 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*May 2021*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
+For instance our development environment looks as follows (*June 2021*) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.31.1\                                <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\  <i>(  1.1 GB)</i>
 C:\opt\node-v12.22.1-win-x64\                     <i>( 49.7 MB)</i>
-C:\opt\node-v14.16.1-win-x64\                     <i>( 74.6 MB)</i>
-C:\opt\node-v16.1.0-win-x64\                      <i>( 68.9 MB)</i>
+C:\opt\node-v14.17.0-win-x64\                     <i>( 75.0 MB)</i>
+C:\opt\node-v16.2.0-win-x64\                      <i>( 68.9 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -47,9 +47,9 @@ This project is organized as follows:
 bin\
 docs\
 samples\{<a href="samples/auth-passport/">auth-passport</a>, ..}
-samples_Bojinov\{contacts-1-JSON, ..}
-samples_Cook\{basic_auth, ..}
-samples_Duuna\{chp-3-networking, ..}
+samples_Bojinov\{<a href="samples_Bojinov/contacts-1-JSON/">contacts-1-JSON</a>, ..}
+samples_Cook\{<a href="samples_Cook/03_basic_auth/">03_basic_auth</a>, ..}
+samples_Duuna\{<a href="samples_Duuna/chp-3-networking/">chp-3-networking</a>, ..}
 samples_Lambert\{04-concepts, ..}
 samples_Pillora\
 README.md
@@ -99,9 +99,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
-    C:\opt\node-v14.16.1-win-x64\node.exe
-    C:\opt\node-v14.16.1-win-x64\npm
-    C:\opt\node-v14.16.1-win-x64\npm.cmd</pre>
+    C:\opt\node-v14.17.0-win-x64\node.exe
+    C:\opt\node-v14.17.0-win-x64\npm
+    C:\opt\node-v14.17.0-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -129,12 +129,12 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.16.1, npm 6.14.12, node v16.1.0, npm 7.11.2
+   node v14.17.0, npm 6.14.13, node v16.2.0, npm 7.13.0
    mongo v3.6.23, git 2.31.1.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
-C:\opt\node-v14.16.1-win-x64\npm
-C:\opt\node-v14.16.1-win-x64\npm.cmd
+C:\opt\node-v14.17.0-win-x64\npm
+C:\opt\node-v14.17.0-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -142,22 +142,23 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.16.1, npm 6.14.12, node v16.1.0, npm 7.11.2
+   node v14.17.0, npm 6.14.13, node v16.2.0, npm 7.13.0
    mongo v3.6.23, git 2.31.1.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v14.16.1-win-x64\node.exe
-   C:\opt\node-v14.16.1-win-x64\npm.cmd
-   C:\opt\node-v16.1.0-win-x64\node.exe
-   C:\opt\node-v16.1.0-win-x64\npm.cmd
+   C:\opt\node-v14.17.0-win-x64\node.exe
+   C:\opt\node-v14.17.0-win-x64\npm.cmd
+   C:\opt\node-v16.2.0-win-x64\node.exe
+   C:\opt\node-v16.2.0-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongo.exe
    C:\opt\Git-2.31.1\bin\git.exe
    C:\opt\Git-2.31.1\mingw64\bin\git.exe
    C:\opt\Git-2.31.1\usr\bin\diff.exe
 Environment variables:
+   "GIT_HOME="C:\opt\Git-2.31.1"
    "MONGO_HOME=C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23"
-   "NODE_HOME=C:\opt\node-v14.16.1-win-x64"
-   "NODE14_HOME=C:\opt\node-v14.16.1-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.1.0-win-x64"
+   "NODE_HOME=C:\opt\node-v14.17.0-win-x64"
+   "NODE14_HOME=C:\opt\node-v14.17.0-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.2.0-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -194,11 +195,11 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.16.1, npm 6.14.12, node v16.1.0, npm 7.11.2
+   node v14.17.0, npm 6.14.13, node v16.2.0, npm 7.13.0
    git 2.31.1.windows.1, diff 3.7, mongod v3.6.22
 Tool paths:
-   C:\opt\node-v14.16.1-win-x64\node.exe
-   C:\opt\node-v14.16.1-win-x64\npm.cmd
+   C:\opt\node-v14.17.0-win-x64\node.exe
+   C:\opt\node-v14.17.0-win-x64\npm.cmd
    C:\opt\Git-2.31.1\bin\git.exe
    C:\opt\Git-2.31.1\mingw64\bin\git.exe
    C:\opt\Git-2.31.1\usr\bin\diff.exe
@@ -267,14 +268,14 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="margin:0 0 1em 20px; font-size:80%;">
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.22.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.1-win-x64.zip </a>                    <i>( 18 MB)</i>
-<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.16.1-win-x64.zip </a>                    <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.1.0-win-x64.zip</a>                      <i>( 25 MB)</i>
+<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.17.0-win-x64.zip </a>                    <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.2.0-win-x64.zip</a>                      <i>( 25 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.31.1-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

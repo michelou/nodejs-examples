@@ -69,6 +69,33 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ## <span id="03_bear_token2">`03_bear_token2`</span>
 
+Command **`npm start`** starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token2/config_TEMPLATE.json)):
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token2" npm start</b>
+
+> bearer_token2@1.0.0 start N:\samples_Cook\03_bearer_token2
+> node .
+
+[2021-06-02 12:34:21 INFO] (app.js) Listening on port 8180
+</pre>
+
+
+Command **`npm run client`** sends a `POST` request to the server (endpoint `/login`): 
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-run-script">npm run</a> client</b>
+
+> bearer_token@1.0.0 client N:\samples_Cook\03_bearer_token2
+> node npm_scripts/start_client.js
+
+[2021-06-02 12:36:18 INFO] (start_client.js) login: username=foo
+[2021-06-02 12:36:18 INFO] (start_client.js) curl -H "User-Agent: Mozilla/5.0" -H "Content-Type: application/json" -X POST -d "{\"username\": \"foo\", \"password\":\"bar\"}" http://127.0.0.1:8180/login
+token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpYXQiOjE2MjI2MzAxNzl9.-vkWn3KQVZdvZh4Eboe1AA7g3vINa7g71c-_uZcQ1j0
+[2021-06-02 12:36:19 INFO] (start_client.js) curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpYXQiOjE2MjI2MzAxNzl9.-vkWn3KQVZdvZh4Eboe1AA7g3vINa7g71c-_uZcQ1j0" -X GET http://127.0.0.1:8180/userinfo
+[2021-06-02 12:36:19 INFO] (start_client.js) json={"id":1,"username":"foo"}
+</pre>
+
 <!--
 ## <span id="03_oauth">`03_oauth`</span>
 
@@ -80,5 +107,5 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
