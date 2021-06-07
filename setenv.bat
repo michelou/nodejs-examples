@@ -341,10 +341,10 @@ if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,*" %%i in ('"%MONGO_HOME%\bin\mongo.exe" --version ^| findstr /b MongoDB') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongo %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%MONGO_HOME%\bin:mongo.exe"
 )
-where /q git.exe
+where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
-    set __WHERE_ARGS=%__WHERE_ARGS% git.exe
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:git.exe"
 )
 where /q diff.exe
 if %ERRORLEVEL%==0 (
@@ -358,12 +358,12 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
     echo Environment variables: 1>&2
-    if defined GIT_HOME echo    GIT_HOME="%GIT_HOME%" 1>&2
-    if defined MONGO_HOME echo    MONGO_HOME="%MONGO_HOME%" 1>&2
-    if defined NODE_HOME echo    NODE_HOME="%NODE_HOME%" 1>&2
-    if defined NODE12_HOME echo    NODE12_HOME="%NODE12_HOME%" 1>&2
-    if defined NODE14_HOME echo    NODE14_HOME="%NODE14_HOME%" 1>&2
-    if defined NODE16_HOME echo    NODE16_HOME="%NODE16_HOME%" 1>&2
+    if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
+    if defined MONGO_HOME echo    "MONGO_HOME=%MONGO_HOME%" 1>&2
+    if defined NODE_HOME echo    "NODE_HOME=%NODE_HOME%" 1>&2
+    if defined NODE12_HOME echo    "NODE12_HOME=%NODE12_HOME%" 1>&2
+    if defined NODE14_HOME echo    "NODE14_HOME=%NODE14_HOME%" 1>&2
+    if defined NODE16_HOME echo    "NODE16_HOME=%NODE16_HOME%" 1>&2
 )
 goto :eof
 

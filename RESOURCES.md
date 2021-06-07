@@ -14,12 +14,22 @@
 - [Developing a CRUD Node.js Application with PostgreSQL][article_lemos] by Glaucia Lemos, April 2021.
 - [How the new ‘Top Level Await’ feature works in JavaScript][article_kesk], February 2020.
 
+## <span id="blogs">Blogs</span>
+
+- [Will Deno Catchup with NodeJS in 2021?](https://blog.bitsrc.io/will-deno-catchup-with-nodejs-in-2021-7ab758429647) by Charuka Herath, February 2021.
+- [Why Choose NestJS As Your Backend Framework?](https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework) by Grzegorz Laszczak, October 2020.
+
+## <span id="libraries">Libraries</span>
+
+- [Cytoscape](https://js.cytoscape.org/), a graph theory (network) library for visualisation and analysis.
+
 ## <span id="news">News</span>
 
 - [Node Weekly][news_node_weekly] Archives.
 
 ## <span id="tutorials">Tutorials</span>
 
+- [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices) by Yoni Goldberg.
 - [Node.js Lessons][tutorial_nodejs] by Mohammad Shad Mirza.
 - [React Lessons][tutorial_react] by Mohammad Shad Mirza.
 
