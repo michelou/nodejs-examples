@@ -1,6 +1,6 @@
 {
   "name": "express-LevelDB-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.60",
   "main": "app/app.js",
   "maintainers": [
@@ -20,14 +20,14 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "leveldown": "^6.0.0",
-    "levelup": "^5.0.0",
+    "levelup": "^5.0.1",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
   },
   "devDependencies": {
     "errorhandler": "^1.5.1",
-    "eslint": "^7.26.0",
+    "eslint": "^7.30.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",

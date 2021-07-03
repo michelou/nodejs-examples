@@ -1,6 +1,6 @@
 {
   "name": "express-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "2015_Packt_RESTful_Web_API_Design_with Node.js, p.38",
   "main": "app/app.js",
   "maintainers": [
@@ -30,15 +30,15 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
-    "eslint": "^7.26.0",
+    "eslint": "^7.30.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "grunt": "^1.4.0",
+    "grunt": "^1.4.1",
     "grunt-contrib-jshint": "^3.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^8.4.0",
+    "mocha": "^9.0.1",
     "request": "^2.88.2"
   },
   "engines": {

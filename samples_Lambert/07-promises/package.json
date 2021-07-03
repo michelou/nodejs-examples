@@ -20,13 +20,13 @@
     "event-to-promise": "^0.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
+    "@babel/core": "^7.14.6",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-node5": "^1.2.0",
-    "eslint": "^7.26.0",
+    "eslint": "^7.30.0",
     "eslint-config-standard": "^16.0.3",
     "got": "^11.8.2"
   },

@@ -22,11 +22,11 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "pug": "^3.0.2",
-    "query-string": "^7.0.0",
+    "query-string": "^7.0.1",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
+    "eslint": "^7.30.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
