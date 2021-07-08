@@ -13,6 +13,7 @@
 - [Introducing WebContainers: Run Node.js natively in your browser](https://blog.stackblitz.com/posts/introducing-webcontainers/) by Eric Simons, May 2021.
 - [Developing a CRUD Node.js Application with PostgreSQL][article_lemos] by Glaucia Lemos, April 2021.
 - [How the new ‘Top Level Await’ feature works in JavaScript][article_kesk], February 2020.
+- [Understanding Worker Threads in Node.js][article_parody] by Liz Parody, June 2019.
 
 ## <span id="blogs">Blogs</span>
 
@@ -42,6 +43,7 @@
 
 [article_kesk]: https://javascript.plainenglish.io/javascript-top-level-await-in-a-nutshell-4e352b3fc8c8
 [article_lemos]: https://medium.com/@glaucia86/developing-a-crud-node-js-application-with-postgresql-d25febb1cc4
+[article_parody]: https://nodesource.com/blog/worker-threads-nodejs/
 [news_node_weekly]: https://nodeweekly.com/issues
 [tutorial_nodejs]: https://soshace.com/category/javascript/node-js/node-js-lessons/
 [tutorial_react]: https://soshace.com/category/javascript/react/react-lessons/
