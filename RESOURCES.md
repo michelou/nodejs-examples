@@ -19,6 +19,7 @@
 
 - [Will Deno Catchup with NodeJS in 2021?](https://blog.bitsrc.io/will-deno-catchup-with-nodejs-in-2021-7ab758429647) by Charuka Herath, February 2021.
 - [Why Choose NestJS As Your Backend Framework?](https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework) by Grzegorz Laszczak, October 2020.
+- [Deno vs Node - comparison][blog_torrao] by Ricardo Torrao, October 2020.
 
 ## <span id="libraries">Libraries</span>
 
@@ -44,6 +45,7 @@
 [article_kesk]: https://javascript.plainenglish.io/javascript-top-level-await-in-a-nutshell-4e352b3fc8c8
 [article_lemos]: https://medium.com/@glaucia86/developing-a-crud-node-js-application-with-postgresql-d25febb1cc4
 [article_parody]: https://nodesource.com/blog/worker-threads-nodejs/
+[blog_torrao]: https://www.imaginarycloud.com/blog/deno-vs-node/
 [news_node_weekly]: https://nodeweekly.com/issues
 [tutorial_nodejs]: https://soshace.com/category/javascript/node-js/node-js-lessons/
 [tutorial_react]: https://soshace.com/category/javascript/react/react-lessons/
