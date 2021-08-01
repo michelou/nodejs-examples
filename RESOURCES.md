@@ -21,6 +21,11 @@
 - [Why Choose NestJS As Your Backend Framework?](https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework) by Grzegorz Laszczak, October 2020.
 - [Deno vs Node - comparison][blog_torrao] by Ricardo Torrao, October 2020.
 
+## <span id="books">Books</span>
+
+- [Node.js Design Patterns](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110) (3rd Edition), by Mario Casciaro, Packt, July 2020.
+
+
 ## <span id="libraries">Libraries</span>
 
 - [Cytoscape](https://js.cytoscape.org/), a graph theory (network) library for visualisation and analysis.
@@ -37,7 +42,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
