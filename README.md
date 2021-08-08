@@ -34,7 +34,7 @@ C:\opt\Git-2.32.0\                                <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\  <i>(  1.1 GB)</i>
 C:\opt\node-v12.22.4-win-x64\                     <i>( 49.7 MB)</i>
 C:\opt\node-v14.17.4-win-x64\                     <i>( 75.0 MB)</i>
-C:\opt\node-v16.6.0-win-x64\                      <i>( 68.9 MB)</i>
+C:\opt\node-v16.6.1-win-x64\                      <i>( 68.9 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -50,8 +50,8 @@ samples\{<a href="samples/auth-passport/">auth-passport</a>, ..}
 samples_Bojinov\{<a href="samples_Bojinov/contacts-1-JSON/">contacts-1-JSON</a>, ..}
 samples_Cook\{<a href="samples_Cook/03_basic_auth/">03_basic_auth</a>, ..}
 samples_Duuna\{<a href="samples_Duuna/chp-3-networking/">chp-3-networking</a>, ..}
-samples_Lambert\{04-concepts, ..}
-samples_Pillora\
+samples_Lambert\{<a href="samples_Lambert/06-files/">06-files</a>, ..}
+samples_Pillora\{<a href="samples_Pillora/4-02-project/">4-02-project</a>, ..}
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -129,7 +129,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.17.4, npm 6.14.13, node v16.6.0, npm 7.15.1
+   node v14.17.4, npm 6.14.14, node v16.6.1, npm 7.20.3
    mongo v3.6.23, git 2.32.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
@@ -142,13 +142,13 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.4, npm 6.14.13, node v16.6.0, npm 7.15.1
+   node v14.17.4, npm 6.14.14, node v16.6.1, npm 7.20.3
    mongo v3.6.23, git 2.32.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.17.4-win-x64\node.exe
    C:\opt\node-v14.17.4-win-x64\npm.cmd
-   C:\opt\node-v16.6.0-win-x64\node.exe
-   C:\opt\node-v16.6.0-win-x64\npm.cmd
+   C:\opt\node-v16.6.1-win-x64\node.exe
+   C:\opt\node-v16.6.1-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongo.exe
    C:\opt\Git-2.32.0\bin\git.exe
    C:\opt\Git-2.32.0\mingw64\bin\git.exe
@@ -158,7 +158,7 @@ Environment variables:
    "MONGO_HOME=C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23"
    "NODE_HOME=C:\opt\node-v14.17.4-win-x64"
    "NODE14_HOME=C:\opt\node-v14.17.4-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.6.0-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.6.1-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -195,15 +195,15 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.4, npm 6.14.13, node v16.6.0, npm 7.15.1
-   git 2.32.0.windows.1, diff 3.7, mongod v3.6.22
+   node v14.17.4, npm 6.14.14, node v16.6.1, npm 7.20.3
+   mongod v3.6.23, git 2.32.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.17.4-win-x64\node.exe
    C:\opt\node-v14.17.4-win-x64\npm.cmd
    C:\opt\Git-2.32.0\bin\git.exe
    C:\opt\Git-2.32.0\mingw64\bin\git.exe
    C:\opt\Git-2.32.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.22\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongod.exe
 </pre>
 
 ### **`npm.cmd`**
@@ -266,10 +266,10 @@ Node.js version 14 LTS has been announced in April 2020.
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.22.zip</a>  <i>(317 MB)</i>
+<a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.23.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.4-win-x64.zip </a>                    <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.17.4-win-x64.zip </a>                    <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.6.0-win-x64.zip</a>                      <i>( 25 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.6.1-win-x64.zip</a>                      <i>( 25 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.32.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 

@@ -14,11 +14,13 @@
 - [Developing a CRUD Node.js Application with PostgreSQL][article_lemos] by Glaucia Lemos, April 2021.
 - [How the new ‘Top Level Await’ feature works in JavaScript][article_kesk], February 2020.
 - [Understanding Worker Threads in Node.js][article_parody] by Liz Parody, June 2019.
+- [Why and how to use ESLint in your project][article_roberts] by Sam Roberts, September 2017.
 
 ## <span id="blogs">Blogs</span>
 
-- [Will Deno Catchup with NodeJS in 2021?](https://blog.bitsrc.io/will-deno-catchup-with-nodejs-in-2021-7ab758429647) by Charuka Herath, February 2021.
-- [Why Choose NestJS As Your Backend Framework?](https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework) by Grzegorz Laszczak, October 2020.
+- [Building custom Node.js event emitters][blog_eagles] by Lawrence Eagles, April 2021.
+- [Will Deno Catchup with NodeJS in 2021?][blog_herath] by Charuka Herath, February 2021.
+- [Why Choose NestJS As Your Backend Framework?][blog_laszczak] by Grzegorz Laszczak, October 2020.
 - [Deno vs Node - comparison][blog_torrao] by Ricardo Torrao, October 2020.
 
 ## <span id="books">Books</span>
@@ -50,6 +52,10 @@
 [article_kesk]: https://javascript.plainenglish.io/javascript-top-level-await-in-a-nutshell-4e352b3fc8c8
 [article_lemos]: https://medium.com/@glaucia86/developing-a-crud-node-js-application-with-postgresql-d25febb1cc4
 [article_parody]: https://nodesource.com/blog/worker-threads-nodejs/
+[article_roberts]: https://developer.ibm.com/articles/why-and-how-to-use-eslint-in-your-project/
+[blog_eagles]: https://blog.logrocket.com/building-custom-node-js-event-emitters/
+[blog_herath]: https://blog.bitsrc.io/will-deno-catchup-with-nodejs-in-2021-7ab758429647
+[blog_laszczak]: https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework
 [blog_torrao]: https://www.imaginarycloud.com/blog/deno-vs-node/
 [news_node_weekly]: https://nodeweekly.com/issues
 [tutorial_nodejs]: https://soshace.com/category/javascript/node-js/node-js-lessons/
