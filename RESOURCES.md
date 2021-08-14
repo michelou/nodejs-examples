@@ -18,8 +18,10 @@
 
 ## <span id="blogs">Blogs</span>
 
+- [Node.js best practices and performance analytics in 2021][blog_omereshone] by Kelvin Omeresshone, May 2021.
 - [Building custom Node.js event emitters][blog_eagles] by Lawrence Eagles, April 2021.
 - [Will Deno Catchup with NodeJS in 2021?][blog_herath] by Charuka Herath, February 2021.
+- [How to measure and improve Node.js performance][blog_johnstone] by Nick Johnstone, January 2021.
 - [Why Choose NestJS As Your Backend Framework?][blog_laszczak] by Grzegorz Laszczak, October 2020.
 - [Deno vs Node - comparison][blog_torrao] by Ricardo Torrao, October 2020.
 
@@ -55,7 +57,9 @@
 [article_roberts]: https://developer.ibm.com/articles/why-and-how-to-use-eslint-in-your-project/
 [blog_eagles]: https://blog.logrocket.com/building-custom-node-js-event-emitters/
 [blog_herath]: https://blog.bitsrc.io/will-deno-catchup-with-nodejs-in-2021-7ab758429647
+[blog_johnstone]: https://raygun.com/blog/improve-node-performance/
 [blog_laszczak]: https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework
+[blog_omereshone]: https://blog.logrocket.com/node-js-best-practices-and-performance-analytics-in-2021/
 [blog_torrao]: https://www.imaginarycloud.com/blog/deno-vs-node/
 [news_node_weekly]: https://nodeweekly.com/issues
 [tutorial_nodejs]: https://soshace.com/category/javascript/node-js/node-js-lessons/

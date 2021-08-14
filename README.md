@@ -22,6 +22,7 @@ This project depends on two external software for the **Microsoft Windows** plaf
 
 Optionally one may also install the following software:
 
+- [Deno 1.13][deno_downloads] ([*release notes*][deno_relnotes])
 - [Node.js 12.x LTS][nodejs12_downloads] ([*change log*][nodejs12_changelog])
 - [Node.js 16.x *upcoming* LTS][nodejs16_downloads] ([*change log*][nodejs16_changelog])
 
@@ -30,11 +31,12 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (August 2021) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
+C:\opt\deno-1.13.0\                               <i>( 54.6 MB)</i>
 C:\opt\Git-2.32.0\                                <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\  <i>(  1.1 GB)</i>
-C:\opt\node-v12.22.4-win-x64\                     <i>( 49.7 MB)</i>
-C:\opt\node-v14.17.4-win-x64\                     <i>( 75.0 MB)</i>
-C:\opt\node-v16.6.1-win-x64\                      <i>( 68.9 MB)</i>
+C:\opt\node-v12.22.5-win-x64\                     <i>( 49.7 MB)</i>
+C:\opt\node-v14.17.5-win-x64\                     <i>( 75.0 MB)</i>
+C:\opt\node-v16.6.2-win-x64\                      <i>( 68.9 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -52,6 +54,7 @@ samples_Cook\{<a href="samples_Cook/03_basic_auth/">03_basic_auth</a>, ..}
 samples_Duuna\{<a href="samples_Duuna/chp-3-networking/">chp-3-networking</a>, ..}
 samples_Lambert\{<a href="samples_Lambert/06-files/">06-files</a>, ..}
 samples_Pillora\{<a href="samples_Pillora/4-02-project/">4-02-project</a>, ..}
+<a href="DENO.md">DENO.md</a>
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -67,6 +70,7 @@ where
 - directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js][nodejs] code examples from [Düüna's book][book_duuna].
 - directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js][nodejs] code examples from [Lambert's book][book_lambert].
 - directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js][nodejs] code examples from [Pillora's book][book_pillora].
+- file [**`DENO.md`**](DENO.md) gathers [Deno][deno_land] related informations.
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) gathers [Node.js][nodejs] related informations.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
@@ -99,9 +103,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
-    C:\opt\node-v14.17.4-win-x64\node.exe
-    C:\opt\node-v14.17.4-win-x64\npm
-    C:\opt\node-v14.17.4-win-x64\npm.cmd</pre>
+    C:\opt\node-v14.17.5-win-x64\node.exe
+    C:\opt\node-v14.17.5-win-x64\npm
+    C:\opt\node-v14.17.5-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -129,12 +133,12 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.17.4, npm 6.14.14, node v16.6.1, npm 7.20.3
+   node v14.17.5, npm 6.14.14, node v16.6.2, npm 7.20.3
    mongo v3.6.23, git 2.32.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
-C:\opt\node-v14.17.4-win-x64\npm
-C:\opt\node-v14.17.4-win-x64\npm.cmd
+C:\opt\node-v14.17.5-win-x64\npm
+C:\opt\node-v14.17.5-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -142,13 +146,13 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.4, npm 6.14.14, node v16.6.1, npm 7.20.3
+   node v14.17.5, npm 6.14.14, node v16.6.2, npm 7.20.3
    mongo v3.6.23, git 2.32.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v14.17.4-win-x64\node.exe
-   C:\opt\node-v14.17.4-win-x64\npm.cmd
-   C:\opt\node-v16.6.1-win-x64\node.exe
-   C:\opt\node-v16.6.1-win-x64\npm.cmd
+   C:\opt\node-v14.17.5-win-x64\node.exe
+   C:\opt\node-v14.17.5-win-x64\npm.cmd
+   C:\opt\node-v16.6.2-win-x64\node.exe
+   C:\opt\node-v16.6.2-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongo.exe
    C:\opt\Git-2.32.0\bin\git.exe
    C:\opt\Git-2.32.0\mingw64\bin\git.exe
@@ -156,9 +160,9 @@ Tool paths:
 Environment variables:
    "GIT_HOME="C:\opt\Git-2.32.0"
    "MONGO_HOME=C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23"
-   "NODE_HOME=C:\opt\node-v14.17.4-win-x64"
-   "NODE14_HOME=C:\opt\node-v14.17.4-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.6.1-win-x64"
+   "NODE_HOME=C:\opt\node-v14.17.5-win-x64"
+   "NODE14_HOME=C:\opt\node-v14.17.5-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.6.2-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -195,11 +199,11 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.4, npm 6.14.14, node v16.6.1, npm 7.20.3
+   node v14.17.5, npm 6.14.14, node v16.6.2, npm 7.20.3
    mongod v3.6.23, git 2.32.0.windows.1, diff 3.7
 Tool paths:
-   C:\opt\node-v14.17.4-win-x64\node.exe
-   C:\opt\node-v14.17.4-win-x64\npm.cmd
+   C:\opt\node-v14.17.5-win-x64\node.exe
+   C:\opt\node-v14.17.5-win-x64\npm.cmd
    C:\opt\Git-2.32.0\bin\git.exe
    C:\opt\Git-2.32.0\mingw64\bin\git.exe
    C:\opt\Git-2.32.0\usr\bin\diff.exe
@@ -266,10 +270,11 @@ Node.js version 14 LTS has been announced in April 2020.
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
+<a href="https://github.com/denoland/deno/releases">deno-x86_64-pc-windows-msvc.zip</a>               <i>( 24 MB)</i>
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.23.zip</a>  <i>(317 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.4-win-x64.zip </a>                    <i>( 18 MB)</i>
-<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.17.4-win-x64.zip </a>                    <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.6.1-win-x64.zip</a>                      <i>( 25 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.5-win-x64.zip </a>                    <i>( 18 MB)</i>
+<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.17.5-win-x64.zip </a>                    <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.6.2-win-x64.zip</a>                      <i>( 25 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.32.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
@@ -285,6 +290,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [book_duuna]: https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application
 [book_lambert]: https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785
 [book_pillora]: https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner
+[deno_downloads]: https://github.com/denoland/deno/releases
+[deno_land]: https://deno.land/
+[deno_relnotes]: https://github.com/denoland/deno/releases/tag/v1.13.0
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.32.0.txt
@@ -313,9 +321,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs]: https://nodejs.org/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs12_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.22.4
+[nodejs12_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.22.5
 [nodejs12_downloads]: https://nodejs.org/dist/latest-v12.x/
-[nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.17.4
+[nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.17.5
 [nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.6.0
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
