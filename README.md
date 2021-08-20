@@ -9,20 +9,19 @@
   </tr>
 </table>
 
-[GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Scala 3][scala3_examples] and [TruffleSqueak][trufflesqueak_examples] are other trending topics we are currently monitoring.
+[Deno][deno_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Scala 3][scala3_examples] and [TruffleSqueak][trufflesqueak_examples] are other trending topics we are currently monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
-- [Git 2.32][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.33][git_downloads] ([*release notes*][git_relnotes])
 - [Node.js 14.x LTS][nodejs14_downloads] <sup id="anchor_01"><a href="#footnote_01">[1]</a></sup> ([*change log*][nodejs14_changelog])
 - [MongoDB 3.6][mongodb_downloads] ([*release notes*][mongodb_relnotes])
 
 
 Optionally one may also install the following software:
 
-- [Deno 1.13][deno_downloads] ([*release notes*][deno_relnotes])
 - [Node.js 12.x LTS][nodejs12_downloads] ([*change log*][nodejs12_changelog])
 - [Node.js 16.x *upcoming* LTS][nodejs16_downloads] ([*change log*][nodejs16_changelog])
 
@@ -31,12 +30,11 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (August 2021) <sup id="anchor_02"><a href="#footnote_02">[2]</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\deno-1.13.0\                               <i>( 54.6 MB)</i>
-C:\opt\Git-2.32.0\                                <i>(279.0 MB)</i>
+C:\opt\Git-2.33.0\                                <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\  <i>(  1.1 GB)</i>
 C:\opt\node-v12.22.5-win-x64\                     <i>( 49.7 MB)</i>
 C:\opt\node-v14.17.5-win-x64\                     <i>( 75.0 MB)</i>
-C:\opt\node-v16.6.2-win-x64\                      <i>( 68.9 MB)</i>
+C:\opt\node-v16.7.0-win-x64\                      <i>( 68.9 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -54,7 +52,6 @@ samples_Cook\{<a href="samples_Cook/03_basic_auth/">03_basic_auth</a>, ..}
 samples_Duuna\{<a href="samples_Duuna/chp-3-networking/">chp-3-networking</a>, ..}
 samples_Lambert\{<a href="samples_Lambert/06-files/">06-files</a>, ..}
 samples_Pillora\{<a href="samples_Pillora/4-02-project/">4-02-project</a>, ..}
-<a href="DENO.md">DENO.md</a>
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -70,7 +67,6 @@ where
 - directory [**`samples_Duuna\`**](samples_Duuna/) contains [Node.js][nodejs] code examples from [Düüna's book][book_duuna].
 - directory [**`samples_Lambert\`**](samples_Lambert/) contains [Node.js][nodejs] code examples from [Lambert's book][book_lambert].
 - directory [**`samples_Pillora\`**](samples_Pillora/) contains [Node.js][nodejs] code examples from [Pillora's book][book_pillora].
-- file [**`DENO.md`**](DENO.md) gathers [Deno][deno_land] related informations.
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) gathers [Node.js][nodejs] related informations.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
@@ -133,8 +129,8 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.17.5, npm 6.14.14, node v16.6.2, npm 7.20.3
-   mongo v3.6.23, git 2.32.0.windows.1, diff 3.7
+   node v14.17.5, npm 6.14.14, node v16.7.0, npm 7.20.3
+   mongo v3.6.23, git 2.33.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v14.17.5-win-x64\npm
@@ -146,23 +142,23 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.5, npm 6.14.14, node v16.6.2, npm 7.20.3
-   mongo v3.6.23, git 2.32.0.windows.1, diff 3.7
+   node v14.17.5, npm 6.14.14, node v16.7.0, npm 7.20.3
+   mongo v3.6.23, git 2.33.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.17.5-win-x64\node.exe
    C:\opt\node-v14.17.5-win-x64\npm.cmd
-   C:\opt\node-v16.6.2-win-x64\node.exe
-   C:\opt\node-v16.6.2-win-x64\npm.cmd
+   C:\opt\node-v16.7.0-win-x64\node.exe
+   C:\opt\node-v16.7.0-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongo.exe
-   C:\opt\Git-2.32.0\bin\git.exe
-   C:\opt\Git-2.32.0\mingw64\bin\git.exe
-   C:\opt\Git-2.32.0\usr\bin\diff.exe
+   C:\opt\Git-2.33.0\bin\git.exe
+   C:\opt\Git-2.33.0\mingw64\bin\git.exe
+   C:\opt\Git-2.33.0\usr\bin\diff.exe
 Environment variables:
-   "GIT_HOME="C:\opt\Git-2.32.0"
+   "GIT_HOME="C:\opt\Git-2.33.0"
    "MONGO_HOME=C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23"
    "NODE_HOME=C:\opt\node-v14.17.5-win-x64"
    "NODE14_HOME=C:\opt\node-v14.17.5-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.6.2-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.7.0-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -199,14 +195,14 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.5, npm 6.14.14, node v16.6.2, npm 7.20.3
-   mongod v3.6.23, git 2.32.0.windows.1, diff 3.7
+   node v14.17.5, npm 6.14.14, node v16.7.0, npm 7.20.3
+   mongod v3.6.23, git 2.33.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.17.5-win-x64\node.exe
    C:\opt\node-v14.17.5-win-x64\npm.cmd
-   C:\opt\Git-2.32.0\bin\git.exe
-   C:\opt\Git-2.32.0\mingw64\bin\git.exe
-   C:\opt\Git-2.32.0\usr\bin\diff.exe
+   C:\opt\Git-2.33.0\bin\git.exe
+   C:\opt\Git-2.33.0\mingw64\bin\git.exe
+   C:\opt\Git-2.33.0\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongod.exe
 </pre>
 
@@ -249,12 +245,12 @@ Returning Paradise.m4a for request /music
 We make the choice to work with the latest <a href="https://github.com/nodejs/Release">LTS version</a> of <a href="https://nodejs.org/en/">Node.js</a>. We started this project with version 8 LTS and successively upgraded it to version 10 LTS, version 12 LTS and version 14 LTS.
 <table style="margin:0 0 1em 20px;">
 <tr><th>LTS version</th><th>Start date</th><th>End-of-life</th></tr>
-<tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
-<tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
-<tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
-<tr><td><a href="https://nodejs.org/dist/latest-v14.x/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
-<tr><td><a href="https://nodejs.org/dist/latest-v16.x/">16.x</a></td><td>October 2021</td><td>April 2024</td></tr>
 <tr><td><a href="https://github.com/nodejs/Release">18.x</a></td><td>October 2022</td><td>April 2025</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v16.x/">16.x</a></td><td>October 2021</td><td>April 2024</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v14.x/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
 </table>
 </p>
 <p style="margin:0 0 1em 20px;">
@@ -270,12 +266,11 @@ Node.js version 14 LTS has been announced in April 2020.
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
 </p>
 <pre style="margin:0 0 1em 20px; font-size:80%;">
-<a href="https://github.com/denoland/deno/releases">deno-x86_64-pc-windows-msvc.zip</a>               <i>( 24 MB)</i>
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.23.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.5-win-x64.zip </a>                    <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.17.5-win-x64.zip </a>                    <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.6.2-win-x64.zip</a>                      <i>( 25 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.32.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.7.0-win-x64.zip</a>                      <i>( 25 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.33.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
 ***
@@ -290,12 +285,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [book_duuna]: https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application
 [book_lambert]: https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785
 [book_pillora]: https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner
-[deno_downloads]: https://github.com/denoland/deno/releases
-[deno_land]: https://deno.land/
-[deno_relnotes]: https://github.com/denoland/deno/releases/tag/v1.13.0
+[deno_examples]: https://github.com/michelou/deno-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.32.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.33.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [haskell_examples]: https://github.com/michelou/haskell-examples

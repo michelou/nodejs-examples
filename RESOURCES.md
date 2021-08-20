@@ -27,8 +27,10 @@
 
 ## <span id="books">Books</span>
 
-- [Node.js Design Patterns](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110) (3rd Edition), by Mario Casciaro, Packt, July 2020.
-
+- [Node.js Design Patterns](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110) (3<sup>rd</sup> Edition), by Mario Casciaro, Packt, July 2020.<br/><span style="font-size:80%;">(660 pp., ISBN 9781839214110)</span>
+- [ESTful Web API Design with Node.js 10][book_bojinov] (3<sup>rd</sup> Edition) by Valention Bojinov, April 2018.<br/><span style="font-size:80%;">(178 pp., ISBN 9781788623322)</span>
+- [Secure Your Node.js Web Application][book_duuna] by Karl Düüna, The Pragmatic Programmers, January 2016.<br/><span style="font-size:80%;">(230 pp., ISBN 9781680500851)</span>
+- [Node.js Essentials][book_cook] by Fabian Cook, Packt, August 2015.<br/><span style="font-size:80%;">(208 pp., ISBN 9781783551620)</span>
 
 ## <span id="libraries">Libraries</span>
 
@@ -61,6 +63,9 @@
 [blog_laszczak]: https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework
 [blog_omereshone]: https://blog.logrocket.com/node-js-best-practices-and-performance-analytics-in-2021/
 [blog_torrao]: https://www.imaginarycloud.com/blog/deno-vs-node/
+[book_bojinov]: https://www.packtpub.com/product/restful-web-api-design-with-node-js-10-third-edition/9781788623322
+[book_cook]: https://www.packtpub.com/product/react-js-essentials/9781783551620
+[book_duuna]: https://pragprog.com/titles/kdnodesec/secure-your-node-js-web-application/
 [news_node_weekly]: https://nodeweekly.com/issues
 [tutorial_nodejs]: https://soshace.com/category/javascript/node-js/node-js-lessons/
 [tutorial_react]: https://soshace.com/category/javascript/react/react-lessons/
