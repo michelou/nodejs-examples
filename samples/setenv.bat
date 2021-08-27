@@ -142,7 +142,7 @@ goto :eof
 
 :help
 if %_VERBOSE%==1 (
-    set __BEG_P=%_STRONG_FG_CYAN%%_UNDERSCORE%
+    set __BEG_P=%_STRONG_FG_CYAN%
     set __BEG_O=%_STRONG_FG_GREEN%
     set __BEG_N=%_NORMAL_FG_YELLOW%
     set __END=%_RESET%
@@ -297,34 +297,34 @@ if not exist "%__GIT_HOME%\bin\git.exe" (
 set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
 goto :eof
 
-@rem output parameter(s): _CURL_PATH
+@rem output parameters: _CURL_HOME, _CURL_PATH
 :curl
+set _CURL_HOME=
 set _CURL_PATH=
 
-set __CURL_HOME=
 set __CURL_CMD=
 for /f %%f in ('where curl.exe 2^>NUL') do set "__CURL_CMD=%%f"
 if defined __CURL_CMD (
-    for /f "delims=" %%i in ("%__CURL_CMD%") do set "__CURL_HOME=%%~dpi"
+    for /f "delims=" %%i in ("%__CURL_CMD%") do set "_CURL_HOME=%%~dpi"
     @rem keep _CURL_PATH undefined since executable already in path
     goto :eof
 ) else if defined CURL_HOME (
-    set "__CURL_HOME=%CURL_HOME%"
+    set "_CURL_HOME=%CURL_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable CURL_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "__CURL_HOME=!__PATH!\%%f"
-    if not defined __CURL_HOME (
+    for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
+    if not defined _CURL_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "__CURL_HOME=!__PATH!\%%f"
+        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
     )
 )
-if not exist "%__CURL_HOME%\bin\curl.exe" (
+if not exist "%_CURL_HOME%\bin\curl.exe" (
     echo %_ERROR_LABEL% cURL executable not found ^(%_CURL_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_CURL_PATH=;%__CURL_HOME%\bin"
+set "_CURL_PATH=;%_CURL_HOME%\bin"
 goto :eof
 
 :print_env
@@ -337,15 +337,15 @@ if %ERRORLEVEL%==0 (
     for /f %%i in ('node.exe --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% node.exe
 )
-where /q npm.cmd
+where /q "%NODE_HOME%:npm.cmd"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
-    set __WHERE_ARGS=%__WHERE_ARGS% npm.cmd
+    for /f %%i in ('"%NODE_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE_HOME%:npm.cmd"
 )
-where /q git.exe
+where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
-    set __WHERE_ARGS=%__WHERE_ARGS% git.exe
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:git.exe"
 )
 where /q diff.exe
 if %ERRORLEVEL%==0 (
@@ -372,6 +372,8 @@ goto :eof
 
 :end
 endlocal & (
+    if not defined CURL_HOME set "CURL_HOME=%_CURL_HOME%"
+    if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
     if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
     set "PATH=%PATH%%_GIT_PATH%%_MONGO_PATH%%_CURL_PATH%;%~dp0bin"
     if %_EXITCODE%==0 call :print_env %_VERBOSE%

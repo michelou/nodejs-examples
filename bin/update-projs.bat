@@ -18,44 +18,44 @@ if "%_ROOT_DIR:~-2%"==":\" set "_ROOT_DIR=%_ROOT_DIR:~0,-1%"
 @rem file package.json (NB. PS regex)
 
 @rem https://www.npmjs.com/package/async
-set _ASYNC_VERSION_OLD="async": "^(.+^)3.1.0"
-set _ASYNC_VERSION_NEW="async": "${1}3.2.0"
+set _ASYNC_VERSION_OLD="async": "^(.+^)3.2.0"
+set _ASYNC_VERSION_NEW="async": "${1}3.2.1"
 
 @rem https://www.npmjs.com/package/eslint
-set _ESLINT_VERSION_OLD="eslint": "^(.+^)7.3.1"
-set _ESLINT_VERSION_NEW="eslint": "^7.11.0"
+set _ESLINT_VERSION_OLD="eslint": "^(.+^)7.11.0"
+set _ESLINT_VERSION_NEW="eslint": "^7.32.0"
 
 @rem https://www.npmjs.com/package/eslint-plugin-import
-set _ESLINT_PLUGIN_IMPORT_OLD="eslint-plugin-import": "^(.+^)2.22.0"
-set _ESLINT_PLUGIN_IMPORT_NEW="eslint-plugin-import": "2.22.1"
+set _ESLINT_PLUGIN_IMPORT_OLD="eslint-plugin-import": "^(.+^)2.22.1"
+set _ESLINT_PLUGIN_IMPORT_NEW="eslint-plugin-import": "2.24.2"
 
 @rem https://www.npmjs.com/package/express-session
-set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.17.0"
-set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.17.1"
+set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.17.1"
+set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.17.2"
 
 @rem https://www.npmjs.com/package/got
-set _GOT_VERSION_OLD="got": "^(.+^)11.3.0"
-set _GOT_VERSION_NEW="got": "${1}11.7.0"
+set _GOT_VERSION_OLD="got": "^(.+^)11.7.0"
+set _GOT_VERSION_NEW="got": "${1}11.8.2"
 
 @rem https://www.npmjs.com/package/i18n
-set _I18N_VERSION_OLD="i18n": "^(.+^)0.10.0"
-set _I18N_VERSION_NEW="i18n": "${1}0.13.2"
+set _I18N_VERSION_OLD="i18n": "^(.+^)0.13.2"
+set _I18N_VERSION_NEW="i18n": "${1}0.13.3"
 
 @rem https://www.npmjs.com/package/leveldown
-set _LEVELDOWN_VERSION_OLD="leveldown": "^(.+^)5.5.1"
-set _LEVELDOWN_VERSION_NEW="leveldown": "${1}5.6.0"
+set _LEVELDOWN_VERSION_OLD="leveldown": "^(.+^)5.6.0"
+set _LEVELDOWN_VERSION_NEW="leveldown": "${1}6.0.1"
 
 @rem https://www.npmjs.com/package/levelup
-set _LEVELUP_VERSION_OLD="levelup": "^(.+^)4.3.2"
-set _LEVELUP_VERSION_NEW="levelup": "${1}4.4.0"
+set _LEVELUP_VERSION_OLD="levelup": "^(.+^)4.4.0"
+set _LEVELUP_VERSION_NEW="levelup": "${1}5.0.1"
 
 @rem https://www.npmjs.com/package/moment
 set _MOMENT_VERSION_OLD="moment": "^(.+^)2.26.0"
 set _MOMENT_VERSION_NEW="moment": "${1}2.29.1"
 
 @rem https://www.npmjs.com/package/mongoose
-set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.10.8"
-set _MONGOOSE_VERSION_NEW="mongoose": "${1}5.10.9"
+set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)5.10.9"
+set _MONGOOSE_VERSION_NEW="mongoose": "${1}6.0.2"
 
 @rem https://www.npmjs.com/package/morgan
 set _MORGAN_VERSION_OLD="morgan": "^(.+^)1.9.1"
@@ -66,8 +66,8 @@ set _REQUEST_VERSION_OLD="request": "^(.+^)2.88.0"
 set _REQUEST_VERSION_NEW="request": "${1}2.88.2"
 
 @rem https://www.npmjs.com/package/webpack
-set _WEBPACK_VERSION_OLD="webpack": "^(.+^)4.43.0"
-set _WEBPACK_VERSION_NEW="wekpack": "${1}4.44.2"
+set _WEBPACK_VERSION_OLD="webpack": "^(.+^)4.44.2"
+set _WEBPACK_VERSION_NEW="wekpack": "${1}5.51.1"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -189,7 +189,7 @@ goto :eof
 
 :help
 if %_VERBOSE%==1 (
-    set __BEG_P=%_STRONG_FG_CYAN%%_UNDERSCORE%
+    set __BEG_P=%_STRONG_FG_CYAN%
     set __BEG_O=%_STRONG_FG_GREEN%
     set __BEG_N=%_NORMAL_FG_YELLOW%
     set __END=%_RESET%
@@ -277,7 +277,7 @@ for /f %%i in ('dir /ad /b "%__PARENT_DIR%" ^| findstr /v node_modules') do (
 
         set /a __N1+=1
     ) else (
-       echo    %_WARNING_LABEL% Could not find file %%i\package.json 1>&2
+        echo    %_WARNING_LABEL% Could not find file %%i\package.json 1>&2
     )
 )
 echo    Updated %__N1% package.json files
