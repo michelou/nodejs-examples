@@ -34,7 +34,7 @@ C:\opt\Git-2.33.0\                                <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\  <i>(  1.1 GB)</i>
 C:\opt\node-v12.22.6-win-x64\                     <i>( 49.7 MB)</i>
 C:\opt\node-v14.17.6-win-x64\                     <i>( 75.0 MB)</i>
-C:\opt\node-v16.9.0-win-x64\                      <i>( 68.9 MB)</i>
+C:\opt\node-v16.9.1-win-x64\                      <i>( 68.9 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -129,7 +129,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.17.6, npm 6.14.14, node v16.9.0, npm 7.20.3
+   node v14.17.6, npm 6.14.14, node v16.9.1, npm 7.20.3
    mongo v3.6.23, git 2.33.0.windows.1, diff 3.7
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
@@ -142,13 +142,13 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.6, npm 6.14.14, node v16.9.0, npm 7.20.3
+   node v14.17.6, npm 6.14.14, node v16.9.1, npm 7.20.3
    mongo v3.6.23, git 2.33.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.17.6-win-x64\node.exe
    C:\opt\node-v14.17.6-win-x64\npm.cmd
-   C:\opt\node-v16.9.0-win-x64\node.exe
-   C:\opt\node-v16.9.0-win-x64\npm.cmd
+   C:\opt\node-v16.9.1-win-x64\node.exe
+   C:\opt\node-v16.9.1-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23\bin\mongo.exe
    C:\opt\Git-2.33.0\bin\git.exe
    C:\opt\Git-2.33.0\mingw64\bin\git.exe
@@ -158,7 +158,7 @@ Environment variables:
    "MONGO_HOME=C:\opt\mongodb-win32-x86_64-2008plus-ssl-3.6.23"
    "NODE_HOME=C:\opt\node-v14.17.6-win-x64"
    "NODE14_HOME=C:\opt\node-v14.17.6-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.9.0-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.9.1-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -195,7 +195,7 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.17.6, npm 6.14.14, node v16.9.0, npm 7.20.3
+   node v14.17.6, npm 6.14.14, node v16.9.1, npm 7.20.3
    mongod v3.6.23, git 2.33.0.windows.1, diff 3.7
 Tool paths:
    C:\opt\node-v14.17.6-win-x64\node.exe
@@ -269,7 +269,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl">mongodb-win32-x86_64-2008plus-ssl-3.6.23.zip</a>  <i>(317 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.6-win-x64.zip </a>                    <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.17.6-win-x64.zip </a>                    <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.9.0-win-x64.zip</a>                      <i>( 25 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.9.1-win-x64.zip</a>                      <i>( 25 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.33.0-64-bit.7z.exe</a>              <i>( 42 MB)</i>
 </pre>
 
@@ -318,8 +318,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs12_downloads]: https://nodejs.org/dist/latest-v12.x/
 [nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.17.5
 [nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
-[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.6.0
+[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.9.1
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
+[rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [siege_refman]: https://www.joedog.org/siege-manual/
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples

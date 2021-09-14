@@ -42,8 +42,8 @@ set _I18N_VERSION_OLD="i18n": "^(.+^)0.13.2"
 set _I18N_VERSION_NEW="i18n": "${1}0.13.3"
 
 @rem https://www.npmjs.com/package/leveldown
-set _LEVELDOWN_VERSION_OLD="leveldown": "^(.+^)5.6.0"
-set _LEVELDOWN_VERSION_NEW="leveldown": "${1}6.0.1"
+set _LEVELDOWN_VERSION_OLD="leveldown": "^(.+^)6.0.1"
+set _LEVELDOWN_VERSION_NEW="leveldown": "${1}6.0.2"
 
 @rem https://www.npmjs.com/package/levelup
 set _LEVELUP_VERSION_OLD="levelup": "^(.+^)4.4.0"
@@ -149,8 +149,8 @@ set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
 goto :eof
 
-rem input parameter: %*
-rem output parameters: _CLONE, _COMPILE, _DOCUMENTATION, _SBT, _TIMER, _VERBOSE
+@rem input parameter: %*
+@rem output parameters: _CLONE, _COMPILE, _DOCUMENTATION, _SBT, _TIMER, _VERBOSE
 :args
 set _HELP=0
 set _TIMER=0
