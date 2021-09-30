@@ -25,7 +25,7 @@ if %_HELP%==1 (
 
 set _GIT_PATH=
 
-call :mongo
+call :mongodb
 if not %_EXITCODE%==0 goto end
 
 call :node 14
@@ -130,7 +130,7 @@ if "%__ARG:~0,1%"=="-" (
     set /a __N+=1
 )
 shift
-goto :args_loop
+goto args_loop
 :args_done
 call :subst %_DRIVE_NAME% "%_ROOT_DIR%"
 if not %_EXITCODE%==0 goto :eof
@@ -140,7 +140,7 @@ if %_DEBUG%==1 (
 )
 goto :eof
 
-@rem input parameter(s): %1: drive letter, %2: path to be substituted
+@rem input parameters: %1: drive letter, %2: path to be substituted
 :subst
 set __DRIVE_NAME=%~1
 set "__GIVEN_PATH=%~2"
@@ -200,31 +200,31 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        display this help message
 goto :eof
 
-@rem output parameter: _MONGO_HOME
-:mongo
-set _MONGO_HOME=
+@rem output parameter: _MONGODB_HOME
+:mongodb
+set _MONGODB_HOME=
 
-set __MONGO_CMD=
-for /f %%f in ('where mongo.exe 2^>NUL') do set "__MONGO_CMD=%%f"
-if defined __MONGO_CMD (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
+set __MONGOD_CMD=
+for /f %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
+if defined __MONGOD_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongdoDB daaemon executable found in PATH 1>&2
     goto :eof
-) else if defined MONGO_HOME (
-    set "_MONGO_HOME=%MONGO_HOME%"
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGO_HOME 1>&2
+) else if defined MONGODB_HOME (
+    set "_MONGODB_HOME=%MONGODB_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGODB_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\mongodb\" ( set "_MONGO_HOME=!__PATH!\Git"
+    if exist "!__PATH!\mongodb\" ( set "_MONGODB_HOME=!__PATH!\mongodb"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32*-3.6*" 2^>NUL') do set "_MONGO_HOME=!__PATH!\%%f"
-        if not defined _MONGO_HOME (
+        for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
+        if not defined _MONGODB_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32*-3.6*" 2^>NUL') do set "_MONGO_HOME=!__PATH!\%%f"
+            for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32**" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         )
     )
 )
-if not exist "%_MONGO_HOME%\bin\mongo.exe" (
-    echo %_ERROR_LABEL% Mongo executable not found ^(%_MONGO_HOME%^) 1>&2
+if not exist "%_MONGODB_HOME%\bin\mongod.exe" (
+    echo %_ERROR_LABEL% MongoDB daemon executable not found ^(%_MONGODB_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -278,7 +278,7 @@ set "_NODE!__NODE_MAJOR!_HOME=%_NODE_HOME%"
 @rem call "%NODE_HOME%\nodevars.bat"
 goto :eof
 
-@rem output parameter: _GIT_HOME, _GIT_PATH
+@rem output parameters: _GIT_HOME, _GIT_PATH
 :git
 set _GIT_HOME=
 set _GIT_PATH=
@@ -336,10 +336,10 @@ if %ERRORLEVEL%==0 (
     for /f %%i in ('"%NODE16_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
     set __WHERE_ARGS=%__WHERE_ARGS% "%NODE16_HOME%:npm.cmd"
 )
-where /q "%MONGO_HOME%\bin:mongo.exe"
+where /q "%MONGO_HOME%\bin:mongod.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,3,*" %%i in ('"%MONGO_HOME%\bin\mongo.exe" --version ^| findstr /b MongoDB') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongo %%l,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%MONGO_HOME%\bin:mongo.exe"
+    for /f "tokens=1,2,*" %%i in ('"%MONGO_HOME%\bin\mongod.exe" --version ^| findstr /b db') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongod %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%MONGO_HOME%\bin:mongod.exe"
 )
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
@@ -359,7 +359,7 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
     echo Environment variables: 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
-    if defined MONGO_HOME echo    "MONGO_HOME=%MONGO_HOME%" 1>&2
+    if defined MONGODB_HOME echo    "MONGODB_HOME=%MONGODB_HOME%" 1>&2
     if defined NODE_HOME echo    "NODE_HOME=%NODE_HOME%" 1>&2
     if defined NODE12_HOME echo    "NODE12_HOME=%NODE12_HOME%" 1>&2
     if defined NODE14_HOME echo    "NODE14_HOME=%NODE14_HOME%" 1>&2
@@ -374,7 +374,7 @@ goto :eof
 endlocal & (
     if %_EXITCODE%==0 (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
-        if not defined MONGO_HOME set "MONGO_HOME=%_MONGO_HOME%"
+        if not defined MONGODB_HOME set "MONGODB_HOME=%_MONGODB_HOME%"
         if not defined NODE_HOME set "NODE_HOME=%_NODE14_HOME%"
         if not defined NODE12_HOME set "NODE12_HOME=%_NODE12_HOME%"
         if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"

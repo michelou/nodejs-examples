@@ -128,7 +128,7 @@ if "%__ARG:~0,1%"=="-" (
     set /a __N+=1
 )
 shift
-goto :args_loop
+goto args_loop
 :args_done
 if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
@@ -155,11 +155,11 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        display this help message
 goto :eof
 
-@rem output parameter(s): _GIT_PATH
+@rem output parameters: _GIT_HOME, _GIT_PATH
 :git
+set _GIT_HOME=
 set _GIT_PATH=
 
-set __GIT_HOME=
 set __GIT_CMD=
 for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
@@ -167,25 +167,25 @@ if defined __GIT_CMD (
     rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
-    set "__GIT_HOME=%GIT_HOME%"
+    set "_GIT_HOME=%GIT_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
+    if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
-        if not defined __GIT_HOME (
+        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         )
     )
 )
-if not exist "%__GIT_HOME%\bin\git.exe" (
-    echo %_ERROR_LABEL% Git executable not found ^(%__GIT_HOME%^) 1>&2
+if not exist "%_GIT_HOME%\bin\git.exe" (
+    echo %_ERROR_LABEL% Git executable not found ^(%_GIT_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
+set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
 goto :eof
 
 rem postcondition: NODE_HOME is defined and valid
@@ -273,20 +273,20 @@ set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
 set "__VERSIONS_LINE2=  "
 set __WHERE_ARGS=
-where /q node.exe
+where /q "%NODE_HOME%:node.exe"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('node.exe --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% node.exe
+    for /f %%i in ('"%NODE_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE_HOME%:node.exe"
 )
-where /q npm.cmd
+where /q "%NODE_HOME%:npm.cmd"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
-    set __WHERE_ARGS=%__WHERE_ARGS% npm.cmd
+    for /f %%i in ('"%NODE_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE_HOME%:npm.cmd"
 )
-where /q git.exe
+where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
-    set __WHERE_ARGS=%__WHERE_ARGS% git.exe
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:git.exe"
 )
 where /q curl.exe
 if %ERRORLEVEL%==0 (
@@ -308,6 +308,7 @@ goto :eof
 
 :end
 endlocal & (
+    if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
     if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
     set "PATH=%PATH%%_GIT_PATH%%_CURL_PATH%"
     if %_EXITCODE%==0 call :print_env %_VERBOSE%
