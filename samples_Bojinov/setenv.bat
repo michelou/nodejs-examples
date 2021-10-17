@@ -302,15 +302,15 @@ set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
 set "__VERSIONS_LINE2=  "
 set __WHERE_ARGS=
-where /q node.exe
+where /q "%NODE_HOME%:node.exe"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('node.exe --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% node.exe
+    for /f %%i in ('"%NODE_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE_HOME%:node.exe"
 )
-where /q npm.cmd
+where /q "%NODE_HOME%:npm.cmd"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('npm.cmd --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
-    set __WHERE_ARGS=%__WHERE_ARGS% npm.cmd
+    for /f %%i in ('"%NODE_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE_HOME%:npm.cmd"
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (

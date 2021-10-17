@@ -15,14 +15,14 @@
     "reinstall": "npm run clean && npm install -audit",
     "test": "node_modules/.bin/nodeunit test"
   },
-  "_devDependencies": {
+  "devDependencies_NOTES_": {
     "diff": "explicit dependency on package 'diff' to force latest version"
   },
   "devDependencies": {
     "diff": "^5.0.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.0.1",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "sinon": "^11.1.2"

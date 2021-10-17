@@ -32,7 +32,7 @@ if (app.get('env') === 'development') {
 
 var db = levelup(leveldown('./contact'), { valueEncoding: 'json' }, function (err, db) {
   if (err) throw err
-  console.log("LevelDB connected")
+  console.log('LevelDB connected')
 })
 contacts.fill(db)
 
