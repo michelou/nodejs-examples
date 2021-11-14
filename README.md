@@ -17,7 +17,7 @@ This project depends on two external software for the **Microsoft Windows** plaf
 
 - [Git 2.33][git_downloads] ([*release notes*][git_relnotes])
 - [Node.js 14.x LTS][nodejs14_downloads] <sup id="anchor_01"><a href="#footnote_01">1</a></sup> ([*change log*][nodejs14_changelog])
-- [MongoDB 5.0][mongodb_downloads] ([*release notes*][mongodb_relnotes])
+- [MongoDB 5.0][mongodb5_downloads] ([*release notes*][mongodb5_relnotes])
 
 Optionally one may also install the following software:
 
@@ -307,7 +307,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [medium_home]: https://medium.com/
 [medium_nodejs_14]: https://medium.com/@nodejs/node-js-version-14-available-now-8170d384567e
-[mongodb_downloads]: https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl
+[mongodb5_downloads]: https://www.mongodb.com/try/download/community
+[mongodb5_relnotes]: https://docs.mongodb.com/upcoming/release-notes/5.0/
 [mongodb_mongod]: https://docs.mongodb.com/manual/reference/program/mongod/
 [mongodb_relnotes]: https://docs.mongodb.com/manual/release-notes/3.6/
 [nodejs]: https://nodejs.org/
