@@ -31,7 +31,7 @@ For instance our development environment looks as follows (December 2021) <sup i
 <pre style="font-size:80%;">
 C:\opt\Git-2.34.1\                          <i>(279.0 MB)</i>
 C:\opt\mongodb-win32-x86_64-windows-5.0.5\  <i>(  1.1 GB)</i>
-C:\opt\node-v12.22.7-win-x64\               <i>( 49.8 MB)</i>
+C:\opt\node-v12.22.8-win-x64\               <i>( 49.8 MB)</i>
 C:\opt\node-v14.18.2-win-x64\               <i>( 75.3 MB)</i>
 C:\opt\node-v16.13.1-win-x64\               <i>( 65.3 MB)</i>
 </pre>
@@ -45,8 +45,8 @@ This project is organized as follows:
 <pre style="font-size:80%;">
 bin\
 docs\
-samples\{<a href="samples/auth-passport/">auth-passport</a>, ..}
-samples_Bojinov\{<a href="samples_Bojinov/contacts-1-JSON/">contacts-1-JSON</a>, ..}
+samples\{<a href="samples/README.md">README.md</a>, <a href="samples/auth-passport/">auth-passport</a>, ..}
+samples_Bojinov\{<a href="samples_Bojinov/README.md">README.md</a>, <a href="samples_Bojinov/contacts-1-JSON/">contacts-1-JSON</a>, ..}
 samples_Cook\{<a href="samples_Cook/03_basic_auth/">03_basic_auth</a>, ..}
 samples_Duuna\{<a href="samples_Duuna/chp-3-networking/">chp-3-networking</a>, ..}
 samples_Lambert\{<a href="samples_Lambert/06-files/">06-files</a>, ..}
@@ -238,11 +238,13 @@ Returning Paradise.m4a for request /music
 
 ## <span id="footnotes">Footnotes</span>
 
-<span name="footnote_01">[1]</span> ***Node.js LTS** (Long Term Support)* [↩](#anchor_01)
+<span id="footnote_01">[1]</span> ***Node.js LTS** (Long Term Support)* [↩](#anchor_01)
 
-<p style="margin:0 0 1em 20px;">
+<dl><dd>
 We make the choice to work with the latest <a href="https://github.com/nodejs/Release">LTS version</a> of <a href="https://nodejs.org/en/">Node.js</a>. We started this project with version 8 LTS and successively upgraded it to version 10 LTS, version 12 LTS and version 14 LTS.
-<table style="margin:0 0 1em 20px;">
+</dd>
+<dd>
+<table>
 <tr><th>LTS version</th><th>Start date</th><th>End-of-life</th></tr>
 <tr><td><a href="https://github.com/nodejs/Release">18.x</a></td><td>October 2022</td><td>April 2025</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v16.x/">16.x</a></td><td>October 2021</td><td>April 2024</td></tr>
@@ -251,30 +253,35 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <tr><td><a href="https://nodejs.org/dist/latest-v10.x/">10.x</a></td><td>October 2018</td><td>April 2021</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v8.x/">8.x</a></td><td>October 2017</td><td>December 2019</td></tr>
 </table>
-</p>
-<p style="margin:0 0 1em 20px;">
+</dd>
+<dd>
 Node.js version 14 LTS has been announced in April 2020.
+</dd>
+<dd>
+<ul>
+<li><a href="https://developer.ibm.com/">IBM Developer</a>: <a href="https://developer.ibm.com/technologies/node-js/blogs/nodejs-14-ibm-release-blog/">Node.js 14 release</a>,<br/>by Michael Dawson, April 21, 2020.</li>
+<li><a href="https://medium.com/">Medium</a>: <a href="https://medium.com/@nodejs/node-js-version-14-available-now-8170d384567e">Node.js version 14 available now</a>, Node.js team, April 21, 2020.</li>
+</ul>
+</dd></dl>
 
-- [IBM Developer][ibm_developer]: [Node.js 14 release][ibm_nodejs_14],<br/>by Michael Dawson, April 21, 2020.
-- [Medium][medium_home]: [Node.js version 14 available now][medium_nodejs_14], Node.js team, April 21, 2020. 
-</p>
+<span id="footnote_02">[2]</span> ***Downloads*** [↩](#anchor_02)
 
-<span name="footnote_02">[2]</span> ***Downloads*** [↩](#anchor_02)
-
-<p style="margin:0 0 1em 20px;">
+<dl><dd>
 In our case we downloaded the following installation files (see <a href="#proj_deps">section 1</a>):
-</p>
-<pre style="margin:0 0 1em 20px; font-size:80%;">
+</dd>
+<dd>
+<pre style="font-size:80%;">
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-5.0.5.zip</a>  <i>(336 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.7-win-x64.zip </a>        <i>( 18 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.8-win-x64.zip </a>        <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.18.2-win-x64.zip </a>        <i>( 27 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.13.1-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.34.1-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
+</dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2021* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

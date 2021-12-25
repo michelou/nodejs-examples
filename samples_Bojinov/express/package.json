@@ -18,8 +18,8 @@
     "test": "node node_modules/mocha/bin/mocha"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
     "method-override": "^3.0.0",
     "moment": "^2.29.1",
     "pug": "^3.0.2",
@@ -30,11 +30,11 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
-    "eslint": "^8.2.0",
+    "eslint": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-promise": "^6.0.0",
     "grunt": "^1.4.1",
     "grunt-contrib-jshint": "^3.1.1",
     "grunt-contrib-watch": "^1.1.0",

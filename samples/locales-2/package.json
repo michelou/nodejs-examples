@@ -20,18 +20,18 @@
   "private": true,
   "license": "BSD",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.19.1",
     "ejs": "^3.1.6",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "i18n-abide": "^0.0.26",
     "method-override": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.2.0",
+    "eslint": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.1"
+    "eslint-plugin-promise": "^6.0.0"
   },
   "engines": {
     "node": ">=12.14.0",
