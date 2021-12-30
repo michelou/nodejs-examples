@@ -4,11 +4,11 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Lambert\</code></strong> contains <a href="https://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785">Lambert's book</a> "<i>Node.js - Exploitez la puissance de JavaScript côté serveur</i>" (<a href="https://www.editions-eni.fr/">ENI</a>, 2015).<br/>
-  Github repository: <a href="https://github.com/vatesfr/eni-nodejs">https://github.com/vatesfr/eni-nodejs</a></td>
+  Github repository: <a href="https://github.com/vatesfr/eni-nodejs" rel="external">https://github.com/vatesfr/eni-nodejs</a></td>
   </tr>
 </table>
 
-## `04-concepts`
+## <span id="04_concepts">`04-concepts`</span>
 
 Command [**`npm start`**](./04-concepts/async-downloads/package.json) executes application [**`app\async-downloads.js`**](./04-concepts/async-downloads/app/async-downloads.js) which produces the following output:
 
@@ -55,7 +55,7 @@ arborescence créée
 arborescence supprimée
 </pre>
 
-## `07-promises`
+## <span id="07_promises">`07-promises`</span>
 
 Command [**`npm run`**](./07-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
@@ -70,7 +70,7 @@ Scripts available in promises via `npm run-script`:
     babel src -d app & babel-node app/generator.js
 </pre>
 
-## `10-databases`
+## <span id="10_databases">`10-databases`</span>
 
 Command [**`npm run`**](./10-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
@@ -93,7 +93,7 @@ available via `npm run-script`:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

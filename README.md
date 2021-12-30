@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Deno][deno_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other trending topics we are currently monitoring.
+[Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other trending topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -26,7 +26,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (December 2021) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
+For instance our development environment looks as follows (January 2022) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.34.1\                          <i>(279.0 MB)</i>
@@ -47,10 +47,10 @@ bin\
 docs\
 samples\{<a href="samples/README.md">README.md</a>, <a href="samples/auth-passport/">auth-passport</a>, ..}
 samples_Bojinov\{<a href="samples_Bojinov/README.md">README.md</a>, <a href="samples_Bojinov/contacts-1-JSON/">contacts-1-JSON</a>, ..}
-samples_Cook\{<a href="samples_Cook/03_basic_auth/">03_basic_auth</a>, ..}
-samples_Duuna\{<a href="samples_Duuna/chp-3-networking/">chp-3-networking</a>, ..}
-samples_Lambert\{<a href="samples_Lambert/06-files/">06-files</a>, ..}
-samples_Pillora\{<a href="samples_Pillora/4-02-project/">4-02-project</a>, ..}
+samples_Cook\{<a href="samples_Cook/README.md">README.md</a>, <a href="samples_Cook/03_basic_auth/">03_basic_auth</a>, ..}
+samples_Duuna\{<a href="samples_Duuna/README.md">README.md</a>, <a href="samples_Duuna/chp-3-networking/">chp-3-networking</a>, ..}
+samples_Lambert\{<a href="samples_Lambert/README.md">README.md</a>, <a href="samples_Lambert/06-files/">06-files</a>, ..}
+samples_Pillora\{<a href="samples_Pillora/README.md">README.md</a>, <a href="samples_Pillora/4-02-project/">4-02-project</a>, ..}
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -281,7 +281,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -296,6 +296,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.34.1.txt
 [github_markdown]: https://github.github.com/gfm/
+[golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [ibm_developer]: https://developer.ibm.com/

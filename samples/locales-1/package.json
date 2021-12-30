@@ -20,7 +20,7 @@
   "private": true,
   "licence": "BSD",
   "dependencies": {
-    "i18n": "^0.13.3"
+    "i18n": "^0.13.4"
   },
   "devDependencies": {
     "eslint": "^8.5.0",

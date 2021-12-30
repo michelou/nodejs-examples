@@ -43,10 +43,10 @@ de /
 
 ## <span id="03_bear_token">`03_bear_token`</span>
 
-Command **`npm start`** starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token/config_TEMPLATE.json)):
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token" npm start</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 > bearer_token@1.0.0 start N:\samples_Cook\03_bearer_token
 > node .
@@ -69,10 +69,10 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ## <span id="03_bear_token2">`03_bear_token2`</span>
 
-Command **`npm start`** starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token2/config_TEMPLATE.json)):
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token2/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token2" npm start</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token2" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 > bearer_token2@1.0.0 start N:\samples_Cook\03_bearer_token2
 > node .
@@ -107,5 +107,5 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

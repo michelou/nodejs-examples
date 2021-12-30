@@ -7,12 +7,12 @@
   </tr>
 </table>
 
-## `auth-passport`
+## <span id="auth-passport">`auth-passport`</span>
 
-Command [**`npm start`**](auth-passport/package.json) executes application [**`app\app.js`**](./auth-passport/app/app.js) which prints the following output:
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application [**`app\app.js`**](./auth-passport/app/app.js) which prints the following output ([`package.json`](./auth-passort/package.json)):
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 > auth-passport@0.0.1 start N:\samples\auth-passport
 > node app/app.js
@@ -31,9 +31,9 @@ Express server listening on port 8180
 </pre>
 
 
-## `locales-1`
+## <span id="locales_1">`locales-1`</span>
 
-Command [**`npm start`**](./locales-1/package.json) executes application [**`app\app.js`**](./locales-1/app/app.js) which performs two tasks:
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application [**`app\app.js`**](./locales-1/app/app.js) which performs two tasks ([`package.json`](./locales-1/package.json)):
 
 - it starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./locales-1/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
@@ -57,9 +57,9 @@ Salut
 </pre>
 
 
-## `locales-2`
+## <span id="locales_2">`locales-2`</span>
 
-Command [**`npm start`**](./locales-2/package.json) executes application  [**`app\app.js`**](./locales-2/app/app.js) which performs two tasks:
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application  [**`app\app.js`**](./locales-2/app/app.js) which performs two tasks ([`package.json`](./locales-2/package.json)):
 
 - it starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./locales-2/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
@@ -83,7 +83,7 @@ de
 Command **`npm run client`** displays the following output in a separate Windows console:
 
 <pre style="font-size:80%;">
-<b>&gt; npm run client</b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm run client</a></b>
 
 > locales-2-app@0.0.1 client N:\samples\locales-2
 > node ./npm_scripts/start_client.js
@@ -126,12 +126,12 @@ de
 </pre>
 
 
-## `webaudio-sample`
+## <span id="webaudio">`webaudio-sample`</span>
 
-Executing command **`npm start`** in directory [**`samples\webaudio-sample\`**](./webaudio-sample/) plays the audio file [**`Paradise.m4a`**](./webaudio-sample/Paradise.m4a) in your default web browser:
+Executing command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) in directory [**`samples\webaudio-sample\`**](./webaudio-sample/) plays the audio file [**`Paradise.m4a`**](./webaudio-sample/Paradise.m4a) in your default web browser:
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 > music-engine@1.0.0 start N:\samples\webaudio-sample
 > node ./npm_scripts/start_browser.js && node .
@@ -144,5 +144,5 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>

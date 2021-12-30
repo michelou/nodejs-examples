@@ -28,10 +28,11 @@
 
 ## <span id="books">Books</span>
 
-- [Node.js Design Patterns](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110) (3<sup>rd</sup> Edition), by Mario Casciaro, Packt, July 2020.<br/><span style="font-size:80%;">(660 pp., ISBN 9781839214110)</span>
-- [ESTful Web API Design with Node.js 10][book_bojinov] (3<sup>rd</sup> Edition) by Valention Bojinov, April 2018.<br/><span style="font-size:80%;">(178 pp., ISBN 9781788623322)</span>
-- [Secure Your Node.js Web Application][book_duuna] by Karl Düüna, The Pragmatic Programmers, January 2016.<br/><span style="font-size:80%;">(230 pp., ISBN 9781680500851)</span>
-- [Node.js Essentials][book_cook] by Fabian Cook, Packt, August 2015.<br/><span style="font-size:80%;">(208 pp., ISBN 9781783551620)</span>
+- [Node Cookbook](https://www.packtpub.com/product/node-cookbook-fourth-edition/9781838558758) (4<sup>th</sup> Edition), by Bethany Griggs, November 2020.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8385-5875-8, 512 pages)</span>
+- [Node.js Design Patterns](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110) (3<sup>rd</sup> Edition), by Mario Casciaro, July 2020.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8392-1411-0, 660 pages)</span>
+- [ESTful Web API Design with Node.js 10][book_bojinov] (3<sup>rd</sup> Edition) by Valention Bojinov, April 2018.<br/><span style="font-size:80%;">(ISBN 978-1-7886-2332-2, 178 pages)</span>
+- [Secure Your Node.js Web Application][book_duuna] by Karl Düüna, January 2016.<br/><span style="font-size:80%;">(The Pragmatic Programmers, ISBN 978-1-6805-0085-1, 230 pages)</span>
+- [Node.js Essentials][book_cook] by Fabian Cook, August 2015.<br/><span style="font-size:80%;">( Packt, ISBN 978-1-7835-5162-0, 208 pages)</span>
 
 ## <span id="libraries">Libraries</span>
 

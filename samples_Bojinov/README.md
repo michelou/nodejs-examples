@@ -8,7 +8,7 @@
 </table>
 
 
-## `express`
+## <span id="express">`express`</span>
 
 Command [**`npm start`**](./express/package.json) executes application [**`app\app.js`**](./express/app/app.js) which performs two tasks:
 
@@ -36,7 +36,7 @@ The default browser displays the following contents in a new tab:
 </pre>
 
 
-## `hello-1`
+## <span id="hello_1">`hello-1`</span>
 
 Command [**`npm start`**](./hello-1/package.json) executes application [**`app\app.js`**](./hello-1/app/app.js) which performs two tasks:
 
@@ -56,7 +56,7 @@ requested (GET)
 </pre>
 
 
-## `math`
+## <span id="math">`math`</span>
 
 Command **`npm run test`** executes all test functions contained in directory [**`math\test`**](math/test/):
 
@@ -74,7 +74,7 @@ OK: 2 assertions (16ms)
 </pre>
 
 
-## `mock`
+## <span id="mock">`mock`</span>
 
 Command **`npm run test`** executes all test functions contained in directory [**`mock\test`**](mock/test/), in this case [**`test-http-module.js`**](mock/test/test-http-module.js):
 
@@ -92,7 +92,7 @@ OK: 0 assertions (184ms)
 </pre>
 
 
-## `routes`
+## <span id="routes">`routes`</span>
 
 Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./routes/app/app.js) which performs two tasks:
 
@@ -113,5 +113,5 @@ Server listening at 127.0.0.1:8180
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2021* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
