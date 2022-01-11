@@ -45,7 +45,7 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 14.18.1 (x64)
+Node runtime: 14.18.3 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -71,7 +71,7 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 14.18.1 (x64)
+Node runtime: 14.18.3 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3

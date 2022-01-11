@@ -18,14 +18,14 @@
     "express": "^4.17.2"
   },
   "devDependencies": {
-    "eslint": "^8.5.0",
+    "eslint": "^8.6.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   },
   "engines": {
-    "node": ">=12.14.0",
-    "npm": ">=6.13.0"
+    "node": ">=12.22.0",
+    "npm": ">=6.14.0"
   }
 }
