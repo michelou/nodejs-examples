@@ -13,6 +13,7 @@
 - [How the new ‘Top Level Await’ feature works in JavaScript][article_kesk], February 2020.
 - [Understanding Worker Threads in Node.js][article_parody] by Liz Parody, June 2019.
 - [Why and how to use ESLint in your project][article_roberts] by Sam Roberts, September 2017.
+- [Securing Node.js RESTful APIs with JSON Web Tokens][article_rahic] by Adnan Rahic, September 2017.
 
 ## <span id="blogs">Blogs</span>
 
@@ -50,13 +51,14 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
 [article_kesk]: https://javascript.plainenglish.io/javascript-top-level-await-in-a-nutshell-4e352b3fc8c8
 [article_parody]: https://nodesource.com/blog/worker-threads-nodejs/
+[article_rahic]: https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52
 [article_roberts]: https://developer.ibm.com/articles/why-and-how-to-use-eslint-in-your-project/
 [blog_eagles]: https://blog.logrocket.com/building-custom-node-js-event-emitters/
 [blog_herath]: https://blog.bitsrc.io/will-deno-catchup-with-nodejs-in-2021-7ab758429647
