@@ -30,7 +30,7 @@ For instance our development environment looks as follows (February 2022) <sup i
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.35.1\                          <i>(282 MB)</i>
-C:\opt\mongodb-win32-x86_64-windows-5.0.5\  <i>(  1 GB)</i>
+C:\opt\mongodb-win32-x86_64-windows-5.0.6\  <i>(  1 GB)</i>
 C:\opt\node-v12.22.10-win-x64\              <i>( 50 MB)</i>
 C:\opt\node-v14.19.0-win-x64\               <i>( 75 MB)</i>
 C:\opt\node-v16.13.2-win-x64\               <i>( 65 MB)</i>
@@ -129,7 +129,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v14.19.0, npm 6.14.15, node v16.13.2, npm 8.1.2
-   mongod v5.0.5, git 2.35.1.windows.1, diff 3.8
+   mongod v5.0.6, git 2.35.1.windows.1, diff 3.8
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v14.19.0-win-x64\npm
@@ -142,19 +142,19 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.19.0, npm 6.14.15, node v16.13.2, npm 8.1.2
-   mongod v5.0.5, git 2.35.1.windows.1, diff 3.8
+   mongod v5.0.6, git 2.35.1.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.19.0-win-x64\node.exe
    C:\opt\node-v14.19.0-win-x64\npm.cmd
    C:\opt\node-v16.13.2-win-x64\node.exe
    C:\opt\node-v16.13.2-win-x64\npm.cmd
-   C:\opt\mongodb-win32-x86_64-windows-5.0.5\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-windows-5.0.6\bin\mongod.exe
    C:\opt\Git-2.35.1\bin\git.exe
    C:\opt\Git-2.35.1\mingw64\bin\git.exe
    C:\opt\Git-2.35.1\usr\bin\diff.exe
 Environment variables:
    "GIT_HOME="C:\opt\Git-2.35.1"
-   "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-5.0.5"
+   "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-5.0.6"
    "NODE_HOME=C:\opt\node-v14.19.0-win-x64"
    "NODE14_HOME=C:\opt\node-v14.19.0-win-x64"
    "NODE16_HOME=C:\opt\node-v16.13.2-win-x64"
@@ -195,14 +195,14 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.19.0, npm 6.14.15, node v16.13.2, npm 8.1.2
-   mongod v5.0.5, git 2.35.1.windows.1, diff 3.8
+   mongod v5.0.6, git 2.35.1.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.19.0-win-x64\node.exe
    C:\opt\node-v14.19.0-win-x64\npm.cmd
    C:\opt\Git-2.35.1\bin\git.exe
    C:\opt\Git-2.35.1\mingw64\bin\git.exe
    C:\opt\Git-2.35.1\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-windows-5.0.5\bin\mongod.exe
+   C:\opt\mongodb-win32-x86_64-windows-5.0.6\bin\mongod.exe
 </pre>
 
 ### **`npm.cmd`**
@@ -271,7 +271,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-5.0.5.zip</a>  <i>(336 MB)</i>
+<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-5.0.6.zip</a>  <i>(336 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.10-win-x64.zip </a>       <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.19.0-win-x64.zip </a>        <i>( 27 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.13.2-win-x64.zip</a>         <i>( 25 MB)</i>
