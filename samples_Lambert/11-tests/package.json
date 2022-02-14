@@ -21,7 +21,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "leche": "^2.3.0",
     "mocha": "^9.2.0",
-    "sinon": "^12.0.1"
+    "sinon": "^13.0.1"
   },
   "engines": {
     "node": ">=12.22.0",

@@ -17,6 +17,9 @@
 
 ## <span id="blogs">Blogs</span>
 
+- [2ality](https://2ality.com/archive.html) Archives:
+  - [A pipe operator for JavaScript: introduction and use cases][blog_rauschmayer_pipe] by Alex Rauschmayer, January 2022.
+  - [Publishing and consuming ECMAScript modules via packages][blog_rauschmayer] by Axel Rauschmayer, January 2022.
 - [Introducing WebContainers: Run Node.js natively in your browser][blog_simons] by Eric Simons, May 2021.
 - [Node.js best practices and performance analytics in 2021][blog_omereshone] by Kelvin Omeresshone, May 2021.
 - [Developing a CRUD Node.js Application with PostgreSQL][blog_lemos] by Glaucia Lemos, April 2021.
@@ -67,6 +70,8 @@
 [blog_laszczak]: https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework
 [blog_lemos]: https://medium.com/@glaucia86/developing-a-crud-node-js-application-with-postgresql-d25febb1cc4
 [blog_omereshone]: https://blog.logrocket.com/node-js-best-practices-and-performance-analytics-in-2021/
+[blog_rauschmayer]: https://2ality.com/2022/01/esm-specifiers.html
+[blog_rauschmayer_pipe]: https://2ality.com/2022/01/pipe-operator.html
 [blog_simons]: https://blog.stackblitz.com/posts/introducing-webcontainers/
 [blog_torrao]: https://www.imaginarycloud.com/blog/deno-vs-node/
 [book_bojinov]: https://www.packtpub.com/product/restful-web-api-design-with-node-js-10-third-edition/9781788623322

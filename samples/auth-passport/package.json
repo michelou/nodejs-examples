@@ -28,14 +28,14 @@
     "connect-flash": "^0.1.1",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
-    "mongoose": "^6.1.8",
+    "mongoose": "^6.2.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "start": "^5.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.7.0",
+    "eslint": "^8.9.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
