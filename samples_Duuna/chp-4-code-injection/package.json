@@ -12,8 +12,8 @@
     "test": "./node_modules/.bin/mocha test"
   },
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "express": "^4.17.2",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "safe-eval": "^0.4.1"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
-    "mocha": "^9.2.0",
+    "mocha": "^9.2.1",
     "should": "^13.2.3",
     "zombie": "^6.1.4"
   },
