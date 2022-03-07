@@ -84,10 +84,10 @@ Command **`npm run client`** displays the following output in a separate Windows
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm run client</a></b>
-
+&nbsp;
 > locales-2-app@0.0.1 client N:\samples\locales-2
 > node ./npm_scripts/start_client.js
-
+&nbsp;
 en
 &lt;!DOCTYPE html&gt;
 <b>&lt;html</b> lang="en" dir="ltr"&gt;
@@ -99,7 +99,7 @@ en
   <b>&lt;h1&gt;</b>Hello<b>&lt;/h1&gt;</b>
 <b>&lt;/body&gt;</b>
 <b>&lt;/html&gt;</b>  
-
+&nbsp;
 fr 
 &lt;!DOCTYPE html&gt;
 <b>&lt;html</b> lang="fr" dir="ltr"&gt;
@@ -111,7 +111,7 @@ fr
   <b>&lt;h1&gt;</b>Salut<b>&lt;/h1&gt;</b>
 <b>&lt;/body&gt;</b>
 <b>&lt;/html&gt;</b>
-
+&nbsp;
 de
 &lt;!DOCTYPE html&gt;
 <b>&lt;html</b> lang="de" dir="ltr"&gt;
@@ -135,8 +135,8 @@ Executing command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-s
 
 > music-engine@1.0.0 start N:\samples\webaudio-sample
 > node ./npm_scripts/start_browser.js && node .
-
-
+&nbsp;
+&nbsp;
 Module search path: (none)
 Express server listening on port 8180
 Returning Paradise.m4a for request /music
@@ -144,5 +144,7 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
+
+<!-- link refs -->
