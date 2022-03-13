@@ -2,7 +2,7 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples\</code></strong> directory contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples coming from various websites - mostly from the <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> project.</td>
   </tr>
 </table>
@@ -45,7 +45,7 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 14.18.3 (x64)
+Node runtime: 14.19.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -71,7 +71,7 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 14.18.3 (x64)
+Node runtime: 14.19.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -128,7 +128,7 @@ de
 
 ## <span id="webaudio">`webaudio-sample`</span>
 
-Executing command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) in directory [**`samples\webaudio-sample\`**](./webaudio-sample/) plays the audio file [**`Paradise.m4a`**](./webaudio-sample/Paradise.m4a) in your default web browser:
+Command [**`npm start`**][npm_start] executes application [`app\app.js`](./webaudio-sample/app/app.js) which plays the audio file [**`Paradise.m4a`**](./webaudio-sample/app/Paradise.m4a) in your default web browser:
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
@@ -148,3 +148,5 @@ Returning Paradise.m4a for request /music
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
+
+[npm_start]: https://docs.npmjs.com/cli/v6/commands/npm-start

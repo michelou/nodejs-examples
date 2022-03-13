@@ -15,17 +15,17 @@
   "license": "BSD",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.3"
   },
   "devDependencies": {
-    "eslint": "^8.7.0",
+    "eslint": "^8.11.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   },
   "engines": {
-    "node": ">=12.22.0",
+    "node": ">=12.22.10",
     "npm": ">=6.14.0"
   }
 }

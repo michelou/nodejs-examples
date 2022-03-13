@@ -20,21 +20,21 @@
   "private": true,
   "license": "BSD",
   "dependencies": {
-    "body-parser": "^1.19.1",
+    "body-parser": "^1.19.2",
     "ejs": "^3.1.6",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "i18n-abide": "^0.0.26",
     "method-override": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.9.0",
+    "eslint": "^8.11.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   },
   "engines": {
-    "node": ">=14.19.0",
+    "node": ">=12.22.10",
     "npm": ">=6.14.0"
   }
 }
