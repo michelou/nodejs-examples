@@ -31,9 +31,9 @@ For instance our development environment looks as follows (March 2022) <sup id="
 <pre style="font-size:80%;">
 C:\opt\Git-2.35.1\                          <i>(282 MB)</i>
 C:\opt\mongodb-win32-x86_64-windows-5.0.6\  <i>(  1 GB)</i>
-C:\opt\node-v12.22.10-win-x64\              <i>( 50 MB)</i>
-C:\opt\node-v14.19.0-win-x64\               <i>( 75 MB)</i>
-C:\opt\node-v16.14.0-win-x64\               <i>( 65 MB)</i>
+C:\opt\node-v12.22.11-win-x64\              <i>( 45 MB)</i>
+C:\opt\node-v14.19.1-win-x64\               <i>( 76 MB)</i>
+C:\opt\node-v16.14.2-win-x64\               <i>( 66 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -98,9 +98,9 @@ We distinguish different sets of batch commands:
         help        display this help message
     &nbsp;
     <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
-    C:\opt\node-v14.19.0-win-x64\node.exe
-    C:\opt\node-v14.19.0-win-x64\npm
-    C:\opt\node-v14.19.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v14.19.1-win-x64\node.exe
+    C:\opt\node-v14.19.1-win-x64\npm
+    C:\opt\node-v14.19.1-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -128,12 +128,12 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.19.0, npm 6.14.15, node v16.14.0, npm 8.1.2
+   node v14.19.1, npm 6.14.15, node v16.14.2, npm 8.1.2
    mongod v5.0.6, git 2.35.1.windows.1, diff 3.8
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
-C:\opt\node-v14.19.0-win-x64\npm
-C:\opt\node-v14.19.0-win-x64\npm.cmd
+C:\opt\node-v14.19.1-win-x64\npm
+C:\opt\node-v14.19.1-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
@@ -141,13 +141,13 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.19.0, npm 6.14.15, node v16.14.0, npm 8.1.2
+   node v14.19.1, npm 6.14.15, node v16.14.2, npm 8.1.2
    mongod v5.0.6, git 2.35.1.windows.1, diff 3.8
 Tool paths:
-   C:\opt\node-v14.19.0-win-x64\node.exe
-   C:\opt\node-v14.19.0-win-x64\npm.cmd
-   C:\opt\node-v16.14.0-win-x64\node.exe
-   C:\opt\node-v16.14.0-win-x64\npm.cmd
+   C:\opt\node-v14.19.1-win-x64\node.exe
+   C:\opt\node-v14.19.1-win-x64\npm.cmd
+   C:\opt\node-v16.14.2-win-x64\node.exe
+   C:\opt\node-v16.14.2-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-windows-5.0.6\bin\mongod.exe
    C:\opt\Git-2.35.1\bin\git.exe
    C:\opt\Git-2.35.1\mingw64\bin\git.exe
@@ -155,9 +155,9 @@ Tool paths:
 Environment variables:
    "GIT_HOME="C:\opt\Git-2.35.1"
    "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-5.0.6"
-   "NODE_HOME=C:\opt\node-v14.19.0-win-x64"
-   "NODE14_HOME=C:\opt\node-v14.19.0-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.14.0-win-x64"
+   "NODE_HOME=C:\opt\node-v14.19.1-win-x64"
+   "NODE14_HOME=C:\opt\node-v14.19.1-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.14.2-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -194,11 +194,11 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.19.0, npm 6.14.15, node v16.14.0, npm 8.1.2
+   node v14.19.1, npm 6.14.15, node v16.14.2, npm 8.1.2
    mongod v5.0.6, git 2.35.1.windows.1, diff 3.8
 Tool paths:
-   C:\opt\node-v14.19.0-win-x64\node.exe
-   C:\opt\node-v14.19.0-win-x64\npm.cmd
+   C:\opt\node-v14.19.1-win-x64\node.exe
+   C:\opt\node-v14.19.1-win-x64\npm.cmd
    C:\opt\Git-2.35.1\bin\git.exe
    C:\opt\Git-2.35.1\mingw64\bin\git.exe
    C:\opt\Git-2.35.1\usr\bin\diff.exe
@@ -272,9 +272,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-5.0.6.zip</a>  <i>(336 MB)</i>
-<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.10-win-x64.zip </a>       <i>( 18 MB)</i>
-<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.19.0-win-x64.zip </a>        <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.14.0-win-x64.zip</a>         <i>( 25 MB)</i>
+<a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.11-win-x64.zip </a>       <i>( 18 MB)</i>
+<a href="https://nodejs.org/dist/latest-v14.x/">node-v14.19.1-win-x64.zip </a>        <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.14.2-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.35.1-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
@@ -325,11 +325,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs]: https://nodejs.org/
 [nodejs_node]: https://nodejs.org/api/cli.html#cli_command_line_options
 [nodejs_npm]: https://docs.npmjs.com/cli/npm
-[nodejs12_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.22.10
+[nodejs12_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.22.11
 [nodejs12_downloads]: https://nodejs.org/dist/latest-v12.x/
-[nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.19.0
+[nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.19.1
 [nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
-[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.14.0
+[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.14.2
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
