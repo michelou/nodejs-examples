@@ -24,11 +24,11 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
-    "body-parser": "^1.19.2",
+    "body-parser": "^1.20.0",
     "connect-flash": "^0.1.1",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
-    "mongoose": "^6.2.8",
+    "mongoose": "^6.2.9",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
