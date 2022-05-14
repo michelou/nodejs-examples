@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other trending topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other trending topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -29,7 +29,7 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (May 2022) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.36.0\                          <i>(280 MB)</i>
+C:\opt\Git-2.36.1\                          <i>(280 MB)</i>
 C:\opt\mongodb-win32-x86_64-windows-5.0.8\  <i>(  1 GB)</i>
 C:\opt\node-v12.22.12-win-x64\              <i>( 50 MB)</i>
 C:\opt\node-v14.19.2-win-x64\               <i>( 76 MB)</i>
@@ -129,7 +129,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v14.19.2, npm 6.14.17, node v16.15.0, npm 8.1.2
-   mongod v5.0.8, git 2.36.0.windows.1, diff 3.8
+   mongod v5.0.8, git 2.36.1.windows.1, diff 3.8
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v14.19.2-win-x64\npm
@@ -142,18 +142,18 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.19.2, npm 6.14.17, node v16.15.0, npm 8.1.2
-   mongod v5.0.8, git 2.36.0.windows.1, diff 3.8
+   mongod v5.0.8, git 2.36.1.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.19.2-win-x64\node.exe
    C:\opt\node-v14.19.2-win-x64\npm.cmd
    C:\opt\node-v16.15.0-win-x64\node.exe
    C:\opt\node-v16.15.0-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-windows-5.0.8\bin\mongod.exe
-   C:\opt\Git-2.36.0\bin\git.exe
-   C:\opt\Git-2.36.0\mingw64\bin\git.exe
-   C:\opt\Git-2.36.0\usr\bin\diff.exe
+   C:\opt\Git-2.36.1\bin\git.exe
+   C:\opt\Git-2.36.1\mingw64\bin\git.exe
+   C:\opt\Git-2.36.1\usr\bin\diff.exe
 Environment variables:
-   "GIT_HOME="C:\opt\Git-2.36.0"
+   "GIT_HOME="C:\opt\Git-2.36.1"
    "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-5.0.8"
    "NODE_HOME=C:\opt\node-v14.19.2-win-x64"
    "NODE14_HOME=C:\opt\node-v14.19.2-win-x64"
@@ -195,13 +195,13 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.19.2, npm 6.14.17, node v16.15.0, npm 8.1.2
-   mongod v5.0.8, git 2.36.0.windows.1, diff 3.8
+   mongod v5.0.8, git 2.36.1.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.19.2-win-x64\node.exe
    C:\opt\node-v14.19.2-win-x64\npm.cmd
-   C:\opt\Git-2.36.0\bin\git.exe
-   C:\opt\Git-2.36.0\mingw64\bin\git.exe
-   C:\opt\Git-2.36.0\usr\bin\diff.exe
+   C:\opt\Git-2.36.1\bin\git.exe
+   C:\opt\Git-2.36.1\mingw64\bin\git.exe
+   C:\opt\Git-2.36.1\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-windows-5.0.8\bin\mongod.exe
 </pre>
 
@@ -275,7 +275,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.12-win-x64.zip </a>       <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.19.2-win-x64.zip </a>        <i>( 27 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.15.0-win-x64.zip</a>         <i>( 25 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.36.0-64-bit.7z.exe</a>  <i>( 42 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.36.1-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
 
@@ -297,7 +297,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.36.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.36.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
@@ -334,6 +334,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [siege_refman]: https://www.joedog.org/siege-manual/
+[spark_examples]: https://github.com/michelou/spark-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
