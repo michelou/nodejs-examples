@@ -19,7 +19,7 @@
     "start": "node app/app.js"
   },
   "dependencies": {
-    "moment": "^2.29.3",
+    "moment": "^2.29.2",
     "mongoose": "^6.2.9"
   },
   "devDependencies": {
