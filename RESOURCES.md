@@ -28,6 +28,7 @@
 - [How to measure and improve Node.js performance][blog_johnstone] by Nick Johnstone, January 2021.
 - [Why Choose NestJS As Your Backend Framework?][blog_laszczak] by Grzegorz Laszczak, October 2020.
 - [Deno vs Node - comparison][blog_torrao] by Ricardo Torrao, October 2020.
+- [Excelling with Sinon.js][blog_stone] by Titus Stone, July 2018.
 - [Understanding V8's Bytecode][blog_hinkelmann] by Franziska Hinkelmann, August 2017.
 
 ## <span id="books">Books</span>
@@ -73,6 +74,7 @@
 [blog_rauschmayer]: https://2ality.com/2022/01/esm-specifiers.html
 [blog_rauschmayer_pipe]: https://2ality.com/2022/01/pipe-operator.html
 [blog_simons]: https://blog.stackblitz.com/posts/introducing-webcontainers/
+[blog_stone]: https://medium.com/building-ibotta/excelling-with-sinon-js-be35b974b75e
 [blog_torrao]: https://www.imaginarycloud.com/blog/deno-vs-node/
 [book_bojinov]: https://www.packtpub.com/product/restful-web-api-design-with-node-js-10-third-edition/9781788623322
 [book_cook]: https://www.packtpub.com/product/react-js-essentials/9781783551620

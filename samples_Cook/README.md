@@ -105,7 +105,29 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ## <span id="04_logging_morgan">`04_logging_morgan`</span>
 
-*WIP*
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./04_logging_morgan/config_TEMPLATE.json)):
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "logging_morgan" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
+
+> logging_morgan@1.0.0 start N:\samples_Cook\04_logging_morgan
+> node .
+
+Server running on port 8180
+GET /info 200 - - 1.651 ms
+</pre>
+
+Command **`npm run client`** sends a `GE` request to the server (endpoint `/info`): 
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-run-script">npm run</a> client</b>
+
+> bearer_token@1.0.0 client N:\samples_Cook\03_bearer_token2
+> node npm_scripts/start_client.js
+
+[2022-05-27 09:54:46 INFO] (start_client.js) curl -H "User-Agent: Mozilla/5.0" -X GET http://127.0.0.1:8180/info
+[2022-05-27 09:54:46 INFO] (start_client.js) json={"node":"14.19.3","v8":"8.4.371.23-node.87","uv":"1.42.0","zlib":"1.2.11","brotli":"1.0.9","ares":"1.18.1","modules":"83","nghttp2":"1.42.0","napi":"8","llhttp":"2.1.4","openssl":"1.1.1o","cldr":"40.0","icu":"70.1","tz":"2021a3","unicode":"14.0"}
+</pre>
 
 ***
 

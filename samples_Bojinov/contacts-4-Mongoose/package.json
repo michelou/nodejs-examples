@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "moment": "^2.29.3",
-    "mongoose": "^6.2.9"
+    "mongoose": "^6.3.4"
   },
   "devDependencies": {
     "eslint": "^8.14.0",
