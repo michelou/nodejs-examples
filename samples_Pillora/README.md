@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Pillora\</code></strong> contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples presented in <a href="https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner">Pillora's book</a> "<i>Getting Started with Grunt: The JavaScript Task Runner</i>" (Packet Publishing, 2014).<br/>
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Pillora\</code></strong> contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples presented in <a href="https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner" rel="external">Pillora's book</a> "<i>Getting Started with Grunt: The JavaScript Task Runner</i>" (Packet Publishing, 2014).<br/>
   Github repository: <a href="https://github.com/jpillora/gswg-examples.git" rel="external">https://github.com/jpillora/gswg-examples.git</a></td>
   </tr>
 </table>
@@ -36,7 +36,7 @@ Done.
 </pre>
 
 
-## `4-03-project`
+## `4-03-project` [**&#x25B4;**](#top)
 
 Same as `4-02-project`.
 
@@ -62,7 +62,7 @@ Same as `4-02-project`.
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

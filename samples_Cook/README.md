@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external" title="Node.js"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Cook\</code></strong> contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples presented in <a href="https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924">Fabian Cook's book</a> "<i>Node.js Essentials</i>" (Packt, 2015).</td>
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Cook\</code></strong> contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples presented in <a href="https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924" rel="external">Fabian Cook's book</a> "<i>Node.js Essentials</i>" (Packt, 2015).</td>
   </tr>
 </table>
 
@@ -41,7 +41,7 @@ fr /
 de /
 </pre>
 
-## <span id="03_bear_token">`03_bear_token`</span>
+## <span id="03_bear_token">`03_bear_token`</span> [**&#x25B4;**](#top)
 
 Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token/config_TEMPLATE.json)):
 
@@ -131,7 +131,7 @@ Command **`npm run client`** sends a `GE` request to the server (endpoint `/info
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

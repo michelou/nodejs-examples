@@ -74,7 +74,7 @@ OK: 2 assertions (16ms)
 </pre>
 
 
-## <span id="mock">`mock`</span>
+## <span id="mock">`mock`</span> [**&#x25B4;**](#top)
 
 Command **`npm run test`** executes all test functions contained in directory [**`mock\test`**](mock/test/), in this case [**`test-http-module.js`**](mock/test/test-http-module.js):
 
@@ -113,7 +113,7 @@ Server listening at 127.0.0.1:8180
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

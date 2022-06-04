@@ -55,7 +55,7 @@ arborescence créée
 arborescence supprimée
 </pre>
 
-## <span id="07_promises">`07-promises`</span>
+## <span id="07_promises">`07-promises`</span> [**&#x25B4;**](#top)
 
 Command [**`npm run`**](./07-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
@@ -93,7 +93,7 @@ available via `npm run-script`:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

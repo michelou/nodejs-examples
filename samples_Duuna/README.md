@@ -2,9 +2,9 @@
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" width="120" alt="Node.js logo"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Duuna\</code></strong> 
- contains <a href="https://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application">Düüna's book</a> "<i>Secure Your Node.js Web Application</i>" (<a href="https://pragprog.com/">The Pragmatic Programmers</a>, 2016).</td>
+ contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples presented in <a href="https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application">Düüna's book</a> "<i>Secure Your Node.js Web Application</i>" (<a href="https://pragprog.com/" rel="external">The Pragmatic Programmers</a>, 2016).</td>
   </tr>
 </table>
 
@@ -19,13 +19,13 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-3-networkin
 First we start the server application in a new console:
 
 <pre style="font-size:80%;">
-<b>&gt; start <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
+<b>&gt; start <a href="https://docs.npmjs.com/cli-documentation/start.html" rel="external">npm start</a></b>
 
 > cluster-main@1.0.0 start N:\samples_Duuna\chp-3-networking
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: v14.19.2 (x64)
+Node runtime: v14.19.3 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
@@ -49,7 +49,7 @@ hello world
 </pre>
 
 
-## `chp-4-code-injection`
+## `chp-4-code-injection` [**&#x25B4;**](#top)
 
 Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-injection\`**](./chp-4-code-injection/) performs two tasks:
 
@@ -63,14 +63,14 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: v14.19.2 (x64)
+Node runtime: v14.19.3 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
