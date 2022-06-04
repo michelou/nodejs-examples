@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "bunyan": "^1.8.15",
-    "moment": "^2.29.3",
+    "moment": "^2.29.2",
     "router": "^1.3.7"
   },
   "devDependencies": {
