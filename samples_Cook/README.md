@@ -126,12 +126,12 @@ Command **`npm run client`** sends a `GE` request to the server (endpoint `/info
 > node npm_scripts/start_client.js
 
 [2022-05-27 09:54:46 INFO] (start_client.js) curl -H "User-Agent: Mozilla/5.0" -X GET http://127.0.0.1:8180/info
-[2022-05-27 09:54:46 INFO] (start_client.js) json={"node":"14.19.3","v8":"8.4.371.23-node.87","uv":"1.42.0","zlib":"1.2.11","brotli":"1.0.9","ares":"1.18.1","modules":"83","nghttp2":"1.42.0","napi":"8","llhttp":"2.1.4","openssl":"1.1.1o","cldr":"40.0","icu":"70.1","tz":"2021a3","unicode":"14.0"}
+[2022-05-27 09:54:46 INFO] (start_client.js) json={"node":"14.20.0","v8":"8.4.371.23-node.87","uv":"1.42.0","zlib":"1.2.11","brotli":"1.0.9","ares":"1.18.1","modules":"83","nghttp2":"1.42.0","napi":"8","llhttp":"2.1.4","openssl":"1.1.1o","cldr":"40.0","icu":"70.1","tz":"2021a3","unicode":"14.0"}
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
