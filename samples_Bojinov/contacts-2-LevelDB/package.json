@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "errorhandler": "^1.5.1",
-    "eslint": "^8.17.0",
+    "eslint": "^8.21.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",

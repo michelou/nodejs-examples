@@ -14,14 +14,14 @@
   },
   "devDependencies": {
     "chai": "^4.3.6",
-    "eslint": "^8.14.0",
+    "eslint": "^8.21.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "leche": "^2.3.0",
     "mocha": "^10.0.0",
-    "sinon": "^13.0.1"
+    "sinon": "^14.0.0"
   },
   "engines": {
     "node": ">=12.22.0",

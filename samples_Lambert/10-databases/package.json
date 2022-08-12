@@ -16,10 +16,10 @@
   "dependencies": {
     "leveldown": "^6.1.1",
     "levelup": "^5.1.1",
-    "mongoose": "^6.3.5"
+    "mongoose": "^6.5.2"
   },
   "devDependencies": {
-    "eslint": "^8.17.0",
+    "eslint": "^8.21.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",

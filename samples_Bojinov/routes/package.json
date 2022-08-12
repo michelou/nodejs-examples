@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "chai": "^4.3.6",
-    "eslint": "^8.17.0",
+    "eslint": "^8.21.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "mocha": "^10.0.0",
-    "superagent": "^7.1.6"
+    "superagent": "^8.0.0"
   },
   "engines": {
     "node": ">=12.22.0",
