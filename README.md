@@ -29,11 +29,11 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (August 2022) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.37.1\                          <i>(289 MB)</i>
+C:\opt\Git-2.37.2\                          <i>(289 MB)</i>
 C:\opt\mongodb-win32-x86_64-windows-6.0.0\  <i>(  1 GB)</i>
 C:\opt\node-v12.22.12-win-x64\              <i>( 50 MB)</i>
 C:\opt\node-v14.20.0-win-x64\               <i>( 76 MB)</i>
-C:\opt\node-v16.16.0-win-x64\               <i>( 67 MB)</i>
+C:\opt\node-v16.17.0-win-x64\               <i>( 70 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -128,8 +128,8 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v14.20.0, npm 6.14.17, node v16.16.0, npm 8.5.0
-   mongod v6.0.0, git 2.37.1.windows.1, diff 3.8
+   node v14.20.0, npm 6.14.17, node v16.17.0, npm 8.5.0
+   mongod v6.0.0, git 2.37.2.windows.1, diff 3.8
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v14.20.0-win-x64\npm
@@ -141,23 +141,23 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.20.0, npm 6.14.17, node v16.16.0, npm 8.5.0
-   mongod v6.0.0, git 2.37.1.windows.1, diff 3.8
+   node v14.20.0, npm 6.14.17, node v16.17.0, npm 8.5.0
+   mongod v6.0.0, git 2.37.2.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.20.0-win-x64\node.exe
    C:\opt\node-v14.20.0-win-x64\npm.cmd
-   C:\opt\node-v16.16.0-win-x64\node.exe
-   C:\opt\node-v16.16.0-win-x64\npm.cmd
+   C:\opt\node-v16.17.0-win-x64\node.exe
+   C:\opt\node-v16.17.0-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-windows-6.0.0\bin\mongod.exe
-   C:\opt\Git-2.37.1\bin\git.exe
-   C:\opt\Git-2.37.1\mingw64\bin\git.exe
-   C:\opt\Git-2.37.1\usr\bin\diff.exe
+   C:\opt\Git-2.37.2\bin\git.exe
+   C:\opt\Git-2.37.2\mingw64\bin\git.exe
+   C:\opt\Git-2.37.2\usr\bin\diff.exe
 Environment variables:
-   "GIT_HOME="C:\opt\Git-2.37.1"
+   "GIT_HOME="C:\opt\Git-2.37.2"
    "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-6.0.0"
    "NODE_HOME=C:\opt\node-v14.20.0-win-x64"
    "NODE14_HOME=C:\opt\node-v14.20.0-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.16.0-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.17.0-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -194,14 +194,14 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v14.20.0, npm 6.14.17, node v16.16.0, npm 8.5.0
-   mongod v6.0.0, git 2.37.1.windows.1, diff 3.8
+   node v14.20.0, npm 6.14.17, node v16.17.0, npm 8.5.0
+   mongod v6.0.0, git 2.37.2.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.20.0-win-x64\node.exe
    C:\opt\node-v14.20.0-win-x64\npm.cmd
-   C:\opt\Git-2.37.1\bin\git.exe
-   C:\opt\Git-2.37.1\mingw64\bin\git.exe
-   C:\opt\Git-2.37.1\usr\bin\diff.exe
+   C:\opt\Git-2.37.2\bin\git.exe
+   C:\opt\Git-2.37.2\mingw64\bin\git.exe
+   C:\opt\Git-2.37.2\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-windows-6.0.0\bin\mongod.exe
 </pre>
 
@@ -274,8 +274,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-6.0.0.zip</a>  <i>(336 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.12-win-x64.zip </a>       <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.20.0-win-x64.zip </a>        <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.16.0-win-x64.zip</a>         <i>( 25 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.37.1-64-bit.7z.exe</a>  <i>( 42 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.17.0-win-x64.zip</a>         <i>( 25 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.37.2-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
 
@@ -297,7 +297,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.2.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples

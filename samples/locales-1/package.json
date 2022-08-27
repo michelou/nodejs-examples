@@ -23,11 +23,11 @@
     "i18n": "^0.15.0"
   },
   "devDependencies": {
-    "eslint": "^8.21.0",
+    "eslint": "^8.23.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.0.1",
     "mocha": "^10.0.0",
     "should": "^13.2.3",
     "zombie": "^6.1.4"
