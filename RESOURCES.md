@@ -45,6 +45,7 @@
 
 ## <span id="news">News</span>
 
+- **nodejs.org** News: [2022](https://nodejs.org/en/blog/), [2021](https://nodejs.org/en/blog/year-2021/), [2020](https://nodejs.org/en/blog/year-2020/), [2019](https://nodejs.org/en/blog/year-2019/).
 - [Node Weekly][news_node_weekly] Archives.
 
 ## <span id="tutorials">Tutorials</span>
@@ -55,7 +56,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

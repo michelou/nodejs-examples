@@ -26,11 +26,11 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (August 2022) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
+For instance our development environment looks as follows (September 2022) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.37.2\                          <i>(289 MB)</i>
-C:\opt\mongodb-win32-x86_64-windows-6.0.0\  <i>(  1 GB)</i>
+C:\opt\Git-2.37.3\                          <i>(289 MB)</i>
+C:\opt\mongodb-win32-x86_64-windows-6.0.1\  <i>(1.3 GB)</i>
 C:\opt\node-v12.22.12-win-x64\              <i>( 50 MB)</i>
 C:\opt\node-v14.20.0-win-x64\               <i>( 76 MB)</i>
 C:\opt\node-v16.17.0-win-x64\               <i>( 70 MB)</i>
@@ -129,7 +129,7 @@ Command [**`setenv`**](setenv.bat) is executed once to setup your development en
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v14.20.0, npm 6.14.17, node v16.17.0, npm 8.5.0
-   mongod v6.0.0, git 2.37.2.windows.1, diff 3.8
+   mongod v6.0.1, git 2.37.3.windows.1, diff 3.8
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> npm</b>
 C:\opt\node-v14.20.0-win-x64\npm
@@ -142,19 +142,19 @@ Command [**`setenv -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.20.0, npm 6.14.17, node v16.17.0, npm 8.5.0
-   mongod v6.0.0, git 2.37.2.windows.1, diff 3.8
+   mongod v6.0.1, git 2.37.3.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.20.0-win-x64\node.exe
    C:\opt\node-v14.20.0-win-x64\npm.cmd
    C:\opt\node-v16.17.0-win-x64\node.exe
    C:\opt\node-v16.17.0-win-x64\npm.cmd
-   C:\opt\mongodb-win32-x86_64-windows-6.0.0\bin\mongod.exe
-   C:\opt\Git-2.37.2\bin\git.exe
-   C:\opt\Git-2.37.2\mingw64\bin\git.exe
-   C:\opt\Git-2.37.2\usr\bin\diff.exe
+   C:\opt\mongodb-win32-x86_64-windows-6.0.1\bin\mongod.exe
+   C:\opt\Git-2.37.3\bin\git.exe
+   C:\opt\Git-2.37.3\mingw64\bin\git.exe
+   C:\opt\Git-2.37.3\usr\bin\diff.exe
 Environment variables:
-   "GIT_HOME="C:\opt\Git-2.37.2"
-   "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-6.0.0"
+   "GIT_HOME="C:\opt\Git-2.37.3"
+   "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-6.0.1"
    "NODE_HOME=C:\opt\node-v14.20.0-win-x64"
    "NODE14_HOME=C:\opt\node-v14.20.0-win-x64"
    "NODE16_HOME=C:\opt\node-v16.17.0-win-x64"
@@ -195,14 +195,14 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v14.20.0, npm 6.14.17, node v16.17.0, npm 8.5.0
-   mongod v6.0.0, git 2.37.2.windows.1, diff 3.8
+   mongod v6.0.1, git 2.37.3.windows.1, diff 3.8
 Tool paths:
    C:\opt\node-v14.20.0-win-x64\node.exe
    C:\opt\node-v14.20.0-win-x64\npm.cmd
-   C:\opt\Git-2.37.2\bin\git.exe
-   C:\opt\Git-2.37.2\mingw64\bin\git.exe
-   C:\opt\Git-2.37.2\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-windows-6.0.0\bin\mongod.exe
+   C:\opt\Git-2.37.3\bin\git.exe
+   C:\opt\Git-2.37.3\mingw64\bin\git.exe
+   C:\opt\Git-2.37.3\usr\bin\diff.exe
+   C:\opt\mongodb-win32-x86_64-windows-6.0.1\bin\mongod.exe
 </pre>
 
 ### **`npm.cmd`**
@@ -246,7 +246,8 @@ We make the choice to work with the latest <a href="https://github.com/nodejs/Re
 <dd>
 <table>
 <tr><th>LTS version</th><th>Start date</th><th>End-of-life</th></tr>
-<tr><td><a href="https://github.com/nodejs/Release">18.x</a></td><td>October 2022</td><td>April 2025</td></tr>
+<tr><td><a href="https://github.com/nodejs/Release">20.x</a></td><td>October 2023</td><td>April 2026</td></tr>
+<tr><td><a href="https://nodejs.org/dist/latest-v18.x/">18.x</a></td><td>October 2022</td><td>April 2025</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v16.x/">16.x</a></td><td>October 2021</td><td>April 2024</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v14.x/">14.x</a></td><td>October 2020</td><td>April 2023</td></tr>
 <tr><td><a href="https://nodejs.org/dist/latest-v12.x/">12.x</a></td><td>October 2019</td><td>April 2022</td></tr>
@@ -271,17 +272,17 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-6.0.0.zip</a>  <i>(336 MB)</i>
+<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-6.0.1.zip</a>  <i>(336 MB)</i>
 <a href="https://nodejs.org/dist/latest-v12.x/">node-v12.22.12-win-x64.zip </a>       <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.20.0-win-x64.zip </a>        <i>( 27 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.17.0-win-x64.zip</a>         <i>( 25 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.37.2-64-bit.7z.exe</a>  <i>( 42 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.37.3-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -297,7 +298,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.2.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.3.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
