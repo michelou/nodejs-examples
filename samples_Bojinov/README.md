@@ -49,7 +49,7 @@ Command [**`npm start`**](./hello-1/package.json) executes application [**`app\a
 &gt; hello1-app@0.0.1 start N:\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
-Node runtime: 14.20.1 (x64)
+Node runtime: 14.21.0 (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
@@ -106,14 +106,14 @@ Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./r
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: 14.20.1 (x64)
+Node runtime: 14.21.0 (x64)
 Module search path: N:\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

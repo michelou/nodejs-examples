@@ -10,7 +10,7 @@
 
 ## <span id="04_concepts">`04-concepts`</span>
 
-Command [**`npm start`**](./04-concepts/async-downloads/package.json) executes application [**`app\async-downloads.js`**](./04-concepts/async-downloads/app/async-downloads.js) which produces the following output:
+Command [**`npm.cmd start`**](./04-concepts/async-downloads/package.json) executes application [**`app\async-downloads.js`**](./04-concepts/async-downloads/app/async-downloads.js) which produces the following output:
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli-commands/start.html">npm start</a></b>
@@ -23,7 +23,7 @@ Tout s'est bien passé
 
 ## `06-files`
 
-Command [**`npm run`**](./06-files/package.json) displays the available [**`npm`** scripts][npm_scripts].
+Command [**`npm.cmd run`**](./06-files/package.json) displays the available [**`npm`** scripts][npm_scripts].
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a></b>
@@ -40,7 +40,7 @@ Scripts available in files via `npm run-script`:
     node app/watch.js
 </pre>
 
-Command [**`npm run dirs`**](./06-files/package.json) executes application [**`app/directories.js`**](./06-files/app/directories.js):
+Command [**`npm.cmd run dirs`**](./06-files/package.json) executes application [**`app/directories.js`**](./06-files/app/directories.js):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a> dirs</b>
@@ -57,7 +57,7 @@ arborescence supprimée
 
 ## <span id="07_promises">`07-promises`</span> [**&#x25B4;**](#top)
 
-Command [**`npm run`**](./07-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
+Command [**`npm.cmd run`**](./07-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli-commands/run-script.html">npm run</a></b>
@@ -93,7 +93,7 @@ available via `npm run-script`:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

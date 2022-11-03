@@ -11,7 +11,7 @@
 
 ## <span id="4-02">`4-02-project`</span>
 
-Command **`npm start`** performs two tasks when started in directory [**`samples_Pillora\4-02-project\`**](./4-02-project/):
+Command **`npm.cmd start`** performs two tasks when started in directory [**`samples_Pillora\4-02-project\`**](./4-02-project/):
 
 - it builds your project using [Grunt](https://gruntjs.com/) (see Grunt tasks in file [**`Gruntfile.js`**](./4-02-project/Gruntfile.js)).
 - it opens the **`build/app.html`** Web page in your default web browser.
@@ -62,7 +62,7 @@ Same as `4-02-project`.
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

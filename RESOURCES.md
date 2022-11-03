@@ -31,8 +31,9 @@
 - [Excelling with Sinon.js][blog_stone] by Titus Stone, July 2018.
 - [Understanding V8's Bytecode][blog_hinkelmann] by Franziska Hinkelmann, August 2017.
 
-## <span id="books">Books</span>
+## <span id="books">Books</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
 
+- [Node.js: Novice to Ninja](https://www.sitepoint.com/premium/books/node-js-novice-to-ninja/) by Craig Buckler, June 2022.<br/><span style="font-size:80%;">(SitePoint, ISBN 978-1-9258-3652-3, ? pages)</span>
 - [Node Cookbook](https://www.packtpub.com/product/node-cookbook-fourth-edition/9781838558758) (4<sup>th</sup> Edition), by Bethany Griggs, November 2020.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8385-5875-8, 512 pages)</span>
 - [Node.js Design Patterns](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110) (3<sup>rd</sup> Edition), by Mario Casciaro, July 2020.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8392-1411-0, 660 pages)</span>
 - [ESTful Web API Design with Node.js 10][book_bojinov] (3<sup>rd</sup> Edition) by Valention Bojinov, April 2018.<br/><span style="font-size:80%;">(ISBN 978-1-7886-2332-2, 178 pages)</span>
@@ -56,7 +57,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
