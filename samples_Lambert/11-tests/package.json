@@ -13,15 +13,15 @@
     "test": "mocha app/*.spec.js"
   },
   "devDependencies": {
-    "chai": "^4.3.6",
-    "eslint": "^8.21.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.27.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "leche": "^2.3.0",
-    "mocha": "^10.0.0",
-    "sinon": "^14.0.0"
+    "mocha": "^10.1.0",
+    "sinon": "^14.0.2"
   },
   "engines": {
     "node": ">=12.22.0",

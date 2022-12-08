@@ -1,8 +1,8 @@
 // See https://github.com/mashpie/i18n-node
 
-var http = require('http')
-var i18n = require('i18n')
-var path = require('path')
+const http = require('http')
+const i18n = require('i18n')
+const path = require('path')
 
 const config = require('../config.json')
 const host = config.host
@@ -13,7 +13,7 @@ i18n.configure({
   directory: path.join(__dirname, 'locales')
 })
 
-var server = http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
   i18n.init(req, res)
   res.end(res.__('Hello'))
 })

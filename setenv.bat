@@ -28,10 +28,10 @@ set _GIT_PATH=
 call :mongodb
 if not %_EXITCODE%==0 goto end
 
-call :node 14
+call :node 16
 if not %_EXITCODE%==0 goto end
 
-call :node 16
+call :node 18
 if not %_EXITCODE%==0 goto end
 
 call :git
@@ -231,7 +231,7 @@ if not exist "%_MONGODB_HOME%\bin\mongod.exe" (
 goto :eof
 
 @rem input parameter: %1=major version
-@rem output parameter: NODE14_HOME (resp. NODE16_HOME)
+@rem output parameter: NODE16_HOME (resp. NODE18_HOME)
 :node
 set __NODE_MAJOR=%~1
 set "_NODE!__NODE_MAJOR!_HOME="
@@ -316,16 +316,6 @@ set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
 set "__VERSIONS_LINE2=  "
 set __WHERE_ARGS=
-where /q "%NODE14_HOME%:node.exe"
-if %ERRORLEVEL%==0 (
-    for /f %%i in ('"%NODE14_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE14_HOME%:node.exe"
-)
-where /q "%NODE14_HOME%:npm.cmd"
-if %ERRORLEVEL%==0 (
-    for /f %%i in ('"%NODE14_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE14_HOME%:npm.cmd"
-)
 where /q "%NODE16_HOME%:node.exe"
 if %ERRORLEVEL%==0 (
     for /f %%i in ('"%NODE16_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
@@ -333,8 +323,18 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%NODE16_HOME%:npm.cmd"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('"%NODE16_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    for /f %%i in ('"%NODE16_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%NODE16_HOME%:npm.cmd"
+)
+where /q "%NODE18_HOME%:node.exe"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE18_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE18_HOME%:node.exe"
+)
+where /q "%NODE18_HOME%:npm.cmd"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE18_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE18_HOME%:npm.cmd"
 )
 where /q "%MONGO_HOME%\bin:mongod.exe"
 if %ERRORLEVEL%==0 (
@@ -361,9 +361,11 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined MONGODB_HOME echo    "MONGODB_HOME=%MONGODB_HOME%" 1>&2
     if defined NODE_HOME echo    "NODE_HOME=%NODE_HOME%" 1>&2
-    if defined NODE12_HOME echo    "NODE12_HOME=%NODE12_HOME%" 1>&2
     if defined NODE14_HOME echo    "NODE14_HOME=%NODE14_HOME%" 1>&2
     if defined NODE16_HOME echo    "NODE16_HOME=%NODE16_HOME%" 1>&2
+    if defined NODE18_HOME echo    "NODE18_HOME=%NODE18_HOME%" 1>&2
+    echo Path associations: 1>&2
+    for /f "delims=" %%i in ('subst') do echo    %%i 1>&2
 )
 goto :eof
 
@@ -375,11 +377,12 @@ endlocal & (
     if %_EXITCODE%==0 (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined MONGODB_HOME set "MONGODB_HOME=%_MONGODB_HOME%"
-        if not defined NODE_HOME set "NODE_HOME=%_NODE14_HOME%"
-        if not defined NODE12_HOME set "NODE12_HOME=%_NODE12_HOME%"
+        if not defined NODE_HOME set "NODE_HOME=%_NODE16_HOME%"
         if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
         if not defined NODE16_HOME set "NODE16_HOME=%_NODE16_HOME%"
-        set "PATH=%PATH%;%_NODE14_HOME%%_GIT_PATH%;%~dp0bin"
+        if not defined NODE18_HOME set "NODE18_HOME=%_NODE18_HOME%"
+        @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
+        set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE16_HOME%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%:" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME%: 1>&2
