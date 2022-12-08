@@ -28,14 +28,22 @@
     "connect-flash": "^0.1.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+<<<<<<< HEAD
     "mongoose": "^6.7.2",
+=======
+    "mongoose": "^6.7.5",
+>>>>>>> 986b18c70de4c6197b8462b1433bc8d4a9cbc2d3
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "start": "^5.1.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "eslint": "^8.27.0",
+=======
+    "eslint": "^8.28.0",
+>>>>>>> 986b18c70de4c6197b8462b1433bc8d4a9cbc2d3
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",

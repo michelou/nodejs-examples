@@ -34,6 +34,9 @@ if not %_EXITCODE%==0 goto end
 call :node 18
 if not %_EXITCODE%==0 goto end
 
+call :node 18
+if not %_EXITCODE%==0 goto end
+
 call :git
 if not %_EXITCODE%==0 goto end
 

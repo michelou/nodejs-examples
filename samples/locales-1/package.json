@@ -23,7 +23,11 @@
     "i18n": "^0.15.1"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "eslint": "^8.27.0",
+=======
+    "eslint": "^8.28.0",
+>>>>>>> 986b18c70de4c6197b8462b1433bc8d4a9cbc2d3
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",
