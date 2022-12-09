@@ -28,10 +28,10 @@ set _GIT_PATH=
 call :mongodb
 if not %_EXITCODE%==0 goto end
 
-call :node 16
+call :node 14
 if not %_EXITCODE%==0 goto end
 
-call :node 18
+call :node 16
 if not %_EXITCODE%==0 goto end
 
 call :node 18
