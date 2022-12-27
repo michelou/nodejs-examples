@@ -13,24 +13,14 @@
     "test": "mocha app/*.spec.js"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "chai": "^4.3.7",
-    "eslint": "^8.27.0",
-=======
-    "chai": "^4.3.6",
-    "eslint": "^8.28.0",
->>>>>>> 986b18c70de4c6197b8462b1433bc8d4a9cbc2d3
+    "eslint": "^8.30.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
-    "leche": "^2.3.0",
-    "mocha": "^10.1.0",
-<<<<<<< HEAD
-    "sinon": "^14.0.2"
-=======
-    "sinon": "^15.0.0"
->>>>>>> 986b18c70de4c6197b8462b1433bc8d4a9cbc2d3
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.1"
   },
   "engines": {
     "node": ">=14.21.0",
