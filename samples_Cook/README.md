@@ -9,9 +9,9 @@
 
 > **:mag_right:** The numbering used below &ndash; eg. `03` in example `03_basic_auth` &ndash; refers to the chapter where the example belongs to.
 
-## <span id="03_basic_auth">`03_basic_auth`</span>
+## <span id="03_basic_auth">`03_basic_auth` Example</span>
 
-Command **`npm.cmd start`** starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_basic_auth/config_TEMPLATE.json)):
+Command **`npm.cmd start`** starts the server application [`app\app.js`](./03_basic_auth/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_basic_auth/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cd">cd</a></b>
@@ -41,9 +41,9 @@ fr /
 de /
 </pre>
 
-## <span id="03_bear_token">`03_bear_token`</span> [**&#x25B4;**](#top)
+## <span id="03_bearer_token">`03_bearer_token` Example</span> [**&#x25B4;**](#top)
 
-Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token/config_TEMPLATE.json)):
+Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./03_bearer_token/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bearer_token/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
@@ -67,9 +67,9 @@ Command **`npm.cmd run client`** sends a `POST` request to the server (endpoint 
 token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpYXQiOjE1OTQ3NDY0ODJ9.xCpqkBxRTZ-JfC_HpB15GKur4tjJNuHEWFqhkXkCqtM
 </pre>
 
-## <span id="03_bear_token2">`03_bear_token2`</span>
+## <span id="03_bearer_token2">`03_bearer_token2` Example</span>
 
-Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bear_token2/config_TEMPLATE.json)):
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./03_bearer_token2/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bearer_token2/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token2" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
@@ -103,9 +103,9 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 ## <span id="04_logging_bunyan">`04_logging_bunyan`</span>
 -->
 
-## <span id="04_logging_morgan">`04_logging_morgan`</span>
+## <span id="04_logging_morgan">`04_logging_morgan` Example</span>
 
-Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./04_logging_morgan/config_TEMPLATE.json)):
+Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./04_logging_morgan/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./04_logging_morgan/config_TEMPLATE.json)):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "logging_morgan" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
@@ -131,7 +131,7 @@ Command **`npm.cmd run client`** sends a `GE` request to the server (endpoint `/
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

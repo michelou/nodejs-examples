@@ -31,7 +31,7 @@ Express server listening on port 8180
 </pre>
 
 
-## <span id="locales_1">`locales-1`</span>
+## <span id="locales_1">`locales-1` Example</span>
 
 Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application [**`app\app.js`**](./locales-1/app/app.js) which performs two tasks ([`package.json`](./locales-1/package.json)):
 
@@ -57,7 +57,7 @@ Salut
 </pre>
 
 
-## <span id="locales_2">`locales-2`</span>
+## <span id="locales_2">`locales-2` Example</span> [**&#x25B4;**](#top)
 
 Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application  [**`app\app.js`**](./locales-2/app/app.js) which performs two tasks ([`package.json`](./locales-2/package.json)):
 
@@ -126,7 +126,7 @@ de
 </pre>
 
 
-## <span id="webaudio">`webaudio-sample`</span>
+## <span id="webaudio">`webaudio-sample` Example</span>
 
 Command [**`npm start`**][npm_start] executes application [`app\app.js`](./webaudio-sample/app/app.js) which plays the audio file [**`Paradise.m4a`**](./webaudio-sample/app/Paradise.m4a) in your default web browser:
 
@@ -144,7 +144,7 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

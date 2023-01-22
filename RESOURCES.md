@@ -17,6 +17,7 @@
 
 ## <span id="blogs">Blogs</span>
 
+- [The Good and the Bad of Node.js Web App Programming][blog_altexsoft] by Altexsoft, November 2022.
 - [2ality](https://2ality.com/archive.html) Archives:
   - [A pipe operator for JavaScript: introduction and use cases][blog_rauschmayer_pipe] by Alex Rauschmayer, January 2022.
   - [Publishing and consuming ECMAScript modules via packages][blog_rauschmayer] by Axel Rauschmayer, January 2022.
@@ -31,12 +32,12 @@
 - [Excelling with Sinon.js][blog_stone] by Titus Stone, July 2018.
 - [Understanding V8's Bytecode][blog_hinkelmann] by Franziska Hinkelmann, August 2017.
 
-## <span id="books">Books</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+## <span id="books">Books</span> [**&#x25B4;**](#top)
 
 - [Node.js: Novice to Ninja](https://www.sitepoint.com/premium/books/node-js-novice-to-ninja/) by Craig Buckler, June 2022.<br/><span style="font-size:80%;">(SitePoint, ISBN 978-1-9258-3652-3, ? pages)</span>
 - [Node Cookbook](https://www.packtpub.com/product/node-cookbook-fourth-edition/9781838558758) (4<sup>th</sup> Edition), by Bethany Griggs, November 2020.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8385-5875-8, 512 pages)</span>
 - [Node.js Design Patterns](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110) (3<sup>rd</sup> Edition), by Mario Casciaro, July 2020.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8392-1411-0, 660 pages)</span>
-- [ESTful Web API Design with Node.js 10][book_bojinov] (3<sup>rd</sup> Edition) by Valention Bojinov, April 2018.<br/><span style="font-size:80%;">(ISBN 978-1-7886-2332-2, 178 pages)</span>
+- [RESTful Web API Design with Node.js 10][book_bojinov] (3<sup>rd</sup> Edition) by Valention Bojinov, April 2018.<br/><span style="font-size:80%;">(ISBN 978-1-7886-2332-2, 178 pages)</span>
 - [Secure Your Node.js Web Application][book_duuna] by Karl Düüna, January 2016.<br/><span style="font-size:80%;">(The Pragmatic Programmers, ISBN 978-1-6805-0085-1, 230 pages)</span>
 - [Node.js Essentials][book_cook] by Fabian Cook, August 2015.<br/><span style="font-size:80%;">( Packt, ISBN 978-1-7835-5162-0, 208 pages)</span>
 
@@ -57,7 +58,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -66,6 +67,7 @@
 [article_parody]: https://nodesource.com/blog/worker-threads-nodejs/
 [article_rahic]: https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52
 [article_roberts]: https://developer.ibm.com/articles/why-and-how-to-use-eslint-in-your-project/
+[blog_altexsoft]: https://www.altexsoft.com/blog/engineering/the-good-and-the-bad-of-node-js-web-app-development/
 [blog_eagles]: https://blog.logrocket.com/building-custom-node-js-event-emitters/
 [blog_herath]: https://blog.bitsrc.io/will-deno-catchup-with-nodejs-in-2021-7ab758429647
 [blog_hinkelmann]: https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775
