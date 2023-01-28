@@ -59,4 +59,5 @@ cleanup.Cleanup(function () {
 
 http.createServer(app).listen(port, function () {
   console.log('[app.js] Server listening on port ' + port)
+  console.log('(press Ctrl-C to kill the application)')
 })

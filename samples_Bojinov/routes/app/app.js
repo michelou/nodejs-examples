@@ -31,4 +31,5 @@ app.listen(port, host, function () {
   console.log('Node runtime: ' + process.versions.node + ' (' + process.arch + ')')
   console.log('Module search path: ' + (process.env.NODE_PATH || '(none)'))
   console.log('Server listening at ' + host + ':' + port)
+  console.log('(press Ctrl-C to kill the application)')
 })
