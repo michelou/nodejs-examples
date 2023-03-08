@@ -1,6 +1,6 @@
 # <span id="top">Node.js examples from Bojinov's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <a href="."><strong><code>samples_Bojinov\</code></strong></a> contains <a href="https://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138">Bojinov's book</a> "<i>RESTful Web API Design with Node.js</i>" (<a href="https://www.packtpub.com/" rel="external" title="Packt Publishing">Packt</a>, 2015).</td>
@@ -106,14 +106,14 @@ Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./r
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: 16.19.0 (x64)
+Node runtime: 16.19.1 (x64)
 Module search path: N:\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

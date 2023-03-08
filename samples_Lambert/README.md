@@ -1,6 +1,6 @@
 # <span id="top">Node.js examples from Lambert's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Lambert\</code></strong> contains <a href="https://nodejs.org/" alt="Node.js">Node.js</a> examples presented in <a href="https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785">Lambert's book</a> "<i>Node.js - Exploitez la puissance de JavaScript côté serveur</i>" (<a href="https://www.editions-eni.fr/">ENI</a>, 2015).<br/>
@@ -8,7 +8,7 @@
   </tr>
 </table>
 
-## <span id="04_concepts">`04-concepts`</span>
+## <span id="04_concepts">`04-concepts` Example</span>
 
 Command [**`npm.cmd start`**](./04-concepts/async-downloads/package.json) executes application [**`app\async-downloads.js`**](./04-concepts/async-downloads/app/async-downloads.js) which produces the following output:
 
@@ -21,7 +21,7 @@ Command [**`npm.cmd start`**](./04-concepts/async-downloads/package.json) execut
 Tout s'est bien passé
 </pre>
 
-## `06-files`
+## <span id="06_files">`06-files` Example</span>
 
 Command [**`npm.cmd run`**](./06-files/package.json) displays the available [**`npm`** scripts][npm_scripts].
 
@@ -55,7 +55,7 @@ arborescence créée
 arborescence supprimée
 </pre>
 
-## <span id="07_promises">`07-promises`</span> [**&#x25B4;**](#top)
+## <span id="07_promises">`07-promises` Example</span> [**&#x25B4;**](#top)
 
 Command [**`npm.cmd run`**](./07-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
@@ -70,7 +70,7 @@ Scripts available in promises via `npm run-script`:
     babel src -d app & babel-node app/generator.js
 </pre>
 
-## <span id="10_databases">`10-databases`</span>
+## <span id="10_databases">`10-databases` Example</span>
 
 Command [**`npm run`**](./10-promises/package.json) displays the available [**`npm`** scripts][npm_scripts]:
 
@@ -93,7 +93,7 @@ available via `npm run-script`:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -1,6 +1,6 @@
 # <span id="top">Node.js examples from Düüna's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Duuna\</code></strong> 
@@ -9,7 +9,7 @@
 </table>
 
 
-## `chp-3-networking`
+## <span id="networking">`chp-3-networking` Example</span>
 
 Executing command **`npm start`** in directory [**`samples_Duuna\chp-3-networking\`**](./chp-3-networking/) performs two tasks:
 
@@ -63,14 +63,14 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: v16.19.0 (x64)
+Node runtime: v16.19.1 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

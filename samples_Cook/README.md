@@ -1,6 +1,6 @@
 # <span id="top">Node.js examples from Cook's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external" title="Node.js"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>samples_Cook\</code></strong> contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples presented in <a href="https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924" rel="external">Fabian Cook's book</a> "<i>Node.js Essentials</i>" (Packt, 2015).</td>
@@ -131,7 +131,7 @@ Command **`npm.cmd run client`** sends a `GE` request to the server (endpoint `/
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
