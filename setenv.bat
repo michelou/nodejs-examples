@@ -24,9 +24,14 @@ if %_HELP%==1 (
 )
 
 set _GIT_PATH=
+set _MONGOSH_PATH=
 
 call :mongodb
 if not %_EXITCODE%==0 goto end
+
+call :mongosh
+@rem optional
+@rem if not %_EXITCODE%==0 goto end
 
 call :node 14
 if not %_EXITCODE%==0 goto end
@@ -196,7 +201,7 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
+echo     %__BEG_O%-debug%__END%      display commands executed by this script
 echo     %__BEG_O%-verbose%__END%    display progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
@@ -210,7 +215,7 @@ set _MONGODB_HOME=
 set __MONGOD_CMD=
 for /f %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
 if defined __MONGOD_CMD (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongdoDB daaemon executable found in PATH 1>&2
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB daemon executable found in PATH 1>&2
     goto :eof
 ) else if defined MONGODB_HOME (
     set "_MONGODB_HOME=%MONGODB_HOME%"
@@ -231,6 +236,38 @@ if not exist "%_MONGODB_HOME%\bin\mongod.exe" (
     set _EXITCODE=1
     goto :eof
 )
+goto :eof
+
+@rem output parameter: _MONGOSH_HOME, _MONGOSH_PATH
+:mongosh
+set _MONGOSH_HOME=
+set _MONGOSH_PATH=
+
+set __MONGOSH_CMD=
+for /f %%f in ('where mongosh.exe 2^>NUL') do set "__MONGOSH_CMD=%%f"
+if defined __MONGOSH_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB Shell executable found in PATH 1>&2
+    goto :eof
+) else if defined MONGOSH_HOME (
+    set "_MONGOSH_HOME=%MONGOSH_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MONGOSH_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\mongosh\" ( set "_MONGOSH_HOME=!__PATH!\mongosh"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\mongosh*" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
+        if not defined _MONGOSH_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f %%f in ('dir /ad /b "!__PATH!\mongosh-**" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
+        )
+    )
+)
+if not exist "%_MONGOSH_HOME%\bin\mongosh.exe" (
+    echo %_ERROR_LABEL% MongoDB Shell executable not found ^(%_MONGOSH_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_MONGOSH_PATH=;%_MONGOSH_HOME%\bin"
 goto :eof
 
 @rem input parameter: %1=major version
@@ -339,10 +376,15 @@ if %ERRORLEVEL%==0 (
     for /f %%i in ('"%NODE18_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
     set __WHERE_ARGS=%__WHERE_ARGS% "%NODE18_HOME%:npm.cmd"
 )
-where /q "%MONGO_HOME%\bin:mongod.exe"
+where /q "%MONGODB_HOME%\bin:mongod.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('"%MONGO_HOME%\bin\mongod.exe" --version ^| findstr /b db') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongod %%k,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%MONGO_HOME%\bin:mongod.exe"
+    for /f "tokens=1,2,*" %%i in ('"%MONGODB_HOME%\bin\mongod.exe" --version ^| findstr /b db') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongod %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%MONGODB_HOME%\bin:mongod.exe"
+)
+where /q "%MONGOSH_HOME%\bin:mongosh.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=*" %%i in ('"%MONGOSH_HOME%\bin\mongosh.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongosh %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%MONGOSH_HOME%\bin:mongosh.exe"
 )
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
@@ -363,6 +405,7 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     echo Environment variables: 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined MONGODB_HOME echo    "MONGODB_HOME=%MONGODB_HOME%" 1>&2
+    if defined MONGOSH_HOME echo    "MONGOSH_HOME=%MONGOSH_HOME%" 1>&2
     if defined NODE_HOME echo    "NODE_HOME=%NODE_HOME%" 1>&2
     if defined NODE14_HOME echo    "NODE14_HOME=%NODE14_HOME%" 1>&2
     if defined NODE16_HOME echo    "NODE16_HOME=%NODE16_HOME%" 1>&2
@@ -380,12 +423,13 @@ endlocal & (
     if %_EXITCODE%==0 (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined MONGODB_HOME set "MONGODB_HOME=%_MONGODB_HOME%"
+        if not defined MONGOSH_HOME set "MONGOSH_HOME=%_MONGOSH_HOME%"
         if not defined NODE_HOME set "NODE_HOME=%_NODE16_HOME%"
         if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
         if not defined NODE16_HOME set "NODE16_HOME=%_NODE16_HOME%"
         if not defined NODE18_HOME set "NODE18_HOME=%_NODE18_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE16_HOME%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE16_HOME%%_MONGOSH_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%:" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME%: 1>&2
