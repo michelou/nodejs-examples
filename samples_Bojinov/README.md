@@ -8,7 +8,7 @@
 </table>
 
 
-## <span id="express">`express`</span>
+## <span id="express">`express` Example</span>
 
 Command [**`npm start`**](./express/package.json) executes application [**`app\app.js`**](./express/app/app.js) which performs two tasks:
 
@@ -36,7 +36,7 @@ The default browser displays the following contents in a new tab:
 </pre>
 
 
-## <span id="hello_1">`hello-1`</span>
+## <span id="hello_1">`hello-1` Example</span>
 
 Command [**`npm start`**](./hello-1/package.json) executes application [**`app\app.js`**](./hello-1/app/app.js) which performs two tasks:
 
@@ -113,7 +113,7 @@ Server listening at 127.0.0.1:8180
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

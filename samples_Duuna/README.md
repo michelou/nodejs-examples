@@ -49,7 +49,7 @@ hello world
 </pre>
 
 
-## `chp-4-code-injection` [**&#x25B4;**](#top)
+## <span id="code-injection">`chp-4-code-injection` Example</span> [**&#x25B4;**](#top)
 
 Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-injection\`**](./chp-4-code-injection/) performs two tasks:
 
@@ -70,7 +70,7 @@ Server listening on port 3000
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

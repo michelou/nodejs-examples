@@ -27,7 +27,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_win] provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (March 2023) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
+For instance our development environment looks as follows (*April 2023*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.40.0\                          <i>(314 MB)</i>
@@ -131,7 +131,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup your developmen
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v16.19.1, npm 9.6.0, node v18.15.0, npm 9.6.0
-   mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.8
+   mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
 C:\opt\mongosh-1.8.0-win32-x64\bin\mongosh.exe
@@ -145,7 +145,7 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.19.1, npm 9.6.0, node v18.15.0, npm 9.6.0
-   mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.8
+   mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v16.19.1-win-x64\node.exe
    C:\opt\node-v16.19.1-win-x64\npm.cmd
@@ -200,7 +200,7 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.19.1, npm 9.6.0, node v18.15.0, npm 9.6.0
-   mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.8
+   mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v18.15.0-win-x64\node.exe
    C:\opt\node-v18.15.0-win-x64\npm.cmd
@@ -289,7 +289,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

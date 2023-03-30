@@ -7,7 +7,7 @@
   </tr>
 </table>
 
-## <span id="auth-passport">`auth-passport`</span>
+## <span id="auth-passport">`auth-passport` Example</span>
 
 Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application [**`app\app.js`**](./auth-passport/app/app.js) which prints the following output ([`package.json`](./auth-passort/package.json)):
 
@@ -144,7 +144,7 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
