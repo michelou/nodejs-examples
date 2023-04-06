@@ -13,7 +13,7 @@
 
 ## <span id="proj_deps">Project dependencies</span>
 
-This project depends on two external software for the **Microsoft Windows** plaform:
+This project depends on the following external software for the **Microsoft Windows** platform:
 
 - [Git 2.40][git_downloads] ([*release notes*][git_relnotes])
 - [MongoDB 6.0][mongodb_downloads] ([*release notes*][mongodb6_relnotes])
@@ -34,7 +34,7 @@ C:\opt\Git-2.40.0\                          <i>(314 MB)</i>
 C:\opt\mongodb-win32-x86_64-windows-6.0.5\  <i>(1.3 GB)</i>
 C:\opt\mongosh-1.8.0-win32-x64\             <i>( 89 MB)</i>
 C:\opt\node-v14.21.3-win-x64\               <i>( 50 MB)</i>
-C:\opt\node-v16.19.1-win-x64\               <i>( 71 MB)</i>
+C:\opt\node-v16.20.0-win-x64\               <i>( 71 MB)</i>
 C:\opt\node-v18.15.0-win-x64\               <i>( 78 MB)</i>
 </pre>
 
@@ -130,7 +130,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup your developmen
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v16.19.1, npm 9.6.0, node v18.15.0, npm 9.6.0
+   node v16.20.0, npm 9.6.0, node v18.15.0, npm 9.6.0
    mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
@@ -144,11 +144,11 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.19.1, npm 9.6.0, node v18.15.0, npm 9.6.0
+   node v16.20.0, npm 9.6.0, node v18.15.0, npm 9.6.0
    mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 Tool paths:
-   C:\opt\node-v16.19.1-win-x64\node.exe
-   C:\opt\node-v16.19.1-win-x64\npm.cmd
+   C:\opt\node-v16.20.0-win-x64\node.exe
+   C:\opt\node-v16.20.0-win-x64\npm.cmd
    C:\opt\node-v18.15.0-win-x64\node.exe
    C:\opt\node-v18.15.0-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-windows-6.0.5\bin\mongod.exe
@@ -162,7 +162,7 @@ Environment variables:
    "MONGOSH_HOME=C:\opt\mongosh-1.8.0-win32-x64"
    "NODE_HOME=C:\opt\node-v18.15.0-win-x64"
    "NODE18_HOME=C:\opt\node-v18.15.0-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.19.1-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.20.0-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -199,7 +199,7 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.19.1, npm 9.6.0, node v18.15.0, npm 9.6.0
+   node v16.20.0, npm 9.6.0, node v18.15.0, npm 9.6.0
    mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v18.15.0-win-x64\node.exe
@@ -281,7 +281,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-6.0.5.zip</a>  <i>(336 MB)</i>
 <a href="https://www.mongodb.com/try/download/shell">mongosh-1.8.0-win32-x64.zip</a>       <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.21.3-win-x64.zip </a>        <i>( 18 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.19.1-win-x64.zip</a>         <i>( 25 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.0-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.15.0-win-x64.zip </a>        <i>( 27 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.40.0-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
@@ -343,7 +343,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs12_downloads]: https://nodejs.org/dist/latest-v12.x/
 [nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.21.3
 [nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
-[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.19.1
+[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.20.0
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
 [nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.15.0
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
