@@ -130,7 +130,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup your developmen
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v16.20.0, npm 9.6.0, node v18.15.0, npm 9.6.0
+   node v16.20.0, npm 9.6.4, node v18.15.0, npm 9.6.4
    mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
@@ -144,7 +144,7 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.20.0, npm 9.6.0, node v18.15.0, npm 9.6.0
+   node v16.20.0, npm 9.6.4, node v18.15.0, npm 9.6.4
    mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v16.20.0-win-x64\node.exe
@@ -199,7 +199,7 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.20.0, npm 9.6.0, node v18.15.0, npm 9.6.0
+   node v16.20.0, npm 9.6.4, node v18.15.0, npm 9.6.4
    mongod v6.0.5, mongosh 1.8.0, git 2.40.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v18.15.0-win-x64\node.exe
