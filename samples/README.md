@@ -1,6 +1,6 @@
 # <span id="top">Node.js examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples\</code></strong> directory contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples coming from various websites - mostly from the <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> project.</td>
@@ -71,7 +71,7 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 18.15.0 (x64)
+Node runtime: 18.16.0 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -144,7 +144,7 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

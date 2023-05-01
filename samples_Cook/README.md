@@ -11,7 +11,7 @@
 
 ## <span id="03_basic_auth">`03_basic_auth` Example</span>
 
-Command **`npm.cmd start`** starts the server application [`app\app.js`](./03_basic_auth/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_basic_auth/config_TEMPLATE.json)):
+Command **`npm.cmd start`** starts the server application [`app\app.js`](./03_basic_auth/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_basic_auth/config_TEMPLATE.json) <sup id="anchor_01">[1](#footnote_01)</sup>):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cd">cd</a></b>
@@ -43,7 +43,7 @@ de /
 
 ## <span id="03_bearer_token">`03_bearer_token` Example</span> [**&#x25B4;**](#top)
 
-Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./03_bearer_token/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bearer_token/config_TEMPLATE.json)):
+Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./03_bearer_token/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bearer_token/config_TEMPLATE.json) <sup id="anchor_01">[1](#footnote_01)</sup>):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
@@ -69,7 +69,7 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ## <span id="03_bearer_token2">`03_bearer_token2` Example</span>
 
-Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./03_bearer_token2/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bearer_token2/config_TEMPLATE.json)):
+Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./03_bearer_token2/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./03_bearer_token2/config_TEMPLATE.json) <sup id="anchor_01">[1](#footnote_01)</sup>):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "bear_token2" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
@@ -105,7 +105,7 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJmb28iLCJpY
 
 ## <span id="04_logging_morgan">`04_logging_morgan` Example</span>
 
-Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./04_logging_morgan/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./04_logging_morgan/config_TEMPLATE.json)):
+Command [**`npm.cmd start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) starts the server application [`app\app.js`](./04_logging_morgan/app/app.js) which listen to our requests on port **`8180`** (defined in file [**`config.json`**](./04_logging_morgan/config_TEMPLATE.json) <sup id="anchor_01">[1](#footnote_01)</sup>):
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "logging_morgan" <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
@@ -129,9 +129,19 @@ Command **`npm.cmd run client`** sends a `GE` request to the server (endpoint `/
 [2022-05-27 09:54:46 INFO] (start_client.js) json={"node":"14.20.0","v8":"8.4.371.23-node.87","uv":"1.42.0","zlib":"1.2.11","brotli":"1.0.9","ares":"1.18.1","modules":"83","nghttp2":"1.42.0","napi":"8","llhttp":"2.1.4","openssl":"1.1.1o","cldr":"40.0","icu":"70.1","tz":"2021a3","unicode":"14.0"}
 </pre>
 
+<!--=======================================================================-->
+
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
+
+<span id="footnote_01">[1]</span> **`config.json`** [↩](#anchor_01)
+
+<dl><dd>
+Only the template file <a href="./03_basic_auth/config_TEMPLATE.json"><code>config_TEMPLATE.json</code></a> is stored in our GitHub repository. The user has to copy it to <code>config.json</code> and update the two JSON fields <code>host</code> and <code>port</code> as desired <i>before</i> running the above code examples.
+</dd></dl>
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

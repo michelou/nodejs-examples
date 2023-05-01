@@ -42,6 +42,9 @@ if not %_EXITCODE%==0 goto end
 call :node 18
 if not %_EXITCODE%==0 goto end
 
+call :node 20
+if not %_EXITCODE%==0 goto end
+
 call :git
 if not %_EXITCODE%==0 goto end
 
@@ -355,6 +358,7 @@ goto :eof
 set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
 set "__VERSIONS_LINE2=  "
+set "__VERSIONS_LINE3=  "
 set __WHERE_ARGS=
 where /q "%NODE16_HOME%:node.exe"
 if %ERRORLEVEL%==0 (
@@ -388,17 +392,23 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% git %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:git.exe"
 )
-where /q diff.exe
+where /q "%GIT_HOME%\usr\bin:diff.exe"
 if %ERRORLEVEL%==0 (
-   for /f "tokens=1-3,*" %%i in ('diff.exe --version ^| findstr diff') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% diff %%l"
-    set __WHERE_ARGS=%__WHERE_ARGS% diff.exe
+   for /f "tokens=1-3,*" %%i in ('"%GIT_HOME%\usr\bin\diff.exe" --version ^| findstr diff') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% diff %%l,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\usr\bin:diff.exe"
+)
+where /q "%GIT_HOME%\bin:bash.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% bash %%l"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:bash.exe"
 )
 echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
+echo %__VERSIONS_LINE3%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
@@ -410,6 +420,7 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     if defined NODE14_HOME echo    "NODE14_HOME=%NODE14_HOME%" 1>&2
     if defined NODE16_HOME echo    "NODE16_HOME=%NODE16_HOME%" 1>&2
     if defined NODE18_HOME echo    "NODE18_HOME=%NODE18_HOME%" 1>&2
+    if defined NODE20_HOME echo    "NODE20_HOME=%NODE20_HOME%" 1>&2
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do echo    %%i 1>&2
 )
@@ -424,10 +435,11 @@ endlocal & (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined MONGODB_HOME set "MONGODB_HOME=%_MONGODB_HOME%"
         if not defined MONGOSH_HOME set "MONGOSH_HOME=%_MONGOSH_HOME%"
-        if not defined NODE_HOME set "NODE_HOME=%_NODE16_HOME%"
+        if not defined NODE_HOME set "NODE_HOME=%_NODE18_HOME%"
         if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
         if not defined NODE16_HOME set "NODE16_HOME=%_NODE16_HOME%"
         if not defined NODE18_HOME set "NODE18_HOME=%_NODE18_HOME%"
+        if not defined NODE20_HOME set "NODE20_HOME=%_NODE20_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
         set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE16_HOME%%_MONGOSH_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%

@@ -17,7 +17,7 @@
 const async = require('async')
 
 // Utiliser le paquet `got` pour le téléchargement.
-const got = require('got')
+const got = require('got')  // starting with 12.x an ESM-only package
 
 // Utiliser `fs.writeFile()` pour enregistrer les fichiers.
 const writeFile = require('fs').writeFile

@@ -10,6 +10,7 @@
 
 ## <span id="articles">Articles</span>
 
+- [Error [ERR_REQUIRE_ESM]: require() of ES Module not supported][article_hadzhiev] by Borislav Hadzhiev, 2023.
 - [How the new ‘Top Level Await’ feature works in JavaScript][article_kesk], February 2020.
 - [Understanding Worker Threads in Node.js][article_parody] by Liz Parody, June 2019.
 - [Why and how to use ESLint in your project][article_roberts] by Sam Roberts, September 2017.
@@ -48,7 +49,7 @@
 
 ## <span id="news">News</span>
 
-- **nodejs.org** News: [2023](https://nodejs.org/en/blog/), [2022](https://nodejs.org/en/blog/year-2022/), [2021](https://nodejs.org/en/blog/year-2021/), [2020](https://nodejs.org/en/blog/year-2020/), [2019](https://nodejs.org/en/blog/year-2019/).
+- **nodejs.org** News : [2023](https://nodejs.org/en/blog/), [2022](https://nodejs.org/en/blog/year-2022/), [2021](https://nodejs.org/en/blog/year-2021/), [2020](https://nodejs.org/en/blog/year-2020/), [2019](https://nodejs.org/en/blog/year-2019/).
 - [Node Weekly][news_node_weekly] Archives.
 
 ## <span id="tutorials">Tutorials</span>
@@ -59,11 +60,12 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
+[article_hadzhiev]: https://bobbyhadz.com/blog/javascript-error-err-require-esm-require-of-es-module-not-supported#got-error-err_require_esm-require-of-es-module-not-supported
 [article_kesk]: https://javascript.plainenglish.io/javascript-top-level-await-in-a-nutshell-4e352b3fc8c8
 [article_parody]: https://nodesource.com/blog/worker-threads-nodejs/
 [article_rahic]: https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52

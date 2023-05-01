@@ -13,7 +13,7 @@
 
 Executing command **`npm start`** in directory [**`samples_Duuna\chp-3-networking\`**](./chp-3-networking/) performs two tasks:
 
-- it starts the server application which listen to client requests on port **`3000`** (defined in file [**`config.json`**](./chp-3-networking/config_TEMPLATE.json)).
+- it starts the server application which listen to client requests on port **`3000`** (defined in file [**`config.json`**](./chp-3-networking/config_TEMPLATE.json) <sup id="anchor_01">[1](#footnote_01)</sup>).
 - it opens the **`http:/127.0.0.1:3000`** URL in your default web browser.
 
 First we start the server application in a new console:
@@ -25,7 +25,7 @@ First we start the server application in a new console:
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: v16.19.0 (x64)
+Node runtime: v16.20.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
@@ -53,7 +53,7 @@ hello world
 
 Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-injection\`**](./chp-4-code-injection/) performs two tasks:
 
-- it starts the server application which listen to client requests on port **`3000`** (defined in file [**`config.json`**](./chp-4-code-injection/config_TEMPLATE.json)).
+- it starts the server application which listen to client requests on port **`3000`** (defined in file [**`config.json`**](./chp-4-code-injection/config_TEMPLATE.json) <sup id="anchor_01">[1](#footnote_01)</sup>).
 - it opens the **`http:/127.0.0.1:3000`** URL in your default web browser.
 
 <pre style="font-size:80%;">
@@ -63,14 +63,24 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: v16.19.1 (x64)
+Node runtime: v16.20.0 (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
 
+<!--=======================================================================-->
+
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
+
+<span id="footnote_01">[1]</span> **`config.json`** [↩](#anchor_01)
+
+<dl><dd>
+Only the template file <a href="./03_basic_auth/config_TEMPLATE.json"><code>config_TEMPLATE.json</code></a> is stored in our GitHub repository. The user has to copy it to <code>config.json</code> and update the two JSON fields <code>host</code> and <code>port</code> as desired <i>before</i> running the above code examples.
+</dd></dl>
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

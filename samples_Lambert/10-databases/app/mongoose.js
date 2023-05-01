@@ -12,13 +12,11 @@ mongoose.connect('mongodb://localhost/test', {
 const Cat = mongoose.model('Cat', { name: String })
 
 const kitty = new Cat({ name: 'Zildjian' })
-kitty.save(function (err) {
-  if (err) {
-    // ...
-  }
-
+kitty.save()
+.catch(err => {
   console.log('miaou')
-  mongoose.connection.close(function () {
+  mongoose.connection.close()
+  .then(function () {
     console.log('Mongoose default connection disconnected')
     process.exit(0)
   })

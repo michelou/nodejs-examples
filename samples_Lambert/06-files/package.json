@@ -18,11 +18,11 @@
   "dependencies": {
     "absolute-path": "0.0.0",
     "chokidar": "^3.5.3",
-    "mkdirp": "^3.0.0",
+    "mkdirp": "^3.0.1",
     "rimraf": "^5.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-node": "^11.1.0",
