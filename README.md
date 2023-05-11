@@ -37,7 +37,7 @@ C:\opt\mongosh-1.8.2-win32-x64\             <i>( 88 MB)</i>
 C:\opt\node-v14.21.3-win-x64\               <i>( 50 MB)</i>
 C:\opt\node-v16.20.0-win-x64\               <i>( 71 MB)</i>
 C:\opt\node-v18.16.0-win-x64\               <i>( 78 MB)</i>
-C:\opt\node-v20.0.0-win-x64\                <i>( 78 MB)</i>
+C:\opt\node-v20.1.0-win-x64\                <i>( 79 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -286,7 +286,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.21.3-win-x64.zip </a>        <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.0-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.16.0-win-x64.zip </a>        <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.0.0-win-x64.zip</a>          <i>( 28 MB)</i>
+<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.1.0-win-x64.zip</a>          <i>( 28 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.40.1-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
@@ -372,7 +372,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
 [nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.16.0
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
-[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.0.0
+[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.1.0
 [nodejs20_downloads]: https://nodejs.org/dist/latest-v20.x/
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
