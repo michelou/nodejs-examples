@@ -15,11 +15,11 @@
   "dependencies": {
     "async": "^3.2.4",
     "fix-esm": "^1.0.1",
-    "got": "^11.8.3"
+    "got": "^13.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.39.0",
-    "eslint-config-standard": "^17.0.0",
+    "eslint": "^8.43.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1"

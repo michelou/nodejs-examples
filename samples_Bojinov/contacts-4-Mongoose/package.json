@@ -20,11 +20,11 @@
   },
   "dependencies": {
     "moment": "^2.29.4",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.3.1"
   },
   "devDependencies": {
-    "eslint": "^8.38.0",
-    "eslint-config-standard": "^17.0.0",
+    "eslint": "^8.43.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1"

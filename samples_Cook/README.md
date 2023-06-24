@@ -15,7 +15,7 @@ Command **`npm.cmd start`** starts the server application [`app\app.js`](./03_ba
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cd">cd</a></b>
-N:\samples_Cook\03_basic_auth
+N:\samples_Cook\<a href="./03_basic_auth/">03_basic_auth</a>
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "basic_auth" npm start</b>
 
@@ -141,7 +141,7 @@ Only the template file <a href="./03_basic_auth/config_TEMPLATE.json"><code>conf
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
