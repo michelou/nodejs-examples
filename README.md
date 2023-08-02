@@ -33,7 +33,7 @@ For instance our development environment looks as follows (*August 2023*) <sup i
 <pre style="font-size:80%;">
 C:\opt\Git-2.41.0\                          <i>(315 MB)</i>
 C:\opt\mongodb-win32-x86_64-windows-6.0.8\  <i>(1.3 GB)</i>
-C:\opt\mongosh-1.10.2-win32-x64\            <i>( 88 MB)</i>
+C:\opt\mongosh-1.10.3-win32-x64\            <i>( 88 MB)</i>
 C:\opt\node-v14.21.3-win-x64\               <i>( 50 MB)</i>
 C:\opt\node-v16.20.1-win-x64\               <i>( 71 MB)</i>
 C:\opt\node-v18.17.0-win-x64\               <i>( 78 MB)</i>
@@ -133,11 +133,11 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup your developmen
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v6.0.8, mongosh 1.10.2,
+   mongod v6.0.8, mongosh 1.10.3,
    git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
-C:\opt\mongosh-1.10.2-win32-x64\bin\mongosh.exe
+C:\opt\mongosh-1.10.3-win32-x64\bin\mongosh.exe
 C:\opt\node-v18.17.0-win-x64\npm
 C:\opt\node-v18.17.0-win-x64\npm.cmd
 </pre>
@@ -148,21 +148,21 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v6.0.8, mongosh 1.10.2, git 2.41.0.windows.1, diff 3.9
+   mongod v6.0.8, mongosh 1.10.3, git 2.41.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v16.20.1-win-x64\node.exe
    C:\opt\node-v16.20.1-win-x64\npm.cmd
    C:\opt\node-v18.17.0-win-x64\node.exe
    C:\opt\node-v18.17.0-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-windows-6.0.8\bin\mongod.exe
-   C:\opt\mongosh-1.10.2-win32-x64\bin\mongosh.exe
+   C:\opt\mongosh-1.10.3-win32-x64\bin\mongosh.exe
    C:\opt\Git-2.41.0\bin\git.exe
    C:\opt\Git-2.41.0\mingw64\bin\git.exe
    C:\opt\Git-2.41.0\usr\bin\diff.exe
 Environment variables:
    "GIT_HOME="C:\opt\Git-2.41.0"
    "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-6.0.8"
-   "MONGOSH_HOME=C:\opt\mongosh-1.10.2-win32-x64"
+   "MONGOSH_HOME=C:\opt\mongosh-1.10.3-win32-x64"
    "NODE_HOME=C:\opt\node-v18.17.0-win-x64"
    "NODE18_HOME=C:\opt\node-v18.17.0-win-x64"
    "NODE16_HOME=C:\opt\node-v16.20.1-win-x64"
@@ -203,7 +203,7 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v6.0.8, mongosh 1.10.2, git 2.41.0.windows.1, diff 3.9
+   mongod v6.0.8, mongosh 1.10.3, git 2.41.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v18.17.0-win-x64\node.exe
    C:\opt\node-v18.17.0-win-x64\npm.cmd
@@ -211,7 +211,7 @@ Tool paths:
    C:\opt\Git-2.41.0\mingw64\bin\git.exe
    C:\opt\Git-2.41.0\usr\bin\diff.exe
    C:\opt\mongodb-win32-x86_64-windows-6.0.8\bin\mongod.exe
-   C:\opt\mongosh-1.10.2-win32-x64\bin\mongosh.exe
+   C:\opt\mongosh-1.10.3-win32-x64\bin\mongosh.exe
 </pre>
 
 ### **`npm.cmd`**
@@ -282,7 +282,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-6.0.8.zip</a>  <i>(336 MB)</i>
-<a href="https://www.mongodb.com/try/download/shell">mongosh-1.10.2-win32-x64.zip</a>      <i>( 33 MB)</i>
+<a href="https://www.mongodb.com/try/download/shell">mongosh-1.10.3-win32-x64.zip</a>      <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.21.3-win-x64.zip </a>        <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.1-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.17.0-win-x64.zip </a>        <i>( 27 MB)</i>
@@ -329,6 +329,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
+[docker_examples]: https://github.com/michelou/docker-examples
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
