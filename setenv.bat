@@ -56,7 +56,6 @@ goto end
 @rem output parameters: _BASENAME, _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
-set _DRIVE_NAME=N
 set "_ROOT_DIR=%~dp0"
 
 call :env_colors
@@ -112,8 +111,9 @@ set _STRONG_BG_BLUE=[104m
 goto :eof
 
 @rem input parameter: %*
-@rem output parameter: _HELP, _VERBOSE
+@rem output parameters: _BASH, _HELP, _VERBOSE
 :args
+set _BASH=0
 set _HELP=0
 set _VERBOSE=0
 set __N=0
@@ -123,7 +123,8 @@ if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
     @rem option
-    if "%__ARG%"=="-debug" ( set _DEBUG=1
+    if "%__ARG%"=="-bash" ( set _BASH=1
+    ) else if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
@@ -146,7 +147,7 @@ goto args_loop
 call :drive_name "%_ROOT_DIR%"
 if not %_EXITCODE%==0 goto :eof
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options    : _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Options    : _BASH=%_BASH% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
     echo %_DEBUG_LABEL% Variables  : _DRIVE_NAME=%_DRIVE_NAME% 1>&2
 )
@@ -198,11 +199,11 @@ set "_DRIVE_NAME=!__DRIVE_NAMES:~0,2!"
 if /i "%_DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
-) else if %_VERBOSE%==1 ( echo Assign path "%__GIVEN_PATH%" to drive %_DRIVE_NAME% 1>&2
+) else if %_VERBOSE%==1 ( echo Assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
 )
 subst "%_DRIVE_NAME%" "%__GIVEN_PATH%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path 1>&2
+    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -242,7 +243,7 @@ goto :eof
 set _MONGODB_HOME=
 
 set __MONGOD_CMD=
-for /f %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
+for /f "delims=" %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
 if defined __MONGOD_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB daemon executable found in PATH 1>&2
     goto :eof
@@ -256,7 +257,7 @@ if defined __MONGOD_CMD (
         for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         if not defined _MONGODB_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32**" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongodb-win32**" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -273,7 +274,7 @@ set _MONGOSH_HOME=
 set _MONGOSH_PATH=
 
 set __MONGOSH_CMD=
-for /f %%f in ('where mongosh.exe 2^>NUL') do set "__MONGOSH_CMD=%%f"
+for /f "delims=" %%f in ('where mongosh.exe 2^>NUL') do set "__MONGOSH_CMD=%%f"
 if defined __MONGOSH_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB Shell executable found in PATH 1>&2
     goto :eof
@@ -287,7 +288,7 @@ if defined __MONGOSH_CMD (
         for /f %%f in ('dir /ad /b "!__PATH!\mongosh*" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
         if not defined _MONGOSH_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\mongosh-**" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongosh-**" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -306,7 +307,7 @@ set __NODE_MAJOR=%~1
 set "_NODE!__NODE_MAJOR!_HOME="
 
 set __NODE_CMD=
-for /f %%f in ('where node.exe 2^>NUL') do set "__NODE_CMD=%%f"
+for /f "delims=" %%f in ('where node.exe 2^>NUL') do set "__NODE_CMD=%%f"
 if defined __NODE_CMD (
     for /f "delims=. tokens=1,*" %%i in ('"%__NODE_CMD%" --version') do (
         if not "%%i"=="v%__NODE_MAJOR%" set __NODE_CMD=
@@ -353,7 +354,7 @@ set _GIT_HOME=
 set _GIT_PATH=
 
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
@@ -368,7 +369,7 @@ if defined __GIT_CMD (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -472,6 +473,11 @@ endlocal & (
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
             cd /d %_DRIVE_NAME%
+        )
+        if %_BASH%==1 (
+            @rem see https://conemu.github.io/en/GitForWindows.html
+            if %_DEBUG%==1 echo %_DEBUG_LABEL% %_GIT_HOME%\usr\bin\bash.exe --login 1>&2
+            cmd.exe /c "%_GIT_HOME%\usr\bin\bash.exe --login"
         )
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2
