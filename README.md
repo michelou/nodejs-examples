@@ -15,7 +15,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.41][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.42][git_downloads] ([*release notes*][git_relnotes])
 - [MongoDB 6.0][mongodb_downloads] ([*release notes*][mongodb6_relnotes])
 - [Node.js 18.x LTS][nodejs18_downloads] <sup id="anchor_01"><a href="#footnote_01">1</a></sup> ([*change log*][nodejs18_changelog])
 
@@ -31,9 +31,9 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*August 2023*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.41.0\                          <i>(315 MB)</i>
-C:\opt\mongodb-win32-x86_64-windows-6.0.8\  <i>(1.3 GB)</i>
-C:\opt\mongosh-1.10.3-win32-x64\            <i>( 88 MB)</i>
+C:\opt\Git\                                 <i>(315 MB)</i>
+C:\opt\mongodb-win32-x86_64-windows-7.0.0\  <i>(1.6 GB)</i>
+C:\opt\mongosh\                             <i>( 88 MB)</i>
 C:\opt\node-v14.21.3-win-x64\               <i>( 50 MB)</i>
 C:\opt\node-v16.20.1-win-x64\               <i>( 71 MB)</i>
 C:\opt\node-v18.17.0-win-x64\               <i>( 78 MB)</i>
@@ -74,7 +74,7 @@ where
 - file [**`RESOURCES.md`**](RESOURCES.md) gathers [Node.js][nodejs] related informations.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
-We also define a virtual drive **`N:`** in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"][windows_limitation] from Microsoft Support).
+We also define a virtual drive &ndash; e.g. drive **`N:`** &ndash; in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"][windows_limitation] from Microsoft Support).
 
 > **:mag_right:** We use the Windows external command [**`subst`**][windows_subst] to create virtual drives; for instance:
 >
@@ -95,7 +95,7 @@ We distinguish different sets of batch commands:
     Usage: setenv { &lt;option&gt; | &lt;subcommand&gt; }
     &nbsp;
       Options:
-        -debug      show commands executed by this script
+        -debug      display commands executed by this script
         -verbose    display environment settings
     &nbsp;
       Subcommands:
@@ -113,7 +113,7 @@ We distinguish different sets of batch commands:
    Usage: check-outdated { &lt;option&gt; | &lt;subcommand&gt; }
    &nbsp;
      Options:
-       -debug      show commands executed by this script
+       -debug      display commands executed by this script
        -install    install latest package (if outdated)
        -timer      display total execution time
        -verbose    display progress messages
@@ -127,17 +127,17 @@ We distinguish different sets of batch commands:
 
 ### **`setenv.bat`** <sup id="anchor_03">[3](#footnote_03)</sup>
 
-Command [**`setenv.bat`**](setenv.bat) is executed once to setup your development environment:
+We execute command [**`setenv.bat`**](setenv.bat) once to setup your development environment:
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v6.0.8, mongosh 1.10.3,
-   git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
+   mongod v7.0.0, mongosh 1.10.3,
+   git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
-C:\opt\mongosh-1.10.3-win32-x64\bin\mongosh.exe
+C:\opt\mongosh\bin\mongosh.exe
 C:\opt\node-v18.17.0-win-x64\npm
 C:\opt\node-v18.17.0-win-x64\npm.cmd
 </pre>
@@ -148,21 +148,21 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v6.0.8, mongosh 1.10.3, git 2.41.0.windows.1, diff 3.9
+   mongod v7.0.0, mongosh 1.10.3, git 2.42.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v16.20.1-win-x64\node.exe
    C:\opt\node-v16.20.1-win-x64\npm.cmd
    C:\opt\node-v18.17.0-win-x64\node.exe
    C:\opt\node-v18.17.0-win-x64\npm.cmd
-   C:\opt\mongodb-win32-x86_64-windows-6.0.8\bin\mongod.exe
-   C:\opt\mongosh-1.10.3-win32-x64\bin\mongosh.exe
-   C:\opt\Git-2.41.0\bin\git.exe
-   C:\opt\Git-2.41.0\mingw64\bin\git.exe
-   C:\opt\Git-2.41.0\usr\bin\diff.exe
+   C:\opt\mongodb-win32-x86_64-windows-7.0.0\bin\mongod.exe
+   C:\opt\mongosh\bin\mongosh.exe
+   C:\opt\Git\bin\git.exe
+   C:\opt\Git\mingw64\bin\git.exe
+   C:\opt\Git\usr\bin\diff.exe
 Environment variables:
-   "GIT_HOME="C:\opt\Git-2.41.0"
-   "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-6.0.8"
-   "MONGOSH_HOME=C:\opt\mongosh-1.10.3-win32-x64"
+   "GIT_HOME="C:\opt\Git"
+   "MONGODB_HOME=C:\opt\mongodb-win32-x86_64-windows-7.0.0"
+   "MONGOSH_HOME=C:\opt\mongosh"
    "NODE_HOME=C:\opt\node-v18.17.0-win-x64"
    "NODE18_HOME=C:\opt\node-v18.17.0-win-x64"
    "NODE16_HOME=C:\opt\node-v16.20.1-win-x64"
@@ -203,15 +203,15 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v6.0.8, mongosh 1.10.3, git 2.41.0.windows.1, diff 3.9
+   mongod v7.0.0, mongosh 1.10.3, git 2.42.0.windows.1, diff 3.9
 Tool paths:
    C:\opt\node-v18.17.0-win-x64\node.exe
    C:\opt\node-v18.17.0-win-x64\npm.cmd
-   C:\opt\Git-2.41.0\bin\git.exe
-   C:\opt\Git-2.41.0\mingw64\bin\git.exe
-   C:\opt\Git-2.41.0\usr\bin\diff.exe
-   C:\opt\mongodb-win32-x86_64-windows-6.0.8\bin\mongod.exe
-   C:\opt\mongosh-1.10.3-win32-x64\bin\mongosh.exe
+   C:\opt\Git\bin\git.exe
+   C:\opt\Git\mingw64\bin\git.exe
+   C:\opt\Git\usr\bin\diff.exe
+   C:\opt\mongodb-win32-x86_64-windows-7.0.0\bin\mongod.exe
+   C:\opt\mongosh\bin\mongosh.exe
 </pre>
 
 ### **`npm.cmd`**
@@ -281,20 +281,20 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-6.0.8.zip</a>  <i>(336 MB)</i>
-<a href="https://www.mongodb.com/try/download/shell">mongosh-1.10.3-win32-x64.zip</a>      <i>( 33 MB)</i>
+<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-7.0.0.zip</a>  <i>(336 MB)</i>
+<a href="https://www.mongodb.com/try/download/shell">mongosh-1.10.5-win32-x64.zip</a>      <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.21.3-win-x64.zip </a>        <i>( 18 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.1-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.17.0-win-x64.zip </a>        <i>( 27 MB)</i>
 <a href="https://nodejs.org/dist/latest-v20.x/">node-v20.5.0-win-x64.zip</a>          <i>( 28 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>  <i>( 42 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.42.0-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
 
 <span id="footnote_03">[3]</span> **`setenv.bat` *usage*** [↩](#anchor_03)
 
 <dl><dd>
-<a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
+Batch file <a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
 </dd>
 <dd>It is similar to the setup scripts described on the page <a href="https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell" rel="external">"Visual Studio Developer Command Prompt and Developer PowerShell"</a> of the <a href="https://learn.microsoft.com/en-us/visualstudio/windows" rel="external">Visual Studio</a> online documentation.
 </dd>
@@ -309,7 +309,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsde
 </pre>
 </dd>
 <dd>
-Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>), <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
 </dd></dl>
 
 ***
@@ -333,7 +333,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.41.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.42.0.txt
 [git_win]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
