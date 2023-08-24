@@ -191,7 +191,7 @@ for /f "tokens=1,2,*" %%f in ('subst') do (
 )
 for /f "tokens=1,2,*" %%i in ('subst') do (
     set __USED=%%i
-    call :drive_name_update_letters "!__USED:~0,2!"
+    call :drive_names "!__USED:~0,2!"
 )
 if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(SUBST^) 1>&2
 
