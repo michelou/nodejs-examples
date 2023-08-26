@@ -16,7 +16,7 @@
 This project depends on the following external software for the **Microsoft Windows** platform:
 
 - [Git 2.42][git_downloads] ([*release notes*][git_relnotes])
-- [MongoDB 6.0][mongodb_downloads] ([*release notes*][mongodb6_relnotes])
+- [MongoDB 7.0][mongodb_downloads] ([*release notes*][mongodb7_relnotes])
 - [Node.js 18.x LTS][nodejs18_downloads] <sup id="anchor_01"><a href="#footnote_01">1</a></sup> ([*change log*][nodejs18_changelog])
 
 Optionally one may also install the following software:
@@ -35,9 +35,9 @@ C:\opt\Git\                                 <i>(315 MB)</i>
 C:\opt\mongodb-win32-x86_64-windows-7.0.0\  <i>(1.6 GB)</i>
 C:\opt\mongosh\                             <i>( 88 MB)</i>
 C:\opt\node-v14.21.3-win-x64\               <i>( 50 MB)</i>
-C:\opt\node-v16.20.1-win-x64\               <i>( 71 MB)</i>
+C:\opt\node-v16.20.2-win-x64\               <i>( 71 MB)</i>
 C:\opt\node-v18.17.0-win-x64\               <i>( 78 MB)</i>
-C:\opt\node-v20.5.0-win-x64\                <i>( 79 MB)</i>
+C:\opt\node-v20.5.1-win-x64\                <i>( 79 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -132,8 +132,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup your development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v7.0.0, mongosh 1.10.3,
+   node v16.20.2, npm 9.8.1, node v18.17.0, npm 9.8.1
+   mongod v7.0.0, mongosh 1.10.6,
    git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
@@ -147,11 +147,11 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v7.0.0, mongosh 1.10.3, git 2.42.0.windows.1, diff 3.9
+   node v16.20.2, npm 9.8.1, node v18.17.0, npm 9.8.1
+   mongod v7.0.0, mongosh 1.10.6, git 2.42.0.windows.1, diff 3.10
 Tool paths:
-   C:\opt\node-v16.20.1-win-x64\node.exe
-   C:\opt\node-v16.20.1-win-x64\npm.cmd
+   C:\opt\node-v16.20.2-win-x64\node.exe
+   C:\opt\node-v16.20.2-win-x64\npm.cmd
    C:\opt\node-v18.17.0-win-x64\node.exe
    C:\opt\node-v18.17.0-win-x64\npm.cmd
    C:\opt\mongodb-win32-x86_64-windows-7.0.0\bin\mongod.exe
@@ -165,7 +165,7 @@ Environment variables:
    "MONGOSH_HOME=C:\opt\mongosh"
    "NODE_HOME=C:\opt\node-v18.17.0-win-x64"
    "NODE18_HOME=C:\opt\node-v18.17.0-win-x64"
-   "NODE16_HOME=C:\opt\node-v16.20.1-win-x64"
+   "NODE16_HOME=C:\opt\node-v16.20.2-win-x64"
 </pre>
 
 ### **`bin\check-outdated.bat`**
@@ -202,8 +202,8 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.20.1, npm 9.8.1, node v18.17.0, npm 9.8.1
-   mongod v7.0.0, mongosh 1.10.3, git 2.42.0.windows.1, diff 3.9
+   node v16.20.2, npm 9.8.1, node v18.17.0, npm 9.8.1
+   mongod v7.0.0, mongosh 1.10.6, git 2.42.0.windows.1, diff 3.10
 Tool paths:
    C:\opt\node-v18.17.0-win-x64\node.exe
    C:\opt\node-v18.17.0-win-x64\npm.cmd
@@ -282,11 +282,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-7.0.0.zip</a>  <i>(336 MB)</i>
-<a href="https://www.mongodb.com/try/download/shell">mongosh-1.10.5-win32-x64.zip</a>      <i>( 33 MB)</i>
+<a href="https://www.mongodb.com/try/download/shell">mongosh-1.10.6-win32-x64.zip</a>      <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v14.x/">node-v14.21.3-win-x64.zip </a>        <i>( 18 MB)</i>
-<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.1-win-x64.zip</a>         <i>( 25 MB)</i>
+<a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.2-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.17.0-win-x64.zip </a>        <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.5.0-win-x64.zip</a>          <i>( 28 MB)</i>
+<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.5.1-win-x64.zip</a>          <i>( 28 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.42.0-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
@@ -359,6 +359,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [mongodb_downloads]: https://www.mongodb.com/try/download/community
 [mongodb5_relnotes]: https://docs.mongodb.com/upcoming/release-notes/5.0/
 [mongodb6_relnotes]: https://docs.mongodb.com/upcoming/release-notes/6.0/
+[mongodb7_relnotes]: https://docs.mongodb.com/upcoming/release-notes/7.0/
 [mongodb_mongod]: https://docs.mongodb.com/manual/reference/program/mongod/
 [mongosh_changelog]: https://www.mongodb.com/docs/mongodb-shell/changelog/
 [mongosh_downloads]: https://github.com/mongodb-js/mongosh/releases
@@ -369,11 +370,11 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [nodejs12_downloads]: https://nodejs.org/dist/latest-v12.x/
 [nodejs14_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.21.3
 [nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
-[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.20.1
+[nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.20.2
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
 [nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.17.0
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
-[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.5.0
+[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.5.1
 [nodejs20_downloads]: https://nodejs.org/dist/latest-v20.x/
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
