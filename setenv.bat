@@ -25,6 +25,7 @@ if %_HELP%==1 (
 
 set _GIT_PATH=
 set _MONGOSH_PATH=
+set _VSCODE_PATH=
 
 call :mongodb
 if not %_EXITCODE%==0 goto end
@@ -48,6 +49,11 @@ if not %_EXITCODE%==0 goto end
 call :git
 if not %_EXITCODE%==0 goto end
 
+call :vscode
+if not %_EXITCODE%==0 (
+    @rem optional
+    set _EXITCODE=0
+)
 goto end
 
 @rem #########################################################################
@@ -127,7 +133,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -135,7 +141,7 @@ if "%__ARG:~0,1%"=="-" (
     @rem subcommand
     if "%__ARG%"=="help" ( set _HELP=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -231,6 +237,7 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
+echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
 echo     %__BEG_O%-debug%__END%      display commands executed by this script
 echo     %__BEG_O%-verbose%__END%    display progress messages
 echo.
@@ -262,7 +269,7 @@ if defined __MONGOD_CMD (
     )
 )
 if not exist "%_MONGODB_HOME%\bin\mongod.exe" (
-    echo %_ERROR_LABEL% MongoDB daemon executable not found ^(%_MONGODB_HOME%^) 1>&2
+    echo %_ERROR_LABEL% MongoDB daemon executable not found ^("%_MONGODB_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -277,6 +284,7 @@ set __MONGOSH_CMD=
 for /f "delims=" %%f in ('where mongosh.exe 2^>NUL') do set "__MONGOSH_CMD=%%f"
 if defined __MONGOSH_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB Shell executable found in PATH 1>&2
+    @rem keep _MONGOSH_PATH undefined since executable already in path
     goto :eof
 ) else if defined MONGOSH_HOME (
     set "_MONGOSH_HOME=%MONGOSH_HOME%"
@@ -293,7 +301,7 @@ if defined __MONGOSH_CMD (
     )
 )
 if not exist "%_MONGOSH_HOME%\bin\mongosh.exe" (
-    echo %_ERROR_LABEL% MongoDB Shell executable not found ^(%_MONGOSH_HOME%^) 1>&2
+    echo %_ERROR_LABEL% MongoDB Shell executable not found ^("%_MONGOSH_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -381,6 +389,42 @@ if not exist "%_GIT_HOME%\bin\git.exe" (
 set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
 goto :eof
 
+@rem output parameters: _VSCODE_HOME, _VSCODE_PATH
+:vscode
+set _VSCODE_HOME=
+set _VSCODE_PATH=
+
+set __CODE_CMD=
+for /f "delims=" %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
+if defined __CODE_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of VSCode executable found in PATH 1>&2
+    @rem keep _VSCODE_PATH undefined since executable already in path
+    goto :eof
+) else if defined VSCODE_HOME (
+    set "_VSCODE_HOME=%VSCODE_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable VSCODE_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\VSCode\" ( set "_VSCODE_HOME=!__PATH!\VSCode"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        if not defined _VSCODE_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        )
+    )
+)
+if not exist "%_VSCODE_HOME%\code.exe" (
+    echo %_WARNING_LABEL% VSCode executable not found ^("%_VSCODE_HOME%"^) 1>&2
+    if exist "%_VSCODE_HOME%\Code - Insiders.exe" (
+        echo %_WARNING_LABEL% It looks like you've installed an Insider version of VSCode 1>&2
+    )
+    set _EXITCODE=1
+    goto :eof
+)
+set "_VSCODE_PATH=;%_VSCODE_HOME%"
+goto :eof
+
 :print_env
 set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
@@ -448,8 +492,13 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     if defined NODE16_HOME echo    "NODE16_HOME=%NODE16_HOME%" 1>&2
     if defined NODE18_HOME echo    "NODE18_HOME=%NODE18_HOME%" 1>&2
     if defined NODE20_HOME echo    "NODE20_HOME=%NODE20_HOME%" 1>&2
+    if defined VSCODE_HOME echo    "VSCODE_HOME=%VSCODE_HOME%" 1>&2
     echo Path associations: 1>&2
-    for /f "delims=" %%i in ('subst') do echo    %%i 1>&2
+    for /f "delims=" %%i in ('subst') do (
+        set "__LINE=%%i"
+        setlocal enabledelayedexpansion
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
 )
 goto :eof
 
@@ -467,8 +516,9 @@ endlocal & (
         if not defined NODE16_HOME set "NODE16_HOME=%_NODE16_HOME%"
         if not defined NODE18_HOME set "NODE18_HOME=%_NODE18_HOME%"
         if not defined NODE20_HOME set "NODE20_HOME=%_NODE20_HOME%"
+        if not defined VSCODE_HOME set "VSCODE_HOME=%VSCODE_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE16_HOME%%_MONGOSH_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE16_HOME%%_MONGOSH_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2

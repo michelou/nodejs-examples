@@ -16,7 +16,7 @@
 - [Why and how to use ESLint in your project][article_roberts] by Sam Roberts, September 2017.
 - [Securing Node.js RESTful APIs with JSON Web Tokens][article_rahic] by Adnan Rahic, September 2017.
 
-## <span id="blogs">Blogs</span>
+## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
 - [The Good and the Bad of Node.js Web App Programming][blog_altexsoft] by Altexsoft, November 2022.
 - [2ality](https://2ality.com/archive.html) Archives:
@@ -43,7 +43,7 @@
 - [Secure Your Node.js Web Application][book_duuna] by Karl Düüna, January 2016.<br/><span style="font-size:80%;">(The Pragmatic Programmers, ISBN 978-1-6805-0085-1, 230 pages)</span>
 - [Node.js Essentials][book_cook] by Fabian Cook, August 2015.<br/><span style="font-size:80%;">( Packt, ISBN 978-1-7835-5162-0, 208 pages)</span>
 
-## <span id="libraries">Libraries</span>
+## <span id="libraries">Libraries</span> [**&#x25B4;**](#top)
 
 - [Cytoscape](https://js.cytoscape.org/), a graph theory (network) library for visualisation and analysis.
 
@@ -60,7 +60,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
