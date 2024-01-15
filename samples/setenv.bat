@@ -120,7 +120,7 @@ if "%__ARG:~0,1%"=="-" (
     if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -128,7 +128,7 @@ if "%__ARG:~0,1%"=="-" (
     @rem subcommand
     if "%__ARG%"=="help" ( set _HELP=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -155,11 +155,11 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem postcondition: NODE_HOME is defined and valid
@@ -170,7 +170,7 @@ set __NPM_CMD=
 for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
-    for %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
+    for /f "delims=" %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
 ) else if defined NODE_HOME (
@@ -178,10 +178,10 @@ if defined __NPM_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -249,10 +249,10 @@ if defined __MONGOD_CMD (
     set __PATH=c:\opt
     if exist "!__PATH!\mongodb\" ( set "_MONGODB_HOME=!__PATH!\mongodb"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         if not defined _MONGODB_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -282,10 +282,10 @@ if defined __GIT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -313,10 +313,10 @@ if defined __CURL_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable CURL_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
     if not defined _CURL_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_CURL_HOME%\bin\curl.exe" (

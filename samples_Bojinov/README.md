@@ -49,14 +49,14 @@ Command [**`npm start`**](./hello-1/package.json) executes application [**`app\a
 &gt; hello1-app@0.0.1 start N:\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
-Node runtime: 16.20.1 (x64)
+Node runtime: <a href="https://nodejs.org/fr/blog/release/v16.20.2">16.20.2</a> (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
 </pre>
 
 
-## <span id="math">`math` Example</span>
+## <span id="math">`math` Example</span> [**&#x25B4;**](#top)
 
 Command **`npm run test`** executes all test functions contained in directory [**`math\test`**](math/test/):
 
@@ -106,14 +106,14 @@ Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./r
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: 16.20.1 (x64)
+Node runtime: <a href="https://nodejs.org/fr/blog/release/v16.20.2">16.20.2</a> (x64)
 Module search path: N:\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

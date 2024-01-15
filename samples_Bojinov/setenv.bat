@@ -116,7 +116,7 @@ if "%__ARG:~0,1%"=="-" (
     if /i "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -124,7 +124,7 @@ if "%__ARG:~0,1%"=="-" (
     @rem subcommand
     if /i "%__ARG%"=="help" ( set _HELP=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -151,11 +151,11 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem postcondition: NODE_HOME is defined and valid
@@ -166,7 +166,7 @@ set __NPM_CMD=
 for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
-    for %%f in ("!__NODE_BIN_DIR!..") do set "_NODE_HOME=%%~sf"
+    for /f "delims=" %%f in ("!__NODE_BIN_DIR!..") do set "_NODE_HOME=%%~sf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of npm executable found in PATH 1>&2
     goto :eof
 ) else if defined NODE_HOME (
@@ -174,25 +174,25 @@ if defined __NPM_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
-    echo %_ERROR_LABEL% Node installation directory not found ^(%_NODE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Node installation directory not found ^("%_NODE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 if not exist "%_NODE_HOME%\npm.cmd" (
-    echo %_ERROR_LABEL% npm not found in Node installation directory ^(%_NODE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% npm not found in Node installation directory ^("%_NODE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 rem path name of installation directory may contain spaces
 for /f "delims=" %%f in ("%_NODE_HOME%") do set "_NODE_HOME=%%~sf"
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory %_NODE_HOME% 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory "%_NODE_HOME%" 1>&2
 
 set "NODE_HOME=%_NODE_HOME%"
 call %NODE_HOME%\nodevars.bat
@@ -206,7 +206,7 @@ if not exist "%NODE_HOME%\pm2.cmd" (
     echo pm2 command not found in Node installation directory ^(%NODE_HOME% ^)
     set /p __PM2_ANSWER="Execute 'npm -g install pm2 --prefix %NODE_HOME%' (Y/N)? "
     if /i "!__PM2_ANSWER!"=="y" (
-        %NODE_HOME%\npm.cmd -g install pm2 --prefix %NODE_HOME%
+        %NODE_HOME%\npm.cmd -g install pm2 --prefix "%NODE_HOME%"
     ) else (
         set _EXITCODE=1
         goto :eof
@@ -222,7 +222,7 @@ if not exist "%NODE_HOME%\rimraf.cmd" (
     echo rimraf command not found in Node installation directory ^(%NODE_HOME% ^)
     set /p __RIMRAF_ANSWER="Execute 'npm -g install rimraf --prefix %NODE_HOME%' (Y/N)? "
     if /i "!__RIMRAF_ANSWER!"=="y" (
-        %NODE_HOME%\npm.cmd -g install rimraf --prefix %NODE_HOME%
+        %NODE_HOME%\npm.cmd -g install rimraf --prefix "%NODE_HOME%"
     ) else (
         set _EXITCODE=1
         goto :eof
@@ -249,10 +249,10 @@ if defined __MONGOD_CMD (
     set __PATH=c:\opt
     if exist "!__PATH!\mongodb\" ( set "_MONGODB_HOME=!__PATH!\mongodb"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         if not defined _MONGODB_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongodb*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -282,10 +282,10 @@ if defined __GIT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         )
     )
 )

@@ -45,7 +45,7 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 18.17.0 (x64)
+Node runtime: 18.18.2 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -71,7 +71,7 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 18.17.0 (x64)
+Node runtime: 18.18.2 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -144,7 +144,7 @@ Returning Paradise.m4a for request /music
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

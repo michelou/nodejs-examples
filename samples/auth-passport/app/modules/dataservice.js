@@ -14,33 +14,29 @@ exports.initialize = function () {
     gender: 'Male',
     address: 'NY city'
   })
-
+  /* deprecated in Mongoose 7.0
   mongoose.connect(dbConfig.url, dbConfig.options, function (err, res) {
     if (err) throw err
     console.log('MongoDB Connected')
   })
-  /*
+  */
   // alternative:
   mongoose.connect(dbConfig.url, { useNewUrlParser: true })
     .then(() => console.log('MongoDB Connected'))
     .catch((err) => console.log(err))
-  */
-  User.find({ username: john.username }, function (err, res) {
-    if (err) {
+
+  User.find({ username: john.username })
+    .then((res) => console.log(res))
+    .catch((err) => {
       // console.log(err);
-      john.save(function (err) {
-        if (err) {
-          console.log('Error while saving user ' + john.username)
-          console.log(err)
-        }
-        else {
+      john.save()
+        .then(() => {
           john.save()
           console.log('User ' + john.username + ' has been successfully stored')
-        }
-      })
-    }
-    else {
-      console.log(res)
-    }
-  })
+        })
+        .catch((err) => {
+          console.log('Error while saving user ' + john.username)
+          console.log(err)
+        })
+    })
 }

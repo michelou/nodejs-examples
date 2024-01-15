@@ -34,9 +34,6 @@ call :mongosh
 @rem optional
 @rem if not %_EXITCODE%==0 goto end
 
-call :node 14
-if not %_EXITCODE%==0 goto end
-
 call :node 16
 if not %_EXITCODE%==0 goto end
 
@@ -205,11 +202,11 @@ set "_DRIVE_NAME=!__DRIVE_NAMES:~0,2!"
 if /i "%_DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
-) else if %_VERBOSE%==1 ( echo Assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
+) else if %_VERBOSE%==1 ( echo Assign drive %_DRIVE_NAME% to path "!__GIVEN_PATH:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
 )
 subst "%_DRIVE_NAME%" "%__GIVEN_PATH%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
+    echo %_ERROR_LABEL% Failed to assign drive %_DRIVE_NAME% to path "!__GIVEN_PATH:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -238,11 +235,11 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
-echo     %__BEG_O%-debug%__END%      display commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem output parameter: _MONGODB_HOME
@@ -261,7 +258,7 @@ if defined __MONGOD_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\mongodb\" ( set "_MONGODB_HOME=!__PATH!\mongodb"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\mongodb-win32*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongodb-win32*" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
         if not defined _MONGODB_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongodb-win32**" 2^>NUL') do set "_MONGODB_HOME=!__PATH!\%%f"
@@ -293,7 +290,7 @@ if defined __MONGOSH_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\mongosh\" ( set "_MONGOSH_HOME=!__PATH!\mongosh"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\mongosh*" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongosh*" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
         if not defined _MONGOSH_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\mongosh-**" 2^>NUL') do set "_MONGOSH_HOME=!__PATH!\%%f"
@@ -336,7 +333,7 @@ if defined __NODE_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v%__NODE_MAJOR%*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v%__NODE_MAJOR%*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set "__PATH=%ProgramFiles%"
         for /f %%f in ('dir /ad /b "!__PATH!\node-v%__NODE_MAJOR%*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
@@ -374,7 +371,7 @@ if defined __GIT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
@@ -407,7 +404,7 @@ if defined __CODE_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\VSCode\" ( set "_VSCODE_HOME=!__PATH!\VSCode"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
         if not defined _VSCODE_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
