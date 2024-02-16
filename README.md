@@ -27,15 +27,15 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_win] provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*January 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
+For instance our development environment looks as follows (*February 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git\                      <i>(315 MB)</i>
 C:\opt\mongodb\                  <i>(1.6 GB)</i>
 C:\opt\mongosh\                  <i>( 88 MB)</i>
 C:\opt\node-v16.20.2-win-x64\    <i>( 71 MB)</i>
-C:\opt\node-v18.19.0-win-x64\    <i>( 78 MB)</i>
-C:\opt\node-v20.11.0-win-x64\    <i>( 80 MB)</i>
+C:\opt\node-v18.19.1-win-x64\    <i>( 78 MB)</i>
+C:\opt\node-v20.11.1-win-x64\    <i>( 80 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -100,9 +100,9 @@ We distinguish different sets of batch commands:
         help        print this help message
     &nbsp;
     <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
-    C:\opt\node-v18.19.0-win-x64\node.exe
-    C:\opt\node-v18.19.0-win-x64\npm
-    C:\opt\node-v18.19.0-win-x64\npm.cmd</pre>
+    C:\opt\node-v18.19.1-win-x64\node.exe
+    C:\opt\node-v18.19.1-win-x64\npm
+    C:\opt\node-v18.19.1-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -130,14 +130,14 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup your development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v16.20.2, npm 9.8.1, node v18.19.0, npm 9.8.1
-   mongod v7.0.3, mongosh 2.1.1,
+   node v16.20.2, npm 9.8.1, node v18.19.1, npm 9.8.1
+   mongod v7.0.5, mongosh 2.1.1,
    git 2.43.0.windows.1, diff 3.10, bash 5.2.21(1)-release
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
 C:\opt\mongosh\bin\mongosh.exe
-C:\opt\node-v18.19.0-win-x64\npm
-C:\opt\node-v18.19.0-win-x64\npm.cmd
+C:\opt\node-v18.19.1-win-x64\npm
+C:\opt\node-v18.19.1-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
@@ -145,14 +145,14 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.20.2, npm 9.8.1, node v18.19.0, npm 9.8.1
-   mongod v7.0.3, mongosh 2.1.1,
+   node v16.20.2, npm 9.8.1, node v18.19.1, npm 9.8.1
+   mongod v7.0.5, mongosh 2.1.1,
    git 2.43.0.windows.1, diff 3.10, bash 5.2.21(1)-release
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
    C:\opt\node-v16.20.2-win-x64\npm.cmd
-   C:\opt\node-v18.19.0-win-x64\node.exe
-   C:\opt\node-v18.19.0-win-x64\npm.cmd
+   C:\opt\node-v18.19.1-win-x64\node.exe
+   C:\opt\node-v18.19.1-win-x64\npm.cmd
    C:\opt\mongodb\bin\mongod.exe
    C:\opt\mongosh\bin\mongosh.exe
    C:\opt\Git\bin\git.exe
@@ -162,8 +162,8 @@ Environment variables:
    "GIT_HOME="C:\opt\Git"
    "MONGODB_HOME=C:\opt\mongodb"
    "MONGOSH_HOME=C:\opt\mongosh"
-   "NODE_HOME=C:\opt\node-v18.19.0-win-x64"
-   "NODE18_HOME=C:\opt\node-v18.19.0-win-x64"
+   "NODE_HOME=C:\opt\node-v18.19.1-win-x64"
+   "NODE18_HOME=C:\opt\node-v18.19.1-win-x64"
    "NODE16_HOME=C:\opt\node-v16.20.2-win-x64"
 Path associations:
    Q:\: => %USERPROFILE%\workspace-perso\nodejs-examples
@@ -203,14 +203,14 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v16.20.2, npm 9.8.1, node v18.19.0, npm 9.8.1
-   mongod v7.0.3, mongosh 2.1.1,
+   node v16.20.2, npm 9.8.1, node v18.19.1, npm 9.8.1
+   mongod v7.0.5, mongosh 2.1.1,
    git 2.43.0.windows.1, diff 3.10, bash 5.2.21(1)-release
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
    C:\opt\node-v16.20.2-win-x64\npm.cmd
-   C:\opt\node-v18.19.0-win-x64\node.exe
-   C:\opt\node-v18.19.0-win-x64\npm.cmd
+   C:\opt\node-v18.19.1-win-x64\node.exe
+   C:\opt\node-v18.19.1-win-x64\npm.cmd
    C:\opt\mongodb\bin\mongod.exe
    C:\opt\mongosh\bin\mongosh.exe
    C:\opt\Git\bin\git.exe
@@ -287,11 +287,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-7.0.3.zip</a>  <i>(336 MB)</i>
+<a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-7.0.5.zip</a>  <i>(336 MB)</i>
 <a href="https://www.mongodb.com/try/download/shell">mongosh-2.1.1-win32-x64.zip</a>       <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.2-win-x64.zip</a>         <i>( 25 MB)</i>
-<a href="https://nodejs.org/dist/latest-v18.x/">node-v18.19.0-win-x64.zip </a>        <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.11.0-win-x64.zip</a>         <i>( 28 MB)</i>
+<a href="https://nodejs.org/dist/latest-v18.x/">node-v18.19.1-win-x64.zip </a>        <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.11.1-win-x64.zip</a>         <i>( 28 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.43.0-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
@@ -319,7 +319,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -379,9 +379,9 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.20.2
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
-[nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.19.0
+[nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.19.1
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
-[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.11.0
+[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.11.1
 [nodejs20_downloads]: https://nodejs.org/dist/latest-v20.x/
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
