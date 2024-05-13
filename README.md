@@ -21,6 +21,7 @@ This project depends on the following external software for the **Microsoft Wind
 
 Optionally one may also install the following software:
 
+- [ConEmu][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [MongoDB Shell 2.2][mongosh_downloads] ([*change log*][mongosh_changelog])
 - [Node.js 16.x LTS][nodejs16_downloads] ([*change log*][nodejs16_changelog])
 - [Node.js 20.x LTS][nodejs20_downloads] ([*change log*][nodejs20_changelog])
@@ -31,12 +32,14 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*May 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
+C:\opt\ConEmu\                   <i>( 26 MB)</i>
 C:\opt\Git\                      <i>(315 MB)</i>
 C:\opt\mongodb\                  <i>(1.6 GB)</i>
 C:\opt\mongosh\                  <i>(133 MB)</i>
 C:\opt\node-v16.20.2-win-x64\    <i>( 71 MB)</i>
 C:\opt\node-v18.20.2-win-x64\    <i>( 78 MB)</i>
 C:\opt\node-v20.12.2-win-x64\    <i>( 80 MB)</i>
+C:\opt\VSCode\                   <i>(341 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -325,35 +328,37 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 <!-- link refs -->
 
-[ada_examples]: https://github.com/michelou/ada-examples
-[akka_examples]: https://github.com/michelou/akka-examples
+[ada_examples]: https://github.com/michelou/ada-examples#top
+[akka_examples]: https://github.com/michelou/akka-examples#top
 [book_bojinov]: https://www.amazon.com/RESTful-Web-API-Design-Node-JS/dp/1786469138
 [book_cook]: https://www.amazon.com/Node-js-Essentials-Fabian-Cook/dp/1785284924
 [book_duuna]: https://pragprog.com/book/kdnodesec/secure-your-node-js-web-application
 [book_lambert]: https://www.editions-eni.fr/livre/node-js-exploitez-la-puissance-de-javascript-cote-serveur-9782746089785
 [book_pillora]: https://www.packtpub.com/web-development/getting-started-grunt-javascript-task-runner
-[cobol_examples]: https://github.com/michelou/cobol-examples
-[cpp_examples]: https://github.com/michelou/cpp-examples
-[dart_examples]: https://github.com/michelou/dart-examples
-[deno_examples]: https://github.com/michelou/deno-examples
-[docker_examples]: https://github.com/michelou/docker-examples
-[flix_examples]: https://github.com/michelou/flix-examples
+[cobol_examples]: https://github.com/michelou/cobol-examples#top
+[conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
+[conemu_relnotes]: https://conemu.github.io/blog/2023/07/24/Build-230724.html
+[cpp_examples]: https://github.com/michelou/cpp-examples#top
+[dart_examples]: https://github.com/michelou/dart-examples#top
+[deno_examples]: https://github.com/michelou/deno-examples#top
+[docker_examples]: https://github.com/michelou/docker-examples#top
+[flix_examples]: https://github.com/michelou/flix-examples#top
 [git_cli]: https://git-scm.com/docs/git
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.44.0.txt
 [git_win]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[golang_examples]: https://github.com/michelou/golang-examples
-[graalvm_examples]: https://github.com/michelou/graalvm-examples
-[haskell_examples]: https://github.com/michelou/haskell-examples
+[golang_examples]: https://github.com/michelou/golang-examples#top
+[graalvm_examples]: https://github.com/michelou/graalvm-examples#top
+[haskell_examples]: https://github.com/michelou/haskell-examples#top
 [ibm_developer]: https://developer.ibm.com/
 [ibm_nodejs_14]: https://developer.ibm.com/technologies/node-js/blogs/nodejs-14-ibm-release-blog/
-[kafka_examples]: https://github.com/michelou/kafka-examples
-[kotlin_examples]: https://github.com/michelou/kotlin-examples
+[kafka_examples]: https://github.com/michelou/kafka-examples#top
+[kotlin_examples]: https://github.com/michelou/kotlin-examples#top
 [linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
-[llvm_examples]: https://github.com/michelou/llvm-examples
-[m2_examples]: https://github.com/michelou/m2-examples
+[llvm_examples]: https://github.com/michelou/llvm-examples#top
+[m2_examples]: https://github.com/michelou/m2-examples#top
 [man1_awk]: https://www.linux.org/docs/man1/awk.html
 [man1_diff]: https://www.linux.org/docs/man1/diff.html
 [man1_file]: https://www.linux.org/docs/man1/file.html
@@ -385,15 +390,15 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
 [nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.12.2
 [nodejs20_downloads]: https://nodejs.org/dist/latest-v20.x/
-[rust_examples]: https://github.com/michelou/rust-examples
-[scala3_examples]: https://github.com/michelou/dotty-examples
+[rust_examples]: https://github.com/michelou/rust-examples#top
+[scala3_examples]: https://github.com/michelou/dotty-examples#top
 [siege_refman]: https://www.joedog.org/siege-manual/
-[spark_examples]: https://github.com/michelou/spark-examples
-[spring_examples]: https://github.com/michelou/spring-examples
-[trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
+[spark_examples]: https://github.com/michelou/spark-examples#top
+[spring_examples]: https://github.com/michelou/spring-examples#top
+[trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples#top
 [vscode_downloads]: https://code.visualstudio.com/#alt-downloads
 [vscode_relnotes]: https://code.visualstudio.com/updates
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
-[wix_examples]: https://github.com/michelou/wix-examples
+[wix_examples]: https://github.com/michelou/wix-examples#top
 [zip_archive]: https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/
