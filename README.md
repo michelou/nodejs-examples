@@ -9,13 +9,13 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.44][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.45][git_downloads] ([*release notes*][git_relnotes])
 - [MongoDB 7.0][mongodb_downloads] ([*release notes*][mongodb7_relnotes])
 - [Node.js 18.x LTS][nodejs18_downloads] <sup id="anchor_01"><a href="#footnote_01">1</a></sup> ([*change log*][nodejs18_changelog])
 
@@ -38,7 +38,7 @@ C:\opt\mongodb\                  <i>(1.6 GB)</i>
 C:\opt\mongosh\                  <i>(133 MB)</i>
 C:\opt\node-v16.20.2-win-x64\    <i>( 71 MB)</i>
 C:\opt\node-v18.20.2-win-x64\    <i>( 78 MB)</i>
-C:\opt\node-v20.12.2-win-x64\    <i>( 80 MB)</i>
+C:\opt\node-v20.13.1-win-x64\    <i>( 77 MB)</i>
 C:\opt\VSCode\                   <i>(341 MB)</i>
 </pre>
 
@@ -136,7 +136,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup your development
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.2, npm 10.5.0
    mongod v7.0.9, mongosh 2.2.5,
-   git 2.44.0.windows.1, diff 3.10, bash 5.2.26(1)-release
+   git 2.45.1, diff 3.10, bash 5.2.26(1)-release
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
 C:\opt\mongosh\bin\mongosh.exe
@@ -151,7 +151,7 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.2, npm 10.5.0
    mongod v7.0.9, mongosh 2.2.5,
-   git 2.44.0.windows.1, diff 3.10, bash 5.2.26(1)-release
+   git 2.45.1, diff 3.10, bash 5.2.26(1)-release
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
    C:\opt\node-v16.20.2-win-x64\npm.cmd
@@ -209,7 +209,7 @@ N:\samples
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.2, npm 10.5.0
    mongod v7.0.9, mongosh 2.2.5,
-   git 2.44.0.windows.1, diff 3.10, bash 5.2.26(1)-release
+   git 2.45.1, diff 3.10, bash 5.2.26(1)-release
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
    C:\opt\node-v16.20.2-win-x64\npm.cmd
@@ -295,7 +295,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://www.mongodb.com/try/download/shell">mongosh-2.2.5-win32-x64.zip</a>       <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.2-win-x64.zip</a>         <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.20.2-win-x64.zip </a>        <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.12.2-win-x64.zip</a>         <i>( 28 MB)</i>
+<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.13.1-win-x64.zip</a>         <i>( 28 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.44.0-64-bit.7z.exe</a>  <i>( 42 MB)</i>
 </pre>
 </dd></dl>
@@ -388,7 +388,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
 [nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.20.2
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
-[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.12.2
+[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.13.1
 [nodejs20_downloads]: https://nodejs.org/dist/latest-v20.x/
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
