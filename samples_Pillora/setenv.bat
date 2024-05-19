@@ -105,7 +105,7 @@ goto :eof
 set _NODE_HOME=
 
 set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set __NPM_CMD=%%f
+for /f "delims=" %%f in ('where npm.cmd 2^>NUL') do set __NPM_CMD=%%f
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
     for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
@@ -115,10 +115,10 @@ if defined __NPM_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -157,39 +157,39 @@ goto :eof
 
 @rem output parameter(s): _GIT_PATH
 :git
+set _GIT_HOME=
 set _GIT_PATH=
 
-set __GIT_HOME=
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
     goto :eof
 ) else if defined GIT_HOME (
-    set "__GIT_HOME=%GIT_HOME%"
+    set "_GIT_HOME=%GIT_HOME%"
     if %_DEBUG%==1 echo [%_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\Git\" ( set "__GIT_HOME=!__PATH!\Git"
+    if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
-        if not defined __GIT_HOME (
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         )
     )
 )
-if not exist "%__GIT_HOME%\bin\git.exe" (
-    echo %_ERROR_LABEL% Git executable not found ^(%__GIT_HOME%^) 1>&2
+if not exist "%_GIT_HOME%\bin\git.exe" (
+    echo %_ERROR_LABEL% Git executable not found ^(%_GIT_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 @rem path name of installation directory may contain spaces
-for /f "delims=" %%f in ("%__GIT_HOME%") do set __GIT_HOME=%%~sf
-if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Git installation directory %__GIT_HOME%
+for /f "delims=" %%f in ("%_GIT_HOME%") do set _GIT_HOME=%%~sf
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Git installation directory %_GIT_HOME%
 
-set "_GIT_PATH=;%__GIT_HOME%\bin;%__GIT_HOME%\usr\bin;%__GIT_HOME%\mingw64\bin"
+set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\usr\bin;%_GIT_HOME%\mingw64\bin"
 goto :eof
 
 :pm2
@@ -218,11 +218,11 @@ if defined MONGO_HOME (
 ) else (
     where /q mongod.exe
     if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f mongod.exe') do set _MONGO_HOME=%%~dpsi
+        for /f "delims=" %%i in ('where /f mongod.exe') do set _MONGO_HOME=%%~dpsi
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
     ) else (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\MongoDB*" 2^>NUL') do set _MONGO_HOME=!__PATH!\%%f
         if defined _MONGO_HOME (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default MongoDB installation directory !_MONGO_HOME! 1>&2
         )
@@ -241,8 +241,8 @@ goto :eof
 
 :print_env
 set __VERBOSE=%1
-set "__VERSIONS_LINE1=  "
-set "__VERSIONS_LINE2=  "
+set __VERSIONS_LINE1=
+set __VERSIONS_LINE2=
 set __WHERE_ARGS=
 where /q node.exe
 if %ERRORLEVEL%==0 (
@@ -256,7 +256,9 @@ if %ERRORLEVEL%==0 (
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do (
+        for /f "delims=. tokens=1,2,3,*" %%a in ("%%k") do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%a.%%b.%%c,"
+    )
     set __WHERE_ARGS=%__WHERE_ARGS% git.exe
 )
 where /q mongod.exe
@@ -265,12 +267,16 @@ if %ERRORLEVEL%==0 (
     set __WHERE_ARGS=%__WHERE_ARGS% mongod.exe
 )
 echo Tool versions:
-echo %__VERSIONS_LINE1%
-echo %__VERSIONS_LINE2%
+echo   %__VERSIONS_LINE1%
+echo   %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
     @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths: 1>&2
-    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
+    for /f "delims=" %%i in ('subst') do (
+        set "__LINE=%%i"
+        setlocal enabledelayedexpansion
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
 )
 goto :eof
 

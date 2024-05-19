@@ -25,7 +25,7 @@ Optionally one may also install the following software:
 - [MongoDB Shell 2.2][mongosh_downloads] ([*change log*][mongosh_changelog])
 - [Node.js 16.x LTS][nodejs16_downloads] ([*change log*][nodejs16_changelog])
 - [Node.js 20.x LTS][nodejs20_downloads] ([*change log*][nodejs20_changelog])
-- [Visual Studio Code 1.88][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.89][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **:mag_right:** [Git for Windows][git_win] provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
@@ -342,6 +342,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [dart_examples]: https://github.com/michelou/dart-examples#top
 [deno_examples]: https://github.com/michelou/deno-examples#top
 [docker_examples]: https://github.com/michelou/docker-examples#top
+[erlang_examples]: https://github.com/michelou/erlang-examples#top
 [flix_examples]: https://github.com/michelou/flix-examples#top
 [git_cli]: https://git-scm.com/docs/git
 [git_docs]: https://git-scm.com/docs/git

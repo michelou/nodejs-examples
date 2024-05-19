@@ -59,10 +59,6 @@ goto :eof
 :env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _RESET=[0m
-set _BOLD=[1m
-set _UNDERSCORE=[4m
-set _INVERSE=[7m
 
 @rem normal foreground colors
 set _NORMAL_FG_BLACK=[30m
@@ -100,6 +96,12 @@ set _STRONG_BG_RED=[101m
 set _STRONG_BG_GREEN=[102m
 set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
+
+@rem we define _RESET in last position to avoid crazy console output with type command
+set _BOLD=[1m
+set _UNDERSCORE=[4m
+set _INVERSE=[7m
+set _RESET=[0m
 goto :eof
 
 @rem input parameter: %*
@@ -163,7 +165,7 @@ goto :eof
 set _NODE_HOME=
 
 set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
+for /f "delims=" %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
     for /f "delims=" %%f in ("!__NODE_BIN_DIR!..") do set "_NODE_HOME=%%~sf"
@@ -237,7 +239,7 @@ set _MONGODB_HOME=
 set _MONGODB_PATH=
 
 set __MONGOD_CMD=
-for /f %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
+for /f "delims=" %%f in ('where mongod.exe 2^>NUL') do set "__MONGOD_CMD=%%f"
 if defined __MONGOD_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of MongoDB executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
@@ -270,7 +272,7 @@ set _GIT_HOME=
 set _GIT_PATH=
 
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
@@ -299,8 +301,8 @@ goto :eof
 
 :print_env
 set __VERBOSE=%1
-set "__VERSIONS_LINE1=  "
-set "__VERSIONS_LINE2=  "
+set __VERSIONS_LINE1=
+set __VERSIONS_LINE2=
 set __WHERE_ARGS=
 where /q "%NODE_HOME%:node.exe"
 if %ERRORLEVEL%==0 (
@@ -314,7 +316,9 @@ if %ERRORLEVEL%==0 (
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do (
+        for /f "delims=. tokens=1,2,3,*" %%a in ("%%k") do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%a.%%b.%%c,"
+    )
     set __WHERE_ARGS=%__WHERE_ARGS% git.exe
 )
 where /q diff.exe
@@ -328,12 +332,16 @@ if %ERRORLEVEL%==0 (
     set __WHERE_ARGS=%__WHERE_ARGS% "%MONGODB_HOME%\bin:mongod.exe"
 )
 echo Tool versions:
-echo %__VERSIONS_LINE1%
-echo %__VERSIONS_LINE2%
+echo   %__VERSIONS_LINE1%
+echo   %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
     @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths:
-    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
+        set "__LINE=%%p"
+        setlocal enabledelayedexpansion
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
     echo Environment variables: 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined MONGODB_HOME echo    "MONGODB_HOME=%MONGODB_HOME%" 1>&2

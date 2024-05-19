@@ -55,10 +55,6 @@ goto :eof
 :env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _RESET=[0m
-set _BOLD=[1m
-set _UNDERSCORE=[4m
-set _INVERSE=[7m
 
 @rem normal foreground colors
 set _NORMAL_FG_BLACK=[30m
@@ -96,6 +92,12 @@ set _STRONG_BG_RED=[101m
 set _STRONG_BG_GREEN=[102m
 set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
+
+@rem we define _RESET in last position to avoid crazy console output with type command
+set _BOLD=[1m
+set _UNDERSCORE=[4m
+set _INVERSE=[7m
+set _RESET=[0m
 goto :eof
 
 @rem input parameter: %*
@@ -148,11 +150,11 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem output parameters: _GIT_HOME, _GIT_PATH
@@ -161,7 +163,7 @@ set _GIT_HOME=
 set _GIT_PATH=
 
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     rem keep _GIT_PATH undefined since executable already in path
@@ -193,20 +195,20 @@ rem postcondition: NODE_HOME is defined and valid
 set _NODE_HOME=
 
 set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
+for /f "delims=" %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
-    for %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
+    for /f "delims=" %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v12*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -250,11 +252,11 @@ if defined CURL_HOME (
 ) else (
     where /q curl.exe
     if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f curl.exe') do set "_CURL_HOME=%%~dpi"
+        for /f "delims=" %%i in ('where /f curl.exe') do set "_CURL_HOME=%%~dpi"
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of cURL executable found in PATH 1>&2
     ) else (
         set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
         if defined _CURL_HOME (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default cURL installation directory "!_CURL_HOME!" 1>&2
         )
@@ -285,7 +287,9 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do (
+        for /f "delims=. tokens=1,2,3,*" %%a in ("%%k") do set "__VERSIONS_LINE4=%__VERSIONS_LINE4% git %%a.%%b.%%c,"
+    )
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:git.exe"
 )
 where /q curl.exe
@@ -299,7 +303,16 @@ echo %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
     @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths: 1>&2
-    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
+        set "__LINE=%%p"
+        setlocal enabledelayedexpansion
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
+    echo Environment variables: 1>&2
+    if defined CURL_HOME echo    "CURL_HOME=%CURL_HOME%" 1>&2
+    if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
+    if defined MONGODB_HOME echo    "MONGODB_HOME=%MONGODB_HOME%" 1>&2
+    if defined NODE_HOME echo    "NODE_HOME=%NODE_HOME%" 1>&2
 )
 goto :eof
 
@@ -308,6 +321,7 @@ goto :eof
 
 :end
 endlocal & (
+    if not defined CURL_HOME set "CURL_HOME=%_CURL_HOME%"
     if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
     if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
     set "PATH=%PATH%%_GIT_PATH%%_CURL_PATH%"

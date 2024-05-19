@@ -15,9 +15,9 @@ if defined _ARG if 0%_ARG% gtr 0 (
     timeout /nobreak /t %_ARG% 1>NUL
 )
 
-for %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
+for /f "delims=" %%f in ("%~dp0") do set _ROOT_DIR=%%~sf
 
-for %%f in ("%~dp0..") do call %%~sf\setenv.bat
+for /f "delims=" %%f in ("%~dp0..") do call %%~sf\setenv.bat
 if not %_EXITCODE%==0 goto end
 
 set _CURL_CMD=curl.exe
@@ -63,9 +63,9 @@ rem ##########################################################################
 rem ## Subroutines
 
 :cygpath
-set __PATH=%~1
-set __PATH=%__PATH:c:=c%
-set _CYGPATH=/cygdrive/%__PATH:\=/%
+set "__PATH=%~1"
+set "__PATH=%__PATH:c:=c%"
+set "_CYGPATH=/cygdrive/%__PATH:\=/%"
 goto :end
 
 rem ##########################################################################

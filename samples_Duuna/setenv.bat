@@ -59,10 +59,6 @@ goto :eof
 :env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _RESET=[0m
-set _BOLD=[1m
-set _UNDERSCORE=[4m
-set _INVERSE=[7m
 
 @rem normal foreground colors
 set _NORMAL_FG_BLACK=[30m
@@ -100,6 +96,12 @@ set _STRONG_BG_RED=[101m
 set _STRONG_BG_GREEN=[102m
 set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
+
+@rem we define _RESET in last position to avoid crazy console output with type command
+set _BOLD=[1m
+set _UNDERSCORE=[4m
+set _INVERSE=[7m
+set _RESET=[0m
 goto :eof
 
 rem input parameter: %*
@@ -151,11 +153,11 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem output parameter(s): _GIT_PATH
@@ -164,7 +166,7 @@ set _GIT_PATH=
 
 set __GIT_HOME=
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
@@ -176,10 +178,10 @@ if defined __GIT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set __GIT_HOME=!__PATH!\Git
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         if not defined __GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "__GIT_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -203,17 +205,17 @@ set __NPM_CMD=
 for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set __NODE_BIN_DIR=%%~dpi
-    for %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
+    for /f "delims=" %%f in ("!__NODE_BIN_DIR!..") do set _NODE_HOME=%%~sf
     goto :eof
 ) else if defined NODE_HOME (
     set "_NODE_HOME=%NODE_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable NODE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     if not defined _NODE_HOME (
         set "__PATH=%ProgramFiles%"
-        for /f %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\node-v10*" 2^>NUL') do set "_NODE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_NODE_HOME%\nodevars.bat" (
@@ -250,37 +252,37 @@ if not exist "%NODE_HOME%\pm2.cmd" (
 )
 goto :eof
 
-@rem output parameter(s): _CURL_PATH
+@rem output parameters: _CURL_HOME, _CURL_PATH
 :curl
+set _CURL_HOME=
 set _CURL_PATH=
 
-set __CURL_HOME=
 set __CURL_CMD=
-for /f %%f in ('where curl.exe 2^>NUL') do set __CURL_CMD=%%f
+for /f "delims=" %%f in ('where curl.exe 2^>NUL') do set __CURL_CMD=%%f
 if defined __CURL_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of cURL executable found in PATH 1>&2
     rem keep _CURL_PATH undefined since executable already in path
     goto :eof
 ) else if defined CURL_HOME (
-    set "__CURL_HOME=%CURL_HOME%"
+    set "_CURL_HOME=%CURL_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable CURL_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\curl\" ( set "__CURL_HOME=!__PATH!\curl"
+    if exist "!__PATH!\curl\" ( set "_CURL_HOME=!__PATH!\curl"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "__CURL_HOME=!__PATH!\%%f"
-        if not defined __CURL_HOME (
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "_CURL_HOME=!__PATH!\%%f"
+        if not defined _CURL_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "__CURLHOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\curl-*" 2^>NUL') do set "__CURLHOME=!__PATH!\%%f"
         )
     )
 )
-if not exist "%_^_CURL_HOME%\bin\curl.exe" (
-    echo %_ERROR_LABEL% cURL executable not found ^(%__CURL_HOME%^) 1>&2
+if not exist "%_CURL_HOME%\bin\curl.exe" (
+    echo %_ERROR_LABEL% cURL executable not found ^("%_CURL_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_CURL_PATH=;%__CURL_HOME%\bin"
+set "_CURL_PATH=;%_CURL_HOME%\bin"
 goto :eof
 
 rem output parameter(s): _SIEGE_PATH
@@ -289,7 +291,7 @@ set _SIEGE_PATH=
 
 set __SIEGE_HOME=
 set __SIEGE_CMD=
-for /f %%f in ('where siege.exe 2^>NUL') do set __SIEGE_CMD=%%f
+for /f "delims=" %%f in ('where siege.exe 2^>NUL') do set __SIEGE_CMD=%%f
 if defined __SIEGE_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Siege executable found in PATH 1>&2
     rem keep _SIEGE_PATH undefined since executable already in path
@@ -301,11 +303,11 @@ if defined __SIEGE_CMD (
     set __PATH=C:
     if exist "!__PATH!\Siege\" ( set "__SIEGE_HOME=!__PATH!\Siege"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\siege-*" 2^>NUL') do set "__SIEGE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\siege-*" 2^>NUL') do set "__SIEGE_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%__SIEGE_HOME%\siege.exe" (
-    echo %_ERROR_LABEL% Siege installation directory not found ^(%__SIEGE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Siege installation directory not found ^("%__SIEGE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -318,8 +320,8 @@ goto :eof
 
 :print_env
 set __VERBOSE=%1
-set "__VERSIONS_LINE1=  "
-set "__VERSIONS_LINE2=  "
+set __VERSIONS_LINE1=
+set __VERSIONS_LINE2=
 set __WHERE_ARGS=
 where /q node.exe
 if %ERRORLEVEL%==0 (
@@ -333,7 +335,9 @@ if %ERRORLEVEL%==0 (
 )
 where /q git.exe
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('git.exe --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do (
+        for /f "delims=. tokens=1,2,3,*" %%a in ("%%k") do set "__VERSIONS_LINE4=%__VERSIONS_LINE4% git %%a.%%b.%%c,"
+    )
     set __WHERE_ARGS=%__WHERE_ARGS% git.exe
 )
 where /q curl.exe
@@ -347,12 +351,20 @@ if %ERRORLEVEL%==0 (
     set __WHERE_ARGS=%__WHERE_ARGS% siege.exe
 )
 echo Tool versions:
-echo %__VERSIONS_LINE1%
-echo %__VERSIONS_LINE2%
+echo   %__VERSIONS_LINE1%
+echo   %__VERSIONS_LINE2%
 if %__VERBOSE%==1 if defined __WHERE_ARGS (
     @rem if %_DEBUG%==1 echo %_DEBUG_LABEL% where %__WHERE_ARGS%
     echo Tool paths: 1>&2
-    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
+        set "__LINE=%%p"
+        setlocal enabledelayedexpansion
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
+    echo Environment variables: 1>&2
+    if defined CURL_HOME echo    "CURL_HOME=%CURL_HOME%" 1>&2
+    if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
+    if defined NODE_HOME echo    "NODE_HOME=%NODE_HOME%" 1>&2
 )
 goto :eof
 
@@ -361,6 +373,8 @@ goto :eof
 
 :end
 endlocal & (
+    if not defined CURL_HOME set "CURL_HOME=%_CURL_HOME%"
+    if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
     if not defined NODE_HOME set "NODE_HOME=%_NODE_HOME%"
     set "PATH=%PATH%%_GIT_PATH%%_CURL_PATH%%_SIEGE_PATH%"
     if %_EXITCODE%==0 call :print_env %_VERBOSE%
