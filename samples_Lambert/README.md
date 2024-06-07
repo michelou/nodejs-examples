@@ -93,7 +93,7 @@ available via `npm run-script`:
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

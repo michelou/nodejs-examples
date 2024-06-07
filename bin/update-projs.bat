@@ -22,24 +22,24 @@ set _ASYNC_VERSION_OLD="async": "^(.+^)3.2.3"
 set _ASYNC_VERSION_NEW="async": "${1}3.2.5"
 
 @rem https://www.npmjs.com/package/eslint
-set _ESLINT_VERSION_OLD="eslint": "^(.+^)8.14.0"
-set _ESLINT_VERSION_NEW="eslint": "${1}8.53.0"
+set _ESLINT_VERSION_OLD="eslint": "^(.+^)8.53.0"
+set _ESLINT_VERSION_NEW="eslint": "${1}9.4.0"
 
 @rem https://www.npmjs.com/package/eslint-config-standard
 set _ESLINT_CONFIG_STANDARD_VERSION_OLD="eslint-config-standard": "^(.+^)17.0.0"
 set _ESLINT_CONFIG_STANDARD_VERSION_NEW="eslint-config-standard": "${1}17.1.0"
 
 @rem https://www.npmjs.com/package/eslint-plugin-import
-set _ESLINT_PLUGIN_IMPORT_VERSION_OLD="eslint-plugin-import": "^(.+^)2.26.0"
-set _ESLINT_PLUGIN_IMPORT_VERSION_NEW="eslint-plugin-import": "${1}2.29.0"
+set _ESLINT_PLUGIN_IMPORT_VERSION_OLD="eslint-plugin-import": "^(.+^)2.29.0"
+set _ESLINT_PLUGIN_IMPORT_VERSION_NEW="eslint-plugin-import": "${1}2.29.1"
 
 @rem https://www.npmjs.com/package/express-session
-set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.17.2"
-set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.17.3"
+set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.17.3"
+set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.18.0"
 
 @rem https://www.npmjs.com/package/got
-set _GOT_VERSION_OLD="got": "^(.+^)12.0.4"
-set _GOT_VERSION_NEW="got": "${1}13.0.0"
+set _GOT_VERSION_OLD="got": "^(.+^)13.0.0"
+set _GOT_VERSION_NEW="got": "${1}14.4.1"
 
 @rem https://www.npmjs.com/package/i18n
 set _I18N_VERSION_OLD="i18n": "^(.+^)0.14.2"
@@ -54,16 +54,16 @@ set _LEVELUP_VERSION_OLD="levelup": "^(.+^)5.0.1"
 set _LEVELUP_VERSION_NEW="levelup": "${1}5.1.1"
 
 @rem https://www.npmjs.com/package/mocha
-set _MOCHA_VERSION_OLD="mocha": "^(.+^)10.0.0"
-set _MOCHA_VERSION_NEW="mocha": "${1}10.2.0"
+set _MOCHA_VERSION_OLD="mocha": "^(.+^)10.2.0"
+set _MOCHA_VERSION_NEW="mocha": "${1}10.4.0"
 
 @rem https://www.npmjs.com/package/moment
-set _MOMENT_VERSION_OLD="moment": "^(.+^)2.29.3"
-set _MOMENT_VERSION_NEW="moment": "${1}2.29.4"
+set _MOMENT_VERSION_OLD="moment": "^(.+^)2.29.4"
+set _MOMENT_VERSION_NEW="moment": "${1}2.30.1"
 
 @rem https://www.npmjs.com/package/mongoose
-set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)6.3.2"
-set _MONGOOSE_VERSION_NEW="mongoose": "${1}8.0.0"
+set _MONGOOSE_VERSION_OLD="mongoose": "^(.+^)8.0.0"
+set _MONGOOSE_VERSION_NEW="mongoose": "${1}8.4.1"
 
 @rem https://www.npmjs.com/package/morgan
 set _MORGAN_VERSION_OLD="morgan": "^(.+^)1.9.1"
@@ -74,8 +74,8 @@ set _REQUEST_VERSION_OLD="request": "^(.+^)2.88.0"
 set _REQUEST_VERSION_NEW="request": "${1}2.88.2"
 
 @rem https://www.npmjs.com/package/webpack
-set _WEBPACK_VERSION_OLD="webpack": "^(.+^)5.72.0"
-set _WEBPACK_VERSION_NEW="wekpack": "${1}5.89.0"
+set _WEBPACK_VERSION_OLD="webpack": "^(.+^)5.89.0"
+set _WEBPACK_VERSION_NEW="wekpack": "${1}5.91.0"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -114,10 +114,6 @@ goto :eof
 :env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _RESET=[0m
-set _BOLD=[1m
-set _UNDERSCORE=[4m
-set _INVERSE=[7m
 
 @rem normal foreground colors
 set _NORMAL_FG_BLACK=[30m
@@ -155,6 +151,12 @@ set _STRONG_BG_RED=[101m
 set _STRONG_BG_GREEN=[102m
 set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
+
+@rem we define _RESET in last position to avoid crazy console output with type command
+set _BOLD=[1m
+set _UNDERSCORE=[4m
+set _INVERSE=[7m
+set _RESET=[0m
 goto :eof
 
 @rem input parameter: %*
