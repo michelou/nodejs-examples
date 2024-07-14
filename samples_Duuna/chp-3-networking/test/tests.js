@@ -1,5 +1,5 @@
 const expect = require('Chai').expect
-const request = require('request')
+const superagent = require('superagent')  // request is deprecated
 const server = require('../app/cluster-main.js').server
 
 const config = require('../config.json')
@@ -12,7 +12,7 @@ describe('networking', function () {
         url: baseUrl,
         headers: { 'Content-Type': 'text/plain' }
       }
-      request.get(options, function (err, res, body) {
+      superagent.get(options, function (err, res, body) {
         if (err) throw err
         expect(res.statusCode).to.equal(200)
         expect(res.body).to.equal('hello world\n')

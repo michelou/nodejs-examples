@@ -1,4 +1,4 @@
-# <span id="top">Node.js examples from Pillora's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Node.js examples from Pillora's book</span> <span style="font-size:90%;">[⬆]("../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -62,7 +62,7 @@ Same as `4-02-project`.
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

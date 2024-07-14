@@ -1,4 +1,4 @@
-# <span id="top">Node.js examples from Bojinov's book</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Node.js examples from Bojinov's book</span> <span style="font-size:90%;">[⬆](../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -49,7 +49,7 @@ Command [**`npm start`**](./hello-1/package.json) executes application [**`app\a
 &gt; hello1-app@0.0.1 start N:\samples_Bojinov\hello-1
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
-Node runtime: <a href="https://nodejs.org/fr/blog/release/v16.20.2">16.20.2</a> (x64)
+Node runtime: <a href="https://nodejs.org/fr/blog/release/v18.20.4">18.20.4</a> (x64)
 Module search path: (none)
 Started Node.js http server at http://127.0.0.1:8180
 requested (GET)
@@ -106,14 +106,14 @@ Command [**`npm start`**](./routes/package.json) executes [**`app\app.js`**](./r
 &gt; node ./npm_scripts/start_browser.js && node .</b>
 
 
-Node runtime: <a href="https://nodejs.org/fr/blog/release/v16.20.2">16.20.2</a> (x64)
+Node runtime: <a href="https://nodejs.org/fr/blog/release/v18.20.4">18.20.4</a> (x64)
 Module search path: N:\samples_Bojinov\\node_modules
 Server listening at 127.0.0.1:8180
 </pre>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

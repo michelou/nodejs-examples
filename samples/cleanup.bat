@@ -150,7 +150,7 @@ goto :args_loop
 :args_done
 if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options: _VERBOSE=%_VERBOSE% 1>&2
-    echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&&2
+    echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
 )
 goto :eof
 
