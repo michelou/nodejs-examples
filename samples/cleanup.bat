@@ -131,7 +131,7 @@ if "%__ARG:~0,1%"=="-" (
     if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -139,7 +139,7 @@ if "%__ARG:~0,1%"=="-" (
     @rem subcommand
     if "%__ARG%"=="help" ( set _HELP=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )

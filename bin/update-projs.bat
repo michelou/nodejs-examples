@@ -109,6 +109,12 @@ call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
 set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
+
+@rem use newer PowerShell version if available
+where /q pwsh.exe
+if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
+) else ( set _PWSH_CMD=powershell.exe
+)
 goto :eof
 
 :env_colors
@@ -194,7 +200,7 @@ shift
 goto args_loop
 :args_done
 if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
-if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
+if %_TIMER%==1 for /f "delims=" %%i in ('call "%_PWSH_CMD%" -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof
 
 :help
@@ -230,8 +236,8 @@ set __PS1_SCRIPT= ^
 ForEach-Object { $_ -replace '%__PATTERN_FROM:"=\"%','%__PATTERN_TO:"=\"%' } ^| ^
 Set-Content '%__FILE%'
 
-if %_DEBUG%==1 echo %_DEBUG_LABEL% powershell -C "%__PS1_SCRIPT%" 1>&2
-powershell -C "%__PS1_SCRIPT%"
+if %_DEBUG%==1 echo %_DEBUG_LABEL% call "%_PWSH_CMD%" -C "%__PS1_SCRIPT%" 1>&2
+call "%_PWSH_CMD%" -C "%__PS1_SCRIPT%"
 if not %ERRORLEVEL%==0 (
     echo %_ERROR_LABEL% Execution of ps1 cmdlet failed 1>&2
     set _EXITCODE=1

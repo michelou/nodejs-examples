@@ -52,6 +52,10 @@
 - **nodejs.org** News : [2024](https://nodejs.org/en/blog/), [2023](https://nodejs.org/en/blog/year-2023/), [2022](https://nodejs.org/en/blog/year-2022/), [2021](https://nodejs.org/en/blog/year-2021/), [2020](https://nodejs.org/en/blog/year-2020/), [2019](https://nodejs.org/en/blog/year-2019/).
 - [Node Weekly][news_node_weekly] Archives.
 
+## <span id="tools">Tools</span>
+
+- [Tedious](https://github.com/tediousjs/tedious) &ndash; a pure-Javascript implementation of the [TDS protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-tds/).
+
 ## <span id="tutorials">Tutorials</span>
 
 - [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices) by Yoni Goldberg.
@@ -60,7 +64,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

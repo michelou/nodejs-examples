@@ -64,11 +64,11 @@ if defined NODE_HOME (
 ) else (
     where /q node.exe
     if !ERRORLEVEL!==0 (
-        for /f %%i in ('where /f node.exe') do set "_NODE_HOME=%%~dpsi"
+        for /f "delims=" %%i in ('where /f node.exe') do set "_NODE_HOME=%%~dpsi"
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Node executable found in PATH 1>&2
     ) else (
         set _PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!_PATH!\%%f
+        for /f "delims=" %%f in ('dir /ad /b "!_PATH!\nodejs*" 2^>NUL') do set _NODE_HOME=!_PATH!\%%f
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Node installation directory !_NODE_HOME! 1>&2
     )
 )
@@ -84,7 +84,7 @@ if not %ERRORLEVEL%==0 (
     if not !ERRORLEVEL!==0 (
         echo Error: Failed to install rimraf 1>&2
         set _EXITCODE=1
-        goto end
+        goto :eof
     )
 )
 goto :eof
@@ -92,10 +92,6 @@ goto :eof
 :env_colors
 @rem ANSI colors in standard Windows 10 shell
 @rem see https://gist.github.com/mlocati/#file-win10colors-cmd
-set _RESET=[0m
-set _BOLD=[1m
-set _UNDERSCORE=[4m
-set _INVERSE=[7m
 
 @rem normal foreground colors
 set _NORMAL_FG_BLACK=[30m
@@ -133,6 +129,12 @@ set _STRONG_BG_RED=[101m
 set _STRONG_BG_GREEN=[102m
 set _STRONG_BG_YELLOW=[103m
 set _STRONG_BG_BLUE=[104m
+
+@rem we define _RESET in last position to avoid crazy console output with type command
+set _BOLD=[1m
+set _UNDERSCORE=[4m
+set _INVERSE=[7m
+set _RESET=[0m
 goto :eof
 
 @rem input parameter: %*
@@ -146,18 +148,18 @@ if not defined __ARG goto args_done
 
 if "%__ARG:~0,1%"=="-" (
     @rem option
-    if /i "%__ARG%"=="-debug" ( set _DEBUG=1
-    ) else if /i "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    if  "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
 ) else (
     @rem subcommand
-    if /i "%__ARG%"=="help" ( set _HELP=1
+    if "%__ARG%"=="help" ( set _HELP=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -184,11 +186,11 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem #########################################################################

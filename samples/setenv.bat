@@ -169,7 +169,7 @@ goto :eof
 set _NODE_HOME=
 
 set __NPM_CMD=
-for /f %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
+for /f "delims=" %%f in ('where npm.cmd 2^>NUL') do set "__NPM_CMD=%%f"
 if defined __NPM_CMD (
     for /f "delims=" %%i in ("%__NPM_CMD%") do set "__NODE_BIN_DIR=%%~dpi"
     for /f "delims=" %%f in ("!__NODE_BIN_DIR!\.") do set "_NODE_HOME=%%~dpf"
@@ -305,7 +305,7 @@ set _CURL_HOME=
 set _CURL_PATH=
 
 set __CURL_CMD=
-for /f %%f in ('where curl.exe 2^>NUL') do set "__CURL_CMD=%%f"
+for /f "delims=" %%f in ('where curl.exe 2^>NUL') do set "__CURL_CMD=%%f"
 if defined __CURL_CMD (
     for /f "delims=" %%i in ("%__CURL_CMD%") do set "_CURL_HOME=%%~dpi"
     @rem keep _CURL_PATH undefined since executable already in path

@@ -15,7 +15,7 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Git 2.45][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.46][git_downloads] ([*release notes*][git_relnotes])
 - [MongoDB 7.0][mongodb_downloads] ([*release notes*][mongodb7_relnotes])
 - [Node.js 18.x LTS][nodejs18_downloads] <sup id="anchor_01"><a href="#footnote_01">1</a></sup> ([*change log*][nodejs18_changelog])
 
@@ -25,11 +25,11 @@ Optionally one may also install the following software:
 - [MongoDB Shell 2.2][mongosh_downloads] ([*change log*][mongosh_changelog])
 - [Node.js 16.x LTS][nodejs16_downloads] ([*change log*][nodejs16_changelog])
 - [Node.js 20.x LTS][nodejs20_downloads] ([*change log*][nodejs20_changelog])
-- [Visual Studio Code 1.91][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.92][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **:mag_right:** [Git for Windows][git_win] provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*July 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
+For instance our development environment looks as follows (*August 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\ConEmu\                   <i>( 26 MB)</i>
@@ -136,7 +136,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup your development
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.4, npm 10.8.2
    mongod v7.0.12, mongosh 2.2.12,
-   git 2.45.2, diff 3.10, bash 5.2.26(1)
+   git 2.46.0, diff 3.10, bash 5.2.26(1)
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
 C:\opt\mongosh\bin\mongosh.exe
@@ -151,7 +151,7 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.4, npm 10.8.2
    mongod v7.0.12, mongosh 2.2.12,
-   git 2.45.2, diff 3.10, bash 5.2.26(1)
+   git 2.46.0, diff 3.10, bash 5.2.26(1)
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
    C:\opt\node-v16.20.2-win-x64\npm.cmd
@@ -210,7 +210,7 @@ N:\samples
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.4, npm 10.8.2
    mongod v7.0.12, mongosh 2.2.12,
-   git 2.45.2, diff 3.10, bash 5.2.26(1)
+   git 2.46.0, diff 3.10, bash 5.2.26(1)
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
    C:\opt\node-v16.20.2-win-x64\npm.cmd
@@ -293,11 +293,11 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-7.0.12.zip</a>  <i>(336 MB)</i>
-<a href="https://www.mongodb.com/try/download/shell">mongosh-2.2.12-win32-x64.zip</a>       <i>( 33 MB)</i>
+<a href="https://www.mongodb.com/try/download/shell">mongosh-2.2.15-win32-x64.zip</a>       <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.2-win-x64.zip</a>          <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.20.4-win-x64.zip </a>         <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.15.1-win-x64.zip</a>          <i>( 28 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.44.0-64-bit.7z.exe</a>   <i>( 42 MB)</i>
+<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.16.0-win-x64.zip</a>          <i>( 28 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.46.0-64-bit.7z.exe</a>   <i>( 42 MB)</i>
 </pre>
 </dd></dl>
 
@@ -324,7 +324,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -348,7 +348,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_cli]: https://git-scm.com/docs/git
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.2.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.46.0.txt
 [git_win]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples#top
