@@ -22,14 +22,14 @@ This project depends on the following external software for the **Microsoft Wind
 Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
-- [MongoDB Shell 2.2][mongosh_downloads] ([*change log*][mongosh_changelog])
+- [MongoDB Shell 2.3][mongosh_downloads] ([*change log*][mongosh_changelog])
 - [Node.js 16.x LTS][nodejs16_downloads] ([*change log*][nodejs16_changelog])
 - [Node.js 20.x LTS][nodejs20_downloads] ([*change log*][nodejs20_changelog])
 - [Visual Studio Code 1.92][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **:mag_right:** [Git for Windows][git_win] provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*August 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
+For instance our development environment looks as follows (*September 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\ConEmu\                   <i>( 26 MB)</i>
@@ -38,7 +38,7 @@ C:\opt\mongodb\                  <i>(1.6 GB)</i>
 C:\opt\mongosh\                  <i>(133 MB)</i>
 C:\opt\node-v16.20.2-win-x64\    <i>( 71 MB)</i>
 C:\opt\node-v18.20.4-win-x64\    <i>( 78 MB)</i>
-C:\opt\node-v20.15.1-win-x64\    <i>( 77 MB)</i>
+C:\opt\node-v20.17.0-win-x64\    <i>( 77 MB)</i>
 C:\opt\VSCode\                   <i>(341 MB)</i>
 </pre>
 
@@ -135,7 +135,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup your development
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.4, npm 10.8.2
-   mongod v7.0.12, mongosh 2.2.12,
+   mongod v7.0.12, mongosh 2.3.0,
    git 2.46.0, diff 3.10, bash 5.2.26(1)
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
@@ -150,7 +150,7 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.4, npm 10.8.2
-   mongod v7.0.12, mongosh 2.2.12,
+   mongod v7.0.12, mongosh 2.3.0,
    git 2.46.0, diff 3.10, bash 5.2.26(1)
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
@@ -169,7 +169,7 @@ Environment variables:
    "NODE_HOME=C:\opt\node-v18.20.4-win-x64"
    "NODE16_HOME=C:\opt\node-v16.20.2-win-x64"
    "NODE18_HOME=C:\opt\node-v18.20.4-win-x64"
-   "NODE20_HOME=C:\opt\node-v20.15.1-win-x64"
+   "NODE20_HOME=C:\opt\node-v20.17.0-win-x64"
 Path associations:
    Q:\: => %USERPROFILE%\workspace-perso\nodejs-examples
 </pre>
@@ -209,7 +209,7 @@ N:\samples
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    node v16.20.2, npm 9.8.1, node v18.20.4, npm 10.8.2
-   mongod v7.0.12, mongosh 2.2.12,
+   mongod v7.0.12, mongosh 2.3.0,
    git 2.46.0, diff 3.10, bash 5.2.26(1)
 Tool paths:
    C:\opt\node-v16.20.2-win-x64\node.exe
@@ -293,10 +293,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-7.0.12.zip</a>  <i>(336 MB)</i>
-<a href="https://www.mongodb.com/try/download/shell">mongosh-2.2.15-win32-x64.zip</a>       <i>( 33 MB)</i>
+<a href="https://www.mongodb.com/try/download/shell">mongosh-2.3.0-win32-x64.zip</a>        <i>( 33 MB)</i>
 <a href="https://nodejs.org/dist/latest-v16.x/">node-v16.20.2-win-x64.zip</a>          <i>( 25 MB)</i>
 <a href="https://nodejs.org/dist/latest-v18.x/">node-v18.20.4-win-x64.zip </a>         <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.16.0-win-x64.zip</a>          <i>( 28 MB)</i>
+<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.17.0-win-x64.zip</a>          <i>( 28 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.46.0-64-bit.7z.exe</a>   <i>( 42 MB)</i>
 </pre>
 </dd></dl>
@@ -324,7 +324,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -390,7 +390,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
 [nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.20.4
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
-[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.15.1
+[nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.17.0
 [nodejs20_downloads]: https://nodejs.org/dist/latest-v20.x/
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
