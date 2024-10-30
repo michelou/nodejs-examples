@@ -10,11 +10,11 @@ set _DEBUG=0
 set _EXITCODE=0
 
 @rem files README.md, RESOURCES.md, etc.
-set _LAST_MODIFIED_OLD=michelou/)/August 2024
-set _LAST_MODIFIED_NEW=michelou/)/September 2024
+set _LAST_MODIFIED_OLD=michelou/)/October 2024
+set _LAST_MODIFIED_NEW=michelou/)/November 2024
 
-set _LAST_DOWNLOAD_OLD=(\*August 2024\*)
-set _LAST_DOWNLOAD_NEW=(*September 2024*)
+set _LAST_DOWNLOAD_OLD=(\*October 2024\*)
+set _LAST_DOWNLOAD_NEW=(*November 2024*)
 
 @rem to be transformed into -not -path "./<dirname>/*"
 set _EXCLUDE_TOPDIRS=bin docs samples_Visual_Studio
@@ -185,13 +185,13 @@ for %%i in (%_EXCLUDE_TOPDIRS%) do (
     set __FIND_EXCLUDES=!__FIND_EXCLUDES! -not -path "%__ROOT_DIR%%%i/*"
 )
 for %%i in (%_EXCLUDE_SUBDIRS%) do (
-    set __FIND_EXCLUDES=!__FIND_EXCLUDES! -not -path "*/%%i/*"
+    set __FIND_EXCLUDES=!__FIND_EXCLUDES! -not -path "*/*%%i/*"
 )
 set __N_MD=0
 if %_DEBUG%==1 echo %_DEBUG_LABEL% "%_FIND_CMD%" "%__ROOT_DIR%" -type f -name "*.md" %__FIND_EXCLUDES% 1>&2
 for /f "delims=" %%f in ('%_FIND_CMD% "%__ROOT_DIR%" -type f -name "*.md" %__FIND_EXCLUDES%') do (
     set "__INPUT_FILE=%%f"
-    if %_DEBUG%==1 (echo %_DEBUG_LABEL% "%_GREP_CMD%" -q "%_LAST_MODIFIED_OLD%" "!__INPUT_FILE!" 1>&2
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_GREP_CMD%" -q "%_LAST_MODIFIED_OLD%" "!__INPUT_FILE!" 1>&2
     ) else if %_VERBOSE%==1 ( echo Check file "!__INPUT_FILE!" 1>&2
     )
     call "%_GREP_CMD%" -q "%_LAST_MODIFIED_OLD%" "!__INPUT_FILE!"
