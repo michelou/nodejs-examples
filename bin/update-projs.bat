@@ -22,8 +22,8 @@ set _ASYNC_VERSION_OLD="async": "^(.+^)3.2.5"
 set _ASYNC_VERSION_NEW="async": "${1}3.2.6"
 
 @rem https://www.npmjs.com/package/eslint
-set _ESLINT_VERSION_OLD="eslint": "^(.+^)9.4.0"
-set _ESLINT_VERSION_NEW="eslint": "${1}9.13.0"
+set _ESLINT_VERSION_OLD="eslint": "^(.+^)9.13.0"
+set _ESLINT_VERSION_NEW="eslint": "${1}9.14.0"
 
 @rem https://www.npmjs.com/package/eslint-config-standard
 set _ESLINT_CONFIG_STANDARD_VERSION_OLD="eslint-config-standard": "^(.+^)17.0.0"
@@ -38,8 +38,8 @@ set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.18.0"
 set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.18.1"
 
 @rem https://www.npmjs.com/package/got
-set _GOT_VERSION_OLD="got": "^(.+^)14.4.1"
-set _GOT_VERSION_NEW="got": "${1}14.4.3"
+set _GOT_VERSION_OLD="got": "^(.+^)14.4.3"
+set _GOT_VERSION_NEW="got": "${1}14.4.4"
 
 @rem https://www.npmjs.com/package/i18n
 set _I18N_VERSION_OLD="i18n": "^(.+^)0.14.2"
@@ -74,8 +74,8 @@ set _REQUEST_VERSION_OLD="request": "^(.+^)2.88.0"
 set _REQUEST_VERSION_NEW="request": "${1}2.88.2"
 
 @rem https://www.npmjs.com/package/webpack
-set _WEBPACK_VERSION_OLD="webpack": "^(.+^)5.91.0"
-set _WEBPACK_VERSION_NEW="wekpack": "${1}5.95.0"
+set _WEBPACK_VERSION_OLD="webpack": "^(.+^)5.95.0"
+set _WEBPACK_VERSION_NEW="wekpack": "${1}5.96.1"
 
 call :env
 if not %_EXITCODE%==0 goto end
@@ -166,10 +166,9 @@ set _RESET=[0m
 goto :eof
 
 @rem input parameter: %*
-@rem output parameters: _CLONE, _COMPILE, _DOCUMENTATION, _SBT, _TIMER, _VERBOSE
+@rem output parameters: _CLONE, _COMPILE, _DOCUMENTATION, _SBT, _VERBOSE
 :args
 set _HELP=0
-set _TIMER=0
 set _VERBOSE=0
 set __N=0
 :args_loop
@@ -180,7 +179,6 @@ if "%__ARG:~0,1%"=="-" (
     @rem option
     if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-help" ( set _HELP=1 
-    ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
         echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
@@ -200,8 +198,7 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto args_loop
 :args_done
-if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
-if %_TIMER%==1 for /f "delims=" %%i in ('call "%_PWSH_CMD%" -c "(Get-Date)"') do set _TIMER_START=%%i
+if %_DEBUG%==1 echo %_DEBUG_LABEL% _HELP=%_HELP% _VERBOSE=%_VERBOSE% 1>&2
 goto :eof
 
 :help
@@ -220,7 +217,6 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      print commands executed by this script
-echo     %__BEG_O%-timer%__END%      print total execution time
 echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%

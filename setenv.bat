@@ -34,13 +34,13 @@ call :mongosh
 @rem optional
 @rem if not %_EXITCODE%==0 goto end
 
-call :node 16
-if not %_EXITCODE%==0 goto end
-
 call :node 18
 if not %_EXITCODE%==0 goto end
 
 call :node 20
+if not %_EXITCODE%==0 goto end
+
+call :node 22
 if not %_EXITCODE%==0 goto end
 
 call :git
@@ -309,7 +309,7 @@ set "_MONGOSH_PATH=;%_MONGOSH_HOME%\bin"
 goto :eof
 
 @rem input parameter: %1=major version
-@rem output parameter: NODE16_HOME (resp. NODE18_HOME)
+@rem output parameter: NODE18_HOME (resp. NODE20_HOME)
 :node
 set __NODE_MAJOR=%~1
 set "_NODE!__NODE_MAJOR!_HOME="
@@ -431,16 +431,6 @@ set __VERSIONS_LINE1=
 set __VERSIONS_LINE2=
 set __VERSIONS_LINE3=
 set __WHERE_ARGS=
-where /q "%NODE16_HOME%:node.exe"
-if %ERRORLEVEL%==0 (
-    for /f %%i in ('"%NODE16_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE16_HOME%:node.exe"
-)
-where /q "%NODE16_HOME%:npm.cmd"
-if %ERRORLEVEL%==0 (
-    for /f %%i in ('"%NODE16_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE16_HOME%:npm.cmd"
-)
 where /q "%NODE18_HOME%:node.exe"
 if %ERRORLEVEL%==0 (
     for /f %%i in ('"%NODE18_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
@@ -448,8 +438,18 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%NODE18_HOME%:npm.cmd"
 if %ERRORLEVEL%==0 (
-    for /f %%i in ('"%NODE18_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i"
+    for /f %%i in ('"%NODE18_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%NODE18_HOME%:npm.cmd"
+)
+where /q "%NODE20_HOME%:node.exe"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE20_HOME%\node.exe" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% node %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE20_HOME%:node.exe"
+)
+where /q "%NODE20_HOME%:npm.cmd"
+if %ERRORLEVEL%==0 (
+    for /f %%i in ('"%NODE20_HOME%\npm.cmd" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% npm %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%NODE20_HOME%:npm.cmd"
 )
 where /q "%MONGODB_HOME%\bin:mongod.exe"
 if %ERRORLEVEL%==0 (
@@ -460,6 +460,15 @@ where /q "%MONGOSH_HOME%\bin:mongosh.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=*" %%i in ('"%MONGOSH_HOME%\bin\mongosh.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mongosh %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%MONGOSH_HOME%\bin:mongosh.exe"
+)
+where /q "%VSCODE_HOME%\bin:code.cmd"
+if %ERRORLEVEL%==0 (
+    set __CODE_VERSION=
+    for /f "tokens=*" %%i in ('"%VSCODE_HOME%\bin\code.cmd" --version 2^>^&1') do (
+         if not defined __CODE_VERSION set "__CODE_VERSION=%%i"
+    )
+    set "__VERSIONS_LINE2=%__VERSIONS_LINE2% code !__CODE_VERSION!,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%VSCODE_HOME%\bin:code.cmd"
 )
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
@@ -498,10 +507,9 @@ if %__VERBOSE%==1 if defined __WHERE_ARGS (
     if defined MONGODB_HOME echo    "MONGODB_HOME=%MONGODB_HOME%" 1>&2
     if defined MONGOSH_HOME echo    "MONGOSH_HOME=%MONGOSH_HOME%" 1>&2
     if defined NODE_HOME echo    "NODE_HOME=%NODE_HOME%" 1>&2
-    if defined NODE14_HOME echo    "NODE14_HOME=%NODE14_HOME%" 1>&2
-    if defined NODE16_HOME echo    "NODE16_HOME=%NODE16_HOME%" 1>&2
     if defined NODE18_HOME echo    "NODE18_HOME=%NODE18_HOME%" 1>&2
     if defined NODE20_HOME echo    "NODE20_HOME=%NODE20_HOME%" 1>&2
+    if defined NODE22_HOME echo    "NODE22_HOME=%NODE22_HOME%" 1>&2
     if defined VSCODE_HOME echo    "VSCODE_HOME=%VSCODE_HOME%" 1>&2
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do (
@@ -521,14 +529,13 @@ endlocal & (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined MONGODB_HOME set "MONGODB_HOME=%_MONGODB_HOME%"
         if not defined MONGOSH_HOME set "MONGOSH_HOME=%_MONGOSH_HOME%"
-        if not defined NODE_HOME set "NODE_HOME=%_NODE18_HOME%"
-        if not defined NODE14_HOME set "NODE14_HOME=%_NODE14_HOME%"
-        if not defined NODE16_HOME set "NODE16_HOME=%_NODE16_HOME%"
+        if not defined NODE_HOME set "NODE_HOME=%_NODE20_HOME%"
         if not defined NODE18_HOME set "NODE18_HOME=%_NODE18_HOME%"
         if not defined NODE20_HOME set "NODE20_HOME=%_NODE20_HOME%"
-        if not defined VSCODE_HOME set "VSCODE_HOME=%VSCODE_HOME%"
+        if not defined NODE22_HOME set "NODE22_HOME=%_NODE22_HOME%"
+        if not defined VSCODE_HOME set "VSCODE_HOME=%_VSCODE_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE18_HOME%%_MONGOSH_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%;%_NODE20_HOME%%_MONGOSH_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
