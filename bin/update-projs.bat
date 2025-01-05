@@ -22,8 +22,8 @@ set _ASYNC_VERSION_OLD="async": "^(.+^)3.2.5"
 set _ASYNC_VERSION_NEW="async": "${1}3.2.6"
 
 @rem https://www.npmjs.com/package/eslint
-set _ESLINT_VERSION_OLD="eslint": "^(.+^)9.13.0"
-set _ESLINT_VERSION_NEW="eslint": "${1}9.14.0"
+set _ESLINT_VERSION_OLD="eslint": "^(.+^)9.14.0"
+set _ESLINT_VERSION_NEW="eslint": "${1}9.17.0"
 
 @rem https://www.npmjs.com/package/eslint-config-standard
 set _ESLINT_CONFIG_STANDARD_VERSION_OLD="eslint-config-standard": "^(.+^)17.0.0"
@@ -38,8 +38,8 @@ set _EXPRESS_SESSION_VERSION_OLD="express-session": "^(.+^)1.18.0"
 set _EXPRESS_SESSION_VERSION_NEW="express-session": "${1}1.18.1"
 
 @rem https://www.npmjs.com/package/got
-set _GOT_VERSION_OLD="got": "^(.+^)14.4.3"
-set _GOT_VERSION_NEW="got": "${1}14.4.4"
+set _GOT_VERSION_OLD="got": "^(.+^)14.4.4"
+set _GOT_VERSION_NEW="got": "${1}14.4.5"
 
 @rem https://www.npmjs.com/package/i18n
 set _I18N_VERSION_OLD="i18n": "^(.+^)0.14.2"
@@ -54,8 +54,8 @@ set _LEVELUP_VERSION_OLD="levelup": "^(.+^)5.0.1"
 set _LEVELUP_VERSION_NEW="levelup": "${1}5.1.1"
 
 @rem https://www.npmjs.com/package/mocha
-set _MOCHA_VERSION_OLD="mocha": "^(.+^)10.4.0"
-set _MOCHA_VERSION_NEW="mocha": "${1}10.8.2"
+set _MOCHA_VERSION_OLD="mocha": "^(.+^)10.8.2"
+set _MOCHA_VERSION_NEW="mocha": "${1}11.0.1"
 
 @rem https://www.npmjs.com/package/moment
 set _MOMENT_VERSION_OLD="moment": "^(.+^)2.29.4"
@@ -74,8 +74,8 @@ set _REQUEST_VERSION_OLD="request": "^(.+^)2.88.0"
 set _REQUEST_VERSION_NEW="request": "${1}2.88.2"
 
 @rem https://www.npmjs.com/package/webpack
-set _WEBPACK_VERSION_OLD="webpack": "^(.+^)5.95.0"
-set _WEBPACK_VERSION_NEW="wekpack": "${1}5.96.1"
+set _WEBPACK_VERSION_OLD="webpack": "^(.+^)5.96.1"
+set _WEBPACK_VERSION_NEW="wekpack": "${1}5.97.1"
 
 call :env
 if not %_EXITCODE%==0 goto end

@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -29,16 +29,16 @@ Optionally one may also install the following software:
 
 > **:mag_right:** [Git for Windows][git_win] provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*November 2024*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
+For instance our development environment looks as follows (*January 2025*) <sup id="anchor_02"><a href="#footnote_02">2</a></sup>:
 
 <pre style="font-size:80%;">
 C:\opt\ConEmu\                   <i>( 26 MB)</i>
 C:\opt\Git\                      <i>(391 MB)</i>
 C:\opt\mongodb\                  <i>(2.0 GB)</i>
 C:\opt\mongosh\                  <i>(137 MB)</i>
-C:\opt\node-v18.20.4-win-x64\    <i>( 78 MB)</i>
-C:\opt\node-v20.18.0-win-x64\    <i>( 77 MB)</i>
-C:\opt\node-v22.11.0-win-x64\    <i>( 89 MB</i>
+C:\opt\node-v18.20.5-win-x64\    <i>( 78 MB)</i>
+C:\opt\node-v20.18.1-win-x64\    <i>( 77 MB)</i>
+C:\opt\node-v22.12.0-win-x64\    <i>( 89 MB</i>
 C:\opt\VSCode\                   <i>(381 MB)</i>
 </pre>
 
@@ -104,9 +104,9 @@ We distinguish different sets of batch commands:
         help        print this help message
     &nbsp;
     <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> node npm</b>
-    C:\opt\node-v18.20.4-win-x64\node.exe
-    C:\opt\node-v18.20.4-win-x64\npm
-    C:\opt\node-v18.20.4-win-x64\npm.cmd</pre>
+    C:\opt\node-v18.20.5-win-x64\node.exe
+    C:\opt\node-v18.20.5-win-x64\npm
+    C:\opt\node-v18.20.5-win-x64\npm.cmd</pre>
 
 2. [**`bin\check-outdated.bat`**](bin/check-outdated.bat) prints out outdated package dependencies for all project directories (i.e. directories containing file **`package.json`**).
 
@@ -134,14 +134,14 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup your development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   node v18.20.4, npm 10.8.2, node v20.17.0, npm 10.8.2,
-   mongod v7.0.12, mongosh 2.3.3, code 1.95.2,
+   node v18.20.5, npm 10.8.2, node v20.18.1, npm 10.8.2,
+   mongod v7.0.12, mongosh 2.3.3, code 1.96.2,
    git 2.47.0, diff 3.10, bash 5.2.37(1)
 &nbsp;
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1">where</a> mongosh npm</b>
 C:\opt\mongosh\bin\mongosh.exe
-C:\opt\node-v18.20.4-win-x64\npm
-C:\opt\node-v18.20.4-win-x64\npm.cmd
+C:\opt\node-v18.20.5-win-x64\npm
+C:\opt\node-v18.20.5-win-x64\npm.cmd
 </pre>
 
 Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
@@ -149,14 +149,14 @@ Command [**`setenv.bat -verbose`**](setenv.bat) also displays the tool paths:
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v18.20.4, npm 10.8.2, node v20.17.0, npm 10.8.2,
-   mongod v7.0.12, mongosh 2.3.3, code 1.95.2,
+   node v18.20.5, npm 10.8.2, node v20.18.1, npm 10.8.2,
+   mongod v7.0.12, mongosh 2.3.3, code 1.96.2,
    git 2.47.0, diff 3.10, bash 5.2.37(1)
 Tool paths:
-   C:\opt\node-v18.20.4-win-x64\node.exe
-   C:\opt\node-v18.20.4-win-x64\npm.cmd
-   C:\opt\node-v20.17.0-win-x64\node.exe
-   C:\opt\node-v20.17.0-win-x64\npm.cmd
+   C:\opt\node-v18.20.5-win-x64\node.exe
+   C:\opt\node-v18.20.5-win-x64\npm.cmd
+   C:\opt\node-v20.18.1-win-x64\node.exe
+   C:\opt\node-v20.18.1-win-x64\npm.cmd
    C:\opt\mongodb\bin\mongod.exe
    C:\opt\mongosh\bin\mongosh.exe
    C:\opt\Git\bin\git.exe
@@ -166,10 +166,10 @@ Environment variables:
    "GIT_HOME="C:\opt\Git"
    "MONGODB_HOME=C:\opt\mongodb"
    "MONGOSH_HOME=C:\opt\mongosh"
-   "NODE_HOME=C:\opt\node-v20.17.0-win-x64"
-   "NODE18_HOME=C:\opt\node-v18.20.4-win-x64"
-   "NODE20_HOME=C:\opt\node-v20.17.0-win-x64"
-   "NODE22_HOME=C:\opt\node-v20.17.0-win-x64"
+   "NODE_HOME=C:\opt\node-v20.18.1-win-x64"
+   "NODE18_HOME=C:\opt\node-v18.20.5-win-x64"
+   "NODE20_HOME=C:\opt\node-v20.18.1-win-x64"
+   "NODE22_HOME=C:\opt\node-v20.18.1-win-x64"
    "VSCODE_HOME=C:\opt\VSCode"
 Path associations:
    Q:\: => %USERPROFILE%\workspace-perso\nodejs-examples
@@ -209,14 +209,14 @@ N:\samples
 &nbsp;
 <b>&gt; <a href="samples/setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   node v18.20.4, npm 10.8.2, node v20.17.0, npm 10.8.2,
-   mongod v7.0.12, mongosh 2.3.3, code 1.95.2,
+   node v18.20.5, npm 10.8.2, node v20.18.1, npm 10.8.2,
+   mongod v7.0.12, mongosh 2.3.3, code 1.96.2,
    git 2.47.0, diff 3.10, bash 5.2.37(1)
 Tool paths:
-   C:\opt\node-v18.20.4-win-x64\node.exe
-   C:\opt\node-v18.20.4-win-x64\npm.cmd
-   C:\opt\node-v20.17.0-win-x64\node.exe
-   C:\opt\node-v20.17.0-win-x64\npm.cmd
+   C:\opt\node-v18.20.5-win-x64\node.exe
+   C:\opt\node-v18.20.5-win-x64\npm.cmd
+   C:\opt\node-v20.18.1-win-x64\node.exe
+   C:\opt\node-v20.18.1-win-x64\npm.cmd
    C:\opt\mongodb\bin\mongod.exe
    C:\opt\mongosh\bin\mongosh.exe
    C:\opt\Git\bin\git.exe
@@ -294,12 +294,12 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://www.mongodb.com/try/download/community">mongodb-windows-x86_64-7.0.12.zip</a>  <i>(336 MB)</i>
-<a href="https://www.mongodb.com/try/download/shell">mongosh-2.3.3-win32-x64.zip</a>        <i>( 33 MB)</i>
-<a href="https://nodejs.org/dist/latest-v18.x/">node-v18.20.4-win-x64.zip </a>         <i>( 27 MB)</i>
-<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.17.0-win-x64.zip</a>          <i>( 28 MB)</i>
-<a href="https://nodejs.org/dist/latest-v22.x/">node-v22.11.0-win-x64.zip</a>          <i>( 32 MB)</i>
+<a href="https://www.mongodb.com/try/download/shell">mongosh-2.3.7-win32-x64.zip</a>        <i>( 33 MB)</i>
+<a href="https://nodejs.org/dist/latest-v18.x/">node-v18.20.5-win-x64.zip </a>         <i>( 27 MB)</i>
+<a href="https://nodejs.org/dist/latest-v20.x/">node-v20.18.1-win-x64.zip</a>          <i>( 28 MB)</i>
+<a href="https://nodejs.org/dist/latest-v22.x/">node-v22.12.0-win-x64.zip</a>          <i>( 32 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.47.0-64-bit.7z.exe</a>   <i>( 42 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.95.2.zip</a>        <i>(131 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.96.2.zip</a>        <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -326,7 +326,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -351,7 +351,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_cli]: https://git-scm.com/docs/git
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.47.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.47.1.txt
 [git_win]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples#top
@@ -391,7 +391,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [nodejs14_downloads]: https://nodejs.org/dist/latest-v14.x/
 [nodejs16_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.20.2
 [nodejs16_downloads]: https://nodejs.org/dist/latest-v16.x/
-[nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.20.4
+[nodejs18_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.20.5
 [nodejs18_downloads]: https://nodejs.org/dist/latest-v18.x/
 [nodejs20_changelog]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V20.md#20.17.0
 [nodejs20_downloads]: https://nodejs.org/dist/latest-v20.x/
@@ -400,6 +400,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [siege_refman]: https://www.joedog.org/siege-manual/
+[sml_examples]: https://github.com/michelou/sml-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring_examples]: https://github.com/michelou/spring-examples#top
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples#top

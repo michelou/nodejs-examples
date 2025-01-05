@@ -19,13 +19,13 @@
     "test": "node_modules/.bin/nodeunit test"
   },
   "devDependencies": {
-    "eslint": "^9.14.0",
+    "eslint": "^9.17.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^17.31.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^7.1.0",
-    "mocha": "^10.8.2",
+    "mocha": "^11.0.1",
     "should": "^13.2.3"
   },
   "devDependencies_DEPRECATED_": {
