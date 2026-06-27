@@ -18,6 +18,8 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [5 Error handling best practices for Node.js apps][blog_mayank_2] by Mayank C., December 2024.
+- [Package.json best practices in Node.js][blog_mayank] by Mayank C., May 2024.
 - [The Good and the Bad of Node.js Web App Programming][blog_altexsoft] by Altexsoft, November 2022.
 - [2ality](https://2ality.com/archive.html) Archives:
   - [A pipe operator for JavaScript: introduction and use cases][blog_rauschmayer_pipe] by Alex Rauschmayer, January 2022.
@@ -49,7 +51,7 @@
 
 ## <span id="news">News</span>
 
-- **nodejs.org** News : [2024](https://nodejs.org/en/blog/), [2023](https://nodejs.org/en/blog/year-2023/), [2022](https://nodejs.org/en/blog/year-2022/), [2021](https://nodejs.org/en/blog/year-2021/), [2020](https://nodejs.org/en/blog/year-2020/), [2019](https://nodejs.org/en/blog/year-2019/).
+- **nodejs.org** News : [2025](https://nodejs.org/en/blog/), [2024](https://nodejs.org/en/blog/year-2024/), [2023](https://nodejs.org/en/blog/year-2023/), [2022](https://nodejs.org/en/blog/year-2022/), [2021](https://nodejs.org/en/blog/year-2021/), [2020](https://nodejs.org/en/blog/year-2020/), [2019](https://nodejs.org/en/blog/year-2019/).
 - [Node Weekly][news_node_weekly] Archives.
 
 ## <span id="tools">Tools</span>
@@ -64,7 +66,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -81,6 +83,8 @@
 [blog_johnstone]: https://raygun.com/blog/improve-node-performance/
 [blog_laszczak]: https://selleo.com/blog/why-choose-nest-js-as-your-backend-framework
 [blog_lemos]: https://medium.com/@glaucia86/developing-a-crud-node-js-application-with-postgresql-d25febb1cc4
+[blog_mayank]: https://medium.com/deno-the-complete-reference/package-json-best-practices-in-node-js-6b5f4f8728e9
+[blog_mayank_2]: https://medium.com/deno-the-complete-reference/5-error-handling-best-practices-for-node-js-apps-5e48c8e8d624
 [blog_omereshone]: https://blog.logrocket.com/node-js-best-practices-and-performance-analytics-in-2021/
 [blog_rauschmayer]: https://2ality.com/2022/01/esm-specifiers.html
 [blog_rauschmayer_pipe]: https://2ality.com/2022/01/pipe-operator.html

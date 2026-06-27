@@ -13,15 +13,34 @@
     "start": "node app/mongoose.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies-mpmjs": {
+    "@types/leveldown": "https://www.npmjs.com/package/@types/leveldown",
+    "@types/levelup": "https://www.npmjs.com/package/@types/levelup",
+    "mongoose": "https://www.npmjs.com/package/mongoose"
+  },
   "dependencies": {
-    "leveldown": "^6.1.1",
-    "levelup": "^5.1.1",
-    "mongoose": "^7.4.5"
+    "@types/leveldown": "^4.0.0",
+    "@types/levelup": "^5.1.5",
+    "mongoose": "^9.7.3"
+  },
+  "devDependencies-npmjs": {
+    "eslint": "https://www.npmjs.com/package/eslint",
+    "eslint-config-standard": {
+      "url": "https://www.npmjs.com/package/eslint-config-standard",
+      "comment": "peer eslint-plugin-promise@\"^6.0.0\" from eslint-config-standard@17.1.0"
+    },
+    "eslint-plugin-import": {
+      "url": "https://www.npmjs.com/package/eslint-plugin-import",
+      "comment": "peer eslint@\"^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8 || ^9\" from eslint-plugin-import@2.32.0"
+    },
+    "eslint-plugin-node": "https://www.npmjs.com/package/eslint-plugin-node",
+    "eslint-plugin-promise": "https://www.npmjs.com/package/eslint-plugin-promise",
+    "level-party": "https://www.npmjs.com/package/level-party"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "level-party": "^5.1.1",

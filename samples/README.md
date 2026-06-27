@@ -3,16 +3,16 @@
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://nodejs.org/" rel="external"><img src="../docs/images/nodejs.svg" width="120" alt="Node.js project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples\</code></strong> directory contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples coming from various websites - mostly from the <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> project.</td>
+  <td style="border:0;padding:0;vertical-align:text-top;">The <strong><code>samples\</code></strong> directory contains <a href="https://nodejs.org/" rel="external" title="Node.js">Node.js</a> examples coming from various websites - mostly from the <a href="https://nodejs.org/" rel="external" title="https://nodejs.org/">Node.js</a> project.</td>
   </tr>
 </table>
 
 ## <span id="auth-passport">`auth-passport` Example</span>
 
-Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application [**`app\app.js`**](./auth-passport/app/app.js) which prints the following output ([`package.json`](./auth-passort/package.json)):
+Command [**`npm start`**][npm_start] executes application [**`app\app.js`**](./auth-passport/app/app.js "./auth-passport/app/app.js") which prints the following output ([`package.json`](./auth-passport/package.json)):
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start" rel="external" title="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 > auth-passport@0.0.1 start N:\samples\auth-passport
 > node app/app.js
@@ -30,10 +30,11 @@ Express server listening on port 8180
     __v: 0 } ]
 </pre>
 
+<!--=======================================================================-->
 
 ## <span id="locales_1">`locales-1` Example</span>
 
-Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application [**`app\app.js`**](./locales-1/app/app.js) which performs two tasks ([`package.json`](./locales-1/package.json)):
+Command [**`npm start`**][npm_start] executes application [**`app\app.js`**](./locales-1/app/app.js) which performs two tasks ([`package.json`](./locales-1/package.json)):
 
 - it starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./locales-1/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
@@ -41,11 +42,11 @@ Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) exec
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
-> locales-1-app@0.0.1 start N:\samples\locales-1
+> locales-1-app@1.0.0 start N:\samples\locales-1
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 18.20.4 (x64)
+Node runtime: 20.18.3 (x64)
 Module search path: (none)
 Server listening on port 8180
 </pre>
@@ -56,22 +57,23 @@ The following text is displayed in your default web browser:
 Salut
 </pre>
 
+<!--=======================================================================-->
 
 ## <span id="locales_2">`locales-2` Example</span> [**&#x25B4;**](#top)
 
-Command [**`npm start`**](https://docs.npmjs.com/cli/v6/commands/npm-start) executes application  [**`app\app.js`**](./locales-2/app/app.js) which performs two tasks ([`package.json`](./locales-2/package.json)):
+Command [**`npm start`**][npm_start] executes application  [**`app\app.js`**](./locales-2/app/app.js) which performs two tasks ([`package.json`](./locales-2/package.json "./locales-2/package.json")):
 
 - it starts the server application which listen to your requests on port **`8180`** (defined in file [**`config.json`**](./locales-2/config_TEMPLATE.json)).
 - it opens the **`http:/127.0.0.1:8180`** URL in your default web browser:
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html" rel="external" title="https://docs.npmjs.com/cli-documentation/start.html">npm start</a></b>
 
-> locales-2-app@0.0.1 start N:\samples\locales-2
+> locales-2-app@1.0.0 start N:\samples\locales-2
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: 18.20.4 (x64)
+Node runtime: 20.18.3 (x64)
 Module search path: (none)
 Server listening on port 8180
 fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
@@ -83,9 +85,9 @@ de
 Command **`npm run client`** displays the following output in a separate Windows console:
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html">npm run client</a></b>
+<b>&gt; <a href="https://docs.npmjs.com/cli-documentation/start.html" rel="external" title="https://docs.npmjs.com/cli-documentation/start.html">npm run client</a></b>
 &nbsp;
-> locales-2-app@0.0.1 client N:\samples\locales-2
+> locales-2-app@1.0.0 client N:\samples\locales-2
 > node ./npm_scripts/start_client.js
 &nbsp;
 en
@@ -125,13 +127,14 @@ de
 <b>&lt;/html></b>
 </pre>
 
+<!--=======================================================================-->
 
 ## <span id="webaudio">`webaudio-sample` Example</span>
 
 Command [**`npm start`**][npm_start] executes application [`app\app.js`](./webaudio-sample/app/app.js) which plays the audio file [**`Paradise.m4a`**](./webaudio-sample/app/Paradise.m4a) in your default web browser:
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
+<b>&gt; <a href="https://docs.npmjs.com/cli/v6/commands/npm-start" rel="external" title="https://docs.npmjs.com/cli/v6/commands/npm-start">npm start</a></b>
 
 > music-engine@1.0.0 start N:\samples\webaudio-sample
 > node ./npm_scripts/start_browser.js && node .
@@ -142,11 +145,50 @@ Express server listening on port 8180
 Returning Paradise.m4a for request /music
 </pre>
 
+<!--=======================================================================-->
+
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
+
+<span id="footnote_01">[1]</span> ***Environment setup*** [↩](#anchor_01)
+
+<dl><dd>
+<pre style="font-size:80%;">
+<b>&gt; <a href="./setenv.bat">setenv</a> -verbose</b>
+pm2 command not found in Node installation directory ("C:\opt\node-v22.14.0-win-x64")
+Execute 'npm -g install pm2 --prefix C:\opt\node-v22.14.0-win-x64' (Y/N)? y
+&nbsp;
+added 137 packages in 7s
+&nbsp;
+13 packages are looking for funding
+  run `npm fund` for details
+rimraf command not found in Node installation directory ("C:\opt\node-v22.14.0-win-x64")
+Execute 'npm -g install rimraf --prefix C:\opt\node-v22.14.0-win-x64' (Y/N)? y
+&nbsp;
+added 41 packages in 2s
+&nbsp;
+14 packages are looking for funding
+  run `npm fund` for details
+Tool versions:
+   node v22.14.0, npm 10.9.2,
+   diff 3.12, mongod v8.3.4
+Tool paths:
+   C:\opt\node-v22.14.0-win-x64\node.exe
+   C:\opt\node-v22.14.0-win-x64\npm.cmd
+   C:\opt\Git\bin\git.exe
+   C:\opt\Git\usr\bin\diff.exe
+   C:\opt\mongodb\bin\mongod.exe
+Environment variables:
+   "GIT_HOME=C:\opt\Git"
+   "MONGODB_HOME=C:\opt\mongodb"
+   "NODE_HOME=C:\opt\node-v22.14.0-win-x64"
+</pre>
+</dd></dl>
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
-[npm_start]: https://docs.npmjs.com/cli/v6/commands/npm-start
+[npm_start]: https://docs.npmjs.com/cli/v6/commands/npm-start "https://docs.npmjs.com/cli/v6/commands/npm-start"

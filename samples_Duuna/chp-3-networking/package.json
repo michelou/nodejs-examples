@@ -14,15 +14,33 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies-npmjs": {
+    "chai": "",
+    "eslint": "https://www.npmjs.com/package/eslint",
+    "eslint-config-standard": {
+      "url": "https://www.npmjs.com/package/eslint-config-standard",
+      "comment": "peer eslint-plugin-promise@\"^6.0.0\" from eslint-config-standard@17.1.0"
+    },
+    "eslint-plugin-import": {
+      "url": "https://www.npmjs.com/package/eslint-plugin-import",
+      "comment": "peer eslint@\"^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8 || ^9\" from eslint-plugin-import@2.32.0"
+    },
+    "eslint-plugin-node": "https://www.npmjs.com/package/eslint-plugin-node",
+    "eslint-plugin-promise": "https://www.npmjs.com/package/eslint-plugin-promise",
+    "mocha": "https://www.npmjs.com/package/mocha",
+    "serialize-javascript": "https://www.npmjs.com/package/serialize-javascript",
+    "superagent": "https://www.npmjs.com/package/superagent"
+  },
   "devDependencies": {
-    "chai": "^5.1.1",
+    "chai": "^6.2.2",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "mocha": "^10.6.0",
-    "superagent": "^9.0.2"
+    "eslint-plugin-promise": "^6.0.0",
+    "mocha": "^11.7.6",
+    "serialize-javascript": "^7.0.6",
+    "superagent": "^10.3.0"
   },
   "engines": {
     "node": ">=16.20.2",

@@ -12,18 +12,36 @@
     "start": "node app/add.js",
     "test": "mocha app/*.spec.js"
   },
+  "devDependencies-npmjs": {
+    "chai": "https://www.npmjs.com/package/chai",
+    "eslint": "https://www.npmjs.com/package/eslint",
+    "eslint-config-standard": {
+      "url": "https://www.npmjs.com/package/eslint-config-standard",
+      "comment": "peer eslint-plugin-promise@\"^6.0.0\" from eslint-config-standard@17.1.0"
+    },
+    "eslint-plugin-import": {
+      "url": "https://www.npmjs.com/package/eslint-plugin-import",
+      "comment": "peer eslint@\"^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8 || ^9\" from eslint-plugin-import@2.32.0"
+    },
+    "eslint-plugin-node": "https://www.npmjs.com/package/eslint-plugin-node",
+    "eslint-plugin-promise": "https://www.npmjs.com/package/eslint-plugin-promise",
+    "mocha": "https://www.npmjs.com/package/mocha",
+    "serialize-javascript": "https://www.npmjs.com/search?q=serialize-javascript",
+    "sinon": "https://www.npmjs.com/package/sinon"
+  },
   "devDependencies": {
-    "chai": "^4.3.8",
+    "chai": "^6.2.2",
     "eslint": "^8.48.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
-    "mocha": "^11.0.1",
-    "sinon": "^15.2.0"
+    "mocha": "^11.3.0",
+    "serialize-javascript": "^7.0.6",
+    "sinon": "^22.0.0"
   },
   "engines": {
-    "node": ">=14.21.0",
-    "npm": ">=6.14.0"
+    "node": ">=16.20.0",
+    "npm": ">=10.0.0"
   }
 }

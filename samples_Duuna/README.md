@@ -25,7 +25,7 @@ First we start the server application in a new console:
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: <a href="https://nodejs.org/fr/blog/release/v16.20.2">v16.20.2</a> (x64)
+Node runtime: <a href="https://nodejs.org/fr/blog/release/v22.14.0">v22.14.0</a> (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
@@ -48,6 +48,7 @@ fr
 hello world
 </pre>
 
+<!--=======================================================================-->
 
 ## <span id="code-injection">`chp-4-code-injection` Example</span> [**&#x25B4;**](#top)
 
@@ -63,7 +64,7 @@ Executing command **`npm start`** in directory [**`samples_Duuna\chp-4-code-inje
 > node ./npm_scripts/start_browser.js && node .
 
 
-Node runtime: <a href="https://nodejs.org/fr/blog/release/v18.20.4">v18.20.4</a> (x64)
+Node runtime: <a href="https://nodejs.org/fr/blog/release/v22.14.0">v22.14.0</a> (x64)
 Module search path: (none)
 Server listening on port 3000
 </pre>
@@ -80,7 +81,7 @@ Only the template file <a href="./03_basic_auth/config_TEMPLATE.json"><code>conf
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
